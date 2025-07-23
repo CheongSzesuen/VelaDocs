@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/release/release.html -->
 
-## # 发布应用
+# # 发布应用
 
 不同于顶部按钮区域的打包按钮，点击`发布`按钮发布应用，将生成**release** 包。
 
@@ -8,14 +8,10 @@
 
 同时，在生成release包前，会检查当前目录下是否**包含签名文件** ，如果没有会进入创建签名页面，按提示点击完成即可创建签名文件。
 
-![](../../images/ide-debug-11.9367f967.gif)
+![alt text](../../images/ide-debug-11.73c430b2.gif)
 
 签名文件**创建成功** 后，再次**点击发布** 即可创建release包。
 
-![](../../images/ide-debug-12.2eca5ee2.png)
+![alt text](../../images/ide-debug-12.5740fefa.png)
 
 ← [ 打包应用 ](</vela/quickapp/zh/tools/release/start.html>)
-
-快速导航
-
-发布应用

@@ -1,19 +1,22 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/debug/multi-screens.html -->
 
-## # 多屏适配
+# # 多屏适配
 
-为了提升开发者开发体验，`AIoT-IDE`内置了**多屏适配** 功能，可将一套代码跑在多个不同的设备屏幕上，以测试在不同屏幕上的适配效果。
+为了提升开发者开发体验，`AIoT-IDE`内置了****功能，可将一套代码跑在多个不同的设备屏幕上，以测试在不同屏幕上的适配效果。
 
-#### # 多设备模拟器创建
+## # 多设备模拟器创建
 
 为了还原最真实的多屏适配开发场景，`AIoT-IDE`提供了多个不同设备尺寸配置的模拟器和不同的镜像版本，以便在多种设备，不同镜像系统上测试应用。
 
-`目前提供两种镜像可供选择`
+`目前提供三种镜像可供选择`
 
-  * `vela-release-4.0` vela稳定发布版本
-  * `vela-pre-4.0` vela开发版本
+  * `vela-miwear-watch-5.0` vela5.0稳定发布版本
 
-**目前提供五种不同屏幕尺寸的设备可供创建：**
+  * `vela-miwear-watch-4.0` vela4.0稳定发布版本
+
+  * `vela-watch-4.0` vela开发版本
+
+**目前提供六种不同屏幕尺寸的设备可供创建：**
 
 ![alt text](../../images/s3-watch.d477538d.png)
 
@@ -31,13 +34,21 @@ xiaomiBand
 
 xiaomiBandpro
 
+![alt text](../../data:image/png;base64,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)
+
+xiaomi10Band
+
 ![alt text](../../images/sound-mini.bfd153b4.png)
 
 xiaomiSoundMini
 
-目前创建模拟器时，`vela-release-4.0`只支持xiaomiWatch(466*466)尺寸一种设备，`vela-pre-4.0`支持上面全部设备类型，并且可自定义设备类型进行创建。
+目前创建模拟器时，`vela-miwear-watch-5.0`和`vela-miwear-watch-4.0`只支持xiaomiWatch(466*466)尺寸一种设备，`vela-watch-4.0`支持上面全部设备类型，并且可自定义设备类型进行创建。
 
-#### # 自定义模拟器
+注意
+
+模拟器与真实设备之间是有性能差异的
+
+## # 自定义模拟器
 
 此外，为了支持更多尺寸的设备，创建模拟器时还可以选择**custom** 自定义模拟器时，提供以下自定义配置：
 
@@ -45,29 +56,28 @@ xiaomiSoundMini
   * 2.可自定义并设置模拟器类型，目前主要为**watch** ，**band** ，**smartspeaker**
   * 3.可自定义模拟器形状，目前主要有两种形状**圆形** 和**矩形** ，矩形可自定义圆角
   * 4.可自定义模拟器屏幕dpi
-  * 
 
-![alt text](../../images/ide-emulator-4.e091c4e8.png)
+![alt text](../../images/ide-emulator-4.6f105033.png)
 
 点击底部新建按钮，完成模拟器创建后，`AIoT-IDE`右下角会弹出创建成功提示，设备管理页面会实时更新创建的模拟器。
 
-![alt text](../../images/ide-emulator-5.e8f40707.png)
+![alt text](../../images/ide-emulator-5.ca730cda.png)
 
-#### # 多屏预览
+## # 多屏预览
 
 在创建完不同设备类型的模拟器后，通过`调试`或`运行`按钮启动模拟器时，**选择对应不同设备的模拟器** 点击确定，即可同时运行。
 
-![](../../images/ide-debug-13.79988707.png)
+![alt text](../../images/ide-debug-13.79988707.png)
 
 运行成功后，模拟器预览页将出现不同设备屏幕的预览效果
 
-![](../../images/ide-debug-12.115910ee.gif)
+![alt text](../../images/ide-debug-12.34930dbf.gif)
 
-#### # 自定义模拟器皮肤
+## # 自定义模拟器皮肤
 
 此外，如果用户不仅仅满足于自定义模拟器的显示效果，希望能更逼真的预览模拟器设备，我们还提供了自定义皮肤的功能。
 
-#### # Vela 模拟器皮肤组
+## # Vela 模拟器皮肤组
 
 制作一款皮肤共需要两张图片和一个配置文件：
 
@@ -75,7 +85,7 @@ xiaomiSoundMini
   * `foreground.png` 用于遮挡模拟器画面以外的部分。
   * **layout配置文件** ，主要是用来配置皮肤所需的`background.png`，`foreground.png`布局信息
 
-![](../../images/ide-skin-1.4e4d87a0.png)
+![alt text](../../images/ide-skin-1.4e4d87a0.png)
 
 其中`foreground.png` 一般由背景图片中扣出模拟器画面部分并将屏幕部分修改为透明色。没有 `foreground.png` 与有 `foreground.png` 的对比如下:
 
@@ -87,13 +97,13 @@ xiaomiSoundMini
 
 配置了foreground.png
 
-#### # Layout 文件的制作
+## # Layout 文件的制作
 
 拷贝以下代码并按照注释修改信息即可，其余部分保持不变
 
 ``` parts { device { display { # 模拟器尺寸 width 466 # 模拟器尺寸 height 466 # x和y填 0 x 0 y 0 } } portrait { background { # 背景图片的名称 image background.png } foreground { # 前景图片的名称 mask foreground.png } } } layouts { portrait { // 整个皮肤的大小，一般使用背景图片的像素尺寸 width 572 height 938 event EV_SW:0:1 part1 { name portrait x 0 y 0 } part2 { name device # 前景图片从背景图片中扣图时的起始坐标，以左上角为0，0计算 x 54 y 236 } } } // 将会在创建模拟器时透传给底层配置的字段 props { // 屏幕形状。可选值： circle（圆形）、rect(矩形)、pill-shaped（胶囊形屏eg: 全面屏手环） shape circle // 屏幕密度，可选值： ['120'，'140'，'160'，'180'，'213'，'240'，'280'，'320'，'340'，'360'，'400'，'420'，'440'，'480'，'560'，'640'] density 320 // 设备类型，可选值：phone（手机）、watch（手表）、pad（平板）、car（车机）、tv（电视）、band（手环）smartspeaker（音响），默认watch flavor watch } ```
 
-#### # 应用皮肤文件
+## # 应用皮肤文件
 
 在通过通过 `AIoT-IDE` 打开 `SKD` 目录，该目录下有一个 **skins** 目录，在 **skins/user** 目录下新建一个文件夹名称为你的皮肤名称，将制作好的文件放入其中，如果 skins下没有user，则先创建 user 目录 ，再次使用 IDE 创建模拟器时即可选择应用该皮肤。
 
@@ -101,13 +111,13 @@ xiaomiSoundMini
 
 SDK目录是一个以点开头的目录，请提前打开操作系统的隐藏文件后再进行操作。
 
-![](../../images/ide-skin-4.5f36372e.png)
+![alt text](../../images/ide-skin-4.5f36372e.png)
 
-#### # layout详解
+## # layout详解
 
 其中的 layout 文件中的内容如下：
 
-![](../../images/ide-skin-5.69420c8d.png)
+![alt text](../../images/ide-skin-5.69420c8d.png)
 
 **layout** 配置内容详解：
 
@@ -119,10 +129,24 @@ SDK目录是一个以点开头的目录，请提前打开操作系统的隐藏�
 
   * **part2** 引用上方 parts 中定义 **dispaly** 的那个，name 表示 引用 part 的名称，x，y 表示布局开始的坐标，以左上角开始为0，0
 
-  * **parts** 定义皮肤的组成部分，一般又两部分组成，即皮肤和模拟器画面，带 **display** 的表示模拟器画面，带 **background** 和 **foreground** 的表示皮肤，其中的
+  * **parts** 定义皮肤的组成部分，一般又两部分组成，即皮肤和模拟器画面，带 **display** 的表示模拟器画面，带 **background** 和 **foreground** 的表示皮肤。
 
-← [ 内存分析 ](</vela/quickapp/zh/tools/debug/memory.html>) [ AIoT-toolkit ](</vela/quickapp/zh/tools/toolkit/start.html>) → 
+← [ 内存分析 ](</vela/quickapp/zh/tools/debug/memory.html>) [ 优化评分 ](</vela/quickapp/zh/tools/debug/audit.html>) → 
 
 快速导航
 
-多屏适配
+多设备模拟器创建
+
+自定义模拟器
+
+多屏预览
+
+自定义模拟器皮肤
+
+Vela 模拟器皮肤组
+
+Layout 文件的制作
+
+应用皮肤文件
+
+layout详解

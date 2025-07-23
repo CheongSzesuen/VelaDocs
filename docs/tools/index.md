@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/ -->
 
-## # 关于AIoT-IDE
+# # 关于AIoT-IDE
 
 `AIoT-IDE` 是用于开发`Xiaomi Vela JS 应用`的官方集成开发环境。建立在 [Visual Studio Code (opens new window)](<https://code.visualstudio.com/>)（以下简称 VS Code）的基础上，它继承了 VS Code 的全部功能，比如**代码编辑** 、**插件集成** 、**主题定制** 及个性化设置。此外，`AIoT-IDE` 还引入了一系列专门针对 `Xiaomi Vela JS 应用` 应用开发的增强功能，它们包括但不限于：
 
@@ -8,10 +8,11 @@
   * Vela JS应用调试
   * 实时编译预览
   * Vela JS应用 打包发布
+  * Vela JS应用 真机调试
 
-本章主要介绍 **`AIoT-IDE`** 的核心功能。如需下载安装请查看，请直接访问 [安装环境](</vela/quickapp/zh/guide/start/use-ide.html>) 章节。
+本章主要介绍 `AIoT-IDE` 的核心功能。如需下载安装请查看，请直接访问 [安装环境](</vela/quickapp/zh/guide/start/use-ide.html>) 章节。
 
-### # 项目结构
+## # 项目结构
 
 只有当`AIoT-IDE`打开`Xiaomi Vela JS 应用`，才能使用应用开发的增强功能。
 
@@ -24,7 +25,5 @@
 [ 了解界面 ](</vela/quickapp/zh/tools/start/project.html>) → 
 
 快速导航
-
-关于AIoT-IDE
 
 项目结构

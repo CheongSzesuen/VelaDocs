@@ -1,10 +1,10 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/dev/start.html -->
 
-## # 代码补全
+# # 代码补全
 
 `AIoT-IDE` 是基于 Visual Studio Code 二次开发的，因此它继承了 VS Code 的所有代码编辑功能。此外，为了更贴合**Xiaomi Vela JS 应用** 的开发需求和提升开发者的体验，`AIoT-IDE` 内置了用于 ux 文件的语法功能，包括语法辅助和自动补全等。
 
-#### # ux 文件自动补全
+## # ux 文件自动补全
 
   * template 区域内补全 
     * 标签补全：输入 <（标签开头）后开始自动补全标签
@@ -13,14 +13,14 @@
 
 ![alt text](../../images/ide-ux-6.266c3d7b.gif)
 
-#### # style 区域内补全
+## # style 区域内补全
 
   * CSS 属性补全：支持 Css 属性的自动补全；
   * CSS 属性值补全：支持 Css 属性值的自动补全。
 
 ![alt text](../../images/ide-ux-7.348aacf3.gif)
 
-#### # 其他补全
+## # 其他补全
 
   * **路径补全** ：自动补全文件路径，如组件路径；
   * **class 值补全** ：根据 style 标签中定义的 class 值进行自动补全。
@@ -52,4 +52,8 @@
 
 快速导航
 
-代码补全
+ux 文件自动补全
+
+style 区域内补全
+
+其他补全
