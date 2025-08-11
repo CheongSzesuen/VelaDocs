@@ -57,17 +57,3 @@ uri | String | 录音文件的存储路径，在应用的缓存目录中
 #### # 示例：
 
 ``` record.stop() ```
-
-← [ 屏幕亮度 brightness ](</vela/quickapp/zh/features/system/brightness.html>) [ 地理位置 geolocation ](</vela/quickapp/zh/features/system/geolocation.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-record.start(OBJECT)
-
-record.stop()

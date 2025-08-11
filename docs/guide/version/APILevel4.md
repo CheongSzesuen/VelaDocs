@@ -6,8 +6,3 @@
 
   * 新增接口：[@system.event](</vela/quickapp/zh/features/system/event.html>)
 
-← [ APILevel3 ](</vela/quickapp/zh/guide/version/APILevel3.html>) [ 常见问题 ](</vela/quickapp/zh/guide/other/faq.html>) → 
-
-快速导航
-
-组件

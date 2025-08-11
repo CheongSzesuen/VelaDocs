@@ -111,25 +111,3 @@ error | 播放发生错误时的回调事件
 #### # 示例：
 
 ``` audio.onplay = function() { console.log(`audio starts to play`) } audio.onplay = null ```
-
-← [ 密码算法 crypto ](</vela/quickapp/zh/features/security/crypto.html>) [ 弹窗 prompt ](</vela/quickapp/zh/features/other/prompt.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-方法
-
-audio.play()
-
-audio.pause()
-
-audio.stop()
-
-audio.getPlayState(OBJECT)
-
-属性
-
-事件

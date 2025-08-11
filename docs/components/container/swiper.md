@@ -61,21 +61,3 @@ swipeTo | {index: number(指定位置)} | swiper 滚动到 index 位置
 ``` <template> <div class="page"> <swiper class="swiper"> <text class="item item-1">A</text> <text class="item item-2">B</text> <text class="item item-3">C</text> <text class="item item-4">D</text> </swiper> </div> </template> <style> .page { padding: 30px; background-color: white; } .swiper { width: 300px; height: 160px; indicator-size: 10px; } .item { text-align: center; color: white; font-size: 30px; } .item-1 { background-color: #3f56ea; } .item-2 { background-color: #00bfc9; } .item-3 { background-color: #47cc47; } .item-4 { background-color: #FF6A00; } </style> ```
 
 ![](../../images/swiper.3d3d5407.gif)
-
-← [ stack ](</vela/quickapp/zh/components/container/stack.html>) [ text ](</vela/quickapp/zh/components/basic/text.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-方法
-
-示例代码

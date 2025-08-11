@@ -93,17 +93,3 @@
   * Hide Qt Window: 是否使用GRPC技术将模拟器嵌入到IDE中显示，否则在IDE外部弹出显示（如下图3所示）。
 
 ![alt text](../../images/ide-emulator-18.b4eaf63c.png)
-
-← [ 管理项目 ](</vela/quickapp/zh/tools/project/project.html>) [ 运行模拟器 ](</vela/quickapp/zh/tools/emulator/emulator-run.html>) → 
-
-快速导航
-
-模拟器设备管理
-
-自动创建模拟器
-
-新建模拟器
-
-模拟器SDK管理
-
-设备使用配置

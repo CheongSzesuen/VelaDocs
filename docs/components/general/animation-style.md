@@ -140,24 +140,4 @@ flex | 暂不支持
 flex-grow | 暂不支持  
 flex-shrink | 暂不支持  
 flex-basis | 暂不支持  
-[left|top|right|bottom] | 暂不支持  
-  
-← [ 颜色配置 ](</vela/quickapp/zh/components/general/color.html>) [ 背景图样式 ](</vela/quickapp/zh/components/general/background-img-styles.html>) → 
-
-快速导航
-
-动画样式列表
-
-transform 操作
-
-transform-origin 操作
-
-animation-name 属性
-
-@keyframes 属性
-
-transition 过渡动画
-
-transition 使用示例
-
-transition-property 支持的通用样式属性
+[left|top|right|bottom] | 暂不支持

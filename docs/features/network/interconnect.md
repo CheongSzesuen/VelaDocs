@@ -245,32 +245,3 @@ interconnect 通信前提要保证快应用和三方应用安卓端两者的包�
   1. 小米穿戴第三方APP能力开放接口文档：[点击下载 (opens new window)](<https://vela-docs.cnbj1.mi-fds.com/vela-docs/files/%E5%B0%8F%E7%B1%B3%E7%A9%BF%E6%88%B4%E7%AC%AC%E4%B8%89%E6%96%B9APP%E8%83%BD%E5%8A%9B%E5%BC%80%E6%94%BE%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3_1.4.pdf> "下载")
   2. interconnect开发测试demo：[点击下载 (opens new window)](<https://cdn.cnbj3-fusion.fds.api.mi-img.com/quickapp-vela/interconnect_dev_test_demo.zip> "下载")
 
-← [ 数据请求 fetch ](</vela/quickapp/zh/features/network/fetch.html>) [ 下载 request ](</vela/quickapp/zh/features/network/request.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-interconnect.instance()
-
-connect.getReadyState(OBJECT)
-
-connect.diagnosis(OBJECT)
-
-connect.send(OBJECT)
-
-事件
-
-connect.onmessage
-
-connect.onopen
-
-connect.onclose
-
-connect.onerror
-
-开发注意事项

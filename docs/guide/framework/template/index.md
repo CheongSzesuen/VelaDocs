@@ -61,15 +61,3 @@
 可以使用`<block>`实现更为灵活的循环/条件渲染；注意`<block>`目前只支持`for`和`if/elif/else`属性，如果没有指定任何属性，`<block>`则在构建时被当作`透明`节点对待，其子节点被添加到`<block>`的父节点上。
 
 ``` <template> <list> <block for="cities"> <list-item type="city"> <text>{{$item.name}}</text> </list-item> <list-item type="spot" for="$item.spots"> <text>{{$item.address}}</text> </list-item> </block> </list> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { cities: [ { name: 'beijing', spots: [ { address: 'XXX' } ] }, { name: 'shanghai', spots: [ { address: 'XXX' }, { address: 'XXX' } ] } ] } } </script> ```
-
-快速导航
-
-数据绑定
-
-事件绑定
-
-列表渲染
-
-条件渲染
-
-逻辑控制块

@@ -13,9 +13,3 @@ APP，页面均通过 ux 后缀文件编写，ux 后缀文件由[template 模板
 您可以在`<script>`中引入一些公共的脚本，并暴露在当前 app 的对象上，如下所示，然后就可以在页面 ux 文件的 ViewModel 中，通过`this.$app.$def.util`访问。
 
 ``` <script> /** * 应用级别的配置，供所有页面公用 */ import util from './util' export default { showMenu: util.showMenu, createShortcut: util.createShortcut, util } </script> ```
-
-← [ 项目配置 ](</vela/quickapp/zh/guide/framework/manifest.html>) [ Props ](</vela/quickapp/zh/guide/framework/template/Props.html>) → 
-
-快速导航
-
-app.ux

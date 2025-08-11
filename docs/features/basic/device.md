@@ -147,23 +147,3 @@ complete | Function | 否 | 执行结束后的回调
 availableStorage | Number | 存储空间的可用大小，单位是 Byte  
   
 ``` device.getAvailableStorage({ success: (data) => { console.log(`handling success: ${data.availableStorage}`) }, fail: (data, code) => { console.log(`handling fail, code = ${code}`) } }) ```
-
-← [ 应用上下文 app ](</vela/quickapp/zh/features/basic/app.html>) [ 页面路由 router ](</vela/quickapp/zh/features/basic/router.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-device.getInfo(OBJECT)
-
-device.getDeviceId(OBJECT)
-
-device.getSerial(OBJECT)
-
-device.getTotalStorage(OBJECT)
-
-device.getAvailableStorage(OBJECT)

@@ -78,15 +78,3 @@ text | String | 经过加密或解密后生成的文本内容。加密后内容�
 #### # 示例：
 
 ``` //加密 cipher.aes({ action: 'encrypt', //待加密的文本内容 text: 'hello', //base64编码后的密钥 key: 'NDM5Qjk2UjAzMEE0NzVCRjlFMkQwQkVGOFc1NkM1QkQ=', transformation: 'AES/CBC/PKCS5Padding', ivOffset: 0, ivLen: 16, success: data => { console.log(`handling success: ${data.text}`) }, fail: (data, code) => { console.log(`### cipher.aes fail ### ${code}: ${data}`) } }) //解密： cipher.aes({ action: 'decrypt', //待解密的内容，是base64编码后的一段二进制值 text: 'CUg3tTxTIdpCfreIxIBdws3uhd5qXLwcrVl3XDnQzZFVHyjVVCDHS16rjopaZ4C5xU2Tc8mSDzt7\n' + 'gp9vBfSwi7bMtSUvXG18DlncsKJFDkJpS5t0PkpS9YrJXrY80Gpe+ME6+6dN9bjgqMljbitDdBRf\n' + 'S/ZWNI4Q8Q0suNjNkGU=', //base64编码后的密钥 key: 'NDM5Qjk2UjAzMEE0NzVCRjlFMkQwQkVGOFc1NkM1QkQ=', transformation: 'AES/CBC/PKCS5Padding', ivOffset: 0, ivLen: 16, success: data => { this.dealTxt = data.text }, fail: (data, code) => { prompt.showToast({ message: '解密失败, code=' + code + ':' + data }) } }) ```
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-cipher.rsa(OBJECT)
-
-cipher.aes(OBJECT)

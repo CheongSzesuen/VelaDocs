@@ -30,15 +30,3 @@ countryOrRegion | String | 国家或地区
 #### # 示例：
 
 ``` const locale = configuration.getLocale() console.log(locale.language) ```
-
-← [ 页面路由 router ](</vela/quickapp/zh/features/basic/router.html>) [ 数据请求 fetch ](</vela/quickapp/zh/features/network/fetch.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-configuration.getLocale()

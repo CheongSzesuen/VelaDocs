@@ -110,27 +110,3 @@ locale | 应用配置因为语言、地区变化而发生改变
 **示例如下：**
 
 ``` export default { // 监听应用创建,应用创建时调用 onCreate() { console.info('Application onCreate') }, // 监听应用返回前台,应用返回前台时调用 onShow() { console.info('Application onShow') }, // 监听应用退到后台,应用退到后台时调用 onHide() { console.info('Application onHide') }, // 监听应用销毁,应用销毁时调用 onDestroy() { console.info('Application onDesteroy') }, // 监听应用报错,应用捕获异常时调用,参数为Error对象。 onError(e) { console.log('Application onError', e) }, // 暴露给所有页面，在页面中通过：this.$app.$def.method1()访问 method1() { console.info('这是APP的方法') }, // 暴露给所有页面，在页面中通过：this.$app.$def.data1访问 data1: { name: '这是APP存的数据' } } ```
-
-← [ 页面数据对象 ](</vela/quickapp/zh/guide/framework/script/page-data.html>) [ 页面切换 ](</vela/quickapp/zh/guide/framework/page-switch.html>) → 
-
-快速导航
-
-生命周期图
-
-页面的生命周期
-
-onInit()
-
-onReady()
-
-onShow(), onHide()
-
-onDestroy()
-
-onBackPress()
-
-onRefresh(query)
-
-onConfigurationChanged(event)
-
-APP的生命周期

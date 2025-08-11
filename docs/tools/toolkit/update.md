@@ -39,9 +39,3 @@
 注意
 
 以上改动请务必按照注意事项中的说明进行修改，否则在升级到**2.0** 后将影响项目的正常运行和启动。
-
-← [ AIoT-toolkit ](</vela/quickapp/zh/tools/toolkit/start.html>) [ 打包应用 ](</vela/quickapp/zh/tools/release/start.html>) → 
-
-快速导航
-
-注意事项

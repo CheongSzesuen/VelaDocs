@@ -45,18 +45,4 @@ Xiaomi Watch S3 | 不支持
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 事件 event ](</vela/quickapp/zh/features/system/event.html>) [ 密码算法 crypto ](</vela/quickapp/zh/features/security/crypto.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-battery.getStatus(OBJECT)
-
-支持明细
+REDMI Watch 5 | 支持

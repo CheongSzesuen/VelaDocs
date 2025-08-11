@@ -104,21 +104,3 @@ PPI（pixels per inch）表示每英寸的像素数，表征屏幕的物理密�
 ![](../../images/shape-circle.e0129e63.png) ![](../../images/shape-rect.7604893f.png)
 
 详细介绍请参考 [设备信息 device](</vela/quickapp/zh/features/basic/device.html>)
-
-← [ 页面启动模式 ](</vela/quickapp/zh/guide/framework/other/launch-mode.html>) [ 代码示例 ](</vela/quickapp/zh/guide/multi-screens/samples.html>) → 
-
-快速导航
-
-自适应布局
-
-自适应单位
-
-px
-
-百分比%
-
-固定长度单位
-
-媒体查询
-
-获取屏幕信息

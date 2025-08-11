@@ -52,15 +52,3 @@ css 的优先级计算文档也可以查看[MDN 文档 (opens new window)](<http
 目前 JS 应用支持`less`与`sass`的预编译，具体教程也可以参考[这里](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html#引入-less-scss-预编译>)。
 
 ``` <!--导入外部文件, 代替style内部样式--> <style lang="less" src="./lessFile.less"></style> <!--合并外部文件--> <style lang="less"> @import './lessFile.less'; .less-font-text, .less-font-comma { font-size: 60px; } </style> ```
-
-快速导航
-
-文件导入
-
-模板内部样式
-
-选择器
-
-选择器优先级
-
-样式预编译

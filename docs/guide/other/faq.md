@@ -61,28 +61,3 @@ Windows和Mac可以打包rpk。
   4. 点击【小米运动健康】-->【我的】-->【关于】-->【Debug】-->【拉取固件日志】；
   5. 拉取成功后保存在手机，日志文件目录: `/sdcard/Android/data/com.mi.health/files/log`。
 
-← [ APILevel4 ](</vela/quickapp/zh/guide/version/APILevel4.html>) [ 注意事项 ](</vela/quickapp/zh/guide/other/tips.html>) → 
-
-快速导航
-
-如何适配不同尺寸的屏幕？
-
-模拟器怎么跟手表通信？
-
-如何解决通信过程中提示签名不正确的问题？
-
-如何排查通信(interconnect)相关的问题？
-
-如何解决列表数据更新时闪烁的问题？
-
-构建release版本rpk时打包证书有什么要求？
-
-如何解决手表和手机连接状态获取问题？
-
-模拟器支持哪些平台？
-
-Windows和Mac是否可以打包rpk？
-
-如何将rpk上传到手表真机运行?
-
-如何查看手表真机上的日志？

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-静态网站Markdown爬取工具
+静态网站Markdown爬取工具（默认爬取小米Vela文档）
 功能：
 1. 自动爬取整个文档网站
 2. 保持原始Markdown格式
@@ -24,7 +24,7 @@ class MarkdownScraper:
     def __init__(self, base_url, output_dir="docs"):
         """
         初始化爬虫
-        :param base_url: 文档网站基础URL (如 "https://example.com/docs")
+        :param base_url: 文档网站基础URL (默认小米Vela文档)
         :param output_dir: 输出目录 (默认 "docs")
         """
         self.base_url = base_url.rstrip('/')
@@ -67,10 +67,8 @@ class MarkdownScraper:
         
             # 从 URL 中提取原始文件名
             parsed = urlparse(url)
-            # 对路径进行解码，再提取文件名
             orig_filename = os.path.basename(unquote(parsed.path))
             if not orig_filename:
-                # 如提取不到，则退回使用 MD5 名称
                 ext = os.path.splitext(parsed.path)[1][1:] or 'bin'
                 filename = f"{hashlib.md5(url.encode()).hexdigest()[:8]}.{ext}"
             else:
@@ -91,7 +89,7 @@ class MarkdownScraper:
         
         except Exception as e:
             print(f"⚠️ 资源下载失败: {url} - {e}")
-            return url  # 返回原始URL作为fallback
+            return url
             
     def convert_html_to_markdown(self, html, page_url):
         """
@@ -99,17 +97,14 @@ class MarkdownScraper:
         """
         soup = BeautifulSoup(html, 'html.parser')
         
-        # 移除不需要的元素，例如 script、style、nav、footer、iframe、svg
+        # 移除不需要的元素
         for element in soup(['script', 'style', 'nav', 'footer', 'iframe', 'svg']):
             element.decompose()
         
-        # 移除 <header class="navbar">
-        for header in soup.find_all("header", class_="navbar"):
-            header.decompose()
-    
-        # 移除 <aside class="sidebar">
-        for aside in soup.find_all("aside", class_="sidebar"):
-            aside.decompose()
+        # 移除特定组件
+        for tag in ['header.navbar', 'aside.sidebar', 'div.page-nav', 'div.toc']:
+            for element in soup.select(tag):
+                element.decompose()
     
         # 处理图片
         for img in soup.find_all('img', src=True):
@@ -117,7 +112,7 @@ class MarkdownScraper:
             local_path = self.download_asset(img_url, 'images')
             img['src'] = local_path
             
-        # 处理代码块（保留Markdown格式）
+        # 处理代码块
         for pre in soup.find_all('pre'):
             code = pre.get_text()
             pre.replace_with(f"```\n{code}\n```")
@@ -135,10 +130,7 @@ class MarkdownScraper:
         return markdown
         
     def save_markdown_file(self, content, url):
-        """
-        保存Markdown文件并保持目录结构，同时调整图片引用路径
-        """
-        # 生成文件路径
+        """保存Markdown文件"""
         rel_path = self._get_relative_path(url)
         if not rel_path or rel_path.endswith('/'):
             rel_path += 'index'
@@ -146,16 +138,12 @@ class MarkdownScraper:
         md_path = (self.output_dir / rel_path).with_suffix('.md')
         md_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # 添加元信息
         final_content = f"<!-- 源地址: {url} -->\n\n{content}"
         
-        # 调整图片引用路径：计算 Markdown 文件所在目录到输出根目录的相对路径
         def adjust_img(match):
             alt_text = match.group(1)
             img_path = match.group(2)
-            # 计算图片绝对路径（输出目录下的位置）
             abs_img_path = Path(self.output_dir) / img_path
-            # 计算相对路径：Markdown 文件的父目录到图片文件的相对路径
             rel_img_path = os.path.relpath(abs_img_path, start=md_path.parent)
             return f"![{alt_text}]({rel_img_path})"
         
@@ -168,10 +156,7 @@ class MarkdownScraper:
         return md_path
         
     def process_page(self, url):
-        """
-        处理单个页面
-        返回本页中找到的新链接
-        """
+        """处理单个页面"""
         if url in self.visited:
             return set()
             
@@ -179,21 +164,15 @@ class MarkdownScraper:
         self.visited.add(url)
         
         try:
-            # 获取页面内容
             response = self.session.get(url, timeout=15)
             response.encoding = response.apparent_encoding
             
-            # 处理重定向
             if response.history:
                 url = response.url
                 
-            # 转换为Markdown
             md_content = self.convert_html_to_markdown(response.text, url)
-            
-            # 保存文件
             self.save_markdown_file(md_content, url)
             
-            # 提取本页链接
             soup = BeautifulSoup(response.text, 'html.parser')
             new_links = set()
             
@@ -201,9 +180,7 @@ class MarkdownScraper:
                 href = a['href']
                 full_url = urljoin(url, href)
                 
-                # 只处理同域名下的链接
                 if urlparse(full_url).netloc == urlparse(self.base_url).netloc:
-                    # 移除锚点和查询参数
                     clean_url = full_url.split('#')[0].split('?')[0]
                     if clean_url not in self.visited:
                         new_links.add(clean_url)
@@ -214,13 +191,8 @@ class MarkdownScraper:
             print(f"❌ 处理失败: {url} - {e}")
             return set()
             
-    def crawl(self, start_url=None, max_workers=3, delay=0.5):
-        """
-        开始爬取整个网站
-        :param start_url: 起始URL (默认使用base_url)
-        :param max_workers: 并发线程数
-        :param delay: 请求间隔(秒)
-        """
+    def crawl(self, start_url=None, max_workers=16, delay=0.3):
+        """开始爬取"""
         start_url = start_url or self.base_url
         self.visited = set()
         
@@ -228,23 +200,17 @@ class MarkdownScraper:
         print(f"📁 输出目录: {self.output_dir}")
         
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # 初始任务
-            future_to_url = {
-                executor.submit(self.process_page, start_url): start_url
-            }
+            future_to_url = {executor.submit(self.process_page, start_url): start_url}
             
             while future_to_url:
                 for future in as_completed(future_to_url):
                     url = future_to_url[future]
                     try:
                         new_links = future.result()
-                        # 添加新任务
                         for link in new_links:
                             if link not in self.visited:
                                 time.sleep(delay)
-                                future_to_url[
-                                    executor.submit(self.process_page, link)
-                                ] = link
+                                future_to_url[executor.submit(self.process_page, link)] = link
                     except Exception as e:
                         print(f"❌ 任务失败: {url} - {e}")
                     finally:
@@ -255,12 +221,15 @@ class MarkdownScraper:
         print(f"🖼️ 图片保存在: {self.output_dir}/images")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='静态文档网站Markdown爬取工具')
-    parser.add_argument('url', help='文档网站基础URL (如 "https://iot.mi.com/vela/quickapp/zh")')
+    DEFAULT_URL = "https://iot.mi.com/vela/quickapp/zh"
+    
+    parser = argparse.ArgumentParser(description='静态文档网站Markdown爬取工具（默认爬取小米Vela文档）')
+    parser.add_argument('url', nargs='?', default=DEFAULT_URL, 
+                       help=f'文档网站基础URL (默认: {DEFAULT_URL})')
     parser.add_argument('-o', '--output', default='docs', help='输出目录 (默认: docs)')
     parser.add_argument('-s', '--start', help='起始URL (默认使用基础URL)')
-    parser.add_argument('-w', '--workers', type=int, default=16, help='并发线程数 (默认: 3)')
-    parser.add_argument('-d', '--delay', type=float, default=0.3, help='请求间隔(秒) (默认: 0.5)')
+    parser.add_argument('-w', '--workers', type=int, default=16, help='并发线程数 (默认: 16)')
+    parser.add_argument('-d', '--delay', type=float, default=0.3, help='请求间隔(秒) (默认: 0.3)')
     
     args = parser.parse_args()
     

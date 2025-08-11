@@ -94,21 +94,3 @@ type取值可以是`'attr'`、`'style'`、`'method'`，分别对应组件的属�
 **示例**
 
 ``` import app from '@system.app'; if (app.canIUse('scroll')) { // 可以使用scroll组件 } if (app.canIUse('scroll.attr.scroll-x')) { // 可以使用scroll组件的scroll-x属性 } ```
-
-← [ 通用规范 ](</vela/quickapp/zh/features/grammar.html>) [ 设备信息 device ](</vela/quickapp/zh/features/basic/device.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-app.getInfo()
-
-app.terminate()
-
-app.canIUse()
-
-入参格式

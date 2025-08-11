@@ -55,23 +55,3 @@ Prop 属性名称使用 camelCase(驼峰命名法)命名，在外部传递数据
 **示例如下：**
 
 ``` <script> // 子组件 export default { props: { prop1: { default: 'Hello' //默认值 type: String // 校验类型 }, prop2Object: {} //不设置默认值 }, onInit() { console.info(`外部传递的数据：`, this.prop1, this.prop2Object) } } </script> ```
-
-← [ UX 文件 ](</vela/quickapp/zh/guide/framework/ux.html>) [ 事件绑定 ](</vela/quickapp/zh/guide/framework/template/event.html>) → 
-
-快速导航
-
-Prop 写法
-
-属性默认值
-
-数据单向性
-
-常见的三种操作 prop 值的方法：
-
-1\. prop 传入的值作为初始值，用 data 接收
-
-2\. $watch 监控数据改变
-
-3\. computed 属性
-
-属性校验

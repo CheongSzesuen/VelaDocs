@@ -171,12 +171,3 @@ Vela JS 应用支持 `rgb()` and `rgba()` 颜色值设置，
   * __yellow (#ffff00)
   * __yellowgreen (#9acd32)
 
-← [ 通用样式 ](</vela/quickapp/zh/components/general/style.html>) [ 动画样式 ](</vela/quickapp/zh/components/general/animation-style.html>) → 
-
-快速导航
-
-颜色值格式示例
-
-透明
-
-颜色名字

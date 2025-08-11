@@ -50,11 +50,3 @@ focus | boolean | true | 否 | 使组件获得或者失去焦点，聚焦时可�
 #### # 代码示例
 
 ``` <script> // 聚焦效果 this.$element('box1').focus(); // 聚焦效果 this.$element('box2').focus({focus:true}); // 失焦效果 this.$element('box3').focus({focus:false}); </script> ```
-
-← [ 通用事件 ](</vela/quickapp/zh/components/general/events.html>) [ div ](</vela/quickapp/zh/components/container/div.html>) → 
-
-快速导航
-
-getBoundingClientRect(Object object)
-
-focus(Object object)

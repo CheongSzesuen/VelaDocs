@@ -75,19 +75,3 @@
   * 4.模拟器运行成功，模拟器预览页将出现对应模拟器，并将当前打开的**Xiaomi Vela JS应用** 推送到运行的模拟器中。
 
 ![alt text](../../images/ide-debugrun.92035925.png)
-
-← [ 关于AIoT-IDE ](</vela/quickapp/zh/tools/>) [ 新建项目 ](</vela/quickapp/zh/tools/project/creat-project.html>) → 
-
-快速导航
-
-界面布局
-
-工具栏界面
-
-模拟器界面
-
-用户引导页
-
-设备管理页
-
-模拟器运行预览页面

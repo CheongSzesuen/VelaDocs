@@ -91,25 +91,3 @@ px长度单位会根据配置的项目配置基准宽度进行换算，过程中
 ![](../../images/demo-calculator1.3cc79b1f.png) ![](../../images/demo-calculator2.93e7e7f6.png)
 
 项目地址：[点击下载 (opens new window)](<https://quickapp-vela.cnbj3-fusion.mi-fds.com/quickapp-vela/multi-screen-calculator.zip>)
-
-← [ 适配规范 ](</vela/quickapp/zh/guide/multi-screens/specs.html>) [ 条件编译 ](</vela/quickapp/zh/guide/multi-screens/conditional-compilation.html>) → 
-
-快速导航
-
-页面布局及元素适配
-
-自适应容器大小
-
-单页三行布局
-
-px自动缩放计算
-
-全屏背景图
-
-页面标题栏
-
-跨屏应用项目示例
-
-清单应用
-
-计算器

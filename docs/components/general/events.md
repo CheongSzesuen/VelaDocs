@@ -77,21 +77,3 @@ offsetY | number | 距离事件触发对象上边沿 Y 轴的距离
 ``` move event changedTouches:[ { "offsetX": 296, "identifier": 0, "offsetY": 113.48148345947266, "clientY": 113.48148345947266, "clientX": 360, "pageY": 113.48148345947266, "pageX": 360 } ] ```
 
 ``` click event fired ```
-
-← [ 通用属性 ](</vela/quickapp/zh/components/general/properties.html>) [ 通用方法 ](</vela/quickapp/zh/components/general/methods.html>) → 
-
-快速导航
-
-示例代码
-
-通用事件列表
-
-事件对象
-
-1、TouchEvent 类型说明：
-
-2、Touch 类型说明
-
-3、MouseEvent 类型说明
-
-示例

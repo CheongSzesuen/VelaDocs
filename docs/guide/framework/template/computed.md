@@ -21,11 +21,3 @@
 计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：
 
 ``` <script> export default { data: { firstName: 'Quick', lastName: 'App' }, computed: { fullName: { get() { return `${this.firstName} ${this.lastName}` }, set(value) { const names = value.split(' ') this.firstName = names[0] this.lastName = names[names.length - 1] } } }, onReady() { console.log(this.fullName) // Quick App this.fullName = 'John Doe' console.log(this.firstName) // John console.log(this.lastName) // Doe } } </script> ```
-
-← [ 条件指令 ](</vela/quickapp/zh/guide/framework/template/if.html>) [ 组件 ](</vela/quickapp/zh/guide/framework/template/component.html>) → 
-
-快速导航
-
-计算属性的基本使用
-
-设置计算属性的 `setter` 函数

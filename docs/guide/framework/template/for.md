@@ -44,8 +44,3 @@
      * `tid属性`指定的数据属性要保证唯一，否则可能导致性能问题；
      * `tid属性`目前不支持表达式。
 
-← [ 事件绑定 ](</vela/quickapp/zh/guide/framework/template/event.html>) [ 条件指令 ](</vela/quickapp/zh/guide/framework/template/if.html>) → 
-
-快速导航
-
-列表渲染

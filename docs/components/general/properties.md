@@ -39,15 +39,3 @@ show | `<boolean>` | - | 根据数据 boolean 值，显示或隐藏当前标签�
 **示例：**
 
 ``` <template> <div> <div id="elNode1" data-person-name="Jack"></div> </div> </template> <script> export default { onReady () { const el = this.$element('elNode1') const elData = el.dataset.personName console.info(`输出data属性： ${elData}`) } } </script> ```
-
-← [ 背景图样式 ](</vela/quickapp/zh/components/general/background-img-styles.html>) [ 通用事件 ](</vela/quickapp/zh/components/general/events.html>) → 
-
-快速导航
-
-示例代码
-
-常规属性
-
-渲染属性
-
-data 属性

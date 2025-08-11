@@ -117,16 +117,4 @@ Xiaomi Watch S3 | 不支持
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 动画样式 ](</vela/quickapp/zh/components/general/animation-style.html>) [ 通用属性 ](</vela/quickapp/zh/components/general/properties.html>) → 
-
-快速导航
-
-background-size 属性
-
-background-repeat 属性（暂未实现）
-
-background-position 属性
-
-支持明细
+REDMI Watch 5 | 支持

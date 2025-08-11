@@ -77,22 +77,4 @@ Xiaomi Watch S3 | 支持
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 文件存储 file ](</vela/quickapp/zh/features/data/file.html>) [ 振动 vibrator ](</vela/quickapp/zh/features/system/vibrator.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-network.getType(OBJECT)
-
-network.subscribe(OBJECT)
-
-network.unsubscribe()
-
-支持明细
+REDMI Watch 5 | 支持

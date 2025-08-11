@@ -13,5 +13,3 @@
 签名文件**创建成功** 后，再次**点击发布** 即可创建release包。
 
 ![alt text](../../images/ide-debug-12.5740fefa.png)
-
-← [ 打包应用 ](</vela/quickapp/zh/tools/release/start.html>)

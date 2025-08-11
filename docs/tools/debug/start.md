@@ -15,9 +15,3 @@
 ![alt text](../../images/ide-run-1.ce097a4b.gif)
 
 再次点击运行，将停止向模拟器推送当前项目，**但模拟器依然保持运行** 。
-
-← [ 可视化编辑 ](</vela/quickapp/zh/tools/dev/manifest.html>) [ 日志查看 ](</vela/quickapp/zh/tools/debug/watch-log.html>) → 
-
-快速导航
-
-运行项目

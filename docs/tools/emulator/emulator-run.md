@@ -17,5 +17,3 @@
 如下图**标签1，2** 所示：
 
 ![alt text](../../images/ide-emulator-12.48a0ac1a.png)
-
-← [ 设备管理 ](</vela/quickapp/zh/tools/emulator/create-emulator.html>) [ 代码补全 ](</vela/quickapp/zh/tools/dev/start.html>) → 

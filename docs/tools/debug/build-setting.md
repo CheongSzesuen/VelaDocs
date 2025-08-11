@@ -13,5 +13,3 @@
 点击当前编译配置名称，可进入编译模式设置界面，选择对当前项目的编辑配置进行增删改。
 
 ![alt text](../../images/ide-buildSeting-2.4f2534fa.png)
-
-← [ 功能按钮 ](</vela/quickapp/zh/tools/debug/toolbar.html>) [ 内存分析 ](</vela/quickapp/zh/tools/debug/memory.html>) → 

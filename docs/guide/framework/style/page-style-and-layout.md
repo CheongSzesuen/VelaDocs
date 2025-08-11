@@ -167,35 +167,3 @@ JS 应用支持 postcss 来解析 css，postcss 可以采用类似 less，sass �
 说明
 
 如果想支持更多的语法格式，可以在 postcss.config.js 文件里面添加更多的插件，关于 postcss 的插件见[插件地址 (opens new window)](<https://github.com/postcss/postcss/blob/master/docs/plugins.md>)。
-
-← [ 组件 ](</vela/quickapp/zh/guide/framework/template/component.html>) [ 媒体查询 ](</vela/quickapp/zh/guide/framework/style/media-query.html>) → 
-
-快速导航
-
-盒模型
-
-长度单位
-
-px
-
-百分比%
-
-dp
-
-设置定位
-
-设置样式
-
-通用样式
-
-Flex 布局示例
-
-动态修改样式
-
-引入 less/scss 预编译
-
-less 篇
-
-scss 篇
-
-使用 postcss 解析 css

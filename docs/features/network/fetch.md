@@ -73,18 +73,4 @@ Xiaomi Watch S3 | 支持
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 应用配置 configuration ](</vela/quickapp/zh/features/basic/configuration.html>) [ 设备通信 interconnect ](</vela/quickapp/zh/features/network/interconnect.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-fetch.fetch(OBJECT)
-
-支持明细
+REDMI Watch 5 | 支持

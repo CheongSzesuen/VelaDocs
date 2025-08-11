@@ -47,19 +47,3 @@ isFromUser说明：
 ``` <template> <div class="page"> <text class="title">slider 组件</text> <slider class="slider" min="0" max="100" step="10" value="{{ initialSliderValue }}" onchange="onSliderChange"></slider> <text>slider的值：{{ sliderValue }}</text> </div> </template> <script> export default { private: { initialSliderValue: 10, sliderValue: null }, onSliderChange (e) { this.sliderValue = e.progress } } </script> <style> .page { flex-direction: column; padding: 30px; background-color: #ffffff; } .title { font-weight: bold; } .slider { margin-top: 20px; margin-bottom: 20px; padding-left: 0; padding-right: 0; } </style> ```
 
 ![](../../images/slider.bd6bc385.gif)
-
-← [ switch ](</vela/quickapp/zh/components/form/switch.html>)
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-示例代码

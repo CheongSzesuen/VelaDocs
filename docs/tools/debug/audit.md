@@ -88,31 +88,3 @@
 优化报告中会标出项目中代码执行报错的，给出优化建议，以便开发者进行优化。
 
 ![alt text](../../images/ide-debug-25.6f325a56.png)
-
-← [ 多屏适配 ](</vela/quickapp/zh/tools/debug/multi-screens.html>) [ 功能介绍 ](</vela/quickapp/zh/tools/devicedebug/start.html>) → 
-
-快速导航
-
-文件分析
-
-性能指标
-
-优化检测项
-
-多次引用代码检测
-
-大型依赖替换检测
-
-未使用依赖检测
-
-未使用系统功能检测
-
-网络请求耗时检测
-
-网络请求https使用检测
-
-网络请求次数检测
-
-网络请求异常检测
-
-代码执行报错检测

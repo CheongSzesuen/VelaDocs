@@ -13,5 +13,3 @@ computed | Object | 计算属性，属性名不能以$或_开头, 不要使用 f
 温馨提示
 
 **注意 public，protected，private 不能与 data 同时使用。**
-
-← [ 全局属性和方法 ](</vela/quickapp/zh/guide/framework/script/global-data-method.html>) [ 生命周期 ](</vela/quickapp/zh/guide/framework/script/lifecycle.html>) → 

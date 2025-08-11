@@ -88,28 +88,4 @@ Xiaomi Watch S3 | 支持
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 下载 request ](</vela/quickapp/zh/features/network/request.html>) [ 数据存储 storage ](</vela/quickapp/zh/features/data/storage.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-方法
-
-UploadTask uploadtask.uploadFile(OBJECT)
-
-方法
-
-UploadTask.abort()
-
-UploadTask.onProgressUpdate(callback)
-
-UploadTask.offProgressUpdate(function callback)
-
-支持明细
+REDMI Watch 5 | 支持

@@ -95,24 +95,4 @@ z | Integer | z 轴坐标
 subscribePressure | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5  
 unsubscribePressure | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5  
 subscribeAccelerometer | 小米手环 9、小米手环 9 Pro | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5  
-unsubscribeAccelerometer | 小米手环 9、小米手环 9 Pro | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5  
-  
-← [ 地理位置 geolocation ](</vela/quickapp/zh/features/system/geolocation.html>) [ 事件 event ](</vela/quickapp/zh/features/system/event.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-sensor.subscribePressure(OBJECT)
-
-sensor.unsubscribePressure()
-
-sensor.subscribeAccelerometer(OBJECT)
-
-sensor.unsubscribeAccelerometer(OBJECT)
-
-支持明细
+unsubscribeAccelerometer | 小米手环 9、小米手环 9 Pro | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5

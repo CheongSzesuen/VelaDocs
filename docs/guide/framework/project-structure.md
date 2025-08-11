@@ -66,16 +66,3 @@ internal URI 表示的是应用私有文件，即在指定 internal URI 时，�
   3. 当代码文件需要被导入时，如果导入文件与被导入文件在同一个目录，被导入文件引用资源文件时可以使用相对路径，但如果不在同一目录，必须使用绝对路径，因为被导入文件编译时会被复制到导入文件中，编译后目录会发生变化。比如 a.css 文件被 b.ux 导入，如果 a.css 与 b.ux 在同一个目录，a.css 引用资源文件时可以写相对路径：abc.png，如果不在同一个目录，必须写绝对路径：/Common/abc.png，再比如当 a.ux 文件被 b.ux 文件导入时，如果 a.ux 与 b.ux 在同一个目录，a.ux 引用资源文件时可以写相对路径：a.png，如果不在同一个目录，a.ux 引用资源必须写绝对路径：/Common/abc.png；
   4. 在 CSS 中，与前端开发一致，使用 url(PATH)的方式访问资源文件，如：url(/Common/abc.png)。
 
-← [ 编译参数 ](</vela/quickapp/zh/guide/start/toolkit-params.html>) [ 项目配置 ](</vela/quickapp/zh/guide/framework/manifest.html>) → 
-
-快速导航
-
-应用资源
-
-ux模板
-
-文件存储
-
-URI
-
-资源和文件访问规则

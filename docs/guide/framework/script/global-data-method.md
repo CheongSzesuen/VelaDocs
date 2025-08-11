@@ -140,21 +140,3 @@ this.$emit | type: String 事件名
 data: Object 事件参数 | 触发事件，对应的句柄函数被调用用法：this.$emit('xxx') this.$emit('xxx', {a:1})传递的事件参数可在事件回调函数中，通过evt.detail来访问，例如evt.detail.a  
   
 事件方法使用示例可参考[文档](</vela/quickapp/zh/guide/framework/template/component.html#父子组件通信>)。
-
-← [ 媒体查询 ](</vela/quickapp/zh/guide/framework/style/media-query.html>) [ 页面数据对象 ](</vela/quickapp/zh/guide/framework/script/page-data.html>) → 
-
-快速导航
-
-对象
-
-公共对象
-
-方法
-
-this.$canIUse
-
-this.$watch
-
-this.$element
-
-this.$nextTick

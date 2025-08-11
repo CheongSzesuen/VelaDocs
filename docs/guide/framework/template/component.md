@@ -77,18 +77,3 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
   * 触发时传递参数，再接收时使用`evt.detail`来获取参数
   * 当传递结束后，可以调用`evt.stop()`来结束传递,否则会一直传递下去
 
-← [ 计算属性 ](</vela/quickapp/zh/guide/framework/template/computed.html>) [ 页面样式与布局 ](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html>) → 
-
-快速导航
-
-组件自定义
-
-自定义组件生命周期：
-
-组件引入
-
-父子组件通信
-
-父组件通过 Prop 向子组件传递数据
-
-子组件对父组件通信

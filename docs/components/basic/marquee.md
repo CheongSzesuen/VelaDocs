@@ -52,21 +52,3 @@ stop | - | 停止滚动 marquee
 ``` <template> <div> <marquee id="marquee" scrollamount={{6}} loop={{-1}}> scrollamount控制滚动速度，默认值为6（6像素/秒） </marquee> </div> </template> <script> export default { onReady() { this.$element('marquee').start() } } </script> ```
 
 ![](../../images/marquee.2b33a67c.gif)
-
-← [ progress ](</vela/quickapp/zh/components/basic/progress.html>) [ chart ](</vela/quickapp/zh/components/basic/chart.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-方法
-
-示例代码

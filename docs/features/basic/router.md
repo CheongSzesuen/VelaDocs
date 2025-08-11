@@ -125,23 +125,3 @@ path | String | 当前页面的路径
 #### # 示例：
 
 ``` var page = router.getState() console.log(`page index = ${page.index}`) console.log(`page name = ${page.name}`) console.log(`page path = ${page.path}`) ```
-
-← [ 设备信息 device ](</vela/quickapp/zh/features/basic/device.html>) [ 应用配置 configuration ](</vela/quickapp/zh/features/basic/configuration.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-router.push(OBJECT)
-
-router.replace(OBJECT)
-
-router.back(OBJECT)
-
-router.clear()
-
-router.getState()

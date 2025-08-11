@@ -58,15 +58,3 @@
 5.真机调试效果 在AIOT-IDE调试面板上进行调试，真机会实时显示调试效果(但不支持热更新，如要修改源码可点击打包按钮打包当前应用，通过第四步进行rpk安装)
 
 ![alt text](../../images/ide-emulator-33.758e313e.png) ![alt text](../../images/ide-emulator-34.0f56355b.png)
-
-← [ 优化评分 ](</vela/quickapp/zh/tools/debug/audit.html>) [ AIoT-toolkit ](</vela/quickapp/zh/tools/toolkit/start.html>) → 
-
-快速导航
-
-设备升级
-
-环境准备
-
-连接
-
-调试

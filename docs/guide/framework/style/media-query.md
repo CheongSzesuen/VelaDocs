@@ -117,28 +117,4 @@ Xiaomi Watch S3 | 支持2+特性
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-  
-← [ 页面样式与布局 ](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html>) [ 全局属性和方法 ](</vela/quickapp/zh/guide/framework/script/global-data-method.html>) → 
-
-快速导航
-
-语法
-
-@media 方式引入媒体查询
-
-举例
-
-@import 方式引入媒体查询
-
-媒体类型
-
-媒体特性
-
-注意
-
-逻辑操作符
-
-示例代码
-
-支持明细
+REDMI Watch 5 | 支持

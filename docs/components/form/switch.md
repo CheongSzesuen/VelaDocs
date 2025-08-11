@@ -40,19 +40,3 @@ change | {checked:checkedValue} | checked 状态改变时触发
 ``` <template> <div class="page"> <text class="title">switch 组件</text> <switch checked="{{ switchValue }}" class="switch" @change="onSwitchChange"></switch> <text>状态：{{ switchValue }}</text> </div> </template> <script> export default { private: { switchValue: true }, onSwitchChange(e) { this.switchValue = e.checked } } </script> <style> .page { flex-direction: column; padding: 30px; background-color: #ffffff; } .title { font-weight: bold; } .switch { width: 100px; margin-top: 10px; } </style> ```
 
 ![](../../images/switch.9fcb7b6a.gif)
-
-← [ picker ](</vela/quickapp/zh/components/form/picker.html>) [ slider ](</vela/quickapp/zh/components/form/slider.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-示例代码

@@ -59,25 +59,3 @@ logo页如非必要，在执行页面跳转时，不要增加setTimeout延迟跳
 ``` // ❌不推荐写法 sendMsg(list) { for (let x in list) { setTimeout(() => { this.conn.send({ data: list[x], success: ()=>{ }, fail: (data: {data, code})=> { } }) },x*500) } } ```
 
 ``` // ✅推荐写法 sendMsg(list) { for (let x in list) { this.conn.send({ data: list[x], success: ()=>{ }, fail: (data: {data, code})=> { } }) } } ```
-
-← [ 常用业务优化 ](</vela/quickapp/zh/guide/best-practice/business.html>) [ 验收标准 ](</vela/quickapp/zh/guide/publish/acceptance-criteria.html>) → 
-
-快速导航
-
-避免setTimeout延迟
-
-首页数据缓存
-
-logo页避免http请求
-
-UI先行
-
-隐私页信息使用静态数据
-
-减少从console打印
-
-图片缓存/裁剪
-
-通信类应用通信之前使用diagnosis方法判断连接状态
-
-使用interconnect传输多条数据

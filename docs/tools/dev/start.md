@@ -47,13 +47,3 @@
   * **脚本提示** ：显示 script 区域的方法，导入模块等提示信息。
 
 ![alt text](../../images/ide-ux-11.a87f6268.gif)
-
-← [ 运行模拟器 ](</vela/quickapp/zh/tools/emulator/emulator-run.html>) [ 代码美化 ](</vela/quickapp/zh/tools/dev/format.html>) → 
-
-快速导航
-
-ux 文件自动补全
-
-style 区域内补全
-
-其他补全

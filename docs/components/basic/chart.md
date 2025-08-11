@@ -87,35 +87,3 @@ margin | `<length>` | 1px | 否 | 擦除点的个数（最新绘制的点与最�
 ``` <template> <chart type="bar" options="{{barOpts}}" datasets="{{barData}}"></chart> </template> <script> export default { data: { barData: [ { fillColor: '#f07826', data: [763, 550, 551, 554, 731, 654, 525] }, { fillColor: '#cce5ff', data: [535, 776, 615, 444, 694, 785, 677] } ], barOpts: { xAxis: { min: 0, max: 7, display: false, axisTick: 7 }, yAxis: { min: 0, max: 800, display: false, } } } } </script> ```
 
 ![](../../data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANYAAACuCAIAAADF8GTVAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADSUlEQVR4nO3bMWocZxiA4VFiGwwhcW2T0lUa30BVupwoB/Bd3LsIpJoTuDI+gMGQxshuFBTEpggkzrIRWbEz78zO85SjZfhB7/47+vXtxW63G6DzVb0Atk6CxCRITILEJEhMgsQkSEyCxCRITILEJEhsP8FxHMdxTJbCNtkFiUmQ2IN6AUzr6np4/3m4uf3nyqOvh++/HZ487tb0b3bBM7fX3zAMN7fD+8/Rag5ZxC64/Hfqeu31d8fFyiJ2weW/U5nO/i743W9vnr179emXj39fuXjy9PFPPz/84cfpFrH8dyrT2d8Fn7179ej3j19e2V19uH79csYlsS37Ce7195fd1YdZFsMWLeJZkC2TIDEJElvEueBG/PH21+vXL798sJ7htGH57ILz2etvcNowDIME53TwYMFpgwSJSZCYBIlJkJhDmaXY7MSaXXApNjuxJsGl2OzEmg9i7uOEjw12Qe7jhI8NEuQ+TvjYIEFingVXb+0DOHbB1Vv7AI4EV2/tAzgSJCZBYhIkJkFi53wos9nZk3U5511ws7Mn63LOCW529mRdzjlBVkGCxCRITILEJEhMgsQkSEyCxM75H3T3tvY55HWZKcGJfqkT3fa/5pAlOIWZPognGi6f6LZrn0Nel5kSnOiXqpUzcNwHsfEnTu64XdD4Eyd33C5o/Gk7ZjsWcC7IYbN9PVmCHDbbn3oSJCZBYhIkJkFiEiQmQWISJCZBYhIkJkFiEiTmuyNHMzR5WnbBoxmaPC0JHs3Q5GlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiUmQmASJSZCYBIlJkJgEiT34n68bx3EYhm+eX97x0zu8cNtt3/by8vDrB7sguYvdblevgU2zCxKTIDEJEpMgMQkSkyAxCRKTIDEJEpMgMQkS+xO8s1S2aJOZ4AAAAABJRU5ErkJggg==)
-
-← [ marquee ](</vela/quickapp/zh/components/basic/marquee.html>) [ qrcode ](</vela/quickapp/zh/components/basic/qrcode.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-ChartOptions 说明
-
-ChartDataset 说明
-
-ChartAxis 说明
-
-ChartSeries 说明
-
-ChartLineStyle 说明
-
-ChartLoop 说明
-
-样式
-
-事件
-
-示例代码
-
-线形图
-
-柱状图

@@ -24,12 +24,3 @@ show等同于 visible=none，主要用于在原生组件上声明；
 
   * 当 show 指令的值为 true 时，节点可见，当其值为 false 时，组件不可见，但节点仍会保留在页面 DOM 结构中。
 
-← [ 循环指令 ](</vela/quickapp/zh/guide/framework/template/for.html>) [ 计算属性 ](</vela/quickapp/zh/guide/framework/template/computed.html>) → 
-
-快速导航
-
-if指令
-
-show指令
-
-if与show区别

@@ -93,29 +93,3 @@ height | `<number>` | 滚动内容的高度，包含border和padding
 ## # 示例代码
 
 ``` <template> <div class="page"> <scroll id="scrollId" scroll-y="true" onscrolltop="handleScrollTop"> <div class="item"> <text>北京</text> </div> <div class="item"> <text>上海</text> </div> <div class="item"> <text>广州</text> </div> <div class="item"> <text>深圳</text> </div> </scroll> </div> </template> <script> export default { onShow() { this.$element('scrollId').getScrollRect({ success({ width, height }) { console.log('宽度', width); console.log('高度', height); } }) // this.scrollTo() // this.scrollBy() }, handleScrollTop() { console.info('scrolled top.') }, scrollTo() { this.$element('scrollId').scrollTo({ top: 1000, left: 0, behavior: 'smooth' }) }, scrollBy() { this.$element('scrollId').scrollBy({ top: 1000, left: 0, behavior: 'smooth' }) } } </script> <style> .page { justify-content: center; align-items: center; } #scrollId { width: 50%; height: 100px; flex-direction: column; background-color: yellowgreen; } .item { width: 100%; height: 50px; justify-content: center; } </style> ```
-
-← [ list-item ](</vela/quickapp/zh/components/container/list-item.html>) [ stack ](</vela/quickapp/zh/components/container/stack.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-示例代码
-
-事件
-
-方法
-
-scrollTo方法Object参数
-
-scrollBy方法Object参数
-
-返回值（异步）
-
-示例代码

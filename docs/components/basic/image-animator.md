@@ -57,18 +57,4 @@ getState | - | 获取播放状态。- playing：播放中 - paused：已暂停 -
 
 ``` export default { data: { frames: [ { src: "/common/asserts/001.png", }, { src: "/common/asserts/002.png", }, { src: "/common/asserts/003.png", }, { src: "/common/asserts/004.png", }, { src: "/common/asserts/005.png", } ], }, handleStart() { this.$element('animator').start(); }, handlePause() { this.$element('animator').pause(); }, handleResume() { this.$element('animator').resume(); }, handleStop() { this.$element('animator').stop(); }, }; ```
 
-← [ image ](</vela/quickapp/zh/components/basic/image.html>) [ progress ](</vela/quickapp/zh/components/basic/progress.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-方法
-
-示例代码
+![](../../images/image_animator.33e950ce.gif)

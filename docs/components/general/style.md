@@ -60,12 +60,4 @@ flex-direction | `<string>` | row | 默认为横向`row`，父容器为`<div>、
 align-items | `<string>` | flex-start | align-items 定义了伸缩项目可以在伸缩容器的当前行的侧轴上对齐方式。flex-start(默认值)：伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。flex-end：伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。center：伸缩项目的外边距盒在该行的侧轴上居中放置。baseline：伸缩项目根据他们的基线对齐。stretch：伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸  
 justify-content | `<string>` | flex-start | justify-content 定义了伸缩项目沿着主轴线的对齐方式。flex-start(默认值)：伸缩项目向一行的起始位置靠齐。flex-end：伸缩项目向一行的结束位置靠齐。center：伸缩项目向一行的中间位置靠齐。space-between：伸缩项目会平均地分布在行里。第一个伸缩项目一行中的最开始位置，最后一个伸缩项目在一行中最终点位置。space-around：伸缩项目会平均地分布在行里，两端保留一半的空间  
 position | absolute | relative | relative | 支持 relative 和 absolute 属性值，且默认值为 relative；父容器为`<list>、<swiper>`时不生效  
-[left|top|right|bottom] | `<length>` | - | 一般配合`absolute`布局使用，支持单位px，暂不支持百分比  
-  
-[ 颜色配置 ](</vela/quickapp/zh/components/general/color.html>) → 
-
-快速导航
-
-示例代码
-
-属性列表
+[left|top|right|bottom] | `<length>` | - | 一般配合`absolute`布局使用，支持单位px，暂不支持百分比

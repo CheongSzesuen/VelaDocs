@@ -68,24 +68,4 @@ behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参
 ---|---|---|---|---  
 left | number | 0 | 否 | 从当前位置水平方向滑动距离，单位 px。值为正时向左滑动，为负时向右滑动。flex-direction 为 column 或 column-reverse 时不生效  
 top | number | 0 | 否 | 从当前位置垂直方向滑动距离，单位 px。值为正时向上滑动，为负时向下滑动。flex-direction 为 row 或 row-reverse 时不生效  
-behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant  
-  
-← [ div ](</vela/quickapp/zh/components/container/div.html>) [ list-item ](</vela/quickapp/zh/components/container/list-item.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-示例代码
-
-效果展示
-
-方法
+behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant

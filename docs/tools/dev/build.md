@@ -9,5 +9,3 @@
 在监听到文件变化会**自动触发编译** ，推送当前项目，实时预览代码编译后的最新效果，当再次点击`运行`或`调试`按钮，取消推送时，将停止监听文件文件，减小性能消耗。
 
 ![alt text](../../images/ide-watch-1.c179fd36.gif)
-
-← [ 代码美化 ](</vela/quickapp/zh/tools/dev/format.html>) [ 可视化编辑 ](</vela/quickapp/zh/tools/dev/manifest.html>) → 

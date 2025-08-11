@@ -24,9 +24,3 @@ manifest.json 中声明所需的后台运行接口。后台运行接口包括：
   3. 地理位置： `system.geolocation`
 
 ``` { "package": "com.hybrid.demo.sample", // ...... "config": { "logLevel": "trace", "background": { "features":[ "system.audio", "system.request" ] } } // ...... } ```
-
-← [ 多语言覆盖 ](</vela/quickapp/zh/guide/framework/other/i18n.html>) [ hap 链接 ](</vela/quickapp/zh/guide/framework/other/hap-schema.html>) → 
-
-快速导航
-
-配置方法

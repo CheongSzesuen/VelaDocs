@@ -84,21 +84,3 @@ complete | Function | 否 | 执行结束后的回调
 #### # 示例：
 
 ``` storage.delete({ key: 'A1', success: function(data) { console.log('handling success') }, fail: function(data, code) { console.log(`handling fail, code = ${code}`) } }) ```
-
-← [ 上传 uploadtask ](</vela/quickapp/zh/features/network/uploadtask.html>) [ 文件存储 file ](</vela/quickapp/zh/features/data/file.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-方法
-
-storage.get(OBJECT)
-
-storage.set(OBJECT)
-
-storage.clear(OBJECT)
-
-storage.delete(OBJECT)

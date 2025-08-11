@@ -27,9 +27,3 @@
 我们的 IDE 也提供了多屏 UI 模拟器，帮助开发者快速预览应用在不同屏幕上的效果，以便进行适当调整，请参考 [多屏 UI 模拟器](</vela/quickapp/zh/tools/debug/multi-screens.html>)。
 
 我们提供了一些对常见页面元素进行多屏适配的代码示例以及整站案例供参考，[代码示例](</vela/quickapp/zh/guide/multi-screens/samples.html>)。
-
-快速导航
-
-为什么要做多屏适配？
-
-如何做多屏适配？

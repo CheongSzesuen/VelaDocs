@@ -26,15 +26,3 @@ duration | Number | 否 | 显示持续时间，单位ms，默认值1500，建议
 #### # 示例：
 
 ``` prompt.showToast({ message: 'Message Info', duration: 2000 }) ```
-
-← [ 音频 audio ](</vela/quickapp/zh/features/other/audio.html>)
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-prompt.showToast(OBJECT)

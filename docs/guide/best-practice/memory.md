@@ -81,10 +81,3 @@
   5. 尽可能减少页面数量  
 在不影响业务需求的前提下，用最少的页面去实现，减少代码体积，简化应用逻辑。
 
-← [ 多屏设计 ](</vela/quickapp/zh/guide/design/multi-screens.html>) [ 常用业务优化 ](</vela/quickapp/zh/guide/best-practice/business.html>) → 
-
-快速导航
-
-代码注意事项
-
-减少打包代码体积

@@ -103,24 +103,4 @@ Number | 0：关闭振动；1：标准振动；2：加强振动
 vibrate | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4、REDMI Watch 5 | -  
 start | - | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4、REDMI Watch 5、小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1  
 stop | - | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4、REDMI Watch 5、小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1  
-getSystemDefaultMode | - | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4、REDMI Watch 5、小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1  
-  
-← [ 网络信息 network ](</vela/quickapp/zh/features/system/network.html>) [ 屏幕亮度 brightness ](</vela/quickapp/zh/features/system/brightness.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-vibrator.vibrate(OBJECT)
-
-vibrator.start(OBJECT)
-
-vibrator.stop(Number)
-
-vibrator.getSystemDefaultMode()
-
-支持明细
+getSystemDefaultMode | - | Xiaomi Watch S3、小米手环 9 Pro、Xiaomi Watch S4、REDMI Watch 5、小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1

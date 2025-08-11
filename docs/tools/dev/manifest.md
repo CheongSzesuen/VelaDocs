@@ -9,5 +9,3 @@
 点击打开manifest可视化界面后，可更直观清晰的对`manifest.json`进行编辑
 
 ![alt text](../../images/ide-manifest-2.ef2b57ae.png)
-
-← [ 应用热更新 ](</vela/quickapp/zh/tools/dev/build.html>) [ 编译预览 ](</vela/quickapp/zh/tools/debug/start.html>) → 

@@ -106,23 +106,3 @@ complete | Function | 否 | 执行结束后的回调
 #### # 示例：
 
 ``` brightness.setKeepScreenOn({ keepScreenOn: true, success: function() { console.log('handling success') }, fail: function(data, code) { console.log(`handling fail, code = ${code}`) } }) ```
-
-← [ 振动 vibrator ](</vela/quickapp/zh/features/system/vibrator.html>) [ 录音 record ](</vela/quickapp/zh/features/system/record.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-brightness.getValue(OBJECT)
-
-brightness.setValue(OBJECT)
-
-brightness.getMode(OBJECT)
-
-brightness.setMode(OBJECT)
-
-brightness.setKeepScreenOn(OBJECT)

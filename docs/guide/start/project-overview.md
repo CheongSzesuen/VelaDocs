@@ -49,19 +49,3 @@ Vela JS 应用项目由配置文件（manifest.json）、模板代码（ux文件
 ## # i18n
 
 `i18n`文件夹用来存放多语言配置文件。
-
-← [ 安装环境 ](</vela/quickapp/zh/guide/start/use-ide.html>) [ 编写页面UI ](</vela/quickapp/zh/guide/start/user-interface.html>) → 
-
-快速导航
-
-目录结构
-
-配置文件
-
-ux模板
-
-app.ux
-
-common
-
-i18n

@@ -43,13 +43,3 @@
 图示里灰色区域分别为圆屏、胶囊屏安全区。
 
 ![](../../images/multi-safe-area.0ef0c793.png)
-
-← [ 拓展组件 ](</vela/quickapp/zh/guide/developer-materials/extension-components.html>) [ 内存优化 ](</vela/quickapp/zh/guide/best-practice/memory.html>) → 
-
-快速导航
-
-小米智能穿戴设备
-
-设计建议
-
-弧形屏幕适配安全区域

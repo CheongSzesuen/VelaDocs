@@ -41,19 +41,3 @@ background-color | `<color>` | #ffffff | 否 | 条形码背景颜色
 ``` <template> <div> <barcode value="barcodetest" style="color: #008cff;"></barcode> </div> </template> ```
 
 ![](../../data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASgAAABMCAIAAABRd722AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABOElEQVR4nO3VQQrCMBRAQev9PXNcKCJtlLrxoZ1ZlZB808LDZYxxAr7rXF8Ajkh4EBAeBIQHAeFBQHgQEB4EhAcB4UFAeBAQHgR+L7zlclou94fHymrDq/Xpwcf6mwm3PdsJr+Y8b5ieffOLq217XnN6t50TVsc/ev3phO3z9lNMr3covxce/AHhQUB4EBAeBIQHAeFBQHgQEB4EhAcB4UFAeBAQHgSEBwHhQUB4EBAeBIQHAeFBQHgQEB4EhAcB4UFAeBAQHgSEBwHhQUB4EBAeBIQHAeFBQHgQEB4EhAcB4UFAeBAQHgSEBwHhQUB4EBAeBIQHAeFBQHgQEB4EhAcB4UFAeBAQHgSWMUZ9Bzgc/3gQEB4EhAcB4UFAeBAQHgSEBwHhQUB4EBAeBIQHAeFBQHgQEB4Erhf9L51U2f+gAAAAAElFTkSuQmCC)
-
-← [ qrcode ](</vela/quickapp/zh/components/basic/qrcode.html>) [ input ](</vela/quickapp/zh/components/form/input.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-示例代码

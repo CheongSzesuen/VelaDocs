@@ -36,6 +36,11 @@ mac 版本下可能会遇到如下安装报错的问题:
 
 示例二
 
+## # 历史版本
+
+历史版本地址：[点击查看 (opens new window)](<https://kpan.mioffice.cn/webfolder/ext/j6SfQsarf8I%40?n=0.18700074913007825>)  
+密码：99E6
+
 ## # 使用 AIoT-IDE
 
 ### # 1\. 初始化 Vela 项目
@@ -147,28 +152,3 @@ AIoT-IDE 支持自动初始化模拟器环境，创建、删除和列表展示�
     * 手动生成：前提同样是系统环境安装了 openssl,然后打开终端运行以下命令生成签名文件，项目下新建 sign 目录，将生成的文件 private.pem 和 certificate.pem 放至该目录  
 `openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem`
 
-[ 项目结构 ](</vela/quickapp/zh/guide/start/project-overview.html>) → 
-
-快速导航
-
-下载 AIoT-IDE
-
-系统要求
-
-安装 AIoT-IDE
-
-使用 AIoT-IDE
-
-1\. 初始化 Vela 项目
-
-2\. 项目开发
-
-3\. 开发向导指引
-
-4\. 模拟环境管理
-
-5\. 运行项目
-
-6\. 调试项目
-
-7\. 打包项目

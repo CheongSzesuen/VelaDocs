@@ -35,19 +35,3 @@ href 还可以通过“?param1=value1”的方式添加参数，参数可以在�
 ## # 示例代码
 
 ``` <template> <div> <a class="link" href="/home">goHome</a> <a href="/home"> <span class="link">使用span子组件</span> </a> </div> </template> ```
-
-← [ span ](</vela/quickapp/zh/components/basic/span.html>) [ image ](</vela/quickapp/zh/components/basic/image.html>) → 
-
-快速导航
-
-概述
-
-子组件
-
-属性
-
-样式
-
-事件
-
-示例代码

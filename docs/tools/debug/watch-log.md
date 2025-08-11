@@ -13,5 +13,3 @@
 ![alt text](../../images/ide-debug-8.0bc8a90e.png)
 
 温馨提示：如果在开发中遇到异常，如预览黑屏或渲染内容与代码不一致，请首先查看**编译日志** 以确认应用是否构建成功，然后检查 **模拟器日志** 以判断应用是否正常运行。如果两者均无问题，请参阅文档或向`AIoT-IDE`官方寻求技术支持。
-
-← [ 编译预览 ](</vela/quickapp/zh/tools/debug/start.html>) [ 调试运行 ](</vela/quickapp/zh/tools/debug/debug.html>) → 

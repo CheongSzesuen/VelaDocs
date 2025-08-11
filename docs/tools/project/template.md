@@ -9,5 +9,3 @@
 如上图**标签1，2** 所示，在打开**新建项目弹窗** 后，可左侧菜单栏选择**quickApp** ，再点击**创建** 进入创建页面，按输入提示输入创建信息，即可创建快应用项目。
 
 ![alt text](../../images/ide-project-1.5e1c8b68.png)
-
-← [ 新建项目 ](</vela/quickapp/zh/tools/project/creat-project.html>) [ 管理项目 ](</vela/quickapp/zh/tools/project/project.html>) → 

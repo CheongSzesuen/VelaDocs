@@ -29,9 +29,3 @@
   6. 执行配置好的编译命令
 
 ``` npm run build:circle 或 npm run build:rect ```
-
-← [ 代码示例 ](</vela/quickapp/zh/guide/multi-screens/samples.html>) [ 拓展组件 ](</vela/quickapp/zh/guide/developer-materials/extension-components.html>) → 
-
-快速导航
-
-流程

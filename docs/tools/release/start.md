@@ -11,5 +11,3 @@
 ![alt text](../../images/ide-debug-11.d4361324.png)
 
 debug包是为了方便开发者进行调试而设计的，因此它不会进行过多的优化。通常情况下，debug 包会包含调试信息，以便开发者进行调试和定位错误。
-
-← [ 升级迁移 ](</vela/quickapp/zh/tools/toolkit/update.html>) [ 发布应用 ](</vela/quickapp/zh/tools/release/release.html>) → 

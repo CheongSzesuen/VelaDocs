@@ -95,22 +95,4 @@ unsubscribe | 地理位置 | 400： 拒绝授予权限
 402： 权限错误（未声明该权限）  
 hapjs.permission.DEVICE_INFO | system.device | getSerial   
 getDeviceId | 获取设备信息 | 400： 拒绝授予权限   
-402： 权限错误（未声明该权限）  
-  
-← [ 项目结构 ](</vela/quickapp/zh/guide/framework/project-structure.html>) [ UX 文件 ](</vela/quickapp/zh/guide/framework/ux.html>) → 
-
-快速导航
-
-manifest
-
-config
-
-minAPILevel
-
-router
-
-示例代码
-
-display
-
-权限说明
+402： 权限错误（未声明该权限）

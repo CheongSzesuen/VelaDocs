@@ -19,12 +19,3 @@
 
   * [@system.device](</vela/quickapp/zh/features/basic/device.html>) getInfo() 新增返回值：deviceType、APILevel
 
-← [ 验收标准 ](</vela/quickapp/zh/guide/publish/acceptance-criteria.html>) [ APILevel3 ](</vela/quickapp/zh/guide/version/APILevel3.html>) → 
-
-快速导航
-
-框架
-
-组件
-
-接口

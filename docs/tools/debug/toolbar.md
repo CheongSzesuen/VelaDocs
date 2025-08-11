@@ -69,29 +69,3 @@
 运行rpk，每个模拟器显示区域都会在右侧配置一个运行rpk按钮，点击后在已安装的rpk列表中，切换运行的rpk或卸载已安装的rpk。如下图序号1，2，3所示。
 
 ![alt text](../../images/ide-debug-34.23e3e479.png)
-
-← [ 调试运行 ](</vela/quickapp/zh/tools/debug/debug.html>) [ 编译设置 ](</vela/quickapp/zh/tools/debug/build-setting.html>) → 
-
-快速导航
-
-关闭所有模拟器
-
-自定义模拟器显示
-
-关机
-
-首页
-
-终端
-
-查看日志
-
-菜单
-
-截图
-
-尺寸
-
-安装rpk
-
-运行rpk

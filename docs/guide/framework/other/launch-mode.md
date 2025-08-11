@@ -59,18 +59,3 @@ ___PARAM_LAUNCH_FLAG___ | String | 否 | 跳转 JS 应用页面时传递的页�
   * 销毁 PageA 页面实例
   * PageB 页面实例不存在，新建 PageB 页面实例并显示
 
-← [ hap 链接 ](</vela/quickapp/zh/guide/framework/other/hap-schema.html>) [ 适配规范 ](</vela/quickapp/zh/guide/multi-screens/specs.html>) → 
-
-快速导航
-
-静态声明
-
-页面启动模式参数：
-
-示例：
-
-动态声明
-
-页面启动模式参数：
-
-示例：

@@ -42,11 +42,3 @@
 ``` <template> <div class="page column" @swipe="toHomePage"> <!-- 页面其它内容 --> </div> </template> ```
 
 ``` <script> import router from '@system.router' export default { // ... toHomePage(eve) { if (eve.direction === 'right') { router.back() } } } </script> ```
-
-← [ 编写页面UI ](</vela/quickapp/zh/guide/start/user-interface.html>) [ 数据获取 ](</vela/quickapp/zh/guide/start/data-fetch.html>) → 
-
-快速导航
-
-注册事件
-
-页面跳转

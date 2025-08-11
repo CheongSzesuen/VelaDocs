@@ -39,11 +39,3 @@
 在真实的项目中，还需要处理更多的页面细节，比如页面请求数据时添加loading状态、对日期做对应的格式化处理等。
 
 为了给用户提供良好的体验，请严格按照设计稿编写页面结构和样式并对各种异常情况做相应的处理。
-
-← [ 添加交互 ](</vela/quickapp/zh/guide/start/add-interactivity.html>) [ 编译参数 ](</vela/quickapp/zh/guide/start/toolkit-params.html>) → 
-
-快速导航
-
-请求接口数据
-
-数据渲染

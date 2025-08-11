@@ -15,5 +15,3 @@
 ![alt text](../../images/ide-debug-3.26af5499.png)
 
 ![alt text](../../images/ide-debug-4.1f5d5b07.png)
-
-← [ 日志查看 ](</vela/quickapp/zh/tools/debug/watch-log.html>) [ 功能按钮 ](</vela/quickapp/zh/tools/debug/toolbar.html>) → 

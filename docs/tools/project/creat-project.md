@@ -35,5 +35,3 @@
 创建成功后，`AIoT-IDE`会自动打开创建的项目，按引导页指示安装项目依赖后，即可运行项目(**下图标签1，2**)。
 
 ![alt text](../../images/ide-create-success.d01a52ec.png)
-
-← [ 了解界面 ](</vela/quickapp/zh/tools/start/project.html>) [ 项目类型 ](</vela/quickapp/zh/tools/project/template.html>) → 

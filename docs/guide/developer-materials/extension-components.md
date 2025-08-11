@@ -34,14 +34,3 @@
 
   * [Github (opens new window)](<https://github.com/NEORUAA/Vela_input_method>)
 
-← [ 条件编译 ](</vela/quickapp/zh/guide/multi-screens/conditional-compilation.html>) [ 多屏设计 ](</vela/quickapp/zh/guide/design/multi-screens.html>) → 
-
-快速导航
-
-input-method
-
-概述
-
-示例预览
-
-项目地址

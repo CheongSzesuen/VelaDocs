@@ -17,9 +17,3 @@
 **`Prettier`** 是一款流行的代码格式化工具，支持多种开发语言和文件格式，其目标是提供统一的代码风格，以简化代码维护并提高团队效率。**`AIoT-IDE`** 内置 prettier 依赖，您无需额外操作即可使用。具体效果如下动态图所示：
 
 ![alt text](../../images/ide-ux-12.c234ad28.gif)
-
-← [ 代码补全 ](</vela/quickapp/zh/tools/dev/start.html>) [ 应用热更新 ](</vela/quickapp/zh/tools/dev/build.html>) → 
-
-快速导航
-
-自动格式化

@@ -77,14 +77,3 @@ list列表，在初始化渲染时，原则上，如果内容超过10条，建�
   * 增加try catch捕获异常
   * 数据请求较慢的场景建议增加loading
 
-← [ 内存优化 ](</vela/quickapp/zh/guide/best-practice/memory.html>) [ 启动时延优化 ](</vela/quickapp/zh/guide/best-practice/start.html>) → 
-
-快速导航
-
-list与长文案优化
-
-Swiper 多图优化
-
-设备帧率的优化建议
-
-其他优化建议

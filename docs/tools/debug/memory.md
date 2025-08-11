@@ -11,5 +11,3 @@
 在 `AIoT-IDE` 中，JavaScript 堆分析和导出的工具位于功能面板区域选择 **调试 - > Snapshot -> Profile**，如下图标签1，2，3所示：
 
 ![alt text](../../images/ide-debug-9.ab943233.png)
-
-← [ 编译设置 ](</vela/quickapp/zh/tools/debug/build-setting.html>) [ 多屏适配 ](</vela/quickapp/zh/tools/debug/multi-screens.html>) → 

@@ -49,13 +49,3 @@
 ``` border: solid red 10px; ```
 
 5.错误提示定位到行列 ![alt text](../../images/ide-toolkit-3.d0283c9d.png)
-
-← [ 功能介绍 ](</vela/quickapp/zh/tools/devicedebug/start.html>) [ 升级迁移 ](</vela/quickapp/zh/tools/toolkit/update.html>) → 
-
-快速导航
-
-功能支持
-
-版本支持
-
-功能优化

@@ -27,15 +27,3 @@
 注意
 
 回调函数被调用时，会在参数列表末尾自动添加一个`evt`参数，通过`evt`参数访问回调事件相关上下文数据。
-
-← [ Props ](</vela/quickapp/zh/guide/framework/template/Props.html>) [ 循环指令 ](</vela/quickapp/zh/guide/framework/template/for.html>) → 
-
-快速导航
-
-格式
-
-传参
-
-常量
-
-变量

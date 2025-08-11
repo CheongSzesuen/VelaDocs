@@ -131,22 +131,3 @@ SDK目录是一个以点开头的目录，请提前打开操作系统的隐藏�
 
   * **parts** 定义皮肤的组成部分，一般又两部分组成，即皮肤和模拟器画面，带 **display** 的表示模拟器画面，带 **background** 和 **foreground** 的表示皮肤。
 
-← [ 内存分析 ](</vela/quickapp/zh/tools/debug/memory.html>) [ 优化评分 ](</vela/quickapp/zh/tools/debug/audit.html>) → 
-
-快速导航
-
-多设备模拟器创建
-
-自定义模拟器
-
-多屏预览
-
-自定义模拟器皮肤
-
-Vela 模拟器皮肤组
-
-Layout 文件的制作
-
-应用皮肤文件
-
-layout详解

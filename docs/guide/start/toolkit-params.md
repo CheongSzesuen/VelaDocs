@@ -31,14 +31,4 @@
 \--enable-protobuf | `boolean` | 是否启用 protobuf 的二进制打包，以提高运行性能   
 示例：`aiot server --enable-protobuf` | false  
 \--enable-custom-component | `boolean` | 是否支持自定义组件   
-示例：`aiot server --enable-custom-component` | false  
-  
-← [ 数据获取 ](</vela/quickapp/zh/guide/start/data-fetch.html>) [ 项目结构 ](</vela/quickapp/zh/guide/framework/project-structure.html>) → 
-
-快速导航
-
-如何设置编译参数
-
-查看当前工具支持的全部编译参数
-
-常见编译参数
+示例：`aiot server --enable-custom-component` | false

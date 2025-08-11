@@ -36,15 +36,3 @@ router 接口在使用前，需要先导入模块。
 **示例如下：**
 
 ``` <template> <div class="page"> <text>page</text> <!-- template中显示页面传递的参数 --> <text>{{key}}</text> </div> </template> <style> .page { flex-direction: column; justify-content: center; align-items: center; } </style> <script> export default { protected: { key: '' }, onInit () { // js中输出页面传递的参数 console.info('key: ' + this.key) } } </script> ```
-
-← [ 生命周期 ](</vela/quickapp/zh/guide/framework/script/lifecycle.html>) [ 多语言覆盖 ](</vela/quickapp/zh/guide/framework/other/i18n.html>) → 
-
-快速导航
-
-通过接口 router 切换页面和传递参数
-
-切换页面
-
-传递参数
-
-接收参数

@@ -359,37 +359,3 @@ complete | Function | 否 | 执行结束后的回调
 #### # 示例：
 
 ``` file.rmdir({ uri: 'internal://files/dir/', success: function(data) { console.log(`handling success`) }, fail: function(data, code) { console.log(`handling fail, code = ${code}`) } }) ```
-
-← [ 数据存储 storage ](</vela/quickapp/zh/features/data/storage.html>) [ 网络信息 network ](</vela/quickapp/zh/features/system/network.html>) → 
-
-快速导航
-
-接口声明
-
-导入模块
-
-接口定义
-
-file.move(OBJECT)
-
-file.copy(OBJECT)
-
-file.list(OBJECT)
-
-file.get(OBJECT)
-
-file.delete(OBJECT)
-
-file.writeText(OBJECT)
-
-file.writeArrayBuffer(OBJECT)
-
-file.readText(OBJECT)
-
-file.readArrayBuffer(OBJECT)
-
-file.access(OBJECT)
-
-file.mkdir(OBJECT)
-
-file.rmdir(OBJECT)

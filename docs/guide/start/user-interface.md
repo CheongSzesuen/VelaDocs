@@ -226,39 +226,3 @@ CSS代码如下：
 ### # 条件渲染
 
 实际项目中经常会需要使用到条件判断，根据不同的条件渲染不同的UI。要使用条件渲染，请参考[条件指令](</vela/quickapp/zh/guide/framework/template/if.html>)。
-
-← [ 项目结构 ](</vela/quickapp/zh/guide/start/project-overview.html>) [ 添加交互 ](</vela/quickapp/zh/guide/start/add-interactivity.html>) → 
-
-快速导航
-
-功能需求
-
-准备工作
-
-页面结构
-
-实时天气
-
-未来3天天气
-
-页面样式
-
-公共样式
-
-page
-
-头部信息
-
-实时天气
-
-未来3天天气
-
-底部信息
-
-页面效果
-
-页面数据
-
-列表渲染
-
-条件渲染

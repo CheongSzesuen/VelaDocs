@@ -21,13 +21,3 @@
 将鼠标移动至历史项目信息顶部的**导入** 按钮，点击后将会自动打开一个文件夹选择框，选择对应的项目类型进行导入，非qucikApp项目和**Xiaomi Vela JS** 应用项目将无法导入
 
 ![alt text](../../images/ide-delete-project-2.0081568a.png)
-
-← [ 项目类型 ](</vela/quickapp/zh/tools/project/template.html>) [ 设备管理 ](</vela/quickapp/zh/tools/emulator/create-emulator.html>) → 
-
-快速导航
-
-打开历史项目
-
-删除项目
-
-导入项目
