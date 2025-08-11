@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/other/ -->
 
-# # 其他
+# 其他
 
 其他能力。
 

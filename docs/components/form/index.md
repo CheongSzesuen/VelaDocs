@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/form/ -->
 
-# # 表单组件
+# 表单组件
 
 用来进行交互的组件，如提交数据等。
 

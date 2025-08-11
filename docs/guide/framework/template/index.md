@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/template/ -->
 
-# # template 模板
+# template 模板
 
 类似`HTML`的标签语言，结合基础组件、事件，构建出页面的结构。
 
@@ -8,13 +8,15 @@
 
 模板中只能有 1 个根节点，如：div；请不要在`<template>`下存在多个根节点，也不要使用 block 作为根节点。
 
-## # 数据绑定
+## 数据绑定
+```html
+< template > < text > {{message}} </ text > </ template > < script > export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private : { message : 'Hello' } } </ script >
+```
 
-``` <template> <text>{{message}}</text> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { message: 'Hello' } } </script> ```
-
-## # 事件绑定
-
-``` <template> <div> <!-- 正常格式 --> <text onclick="press"></text> <!-- 缩写 --> <text @click="press"></text> </div> </template> <script> export default { press(e) { this.title = 'Hello' } } </script> ```
+## 事件绑定
+```html
+< template > < div > <!-- 正常格式 --> < text onclick = " press " > </ text > <!-- 缩写 --> < text @click = " press " > </ text > </ div > </ template > < script > export default { press (e) { this.title = 'Hello' } } </ script >
+```
 
 事件回调支持的写法（其中`{{}}`可以省略）：
 
@@ -24,9 +26,10 @@
 
 回调函数被调用时，会在参数列表末尾自动添加一个`evt`参数，通过`evt`参数访问回调事件相关上下文数据（数据内容具体参看组件回调事件说明），例如点击事件的点击位置`x`，`y`。
 
-## # 列表渲染
-
-``` <template> <div> <div for="{{list}}" tid="uniqueId"> <text>{{$idx}}</text> <text>{{$item.uniqueId}}</text> </div> </div> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { list: [ { uniqueId: 1 }, { uniqueId: 2 } ] } } </script> ```
+## 列表渲染
+```html
+< template > < div > < div for = " {{list}} " tid = " uniqueId " > < text > {{$idx}} </ text > < text > {{$item.uniqueId}} </ text > </ div > </ div > </ template > < script > export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private : { list : [ { uniqueId : 1 } , { uniqueId : 2 } ] } } </ script >
+```
 
 `for指令`根据源数据数组渲染列表，支持的写法如下（其中`{{}}`可以省略）：
 
@@ -44,20 +47,23 @@
   * `tid属性`指定的数据属性要保证唯一，否则可能导致性能问题；
   * `tid属性`目前不支持表达式。
 
-## # 条件渲染
+## 条件渲染
 
 分为2种：`if/elif/else` 和`show`。它们的区别在于：`if`为`false`时，组件会从VDOM中移除，而`show`仅仅是渲染时不可见，组件依然存在于 VDOM 中；
 
 `if/elif/else`节点必须是相邻的兄弟节点，否则无法通过编译。
-
-``` <template> <div> <text if="{{display}}">Hello-1</text> <text elif="{{display}}">Hello-2</text> <text else>Hello-3</text> </div> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { display: false } } </script> ```
+```html
+< template > < div > < text if = " {{display}} " > Hello-1 </ text > < text elif = " {{display}} " > Hello-2 </ text > < text else > Hello-3 </ text > </ div > </ template > < script > export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private : { display : false } } </ script >
+```
 
 `show`等同于`visible=none`，主要用于在原生组件上声明；
+```html
+< template > < text show = " {{visible}} " > Hello </ text > </ template > < script > export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private : { visible : false } } </ script >
+```
 
-``` <template> <text show="{{visible}}">Hello</text> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { visible: false } } </script> ```
-
-## # 逻辑控制块
+## 逻辑控制块
 
 可以使用`<block>`实现更为灵活的循环/条件渲染；注意`<block>`目前只支持`for`和`if/elif/else`属性，如果没有指定任何属性，`<block>`则在构建时被当作`透明`节点对待，其子节点被添加到`<block>`的父节点上。
-
-``` <template> <list> <block for="cities"> <list-item type="city"> <text>{{$item.name}}</text> </list-item> <list-item type="spot" for="$item.spots"> <text>{{$item.address}}</text> </list-item> </block> </list> </template> <script> export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private: { cities: [ { name: 'beijing', spots: [ { address: 'XXX' } ] }, { name: 'shanghai', spots: [ { address: 'XXX' }, { address: 'XXX' } ] } ] } } </script> ```
+```html
+< template > < list > < block for = " cities " > < list-item type = " city " > < text > {{$item.name}} </ text > </ list-item > < list-item type = " spot " for = " $item.spots " > < text > {{$item.address}} </ text > </ list-item > </ block > </ list > </ template > < script > export default { // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖 private : { cities : [ { name : 'beijing' , spots : [ { address : 'XXX' } ] } , { name : 'shanghai' , spots : [ { address : 'XXX' } , { address : 'XXX' } ] } ] } } </ script >
+```

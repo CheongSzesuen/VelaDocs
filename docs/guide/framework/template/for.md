@@ -1,8 +1,8 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/template/for.html -->
 
-# # 循环指令
+# 循环指令
 
-## # 列表渲染
+## 列表渲染
 
 如果要实现列表渲染，我们会用到 for 指令。for 指令用于循环输出一个数组类型的数据。
 
@@ -19,8 +19,9 @@
 `for指令`的`tid属性`用于指定数组元素的唯一 Id，若未指定，默认使用数组索引(`$idx`)作为唯一 Id。`tid属性`的作用在于元素节点重用，优化 for 循环的重绘效率
 
 **示例如下：**
-
-``` <template> <div class="page"> <!-- 方式1：默认$item代表数组中的元素, $idx代表数组中的索引 --> <div class="row" for="{{list}}" tid="uniqueId"> <text>{{$idx}}.{{$item.name}}</text> </div> <!-- 方式2：自定义元素变量名称 --> <div class="row" for="value in list" tid="uniqueId"> <text>{{$idx}}.{{value.name}}</text> </div> <!-- 方式3：自定义元素、索引的变量名称 --> <div class="row" for="(personIndex, personItem) in list" tid="uniqueId"> <text>{{personIndex}}.{{personItem.name}}</text> </div> </div> </template> <style> .page { flex-direction: column; } .row { width: 85%; margin-top: 10px; margin-bottom: 10px; } </style> <script> export default { private: { list: [ { name: 'aa', uniqueId: 1 }, { name: 'bb', uniqueId: 2 }, { name: 'cc', uniqueId: 3 } ] }, onInit() { console.info('指令for') } } </script> ```
+```html
+< template > < div class = " page " > <!-- 方式1：默认$item代表数组中的元素, $idx代表数组中的索引 --> < div class = " row " for = " {{list}} " tid = " uniqueId " > < text > {{$idx}}.{{$item.name}} </ text > </ div > <!-- 方式2：自定义元素变量名称 --> < div class = " row " for = " value in list " tid = " uniqueId " > < text > {{$idx}}.{{value.name}} </ text > </ div > <!-- 方式3：自定义元素、索引的变量名称 --> < div class = " row " for = " (personIndex, personItem) in list " tid = " uniqueId " > < text > {{personIndex}}.{{personItem.name}} </ text > </ div > </ div > </ template > < style > .page { flex-direction : column ; } .row { width : 85% ; margin-top : 10px ; margin-bottom : 10px ; } </ style > < script > export default { private : { list : [ { name : 'aa' , uniqueId : 1 } , { name : 'bb' , uniqueId : 2 } , { name : 'cc' , uniqueId : 3 } ] } , onInit () { console.info ('指令for') } } </ script >
+```
 
 示例代码中，在渲染页面时，`div.row`的结构，会根据 script 中的数据 list 的定义，被循环的生成多个。
 

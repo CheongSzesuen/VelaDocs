@@ -1,12 +1,12 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/general/color.html -->
 
-# # 颜色配置
+# 颜色配置
 
 Vela JS 应用支持 `rgb()` and `rgba()` 颜色值设置，
 
 开发者可参考[MDN 文档 (opens new window)](<https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value>)了解更多颜色值的信息。
 
-## # 颜色值格式示例
+## 颜色值格式示例
 
   * `'#f0f'` (#rgb)
   * `'#ff00ff'` (#rrggbb)
@@ -15,13 +15,13 @@ Vela JS 应用支持 `rgb()` and `rgba()` 颜色值设置，
   * `'#f0ff'` (#rgba)
   * `'#ff00ff00'` (#rrggbbaa)
 
-## # 透明
+## 透明
 
 `rgba(0,0,0,0)`还有另外一个简写版本：
 
   * `'transparent'`
 
-## # 颜色名字
+## 颜色名字
 
 你也可以用下面的颜色配置：
 

@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/release/release.html -->
 
-# # 发布应用
+# 发布应用
 
 不同于顶部按钮区域的打包按钮，点击`发布`按钮发布应用，将生成**release** 包。
 

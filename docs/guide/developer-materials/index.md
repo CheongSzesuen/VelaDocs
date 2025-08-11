@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/developer-materials/ -->
 
-# # 开发者物料
+# 开发者物料
 
 开发者物料表示快应用平台为开发者提供的各种资源和工具，当前包含拓展组件，未来会增加页面模板、功能接口、开发工具等更多支持。欢迎每一位开发者与我们联系[vela-appframework@xiaomi.com](<mailto:vela-appframework@xiaomi.com>)，分享您的需求或贡献您的物料资源，共同推动技术的进步和创新，建设更加繁荣的快应用生态。
 

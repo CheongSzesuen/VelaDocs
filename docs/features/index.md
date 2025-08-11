@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/ -->
 
-# # 接口
+# 接口
 
 框架提供若干接口供应用调用以实现更多功能，包括以下几种接口：
 

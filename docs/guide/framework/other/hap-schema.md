@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/other/hap-schema.html -->
 
-# # hap 链接
+# hap 链接
 
 hap链接 指在router模块中支持的以hap://开头的uri，使用场景见[页面路由](</vela/quickapp/zh/features/basic/router.html>)。
 

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-静态网站Markdown爬取工具（默认爬取小米Vela文档）
-功能：
-1. 自动爬取整个文档网站
-2. 保持原始Markdown格式
-3. 下载图片并保持正确引用
-4. 维持原始目录结构
-5. 自动处理相对/绝对路径
+静态网站Markdown爬取工具（小米Vela文档专用优化版）
+主要修复：
+1. 标题锚点问题（移除多余的#符号）
+2. 代码块格式问题（修复空格和语法高亮）
+3. 表格对齐问题
+4. 整体排版优化
 """
 
 import os
@@ -22,17 +21,11 @@ import argparse
 
 class MarkdownScraper:
     def __init__(self, base_url, output_dir="docs"):
-        """
-        初始化爬虫
-        :param base_url: 文档网站基础URL (默认小米Vela文档)
-        :param output_dir: 输出目录 (默认 "docs")
-        """
         self.base_url = base_url.rstrip('/')
         self.output_dir = Path(output_dir).resolve()
         self.visited = set()
-        self.asset_map = {}  # 存储已下载资源
+        self.asset_map = {}
         
-        # 配置HTTP会话
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
@@ -40,24 +33,16 @@ class MarkdownScraper:
             'Cache-Control': 'no-cache'
         })
         
-        # 创建输出目录
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
     def _get_relative_path(self, url):
-        """将URL转换为相对于base_url的路径"""
         return urlparse(url).path.replace(urlparse(self.base_url).path, '').lstrip('/')
         
     def _sanitize_filename(self, filename):
-        """清理文件名中的特殊字符"""
         filename = unquote(filename)
-        filename = re.sub(r'[\\/*?:"<>|]', "_", filename)
-        return filename[:100]  # 限制文件名长度
+        return re.sub(r'[\\/*?:"<>|]', "_", filename)[:100]
         
     def download_asset(self, url, asset_type='images'):
-        """
-        下载资源文件（图片/CSS等）
-        返回本地相对路径
-        """
         if url in self.asset_map:
             return self.asset_map[url]
     
@@ -65,7 +50,6 @@ class MarkdownScraper:
             asset_dir = self.output_dir / asset_type
             asset_dir.mkdir(parents=True, exist_ok=True)
         
-            # 从 URL 中提取原始文件名
             parsed = urlparse(url)
             orig_filename = os.path.basename(unquote(parsed.path))
             if not orig_filename:
@@ -91,10 +75,31 @@ class MarkdownScraper:
             print(f"⚠️ 资源下载失败: {url} - {e}")
             return url
             
+    def _clean_markdown(self, markdown):
+        """小米Vela文档专用清理函数"""
+        # 修复标题格式（移除锚点#号）
+        markdown = re.sub(r'^#\s+#\s+(.*)$', r'## \1', markdown, flags=re.MULTILINE)
+        
+        # 修复代码块格式
+        markdown = re.sub(r'```(\w+)\s+', r'```\1\n', markdown)
+        markdown = re.sub(r'(\S)\s+```', r'\1\n```', markdown)
+        
+        # 修复方法调用中的多余空格
+        markdown = re.sub(r'(\w)\s+\.\s+(\w)', r'\1.\2', markdown)
+        
+        # 修复括号内的多余空格
+        markdown = re.sub(r'\(\s+', '(', markdown)
+        markdown = re.sub(r'\s+\)', ')', markdown)
+        
+        # 修复表格对齐
+        markdown = re.sub(r'\|(\s*-+\s*)\|', r'|:---:|', markdown)
+        
+        # 清理多余空行
+        markdown = re.sub(r'\n{3,}', '\n\n', markdown)
+        
+        return markdown
+            
     def convert_html_to_markdown(self, html, page_url):
-        """
-        将HTML转换为Markdown并处理资源引用
-        """
         soup = BeautifulSoup(html, 'html.parser')
         
         # 移除不需要的元素
@@ -105,18 +110,41 @@ class MarkdownScraper:
         for tag in ['header.navbar', 'aside.sidebar', 'div.page-nav', 'div.toc']:
             for element in soup.select(tag):
                 element.decompose()
-    
+
+        # 特殊处理标题（移除锚点链接）
+        for header in soup.find_all(re.compile('^h[1-6]$')):
+            if header.find('a', class_='header-anchor'):
+                header.a.decompose()
+                header_text = header.get_text().strip()
+                header.string = header_text
+
+        # 处理代码块
+        for pre in soup.find_all('pre'):
+            parent_div = pre.find_parent('div', class_=re.compile('language-'))
+            if parent_div:
+                # 提取语言类型
+                lang_match = re.search(r'language-(\w+)', ' '.join(parent_div['class']))
+                language = lang_match.group(1) if lang_match else ''
+                
+                # 提取原始代码（保留换行和缩进）
+                code = pre.get_text('\n')
+                
+                # 特殊处理JavaScript代码
+                if language == 'javascript':
+                    code = re.sub(r'(\w)\s+\.\s+(\w)', r'\1.\2', code)
+                    code = re.sub(r'\s+\(\s+', '(', code)
+                    code = re.sub(r'\s+\)\s+', ')', code)
+                
+                # 替换为Markdown代码块
+                pre.replace_with(f"```{language}\n{code}\n```")
+
         # 处理图片
         for img in soup.find_all('img', src=True):
             img_url = urljoin(page_url, img['src'])
             local_path = self.download_asset(img_url, 'images')
             img['src'] = local_path
             
-        # 处理代码块
-        for pre in soup.find_all('pre'):
-            code = pre.get_text()
-            pre.replace_with(f"```\n{code}\n```")
-            
+        # 使用html2text转换
         from html2text import HTML2Text
         h = HTML2Text()
         h.body_width = 0
@@ -124,13 +152,11 @@ class MarkdownScraper:
         h.protect_links = True
         markdown = h.handle(str(soup))
         
-        # 清理格式
-        markdown = re.sub(r'\n{3,}', '\n\n', markdown)
-        markdown = re.sub(r'(!\[.*?\])\((\S+)\)', lambda m: f"{m.group(1)}({m.group(2)})", markdown)
+        # 后处理清理
+        markdown = self._clean_markdown(markdown)
         return markdown
         
     def save_markdown_file(self, content, url):
-        """保存Markdown文件"""
         rel_path = self._get_relative_path(url)
         if not rel_path or rel_path.endswith('/'):
             rel_path += 'index'
@@ -156,7 +182,6 @@ class MarkdownScraper:
         return md_path
         
     def process_page(self, url):
-        """处理单个页面"""
         if url in self.visited:
             return set()
             
@@ -192,7 +217,6 @@ class MarkdownScraper:
             return set()
             
     def crawl(self, start_url=None, max_workers=16, delay=0.3):
-        """开始爬取"""
         start_url = start_url or self.base_url
         self.visited = set()
         
@@ -223,7 +247,7 @@ class MarkdownScraper:
 if __name__ == "__main__":
     DEFAULT_URL = "https://iot.mi.com/vela/quickapp/zh"
     
-    parser = argparse.ArgumentParser(description='静态文档网站Markdown爬取工具（默认爬取小米Vela文档）')
+    parser = argparse.ArgumentParser(description='小米Vela文档Markdown爬取工具')
     parser.add_argument('url', nargs='?', default=DEFAULT_URL, 
                        help=f'文档网站基础URL (默认: {DEFAULT_URL})')
     parser.add_argument('-o', '--output', default='docs', help='输出目录 (默认: docs)')

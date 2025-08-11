@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/debug/memory.html -->
 
-# # 内存分析
+# 内存分析
 
 进行**内存泄漏** 排查时，您可以通过两次内存快照(dump)来协助分析。例如排查页面内存泄漏，先在进入页面前 dump 一次，再在推出页面后 dump 一次。排查内存泄漏有两种场景：
 

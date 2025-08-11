@@ -1,34 +1,36 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/project-structure.html -->
 
-# # 项目结构
+# 项目结构
 
-## # 应用资源
+## 应用资源
 
 一个应用包含：描述项目配置信息的[manifest 文件](</vela/quickapp/zh/guide/framework/manifest.html>)，放置项目公共资源脚本的[app.ux 文件](</vela/quickapp/zh/guide/framework/ux.html>)，多个描述页面的[ux 文件](</vela/quickapp/zh/guide/framework/ux.html>)，典型示例如下：
 
 应用根目录：
+``` ├── manifest.json ├── app.ux ├── pages │ ├── index | | └── index.ux │ └── detail | └── detail.ux ├── i18n | ├── defaults.json | ├── zh-CN.json | └── en-US.json └── common ├── style.css ├── utils.js └── logo.png
+```
 
-``` ├── manifest.json ├── app.ux ├── pages │ ├── index | | └── index.ux │ └── detail | └── detail.ux ├── i18n | ├── defaults.json | ├── zh-CN.json | └── en-US.json └── common ├── style.css ├── utils.js └── logo.png ```
-
-## # ux模板
+## ux模板
 
 一个页面通常都由三部分组成：页面结构、样式和逻辑交互。这三部分，可以放在一个ux文件中，也可以作为独立的文件。
 
 如果放在一个ux文件中，则ux文件需要包含三标签：`template`、`style`和`script`。
 
 示例：
-
-``` <template> <div class="page"> <text class="title">欢迎打开{{title}}</text> <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail"> </div> </template> <style> .btn { width: 400px; height: 60px; background-color: #09ba07; color: #ffffff; } </style> <script> import router from '@system.router' export default { // 页面数据对象 private: { title: '示例页面' }, // 按钮点击后的回调 routeDetail() { router.push({ uri: '/pages/detail' }) } } </script> ```
+```html
+< template > < div class = " page " > < text class = " title " > 欢迎打开{{title}} </ text > < input class = " btn " type = " button " value = " 跳转到详情页 " onclick = " routeDetail " > </ div > </ template > < style > .btn { width : 400px ; height : 60px ; background-color : #09ba07 ; color : #ffffff ; } </ style > < script > import router from '@system.router' export default { // 页面数据对象 private : { title : '示例页面' } , // 按钮点击后的回调 routeDetail () { router.push ({ uri : '/pages/detail' }) } } </ script >
+```
 
 如果将页面结构、样式和逻辑交互分开作为独立的文件，可以使用如下目录结构：
-
-``` ├── ... ├── pages │ ├── ... │ └── detail | ├── detail.ux | ├── detail.css | └── detail.js ├── ... ```
+```bash
+├── .. . ├── pages │ ├── .. . │ └── detail | ├── detail.ux | ├── detail.css | └── detail.js ├── .. .
+```
 
 说明
 
 如果作为独立的文件，将ux/css/js文件分开后，ux文件中不能包含`template`标签。
 
-## # 文件存储
+## 文件存储
 
 在应用平台中是按分区来存储文件的，目前支持以下分区：
 
@@ -39,12 +41,12 @@
 
 另外应用资源也作为一个特殊的只读分区进行处理。
 
-## # URI
+## URI
 
 URI 用于标识应用资源和文件，[组件](</vela/quickapp/zh/components/>)和[接口](</vela/quickapp/zh/features/>)通过 URI 来访问应用资源和文件。
 
 资源类型 | URI | 只读 | 示例 | 说明  
----|---|---|---|---  
+---|:---:|---|:---:|---  
 应用资源 | /path | 是 | /Common/header.png | -  
 Cache | internal://cache/path | 否 | internal://cache/fetch-123456.png | -  
 Files | internal://files/path | 否 | internal://files/image/demo.png | -  
@@ -55,7 +57,7 @@ URI 允许的字符是`0-9a-zA-Z_-./%:`(不包含引号)，URI 中不能出现`.
 
 internal URI 表示的是应用私有文件，即在指定 internal URI 时，无需指定应用标识，同一个 internal URI 对于不同的应用会指向不同的文件。
 
-## # 资源和文件访问规则
+## 资源和文件访问规则
 
 应用资源路径分为绝对路径和相对路径，以"/"开头的路径表示绝对路径，比如 /Common/a.png，不以"/"开头的路径是相对路径，比如 a.png 和 ../Common/a.png 等。
 

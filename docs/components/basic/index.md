@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/basic/ -->
 
-# # 基础组件
+# 基础组件
 
 页面中的组件，例如文字、图片。
 

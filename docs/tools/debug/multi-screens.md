@@ -1,10 +1,10 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/debug/multi-screens.html -->
 
-# # 多屏适配
+# 多屏适配
 
 为了提升开发者开发体验，`AIoT-IDE`内置了****功能，可将一套代码跑在多个不同的设备屏幕上，以测试在不同屏幕上的适配效果。
 
-## # 多设备模拟器创建
+## 多设备模拟器创建
 
 为了还原最真实的多屏适配开发场景，`AIoT-IDE`提供了多个不同设备尺寸配置的模拟器和不同的镜像版本，以便在多种设备，不同镜像系统上测试应用。
 
@@ -48,7 +48,7 @@ xiaomiSoundMini
 
 模拟器与真实设备之间是有性能差异的
 
-## # 自定义模拟器
+## 自定义模拟器
 
 此外，为了支持更多尺寸的设备，创建模拟器时还可以选择**custom** 自定义模拟器时，提供以下自定义配置：
 
@@ -63,7 +63,7 @@ xiaomiSoundMini
 
 ![alt text](../../images/ide-emulator-5.ca730cda.png)
 
-## # 多屏预览
+## 多屏预览
 
 在创建完不同设备类型的模拟器后，通过`调试`或`运行`按钮启动模拟器时，**选择对应不同设备的模拟器** 点击确定，即可同时运行。
 
@@ -73,11 +73,11 @@ xiaomiSoundMini
 
 ![alt text](../../images/ide-debug-12.34930dbf.gif)
 
-## # 自定义模拟器皮肤
+## 自定义模拟器皮肤
 
 此外，如果用户不仅仅满足于自定义模拟器的显示效果，希望能更逼真的预览模拟器设备，我们还提供了自定义皮肤的功能。
 
-## # Vela 模拟器皮肤组
+## Vela 模拟器皮肤组
 
 制作一款皮肤共需要两张图片和一个配置文件：
 
@@ -97,13 +97,14 @@ xiaomiSoundMini
 
 配置了foreground.png
 
-## # Layout 文件的制作
+## Layout 文件的制作
 
 拷贝以下代码并按照注释修改信息即可，其余部分保持不变
+```bash
+parts { device { display { # 模拟器尺寸 width 466 # 模拟器尺寸 height 466 # x和y填 0 x 0 y 0 } } portrait { background { # 背景图片的名称 image background.png } foreground { # 前景图片的名称 mask foreground.png } } } layouts { portrait { // 整个皮肤的大小，一般使用背景图片的像素尺寸 width 572 height 938 event EV_SW:0:1 part1 { name portrait x 0 y 0 } part2 { name device # 前景图片从背景图片中扣图时的起始坐标，以左上角为0，0计算 x 54 y 236 } } } // 将会在创建模拟器时透传给底层配置的字段 props { // 屏幕形状。可选值： circle（圆形）、rect (矩形) 、pill-shaped（胶囊形屏eg: 全面屏手环） shape circle // 屏幕密度，可选值： [ '120' ， '140' ， '160' ， '180' ， '213' ， '240' ， '280' ， '320' ， '340' ， '360' ， '400' ， '420' ， '440' ， '480' ， '560' ， '640' ] density 320 // 设备类型，可选值：phone（手机）、watch（手表）、pad（平板）、car（车机）、tv（电视）、band（手环）smartspeaker（音响），默认watch flavor watch }
+```
 
-``` parts { device { display { # 模拟器尺寸 width 466 # 模拟器尺寸 height 466 # x和y填 0 x 0 y 0 } } portrait { background { # 背景图片的名称 image background.png } foreground { # 前景图片的名称 mask foreground.png } } } layouts { portrait { // 整个皮肤的大小，一般使用背景图片的像素尺寸 width 572 height 938 event EV_SW:0:1 part1 { name portrait x 0 y 0 } part2 { name device # 前景图片从背景图片中扣图时的起始坐标，以左上角为0，0计算 x 54 y 236 } } } // 将会在创建模拟器时透传给底层配置的字段 props { // 屏幕形状。可选值： circle（圆形）、rect(矩形)、pill-shaped（胶囊形屏eg: 全面屏手环） shape circle // 屏幕密度，可选值： ['120'，'140'，'160'，'180'，'213'，'240'，'280'，'320'，'340'，'360'，'400'，'420'，'440'，'480'，'560'，'640'] density 320 // 设备类型，可选值：phone（手机）、watch（手表）、pad（平板）、car（车机）、tv（电视）、band（手环）smartspeaker（音响），默认watch flavor watch } ```
-
-## # 应用皮肤文件
+## 应用皮肤文件
 
 在通过通过 `AIoT-IDE` 打开 `SKD` 目录，该目录下有一个 **skins** 目录，在 **skins/user** 目录下新建一个文件夹名称为你的皮肤名称，将制作好的文件放入其中，如果 skins下没有user，则先创建 user 目录 ，再次使用 IDE 创建模拟器时即可选择应用该皮肤。
 
@@ -113,7 +114,7 @@ SDK目录是一个以点开头的目录，请提前打开操作系统的隐藏�
 
 ![alt text](../../images/ide-skin-4.5f36372e.png)
 
-## # layout详解
+## layout详解
 
 其中的 layout 文件中的内容如下：
 

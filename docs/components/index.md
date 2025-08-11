@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/ -->
 
-# # 组件
+# 组件
 
 组件分为预定义组件和自定义组件。
 

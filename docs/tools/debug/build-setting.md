@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/debug/build-setting.html -->
 
-# # 编译设置
+# 编译设置
 
 编译设置功能可自定义模拟器运行时打开的页面和页面缓存,未进行设置时会默认读取项目中的`manifest.json`中的router配置
 

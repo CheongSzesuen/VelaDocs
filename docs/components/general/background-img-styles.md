@@ -1,10 +1,10 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/general/background-img-styles.html -->
 
-# # 背景图样式
+# 背景图样式
 
 当需要往页面组件内添加一个图片作为组件背景的时候，开发者可以对这个图片背景的大小、重复放置的模式、放置位置进行调整。
 
-## # background-size 属性
+## background-size 属性
 
 该属性定义了背景图片的大小。
 
@@ -25,14 +25,15 @@
 无效参数统一解析为默认值`auto`，即原图尺寸。
 
 **示例**
-
-``` <template> <div class="page"> <text>图片大小 128 * 128</text> <text>背景容器 300 * 200</text> <image src= "../../common/logo.png"> <div class="imgBg"></div> </div> </template> <style> .page { flex-direction: column; align-items: center; background-color: #000; } text { color: #fff; font-size: 24px; } .imgBg { width: 300px; height: 200px; margin-top: 20px; border: 2px solid yellowgreen; background-color: yellowgreen; background-image: url('../../common/logo.png'); background-size: 300px 200px; background-repeat: no-repeat; // 暂未支持，以防支持之后样式显示异常建议加上 } </style> ```
+```html
+< template > < div class = " page " > < text > 图片大小 128 * 128 </ text > < text > 背景容器 300 * 200 </ text > < image src = " ../../common/logo.png " > < div class = " imgBg " > </ div > </ div > </ template > < style > .page { flex-direction : column ; align-items : center ; background-color : #000 ; } text { color : #fff ; font-size : 24px ; } .imgBg { width : 300px ; height : 200px ; margin-top : 20px ; border : 2px solid yellowgreen ; background-color : yellowgreen ; background-image : url ('../../common/logo.png') ; background-size : 300px 200px ; background-repeat : no-repeat ; // 暂未支持，以防支持之后样式显示异常建议加上 } </ style >
+```
 
 **效果**
 
 ![](../../images/background-size.83a0d7ab.jpeg)
 
-## # background-repeat 属性（暂未实现）
+## background-repeat 属性（暂未实现）
 
 该属性定义了背景图片在组件中的重复方式，背景图片可以沿着水平轴、竖直轴、两个轴重复，或者不重复。
 
@@ -50,12 +51,15 @@
 无效参数会被解析为默认值，即`repeat`。
 
 **示例**
+```html
+< div class = " container " > < div class = " img " > </ div > </ div > < style > .container { width : 365px ; height : 365px ; background-color : #c7c7c7 ; } .img { width : 100% ; height : 100% ; background-image : url ('../common/logo.png') ; /* 等比例缩放背景图片到宽度为组件宽的一半 */ background-size : 50% ; /* 在水平方向和竖直方向上重复绘制 */ background-repeat : repeat ; /* 背景图片处于组件中央 */ background-position : center ; } </ style >
+```
 
-``` <div class="container"> <div class="img"></div> </div> <style> .container { width: 365px; height: 365px; background-color: #c7c7c7; } .img { width: 100%; height: 100%; background-image: url('../common/logo.png'); /* 等比例缩放背景图片到宽度为组件宽的一半 */ background-size: 50%; /* 在水平方向和竖直方向上重复绘制 */ background-repeat: repeat; /* 背景图片处于组件中央 */ background-position: center; } </style> ```
+```css
+.img { width : 100% ; height : 100% ; background-image : url ('../common/logo.png') ; /* 等比例缩放背景图片到宽度为100px */ background-size : 100px ; /* 背景图片不重复绘制 */ background-repeat : no-repeat ; /* 背景图片距离组件左边缘20px，和上下边缘的距离比为3:7 */ background-position : left 20px top 30% ; }
+```
 
-``` .img { width: 100%; height: 100%; background-image: url('../common/logo.png'); /* 等比例缩放背景图片到宽度为100px */ background-size: 100px; /* 背景图片不重复绘制 */ background-repeat: no-repeat; /* 背景图片距离组件左边缘20px，和上下边缘的距离比为3:7 */ background-position: left 20px top 30%; } ```
-
-## # background-position 属性
+## background-position 属性
 
 该属性定义了背景图片在组件中的位置。
 
@@ -100,14 +104,15 @@ _**默认值**_ 是 `left top` 或者 `0% 0%`。
 无效参数全部解析为默认值（0px, 0px），即图片显示在组件的左上角。
 
 **示例**
-
-``` <template> <div class="page"> <text>图片大小 128 * 128</text> <text>背景容器 300 * 200</text> <image src= "../../common/logo.png"> <div class="imgBg"></div> </div> </template> <style> .page { flex-direction: column; align-items: center; background-color: #000; } text { color: #fff; font-size: 24px; } .imgBg { width: 300px; height: 200px; margin-top: 20px; border: 2px solid yellowgreen; background-color: yellowgreen; background-image: url('../../common/logo.png'); background-size: cover; background-position: right bottom; background-repeat: no-repeat; // 暂未支持，以防支持之后样式显示异常建议加上 } </style> ```
+```html
+< template > < div class = " page " > < text > 图片大小 128 * 128 </ text > < text > 背景容器 300 * 200 </ text > < image src = " ../../common/logo.png " > < div class = " imgBg " > </ div > </ div > </ template > < style > .page { flex-direction : column ; align-items : center ; background-color : #000 ; } text { color : #fff ; font-size : 24px ; } .imgBg { width : 300px ; height : 200px ; margin-top : 20px ; border : 2px solid yellowgreen ; background-color : yellowgreen ; background-image : url ('../../common/logo.png') ; background-size : cover ; background-position : right bottom ; background-repeat : no-repeat ; // 暂未支持，以防支持之后样式显示异常建议加上 } </ style >
+```
 
 **效果**
 
 ![](../../images/background-position.195a1e2b.jpeg)
 
-## # 支持明细
+## 支持明细
 
 设备产品 | 说明  
 ---|---  

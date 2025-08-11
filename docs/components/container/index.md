@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/components/container/ -->
 
-# # 容器组件
+# 容器组件
 
 一般来说，指可以包含子组件的组件。
 

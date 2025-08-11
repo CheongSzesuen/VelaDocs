@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/dev/build.html -->
 
-# # 应用热更新
+# 应用热更新
 
 在使用`AIoT-IDE`开发**Xiaomi Vela JS 应用** 时，还内置了热更新功能。开发者在通过点击**顶部操作栏**`运行`或`调试`按钮，运行模拟器时会时刻监听文件变化。
 

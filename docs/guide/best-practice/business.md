@@ -1,8 +1,8 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/best-practice/business.html -->
 
-# # 常用业务优化
+# 常用业务优化
 
-## # list与长文案优化
+## list与长文案优化
 
 说明
 
@@ -18,10 +18,11 @@ list列表，在初始化渲染时，原则上，如果内容超过10条，建�
 
     * 通常建议是用二维码显示协议链接，通过扫码在手机上浏览也是一种比较常用的设计。
     * 如果产品需要一次性全量渲染，会一定程度上造成页面的渲染卡顿，影响首次渲染的用户体验，这里推荐的是分块渲染文案。下面是代码示例：
+```html
+<!-- 渲染文案的区域,同时绑定handleScroll滚动监听 --> < template > < scroll id = " scroll " scroll-y = " true " class = " scroll " onscroll = " handleScroll " > < div id = " content " class = " connent " > < block if = " {{currentKey >= 0}} " > < text class = " header-1 " > {{contentArray[0]}} </ text > </ block > < block if = " {{currentKey >= 1}} " > < text class = " header-1 " > {{contentArray[1]}} </ text > </ block > < block if = " {{currentKey >= 2}} " > < text class = " header-1 " > {{contentArray[2]}} </ text > </ block > </ div > </ scroll > </ template > <!-- 把文案内容以数组形式保存，并记录当前所渲染的文案的序列号 --> < script > export default { data : { contentArray : [ { content : '文案一..........' } , { content : '文案二..........' } , { content : '文案三..........' } ] , //当前所需所渲染到的文案序列号 currentKey : 0 , //当前总高度 currentTHEight : 0 , } //onReady时先给当前总高度赋一次值 onReady () { this . $element ('content') . getBoundingClientRect ({ success : (data) => { const { height } = data ; this.currentTHEight = height } }) } //实时判断滚动高度与总体高度，如果快触底了，则进行下一个文案的加载,同时给总高度重新赋值 handleScroll (e) { if (currentTHEight \- e.scrollY < 40) { this.currentKey = currentKey \+ 1 } this . $element ('content') . getBoundingClientRect ({ success : (data) => { const { height } = data ; this.currentTHEight = height } }) } } </ script >
+```
 
-``` <!-- 渲染文案的区域,同时绑定handleScroll滚动监听 --> <template> <scroll id="scroll" scroll-y="true" class="scroll" onscroll="handleScroll"> <div id="content" class="connent"> <block if="{{currentKey >= 0}}"> <text class="header-1">{{contentArray[0]}}</text> </block> <block if="{{currentKey >= 1}}"> <text class="header-1">{{contentArray[1]}}</text> </block> <block if="{{currentKey >= 2}}"> <text class="header-1">{{contentArray[2]}}</text> </block> </div> </scroll> </template> <!-- 把文案内容以数组形式保存，并记录当前所渲染的文案的序列号 --> <script> export default { data:{ contentArray:[ { content:'文案一..........' }, { content:'文案二..........' }, { content:'文案三..........' } ], //当前所需所渲染到的文案序列号 currentKey:0, //当前总高度 currentTHEight:0, } //onReady时先给当前总高度赋一次值 onReady(){ this.$element('content').getBoundingClientRect({ success: (data) => { const { height } = data; this.currentTHEight = height } }) } //实时判断滚动高度与总体高度，如果快触底了，则进行下一个文案的加载,同时给总高度重新赋值 handleScroll(e) { if(currentTHEight - e.scrollY <40){ this.currentKey = currentKey + 1 } this.$element('content').getBoundingClientRect({ success: (data) => { const { height } = data; this.currentTHEight = height } }) } } </script> ```
-
-## # Swiper 多图优化
+## Swiper 多图优化
 
 说明
 
@@ -41,30 +42,36 @@ list列表，在初始化渲染时，原则上，如果内容超过10条，建�
   * 具体实现思路
 
 在代码中通过`@change`事件监听`swiper`的滑动。判断左滑右滑逻辑如下：
-
-``` // 判断右滑 if ( (!(this.currentIndex === 0 && index === length - 1) && index > this.currentIndex) || (index === 0 && this.currentIndex === length - 1) ) { }else{ } ```
+```js
+// 判断右滑 if ((! (this.currentIndex === 0 && index === length \- 1) && index > this.currentIndex) || (index === 0 && this.currentIndex === length \- 1)) { } else { }
+```
 
 右滑的逻辑如下：
-
-``` //更新数据索引 this.dataIndex = this.dataIndex + 1 //更新下一次右滑的索引 const updateIndex = this.dataIndex + 1 if (updateIndex < this.bigThumbnailInfo.length) { //下一次右滑更新为当前的下一张 updateItem = this.bigThumbnailInfo[updateIndex] // 如果滑动前是 if (this.currentIndex === 0) { //未滑动前是第一张，右滑更新swiper的最后一个 this.data[length - 1] = updateItem resIndex = length - 1 } else { // console.info("右滑：更新左边的") this.data[this.currentIndex - 1] = updateItem resIndex = this.currentIndex - 1 } } ```
+```js
+//更新数据索引 this.dataIndex = this.dataIndex \+ 1 //更新下一次右滑的索引 const updateIndex = this.dataIndex \+ 1 if (updateIndex < this.bigThumbnailInfo.length) { //下一次右滑更新为当前的下一张 updateItem = this.bigThumbnailInfo [ updateIndex ] // 如果滑动前是 if (this.currentIndex === 0) { //未滑动前是第一张，右滑更新swiper的最后一个 this.data [ length \- 1 ] = updateItem resIndex = length \- 1 } else { // console.info("右滑：更新左边的") this.data [ this.currentIndex \- 1 ] = updateItem resIndex = this.currentIndex \- 1 } }
+```
 
 左滑代码逻辑如下：
-
-``` //更新数据索引 this.dataIndex = this.dataIndex - 1 //更新下一次右滑的索引 const updateIndex = this.dataIndex - 1 //下一次左滑更新为当前的上一张 updateItem = this.bigThumbnailInfo[updateIndex] if (this.currentIndex === length - 1) { //未滑动前在最后一张，左滑更新swiper第一个 this.data[0] = updateItem resIndex = 0 } else { this.data[this.currentIndex + 1] = updateItem resIndex = this.currentIndex + 1 } ```
+```js
+//更新数据索引 this.dataIndex = this.dataIndex \- 1 //更新下一次右滑的索引 const updateIndex = this.dataIndex \- 1 //下一次左滑更新为当前的上一张 updateItem = this.bigThumbnailInfo [ updateIndex ] if (this.currentIndex === length \- 1) { //未滑动前在最后一张，左滑更新swiper第一个 this.data [ 0 ] = updateItem resIndex = 0 } else { this.data [ this.currentIndex \+ 1 ] = updateItem resIndex = this.currentIndex \+ 1 }
+```
 
 判断如果当前是最后一张图片代码如下：
-
-``` this.data = [ this.bigThumbnailInfo[len - 3], this.bigThumbnailInfo[len - 2], this.bigThumbnailInfo[len - 1] ] indexTemp = 2 this.swiperIndex = this.currentIndex this.isloop = false ```
+```js
+this.data = [ this.bigThumbnailInfo [ len \- 3 ] , this.bigThumbnailInfo [ len \- 2 ] , this.bigThumbnailInfo [ len \- 1 ] ] indexTemp = 2 this.swiperIndex = this.currentIndex this.isloop = false
+```
 
 判断即将更新的图片是第一张图片：
-
-``` this.data = [ this.bigThumbnailInfo[0], this.bigThumbnailInfo[1], this.bigThumbnailInfo[2] ] indexTemp = 0 this.swiperIndex = this.currentIndex this.isloop = false ```
+```js
+this.data = [ this.bigThumbnailInfo [ 0 ] , this.bigThumbnailInfo [ 1 ] , this.bigThumbnailInfo [ 2 ] ] indexTemp = 0 this.swiperIndex = this.currentIndex this.isloop = false
+```
 
 如果不是第一张也不是最后一张图片，设置`swiper`的`loop`为`true`:
+```js
+this.isloop = true
+```
 
-``` this.isloop = true ```
-
-## # 设备帧率的优化建议
+## 设备帧率的优化建议
 
   * 有背景图或者图片的时候，尽量减少设置`border-radius`，使用带圆角的图片
   * 图片大小与`div`或者`image`组件大小保持一致，尽量不缩放图片
@@ -72,7 +79,7 @@ list列表，在初始化渲染时，原则上，如果内容超过10条，建�
   * 减少标签的`嵌套层级`
   * 减少回流重绘
 
-## # 其他优化建议
+## 其他优化建议
 
   * 增加try catch捕获异常
   * 数据请求较慢的场景建议增加loading

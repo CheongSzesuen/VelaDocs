@@ -1,33 +1,35 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/basic/device.html -->
 
-# # 设备信息 device
+# 设备信息 device
 
-## # 接口声明
+## 接口声明
+```json
+{ "name" : "system.device" }
+```
 
-``` { "name": "system.device" } ```
+## 导入模块
+```javascript
+import device from '@system.device' // 或 const device = require('@system.device')
+```
 
-## # 导入模块
+## 接口定义
 
-``` import device from '@system.device' // 或 const device = require('@system.device') ```
-
-## # 接口定义
-
-### # device.getInfo(OBJECT)
+### device.getInfo(OBJECT)
 
 获取设备信息
 
-#### # 参数：
+#### 参数：
 
 参数名 | 类型 | 必填 | 说明  
----|---|---|---  
+---|:---:|---|---  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
 complete | Function | 否 | 执行结束后的回调  
   
-#### # success 返回值：
+#### success 返回值：
 
 参数值 | 类型 | 说明  
----|---|---  
+---|:---:|---  
 brand | string | 设备品牌  
 manufacturer | string | 设备生产商  
 model | string | 设备型号  
@@ -46,104 +48,111 @@ screenDensity[3+](</vela/quickapp/zh/guide/version/APILevel3>) | number | 屏幕
 screenShape | string | 屏幕形状，可取值：rect 表示方形屏，circle 表示圆形屏，pill-shaped[3+](</vela/quickapp/zh/guide/version/APILevel3>) 表示胶囊形屏  
 deviceType[2+](</vela/quickapp/zh/guide/version/APILevel2>) | string | 设备类型，可取值：watch、band、smartspeaker  
   
-#### # 示例：
+#### 示例：
+```javascript
+device.getInfo({ success : function(ret){ console.log(` handling success， brand = ${ ret.brand } `)} })
+```
 
-``` device.getInfo({ success: function(ret) { console.log(`handling success， brand = ${ret.brand}`) } }) ```
-
-### # device.getDeviceId(OBJECT)
+### device.getDeviceId(OBJECT)
 
 获取设备唯一标识
 
-#### # 权限要求
+#### 权限要求
 
 获取设备信息
 
 开发者需要在 manifest.json 里面配置权限：
+```json
+{ "permissions" : [ { "name" : "hapjs.permission.DEVICE_INFO" } ] }
+```
 
-``` { "permissions": [ { "name": "hapjs.permission.DEVICE_INFO" } ] } ```
-
-#### # 参数：
+#### 参数：
 
 参数名 | 类型 | 必填 | 说明  
----|---|---|---  
+---|:---:|---|---  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
 complete | Function | 否 | 执行结束后的回调  
   
-#### # success 返回值：
+#### success 返回值：
 
 参数值 | 类型 | 说明  
----|---|---  
+---|:---:|---  
 deviceId | String | 设备唯一标识  
   
-#### # 示例：
+#### 示例：
+```javascript
+device.getDeviceId({ success : function(data){ console.log(` handling success: ${ data.deviceId } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} , })
+```
 
-``` device.getDeviceId({ success: function (data) { console.log(`handling success: ${data.deviceId}`) }, fail: function (data, code) { console.log(`handling fail, code = ${code}`) }, }) ```
-
-### # device.getSerial(OBJECT)
+### device.getSerial(OBJECT)
 
 获取设备序列号
 
-#### # 权限要求
+#### 权限要求
 
 获取设备信息
 
 开发者需要在 manifest.json 里面配置权限：
+```json
+{ "permissions" : [ { "name" : "hapjs.permission.DEVICE_INFO" } ] }
+```
 
-``` { "permissions": [ { "name": "hapjs.permission.DEVICE_INFO" } ] } ```
-
-#### # 参数：
+#### 参数：
 
 参数名 | 类型 | 必填 | 说明  
----|---|---|---  
+---|:---:|---|---  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
 complete | Function | 否 | 执行结束后的回调  
   
-#### # success 返回值：
+#### success 返回值：
 
 参数值 | 类型 | 说明  
----|---|---  
-serial | String | 设备序列号  
-  
-``` device.getSerial({ success: (data) => { console.log(`handling success: ${data.serial}`) }, fail: (data, code) => { console.log(`handling fail, code = ${code}`) } }) ```
+---|:---:|---  
+serial | String | 设备序列号
+```javascript
+device.getSerial({ success :(data)=> { console.log(` handling success: ${ data.serial } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+```
 
-### # device.getTotalStorage(OBJECT)
+### device.getTotalStorage(OBJECT)
 
 获取存储空间的总大小
 
-#### # 参数：
+#### 参数：
 
 参数名 | 类型 | 必填 | 说明  
----|---|---|---  
+---|:---:|---|---  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
 complete | Function | 否 | 执行结束后的回调  
   
-#### # success 返回值：
+#### success 返回值：
 
 参数值 | 类型 | 说明  
----|---|---  
-totalStorage | Number | 存储空间的总大小，单位是 Byte  
-  
-``` device.getTotalStorage({ success: (data) => { console.log(`handling success: ${data.totalStorage}`) }, fail: (data, code) => { console.log(`handling fail, code = ${code}`) } }) ```
+---|:---:|---  
+totalStorage | Number | 存储空间的总大小，单位是 Byte
+```javascript
+device.getTotalStorage({ success :(data)=> { console.log(` handling success: ${ data.totalStorage } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+```
 
-### # device.getAvailableStorage(OBJECT)
+### device.getAvailableStorage(OBJECT)
 
 获取存储空间的可用大小
 
-#### # 参数：
+#### 参数：
 
 参数名 | 类型 | 必填 | 说明  
----|---|---|---  
+---|:---:|---|---  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
 complete | Function | 否 | 执行结束后的回调  
   
-#### # success 返回值：
+#### success 返回值：
 
 参数值 | 类型 | 说明  
----|---|---  
-availableStorage | Number | 存储空间的可用大小，单位是 Byte  
-  
-``` device.getAvailableStorage({ success: (data) => { console.log(`handling success: ${data.availableStorage}`) }, fail: (data, code) => { console.log(`handling fail, code = ${code}`) } }) ```
+---|:---:|---  
+availableStorage | Number | 存储空间的可用大小，单位是 Byte
+```javascript
+device.getAvailableStorage({ success :(data)=> { console.log(` handling success: ${ data.availableStorage } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+```

@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/system/ -->
 
-# # 系统能力
+# 系统能力
 
 提供一些系统能力。
 

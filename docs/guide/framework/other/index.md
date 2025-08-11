@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/other/ -->
 
-# # 框架扩展能力
+# 框架扩展能力
 
 框架其他扩展能力。
 

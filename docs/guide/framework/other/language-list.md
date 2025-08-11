@@ -3,7 +3,7 @@
 支持的语言列表如下：
 
 <语言代码>-<国家代码> | 中文 | 英语  
----|---|---  
+---|:---:|---  
 az-AZ | 阿塞拜疆语 | Azerbaijani  
 ms-MY | 马来语 | Bahasa Melayu  
 bs-BA | 波斯尼亚语 | Bosnian  

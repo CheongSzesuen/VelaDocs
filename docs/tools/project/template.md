@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/project/template.html -->
 
-# # 项目类型
+# 项目类型
 
 `AIoT-IDE`不仅支持**Xiaomi Vela JS** 应用项目，还支持对快应用项目的创建.
 

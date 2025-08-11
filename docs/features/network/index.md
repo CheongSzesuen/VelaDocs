@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/network/ -->
 
-# # 网络访问
+# 网络访问
 
 提供远程数据请求和本地蓝牙连接设备之间通信的能力。
 

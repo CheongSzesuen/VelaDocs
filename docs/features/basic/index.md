@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/basic/ -->
 
-# # 基本功能
+# 基本功能
 
 获取应用、平台、框架、系统基本信息，以及应用内页面导航。
 

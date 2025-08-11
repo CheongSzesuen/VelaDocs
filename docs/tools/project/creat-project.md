@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/project/creat-project.html -->
 
-# # 新建项目
+# 新建项目
 
 `AIoT-IDE`提供了对**Xiaomi Vela JS** 应用项目的新建和管理功能。
 

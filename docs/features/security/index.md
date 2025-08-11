@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/security/ -->
 
-# # 安全
+# 安全
 
 提供安全、加密相关能力。
 

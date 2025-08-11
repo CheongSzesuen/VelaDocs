@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/debug/debug.html -->
 
-# # 调试运行
+# 调试运行
 
 点击`选择设备`按钮，选择要运行模拟器，点击确定，再点击`调试`按钮将启动对应模拟器。
 

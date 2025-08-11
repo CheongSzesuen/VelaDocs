@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/release/start.html -->
 
-# # 打包应用
+# 打包应用
 
 **`Xiaomi Vela JS 应用`** 应用的封装采用了专门的 .rpk 文件格式，而在 `AIoT-IDE` 中，我们在**顶部操作栏** 提供了打包，发布两个按钮对项目进行打包，如下图**标签1，2** 所示。
 
