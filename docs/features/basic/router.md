@@ -117,6 +117,21 @@ path | String | 否 | 返回目标页面的路径，可以是以下几种取值�
 router.clear()
 ```
 
+### router.getLength()
+
+获取当前页面栈的页面数量
+
+#### 返回值:
+
+类型 | 说明  
+---|---  
+Number | 页面数量  
+  
+#### 示例：
+```javascript
+var length = router.getLength() console.log(` page's length = ${ length } `)
+```
+
 ### router.getState()
 
 获取当前页面状态
@@ -132,4 +147,26 @@ path | String | 当前页面的路径
 #### 示例：
 ```javascript
 var page = router.getState() console.log(` page index = ${ page.index } `)console.log(` page name = ${ page.name } `)console.log(` page path = ${ page.path } `)
+```
+
+### router.getPages()
+
+获取当前页面栈列表
+
+#### 返回值：
+
+类型 | 说明  
+---|---  
+Array | 页面栈列表。数组每一项都为 Object 类型  
+  
+数组每一项构成：
+
+字段 | 类型 | 说明  
+---|:---:|---  
+name | String | 页面的名称  
+path | String | 页面的路径  
+  
+#### 示例：
+```javascript
+var stacks = router.getPages() console.log('栈底页面名称为：' , stacks [ 0 ] . name)// 如 list、detail 等 console.log('栈底页面路径为：' , stacks [ 0 ] . path)// 如 /list、/detail、/home/preview
 ```

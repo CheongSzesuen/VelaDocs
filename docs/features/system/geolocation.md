@@ -40,10 +40,10 @@ complete | Function | 否 | 执行结束后的回调
 
 参数名 | 类型 | 说明  
 ---|:---:|---  
-longitude | Number | 经度，小数点后四舍五入保留五位小数，下同  
-latitude | Number | 纬度  
-altitude | Number | 海拔、高度，单位m  
-speed | Number | 速度值，单位m/s  
+longitude | Number | 经度，浮点数  
+latitude | Number | 纬度，浮点数  
+altitude | Number | 海拔、高度，单位m，浮点数  
+speed | Number | 速度值，单位m/s，浮点数  
 accuracy | Number | 精确度，值为正整数  
 accuracyInfo | { horizontal: Number, vertical: Number } | 精确度信息，包含水平和垂直方向精准度  
   
@@ -83,10 +83,10 @@ fail | Function | 否 | 失败回调
 
 参数名 | 类型 | 说明  
 ---|:---:|---  
-longitude | Number | 经度，小数点后四舍五入保留五位小数，下同  
-latitude | Number | 纬度  
-altitude | Number | 海拔、高度，单位m  
-speed | Number | 速度值，单位m/s  
+longitude | Number | 经度，浮点数  
+latitude | Number | 纬度，浮点数  
+altitude | Number | 海拔、高度，单位m，浮点数  
+speed | Number | 速度值，单位m/s，浮点数  
 accuracy | Number | 精确度，值为正整数  
   
 #### fail 返回错误代码：

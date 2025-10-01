@@ -12,4 +12,5 @@
   * [传感器](</vela/quickapp/zh/features/system/sensor.html>)
   * [事件](</vela/quickapp/zh/features/system/event.html>)
   * [电量信息](</vela/quickapp/zh/features/system/battery.html>)
+  * [解压缩](</vela/quickapp/zh/features/system/zip.html>)
 
