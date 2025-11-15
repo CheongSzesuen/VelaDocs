@@ -81,31 +81,55 @@ class ColoredOutput:
         return f"{ColoredOutput.CYAN}[INFO]{ColoredOutput.RESET} {text}"
 
 
-class ProgressBar:
-    """简单的进度条"""
-    def __init__(self, total, width=50):
-        self.total = total
-        self.width = width
-        self.current = 0
+class RealTimeStats:
+    """实时统计信息类"""
+    def __init__(self):
+        self.processed_pages = 0
+        self.failed_pages = 0
+        self.downloaded_assets = 0
+        self.currently_processing = ""  # 当前正在处理的 URL
         self.lock = threading.Lock()
+        self.start_time = datetime.now()
 
-    def update(self, increment=1):
+    def update_processing(self, url):
         with self.lock:
-            self.current += increment
-            percentage = int((self.current / self.total) * 100)
-            filled = int((self.current / self.total) * self.width)
-            bar = '█' * filled + '░' * (self.width - filled)
-            sys.stdout.write(f'\r|{bar}| {percentage}% ({self.current}/{self.total})')
-            sys.stdout.flush()
+            self.currently_processing = url
 
-    def finish(self):
-        print()  # 换行
+    def inc_processed(self):
+        with self.lock:
+            self.processed_pages += 1
+
+    def inc_failed(self):
+        with self.lock:
+            self.failed_pages += 1
+
+    def inc_assets(self):
+        with self.lock:
+            self.downloaded_assets += 1
+
+    def get_stats(self):
+        with self.lock:
+            return {
+                'processed': self.processed_pages,
+                'failed': self.failed_pages,
+                'assets': self.downloaded_assets,
+                'current': self.currently_processing,
+                'elapsed': datetime.now() - self.start_time
+            }
+
+    def display_line(self):
+        stats = self.get_stats()
+        elapsed_str = str(stats['elapsed']).split('.')[0] # 移除微秒
+        # 使用 \r 开头，\033[K 清除行尾内容
+        sys.stdout.write(f"\r{ColoredOutput.CYAN}[INFO]{ColoredOutput.RESET} 已耗时: {elapsed_str} | 已处理: {stats['processed']} | 失败: {stats['failed']} | 资源: {stats['assets']} | 当前: {stats['current'][:50]}{'...' if len(stats['current']) > 50 else ''}\033[K")
+        sys.stdout.flush()
 
 
 class MarkdownScraper:
-    def __init__(self, base_url, output_dir="docs"):
+    def __init__(self, base_url, output_dir="docs", stats=None):
         self.base_url = base_url.rstrip('/')
         self.output_dir = Path(output_dir).resolve()
+        self.stats = stats if stats else RealTimeStats() # 接收外部传入的统计对象
 
         # --- 新增逻辑：根据 base_url 确定子目录 ---
         parsed_base = urlparse(self.base_url)
@@ -120,9 +144,6 @@ class MarkdownScraper:
 
         self.visited = set()
         self.asset_map = {}
-        self.processed_pages = 0
-        self.failed_pages = 0
-        self.downloaded_assets = 0
 
         self.session = requests.Session()
         self.session.headers.update({
@@ -133,9 +154,6 @@ class MarkdownScraper:
 
         # 确保最终的输出目录存在
         self.output_dir.mkdir(parents=True, exist_ok=True)
-
-        # 用于进度条的锁
-        self.stats_lock = threading.Lock()
 
     def _get_relative_path(self, url):
         parsed_url = urlparse(url)
@@ -173,17 +191,17 @@ class MarkdownScraper:
                 with open(save_path, 'wb') as f:
                     for chunk in response.iter_content(1024):
                         f.write(chunk)
-                # 更新统计
-                with self.stats_lock:
-                    self.downloaded_assets += 1
-                print(ColoredOutput.status_success(f"Asset downloaded: {filename}"))
+                self.stats.inc_assets()
+                # 不再打印单个资源下载信息，保持行内更新
+                # print(ColoredOutput.status_success(f"Asset downloaded: {filename}"))
 
             relative_path = f"{asset_type}/{filename}"
             self.asset_map[url] = relative_path
             return relative_path
 
         except Exception as e:
-            print(ColoredOutput.status_error(f"Asset download failed: {url} - {e}"))
+            print() # 换行以避免与行内统计冲突
+            print(ColoredOutput.status_error(f"资源下载失败: {url} - {e}"))
             return url
 
     def _clean_markdown(self, markdown):
@@ -284,17 +302,19 @@ class MarkdownScraper:
         with open(md_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
 
-        # 更新统计
-        with self.stats_lock:
-            self.processed_pages += 1
-        print(ColoredOutput.status_success(f"Saved: {md_path.relative_to(self.output_dir)}"))
+        self.stats.inc_processed()
+        # 不再打印单个文件保存信息，保持行内更新
+        # print(ColoredOutput.status_success(f"Saved: {md_path.relative_to(self.output_dir)}"))
         return md_path
 
     def process_page(self, url):
         if url in self.visited:
             return set()
 
-        print(ColoredOutput.status_processing(f"Processing: {url}"))
+        self.stats.update_processing(url) # 更新当前处理的URL
+        # 注意：这里不直接打印，而是通过定时器在行内更新
+        # print(ColoredOutput.status_processing(f"Processing: {url}"))
+
         self.visited.add(url)
 
         try:
@@ -330,75 +350,97 @@ class MarkdownScraper:
             return new_links
 
         except Exception as e:
-            print(ColoredOutput.status_error(f"Failed to process: {url} - {e}"))
-            # 更新失败统计
-            with self.stats_lock:
-                self.failed_pages += 1
+            print() # 换行以避免与行内统计冲突
+            print(ColoredOutput.status_error(f"处理失败: {url} - {e}"))
+            self.stats.inc_failed()
             return set()
 
-    def crawl(self, start_url=None, max_workers=16, delay=0.3):
-        start_url = start_url or self.base_url
-        self.visited = set()
 
-        print("\n" + "="*80)
-        print(ColoredOutput.bold(ColoredOutput.magenta("🚀 开始爬取任务")))
-        print("="*80)
-        print(f"  📌 目标 URL: {ColoredOutput.cyan(start_url)}")
-        print(f"  📁 输出目录: {ColoredOutput.cyan(self.output_dir)}")
-        print(f"  👥 并发线程数: {ColoredOutput.yellow(max_workers)}")
-        print(f"  ⏱️  请求间隔: {ColoredOutput.yellow(delay)}s")
-        print("-"*80)
+def run_crawler_with_realtime_stats(scraper_instance, start_url, max_workers, delay):
+    """在单独的线程中运行爬虫，并在主线程中更新实时统计"""
+    import threading
+    import time
 
-        all_urls_to_process = {start_url}
-        processed_urls = set()
-        futures_map = {}
+    stats = scraper_instance.stats
+    stop_display = threading.Event()
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # 提交第一个任务
-            futures_map[executor.submit(self.process_page, start_url)] = start_url
+    def display_loop():
+        while not stop_display.is_set():
+            stats.display_line()
+            time.sleep(0.5) # 每0.5秒更新一次显示
 
-            while futures_map:
-                for future in as_completed(futures_map):
-                    url = futures_map[future]
-                    try:
-                        new_links = future.result()
-                        processed_urls.add(url)
-                        
-                        # 添加新发现的链接到待处理集合
-                        for link in new_links:
-                            if link not in processed_urls and link not in all_urls_to_process:
-                                all_urls_to_process.add(link)
-                        
-                        # 如果还有未处理的链接，提交新任务
-                        submitted_this_round = 0
-                        for link in list(all_urls_to_process - processed_urls):
-                            if submitted_this_round < max_workers: # 限制此轮提交数量
-                                time.sleep(delay)
-                                futures_map[executor.submit(self.process_page, link)] = link
-                                submitted_this_round += 1
-                            else:
-                                break # 避免一次性提交过多任务
+    # 启动显示线程
+    display_thread = threading.Thread(target=display_loop, daemon=True)
+    display_thread.start()
 
-                    except Exception as e:
-                        print(ColoredOutput.status_error(f"Task failed: {url} - {e}"))
-                        with self.stats_lock:
-                            self.failed_pages += 1
-                    finally:
-                        del futures_map[future]
+    # 在当前线程运行爬虫主逻辑
+    start_url = start_url or scraper_instance.base_url
+    scraper_instance.visited = set()
 
-        print("\n" + "="*80)
-        print(ColoredOutput.bold(ColoredOutput.green("✅ 爬取任务完成！")))
-        print("="*80)
-        
-        # 打印最终统计
-        print(f"  📊 已处理页面: {ColoredOutput.green(self.processed_pages)}")
-        print(f"  📊 已下载资源: {ColoredOutput.green(self.downloaded_assets)}")
-        print(f"  ⚠️  失败页面: {ColoredOutput.red(self.failed_pages)}")
-        print(f"  📄 总共访问 URL: {ColoredOutput.yellow(len(self.visited))}")
-        print("-"*80)
-        print(f"  📁 Markdown文件保存在: {ColoredOutput.cyan(self.output_dir)}")
-        print(f"  🖼️  图片保存在: {ColoredOutput.cyan(self.output_dir / 'images')}")
-        print("="*80)
+    print("\n" + "="*80)
+    print(ColoredOutput.bold(ColoredOutput.magenta("🚀 开始爬取任务")))
+    print("="*80)
+    print(f"  目标 URL: {ColoredOutput.cyan(start_url)}")
+    print(f"  输出目录: {ColoredOutput.cyan(scraper_instance.output_dir)}")
+    print(f"  并发线程数: {ColoredOutput.yellow(max_workers)}")
+    print(f"  请求间隔: {ColoredOutput.yellow(delay)}s")
+    print("-"*80)
+    print("  实时状态: ") # 开始行内更新
+
+    all_urls_to_process = {start_url}
+    processed_urls = set()
+    futures_map = {}
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # 提交第一个任务
+        futures_map[executor.submit(scraper_instance.process_page, start_url)] = start_url
+
+        while futures_map:
+            for future in as_completed(futures_map):
+                url = futures_map[future]
+                try:
+                    new_links = future.result()
+                    processed_urls.add(url)
+                    
+                    for link in new_links:
+                        if link not in processed_urls and link not in all_urls_to_process:
+                            all_urls_to_process.add(link)
+                    
+                    submitted_this_round = 0
+                    for link in list(all_urls_to_process - processed_urls):
+                        if submitted_this_round < max_workers:
+                            time.sleep(delay)
+                            futures_map[executor.submit(scraper_instance.process_page, link)] = link
+                            submitted_this_round += 1
+                        else:
+                            break
+
+                except Exception as e:
+                    print() # 换行
+                    print(ColoredOutput.status_error(f"任务失败: {url} - {e}"))
+                    stats.inc_failed()
+                finally:
+                    del futures_map[future]
+
+    # 停止显示线程
+    stop_display.set()
+    display_thread.join()
+
+    # 打印最终结果
+    print("\n" + "="*80) # 换行并打印分隔符
+    print(ColoredOutput.bold(ColoredOutput.green("✅ 爬取任务完成！")))
+    print("="*80)
+    
+    final_stats = stats.get_stats()
+    print(f"  已处理页面: {ColoredOutput.green(final_stats['processed'])}")
+    print(f"  已下载资源: {ColoredOutput.green(final_stats['assets'])}")
+    print(f"  失败页面: {ColoredOutput.red(final_stats['failed'])}")
+    print(f"  总耗时: {ColoredOutput.yellow(str(final_stats['elapsed']).split('.')[0])}")
+    print(f"  总共访问 URL: {ColoredOutput.yellow(len(scraper_instance.visited))}")
+    print("-"*80)
+    print(f"  Markdown文件保存在: {ColoredOutput.cyan(scraper_instance.output_dir)}")
+    print(f"  图片保存在: {ColoredOutput.cyan(scraper_instance.output_dir / 'images')}")
+    print("="*80)
 
 
 if __name__ == "__main__":
@@ -413,15 +455,20 @@ if __name__ == "__main__":
     print(ColoredOutput.bold(ColoredOutput.blue("🔧 小米Vela文档爬取工具")))
     print(ColoredOutput.bold(ColoredOutput.blue("="*50)))
 
+    # 为所有语言版本共享一个统计对象
+    shared_stats = RealTimeStats()
+
     for lang in languages:
         lang_url = f"{DEFAULT_URL}{lang}/"
-        print(f"\n{ColoredOutput.bold(f'--- 🌐 开始爬取 {lang.upper()} 版本 ---')}")
+        print(f"\n{ColoredOutput.bold(f'--- 🌐 开始爬取 {lang.upper()} 版本 ({lang_url}) ---')}")
         
         scraper = MarkdownScraper(
             base_url=lang_url,
-            output_dir=output_dir
+            output_dir=output_dir,
+            stats=shared_stats # 传递共享的统计对象
         )
-        scraper.crawl(
+        run_crawler_with_realtime_stats(
+            scraper_instance=scraper,
             start_url=lang_url,
             max_workers=workers,
             delay=delay
@@ -432,9 +479,15 @@ if __name__ == "__main__":
     print("\n" + "="*80)
     print(ColoredOutput.bold(ColoredOutput.magenta("🎉 所有语言版本爬取完成！")))
     print("="*80)
-    print(f"  📁 总输出目录: {ColoredOutput.cyan(output_dir)}")
-    print(f"  📁 中文版文件: {ColoredOutput.cyan(output_dir + '/zh')}")
-    print(f"  📁 英文版文件: {ColoredOutput.cyan(output_dir + '/en')}")
-    print(f"  🖼️  中文版图片: {ColoredOutput.cyan(output_dir + '/zh/images')}")
-    print(f"  🖼️  英文版图片: {ColoredOutput.cyan(output_dir + '/en/images')}")
+    final_stats = shared_stats.get_stats()
+    print(f"  总计已处理页面: {ColoredOutput.green(final_stats['processed'])}")
+    print(f"  总计已下载资源: {ColoredOutput.green(final_stats['assets'])}")
+    print(f"  总计失败页面: {ColoredOutput.red(final_stats['failed'])}")
+    print(f"  总耗时: {ColoredOutput.yellow(str(final_stats['elapsed']).split('.')[0])}")
+    print(f"  总输出目录: {ColoredOutput.cyan(output_dir)}")
+    print(f"  中文版文件: {ColoredOutput.cyan(output_dir + '/zh')}")
+    print(f"  英文版文件: {ColoredOutput.cyan(output_dir + '/en')}")
+    print(f"  中文版图片: {ColoredOutput.cyan(output_dir + '/zh/images')}")
+    print(f"  英文版图片: {ColoredOutput.cyan(output_dir + '/en/images')}")
     print("="*80)
+
