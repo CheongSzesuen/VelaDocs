@@ -18,6 +18,89 @@ import time
 import hashlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import argparse
+from datetime import datetime
+import threading
+import sys
+
+
+class ColoredOutput:
+    """用于美化输出的类"""
+    # ANSI 转义序列
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
+
+    @staticmethod
+    def red(text):
+        return f"{ColoredOutput.RED}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def green(text):
+        return f"{ColoredOutput.GREEN}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def yellow(text):
+        return f"{ColoredOutput.YELLOW}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def blue(text):
+        return f"{ColoredOutput.BLUE}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def magenta(text):
+        return f"{ColoredOutput.MAGENTA}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def cyan(text):
+        return f"{ColoredOutput.CYAN}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def bold(text):
+        return f"{ColoredOutput.BOLD}{text}{ColoredOutput.RESET}"
+
+    @staticmethod
+    def status_processing(text):
+        return f"{ColoredOutput.YELLOW}[PROCESSING]{ColoredOutput.RESET} {text}"
+
+    @staticmethod
+    def status_success(text):
+        return f"{ColoredOutput.GREEN}[SUCCESS]{ColoredOutput.RESET} {text}"
+
+    @staticmethod
+    def status_error(text):
+        return f"{ColoredOutput.RED}[ERROR]{ColoredOutput.RESET} {text}"
+
+    @staticmethod
+    def status_info(text):
+        return f"{ColoredOutput.CYAN}[INFO]{ColoredOutput.RESET} {text}"
+
+
+class ProgressBar:
+    """简单的进度条"""
+    def __init__(self, total, width=50):
+        self.total = total
+        self.width = width
+        self.current = 0
+        self.lock = threading.Lock()
+
+    def update(self, increment=1):
+        with self.lock:
+            self.current += increment
+            percentage = int((self.current / self.total) * 100)
+            filled = int((self.current / self.total) * self.width)
+            bar = '█' * filled + '░' * (self.width - filled)
+            sys.stdout.write(f'\r|{bar}| {percentage}% ({self.current}/{self.total})')
+            sys.stdout.flush()
+
+    def finish(self):
+        print()  # 换行
+
 
 class MarkdownScraper:
     def __init__(self, base_url, output_dir="docs"):
@@ -27,11 +110,9 @@ class MarkdownScraper:
         # --- 新增逻辑：根据 base_url 确定子目录 ---
         parsed_base = urlparse(self.base_url)
         path_parts = parsed_base.path.strip('/').split('/')
-        # 假设语言标识符是 URL 路径的最后一部分，且是 'zh' 或 'en'
         self.subdir = ''
         if path_parts and path_parts[-1] in ['zh', 'en']:
             self.subdir = path_parts[-1]
-        # ----------------------------
 
         # 如果存在子目录，则调整输出路径
         if self.subdir:
@@ -39,6 +120,9 @@ class MarkdownScraper:
 
         self.visited = set()
         self.asset_map = {}
+        self.processed_pages = 0
+        self.failed_pages = 0
+        self.downloaded_assets = 0
 
         self.session = requests.Session()
         self.session.headers.update({
@@ -50,16 +134,14 @@ class MarkdownScraper:
         # 确保最终的输出目录存在
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+        # 用于进度条的锁
+        self.stats_lock = threading.Lock()
+
     def _get_relative_path(self, url):
-        # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
-        # 例如，如果 base_url 是 https://iot.mi.com/vela/quickapp/zh/    ，url 是 https://iot.mi.com/vela/quickapp/zh/guide/start  
-        # 则 path 是 /vela/quickapp/zh/guide/start，base_path 是 /vela/quickapp/zh
-        # 结果是 /guide/start，去掉开头的 / 变成 guide/start
         parsed_url = urlparse(url)
         parsed_base = urlparse(self.base_url)
         path = parsed_url.path
         base_path = parsed_base.path
-        # 移除 base_path 在 path 中的前缀部分
         rel_path = path.replace(base_path, '', 1).lstrip('/')
         return rel_path
 
@@ -91,13 +173,17 @@ class MarkdownScraper:
                 with open(save_path, 'wb') as f:
                     for chunk in response.iter_content(1024):
                         f.write(chunk)
+                # 更新统计
+                with self.stats_lock:
+                    self.downloaded_assets += 1
+                print(ColoredOutput.status_success(f"Asset downloaded: {filename}"))
 
             relative_path = f"{asset_type}/{filename}"
             self.asset_map[url] = relative_path
             return relative_path
 
         except Exception as e:
-            print(f"资源下载失败: {url} - {e}")
+            print(ColoredOutput.status_error(f"Asset download failed: {url} - {e}"))
             return url
 
     def _clean_markdown(self, markdown):
@@ -147,20 +233,15 @@ class MarkdownScraper:
         for pre in soup.find_all('pre'):
             parent_div = pre.find_parent('div', class_=re.compile('language-'))
             if parent_div:
-                # 提取语言类型
                 lang_match = re.search(r'language-(\w+)', ' '.join(parent_div['class']))
                 language = lang_match.group(1) if lang_match else ''
-
-                # 提取原始代码（保留换行和缩进）
                 code = pre.get_text('\n')
 
-                # 特殊处理JavaScript代码
                 if language == 'javascript':
                     code = re.sub(r'(\w)\s+\.\s+(\w)', r'\1.\2', code)
                     code = re.sub(r'\s+\(\s+', '(', code)
                     code = re.sub(r'\s+\)\s+', ')', code)
 
-                # 替换为Markdown代码块
                 pre.replace_with(f"```{language}\n{code}\n```")
 
         # 处理图片
@@ -203,14 +284,17 @@ class MarkdownScraper:
         with open(md_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
 
-        print(f"已保存: {md_path.relative_to(self.output_dir)}")
+        # 更新统计
+        with self.stats_lock:
+            self.processed_pages += 1
+        print(ColoredOutput.status_success(f"Saved: {md_path.relative_to(self.output_dir)}"))
         return md_path
 
     def process_page(self, url):
         if url in self.visited:
             return set()
 
-        print(f"正在处理: {url}")
+        print(ColoredOutput.status_processing(f"Processing: {url}"))
         self.visited.add(url)
 
         try:
@@ -226,9 +310,7 @@ class MarkdownScraper:
             soup = BeautifulSoup(response.text, 'html.parser')
             new_links = set()
 
-            # --- 修改链接发现逻辑 ---
-            # 获取当前 scraper 实例的基础路径，用于验证发现的链接
-            expected_base_path = urlparse(self.base_url).path # 例如: /vela/quickapp/zh/
+            expected_base_path = urlparse(self.base_url).path
 
             for a in soup.find_all('a', href=True):
                 href = a['href']
@@ -237,11 +319,8 @@ class MarkdownScraper:
                 parsed_full = urlparse(full_url)
                 parsed_base = urlparse(self.base_url)
 
-                # 检查域名是否相同
                 if parsed_full.netloc == parsed_base.netloc:
-                    # 检查路径是否以当前 scraper 的基础路径开头
                     if not parsed_full.path.startswith(expected_base_path):
-                        # 如果发现的链接不是以当前 scraper 的语言路径开头，则跳过
                         continue
 
                     clean_url = full_url.split('#')[0].split('?')[0]
@@ -251,63 +330,111 @@ class MarkdownScraper:
             return new_links
 
         except Exception as e:
-            print(f"处理失败: {url} - {e}")
+            print(ColoredOutput.status_error(f"Failed to process: {url} - {e}"))
+            # 更新失败统计
+            with self.stats_lock:
+                self.failed_pages += 1
             return set()
 
     def crawl(self, start_url=None, max_workers=16, delay=0.3):
         start_url = start_url or self.base_url
         self.visited = set()
 
-        print(f"开始爬取: {start_url}")
-        print(f"输出目录: {self.output_dir}")
+        print("\n" + "="*80)
+        print(ColoredOutput.bold(ColoredOutput.magenta("🚀 开始爬取任务")))
+        print("="*80)
+        print(f"  📌 目标 URL: {ColoredOutput.cyan(start_url)}")
+        print(f"  📁 输出目录: {ColoredOutput.cyan(self.output_dir)}")
+        print(f"  👥 并发线程数: {ColoredOutput.yellow(max_workers)}")
+        print(f"  ⏱️  请求间隔: {ColoredOutput.yellow(delay)}s")
+        print("-"*80)
+
+        all_urls_to_process = {start_url}
+        processed_urls = set()
+        futures_map = {}
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_url = {executor.submit(self.process_page, start_url): start_url}
+            # 提交第一个任务
+            futures_map[executor.submit(self.process_page, start_url)] = start_url
 
-            while future_to_url:
-                for future in as_completed(future_to_url):
-                    url = future_to_url[future]
+            while futures_map:
+                for future in as_completed(futures_map):
+                    url = futures_map[future]
                     try:
                         new_links = future.result()
+                        processed_urls.add(url)
+                        
+                        # 添加新发现的链接到待处理集合
                         for link in new_links:
-                            if link not in self.visited:
+                            if link not in processed_urls and link not in all_urls_to_process:
+                                all_urls_to_process.add(link)
+                        
+                        # 如果还有未处理的链接，提交新任务
+                        submitted_this_round = 0
+                        for link in list(all_urls_to_process - processed_urls):
+                            if submitted_this_round < max_workers: # 限制此轮提交数量
                                 time.sleep(delay)
-                                future_to_url[executor.submit(self.process_page, link)] = link
-                    except Exception as e:
-                        print(f"任务失败: {url} - {e}")
-                    finally:
-                        del future_to_url[future]
+                                futures_map[executor.submit(self.process_page, link)] = link
+                                submitted_this_round += 1
+                            else:
+                                break # 避免一次性提交过多任务
 
-        print(f"\n爬取完成！共处理 {len(self.visited)} 个页面")
-        print(f"Markdown文件保存在: {self.output_dir}")
-        print(f"图片保存在: {self.output_dir}/images")
+                    except Exception as e:
+                        print(ColoredOutput.status_error(f"Task failed: {url} - {e}"))
+                        with self.stats_lock:
+                            self.failed_pages += 1
+                    finally:
+                        del futures_map[future]
+
+        print("\n" + "="*80)
+        print(ColoredOutput.bold(ColoredOutput.green("✅ 爬取任务完成！")))
+        print("="*80)
+        
+        # 打印最终统计
+        print(f"  📊 已处理页面: {ColoredOutput.green(self.processed_pages)}")
+        print(f"  📊 已下载资源: {ColoredOutput.green(self.downloaded_assets)}")
+        print(f"  ⚠️  失败页面: {ColoredOutput.red(self.failed_pages)}")
+        print(f"  📄 总共访问 URL: {ColoredOutput.yellow(len(self.visited))}")
+        print("-"*80)
+        print(f"  📁 Markdown文件保存在: {ColoredOutput.cyan(self.output_dir)}")
+        print(f"  🖼️  图片保存在: {ColoredOutput.cyan(self.output_dir / 'images')}")
+        print("="*80)
+
 
 if __name__ == "__main__":
-    # 修正默认 URL 为基础路径 (移除末尾空格)
     DEFAULT_URL = "https://iot.mi.com/vela/quickapp/"
 
-    # 不再使用命令行参数，直接硬编码
-    base_url = DEFAULT_URL
     output_dir = "docs"
     delay = 0.3
-    workers = 16 # 使用合理的并发数
+    workers = 16
 
-    languages = ['zh', 'en'] # 要爬取的语言版本
+    languages = ['zh', 'en']
+
+    print(ColoredOutput.bold(ColoredOutput.blue("🔧 小米Vela文档爬取工具")))
+    print(ColoredOutput.bold(ColoredOutput.blue("="*50)))
 
     for lang in languages:
-        lang_url = f"{base_url}{lang}/"
-        print(f"\n--- 开始爬取 {lang.upper()} 版本 ---")
+        lang_url = f"{DEFAULT_URL}{lang}/"
+        print(f"\n{ColoredOutput.bold(f'--- 🌐 开始爬取 {lang.upper()} 版本 ---')}")
+        
         scraper = MarkdownScraper(
-            base_url=lang_url, # 使用带语言的 URL 作为基础 URL
-            output_dir=output_dir # 使用总输出目录
+            base_url=lang_url,
+            output_dir=output_dir
         )
         scraper.crawl(
-            start_url=lang_url, # 从带语言的 URL 开始
+            start_url=lang_url,
             max_workers=workers,
             delay=delay
         )
-        print(f"--- {lang.upper()} 版本爬取完成 ---\n")
+        
+        print(f"{ColoredOutput.bold(f'--- ✅ {lang.upper()} 版本爬取完成 ---')}\n")
 
-    print("所有语言版本爬取完成！")
-    print(f"Markdown文件保存在: {output_dir}")
-    print(f"图片保存在: {output_dir}/zh/images 和 {output_dir}/en/images")
+    print("\n" + "="*80)
+    print(ColoredOutput.bold(ColoredOutput.magenta("🎉 所有语言版本爬取完成！")))
+    print("="*80)
+    print(f"  📁 总输出目录: {ColoredOutput.cyan(output_dir)}")
+    print(f"  📁 中文版文件: {ColoredOutput.cyan(output_dir + '/zh')}")
+    print(f"  📁 英文版文件: {ColoredOutput.cyan(output_dir + '/en')}")
+    print(f"  🖼️  中文版图片: {ColoredOutput.cyan(output_dir + '/zh/images')}")
+    print(f"  🖼️  英文版图片: {ColoredOutput.cyan(output_dir + '/en/images')}")
+    print("="*80)
