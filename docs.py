@@ -52,7 +52,7 @@ class MarkdownScraper:
 
     def _get_relative_path(self, url):
         # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
-        # 例如，如果 base_url 是 https://iot.mi.com/vela/quickapp/zh/  ，url 是 https://iot.mi.com/vela/quickapp/zh/guide/start
+        # 例如，如果 base_url 是 https://iot.mi.com/vela/quickapp/zh/    ，url 是 https://iot.mi.com/vela/quickapp/zh/guide/start  
         # 则 path 是 /vela/quickapp/zh/guide/start，base_path 是 /vela/quickapp/zh
         # 结果是 /guide/start，去掉开头的 / 变成 guide/start
         parsed_url = urlparse(url)
@@ -97,7 +97,7 @@ class MarkdownScraper:
             return relative_path
 
         except Exception as e:
-            print(f"⚠️ 资源下载失败: {url} - {e}")
+            print(f"资源下载失败: {url} - {e}")
             return url
 
     def _clean_markdown(self, markdown):
@@ -203,14 +203,14 @@ class MarkdownScraper:
         with open(md_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
 
-        print(f"✅ 已保存: {md_path.relative_to(self.output_dir)}")
+        print(f"已保存: {md_path.relative_to(self.output_dir)}")
         return md_path
 
     def process_page(self, url):
         if url in self.visited:
             return set()
 
-        print(f"🔄 正在处理: {url}")
+        print(f"正在处理: {url}")
         self.visited.add(url)
 
         try:
@@ -251,15 +251,15 @@ class MarkdownScraper:
             return new_links
 
         except Exception as e:
-            print(f"❌ 处理失败: {url} - {e}")
+            print(f"处理失败: {url} - {e}")
             return set()
 
     def crawl(self, start_url=None, max_workers=16, delay=0.3):
         start_url = start_url or self.base_url
         self.visited = set()
 
-        print(f"🚀 开始爬取: {start_url}")
-        print(f"📁 输出目录: {self.output_dir}")
+        print(f"开始爬取: {start_url}")
+        print(f"输出目录: {self.output_dir}")
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_url = {executor.submit(self.process_page, start_url): start_url}
@@ -274,13 +274,13 @@ class MarkdownScraper:
                                 time.sleep(delay)
                                 future_to_url[executor.submit(self.process_page, link)] = link
                     except Exception as e:
-                        print(f"❌ 任务失败: {url} - {e}")
+                        print(f"任务失败: {url} - {e}")
                     finally:
                         del future_to_url[future]
 
-        print(f"\n🎉 爬取完成！共处理 {len(self.visited)} 个页面")
-        print(f"📝 Markdown文件保存在: {self.output_dir}")
-        print(f"🖼️ 图片保存在: {self.output_dir}/images")
+        print(f"\n爬取完成！共处理 {len(self.visited)} 个页面")
+        print(f"Markdown文件保存在: {self.output_dir}")
+        print(f"图片保存在: {self.output_dir}/images")
 
 if __name__ == "__main__":
     # 修正默认 URL 为基础路径 (移除末尾空格)
@@ -290,7 +290,7 @@ if __name__ == "__main__":
     base_url = DEFAULT_URL
     output_dir = "docs"
     delay = 0.3
-    workers = 512 # 使用合理的并发数
+    workers = 16 # 使用合理的并发数
 
     languages = ['zh', 'en'] # 要爬取的语言版本
 
@@ -308,6 +308,6 @@ if __name__ == "__main__":
         )
         print(f"--- {lang.upper()} 版本爬取完成 ---\n")
 
-    print("🎉 所有语言版本爬取完成！")
-    print(f"📝 Markdown文件保存在: {output_dir}")
-    print(f"🖼️ 图片保存在: {output_dir}/zh/images 和 {output_dir}/en/images")
+    print("所有语言版本爬取完成！")
+    print(f"Markdown文件保存在: {output_dir}")
+    print(f"图片保存在: {output_dir}/zh/images 和 {output_dir}/en/images")
