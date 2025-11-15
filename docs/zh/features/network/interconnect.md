@@ -116,7 +116,7 @@ connect.diagnosis({ success : function(data){ console.log(` handling success, ve
 
 参数名 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
-data | Object | 否 | 发送的数据  
+data | Object | 是 | 发送的数据  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
   
@@ -142,7 +142,7 @@ code | Number | 错误码
   
 #### 示例：
 ```javascript
-connect.send({ data : { } , success :() => { console.log(` handling success `)} , fail :(data , code)=> { console.log(` handling fail, errMsg = ${ data.data } , errCode = ${ data.code } `)} })
+connect.send({ data : { str : 'test' , num : 123 } , success :() => { console.log(` handling success `)} , fail :(data , code)=> { console.log(` handling fail, errMsg = ${ data.data } , errCode = ${ data.code } `)} })
 ```
 
 ## 事件
@@ -174,7 +174,7 @@ isReconnected | Boolean | 是否是重新连接
   
 #### 示例：
 ```javascript
-connect.onOpen = function(data){ console.log('connection opened isReconnected: ' , data.isReconnected)}
+connect.onopen = function(data){ console.log('connection opened isReconnected: ' , data.isReconnected)}
 ```
 
 ### connect.onclose

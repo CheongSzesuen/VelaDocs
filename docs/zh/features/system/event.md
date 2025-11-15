@@ -30,7 +30,7 @@ options | Object | 否 | 事件参数
 参数名 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
 params | Object | 否 | 事件参数  
-permissions | Array | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件  
+permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件  
   
 #### 系统支持的公共事件：
 

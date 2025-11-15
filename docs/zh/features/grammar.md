@@ -71,7 +71,10 @@ geolocation.subscribe({ success : function(data){ console.log(` handling success
 code | 定义  
 ---|---  
 200 | 系统通用错误，所有系统未知异常发生时抛出。比如框架申请内存空间失败等  
+201 | 用户拒绝  
 202 | 参数错误，调用时未按照 api 定义进行正确的传参  
 203 | 该功能不支持  
 204 | 请求超时  
+205 | 重复提交  
+207 | 用户拒绝并选择不再询问  
 300 | I/O 错误
