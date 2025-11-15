@@ -116,7 +116,7 @@ Sends data to the mobile app.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-data | Object | No | Data to be sent  
+data | Object | Yes | Data to be sent  
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
   
@@ -142,7 +142,7 @@ Error Code | Description
   
 #### Example:
 ```javascript
-connect.send({ data : { } , success :() => { console.log(` handling success `)} , fail :(data , code)=> { console.log(` handling fail, errMsg = ${ data.data } , errCode = ${ data.code } `)} })
+connect.send({ data : { str : 'test' , num : 123 } , success :() => { console.log(` handling success `)} , fail :(data , code)=> { console.log(` handling fail, errMsg = ${ data.data } , errCode = ${ data.code } `)} })
 ```
 
 ## Events
@@ -174,7 +174,7 @@ isReconnected | Boolean | Whether it is a reconnection
   
 #### Example:
 ```javascript
-connect.onOpen = function(data){ console.log('connection opened isReconnected: ' , data.isReconnected)}
+connect.onopen = function(data){ console.log('connection opened isReconnected: ' , data.isReconnected)}
 ```
 
 ### connect.onclose

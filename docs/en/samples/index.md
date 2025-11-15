@@ -41,3 +41,9 @@ Settings UI This is a Settings App UI that supports multi-screen adaptation. Dev
 Input Method The Input Method App is a highly practical tool that assists users in quickly and accurately inputting text on smartwatches and fitness bands, enhancing work and study efficiency. This input method component has been adapted for multiple screens, including round and square screens, and supports switching between Chinese and English. By incorporating this component, text input on smartwatches and fitness bands can be easily achieved.
 
 [![](../images/github.svg)](<https://github.com/NEORUAA/Vela_input_method>)
+
+![封面](../images/publish_subscribe.png)
+
+Publish-Subscribe This demo is based on the classic publish-subscribe (Pub/Sub) design pattern, providing a lightweight and flexible cross-module communication solution that enables message passing without direct dependencies between modules. The core functions include event subscription ($on), message publishing ($emit), subscription cancellation ($off), and event existence judgment ($judge), supporting asynchronous communication needs in multiple scenarios. Whether it's collaboration between front-end components or linkage between plugin modules, efficient message passing can be achieved through simple calls, helping to simplify code dependencies and improve project maintainability. The code can be directly integrated into Vela quick app projects and is a practical reference for learning design patterns and solving cross-module communication problems.
+
+[![](../images/github.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/eventBus>) [![](../images/gitee.svg)](<https://gitee.com/open-vela/packages_apps/tree/dev/wearable/eventBus>)

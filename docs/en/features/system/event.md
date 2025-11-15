@@ -30,7 +30,7 @@ options | Object | No | Event parameters
 Parameter Name | Type | Required | Description  
 ---|:---:|---|---  
 params | Object | No | Event parameters  
-permissions | Array | No | Permissions of subscribers. Only packages with permissions can receive the sent event.  
+permissions | Array<String> | No | Permissions of subscribers. Only packages with permissions can receive the sent event.  
   
 #### Public Events Supported by the System:
 

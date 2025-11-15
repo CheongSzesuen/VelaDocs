@@ -8,7 +8,7 @@
   2. Data exceptions (no data is obtained, or the backend interface returns an error)
   3. JS code error handling
   4. Prevent duplicate clicks on buttons (especially pay attention to operations that send requests after clicking)
-  5. When the screen turns off and then back on, the onReady and onShow lifecycle functions will be triggered again
+  5. After the screen is turned off, the onShow lifecycle function will be triggered again when the screen is turned on again. If there is a fetch request in this lifecycle function, the request will be initiated again when the screen is turned on, so use it with caution.
 
 ## Code Specifications
 
