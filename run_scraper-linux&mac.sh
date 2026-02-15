@@ -5,14 +5,6 @@ SCRIPT_NAME="docs.py" # 你的 Python 脚本名称
 VENV_NAME="scraper_env"            # 虚拟环境名称
 REQ_FILE="requirements.txt"        # (可选) 如果你有 requirements.txt 文件
 
-# --- ASCII Art 输出 ---
-echo "_    __     __         ____                 "
-echo "| |  / /__  / /___ _   / __ \____  __________"
-echo "| | / / _ \/ / __ \'/  / / / / __ \/ ___/ ___/"
-echo "| |/ /  __/ / /_/ /  / /_/ / /_/ / /__(__  ) "
-echo "|___/\___/_/\__,_/  /_____/\____/\___/____/  "
-echo "                                             "
-
 # --- 检查 Python ---
 if ! command -v python3 &> /dev/null; then
     echo "错误: 未找到 Python 3。请安装 Python 3。"

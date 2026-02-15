@@ -6,14 +6,6 @@ set SCRIPT_NAME=docs.py
 set VENV_NAME=scraper_env
 set REQ_FILE=requirements.txt
 
-REM --- ASCII Art 输出 ---
-echo _    __     __         ____                 
-echo ^| ^|  / /__  / /___ _   / __ \____  __________
-echo ^| ^| / / _ \/ / __ `^|  / / / / __ \/ ___/ ___/
-echo ^| ^|/ /  __/ / /_/ /  / /_/ / /_/ / /__(__  ) 
-echo ^|___/\___/_/\__,_/  /_____/\____/\___/____/  
-echo                                              
-
 REM --- 检查 Python ---
 python --version >nul 2>&1
 if errorlevel 1 (
