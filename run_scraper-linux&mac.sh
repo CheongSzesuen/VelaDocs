@@ -27,9 +27,22 @@ if [ ! -f "$SCRIPT_NAME" ]; then
     exit 1
 fi
 
-# --- 创建虚拟环境 ---
+# --- 检查并创建虚拟环境 ---
 if [ -d "$VENV_NAME" ]; then
-    echo "虚拟环境 '$VENV_NAME' 已存在，正在复用。"
+    # 检查虚拟环境是否完整（检查 python 可执行文件是否存在且非空）
+    if [ -f "$VENV_NAME/bin/python" ] && [ -s "$VENV_NAME/bin/python" ]; then
+        echo "虚拟环境 '$VENV_NAME' 已存在且完整，正在复用。"
+    else
+        echo "检测到虚拟环境 '$VENV_NAME' 不完整或已损坏，正在删除并重新创建..."
+        rm -rf "$VENV_NAME"
+        echo "正在创建虚拟环境: $VENV_NAME"
+        python3 -m venv "$VENV_NAME"
+        if [ $? -ne 0 ]; then
+            echo "创建虚拟环境失败。"
+            exit 1
+        fi
+        echo "虚拟环境创建成功。"
+    fi
 else
     echo "正在创建虚拟环境: $VENV_NAME"
     python3 -m venv "$VENV_NAME"
