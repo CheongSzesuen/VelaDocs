@@ -4,7 +4,7 @@
 
 ## Overview
 
-A scroll picker that currently supports two types of pickers: the ordinary picker and the time picker. The ordinary picker is used by default. 
+A scroll picker that currently supports two types of pickers: a normal picker and a time picker. The normal picker is used by default. 
 
 ## Child Components
 
@@ -12,52 +12,52 @@ Not supported
 
 ## Attributes
 
-[Common attributes](</vela/quickapp/en/components/general/properties.html>) are supported.
+Supports [universal attributes](</vela/quickapp/en/components/general/properties.html>)
 
-**Ordinary picker**
+**Normal picker**
 
-Name | Type | Default Value | Mandatory | Description  
+Name | Type | Default Value | Required | Description  
 ---|:---:|---|:---:|---  
 type | text |:---:| Yes | Dynamic modification is not supported.  
-range | `<array>` |:---:| No | Value range of the picker  
-selected | `<number>` | 0 | No | Default value of the picker, which is the index of the range.  
+range | `Array<string>` |:---:| No | Value range of the picker  
+selected | `<number>` | 0 | No | Default value of the picker. The value is the index of **range**.  
   
 **Time picker**
 
-Name | Type | Default Value | Mandatory | Description  
+Name | Type | Default Value | Required | Description  
 ---|:---:|---|:---:|---  
 type | time |:---:| Yes | Dynamic modification is not supported.  
-selected | `<string>` | Current time | No | Default value of the picker. The format is hh:mm.  
+selected | `<string>` | Current time | No | Default value of the picker. The format is **hh:mm**.  
   
 ## Styles
 
-[Common styles](</vela/quickapp/en/components/general/style.html>) are supported.
+Supports [universal styles](</vela/quickapp/en/components/general/style.html>)
 
-Name | Type | Default Value | Mandatory | Description  
+Name | Type | Default Value | Required | Description  
 ---|:---:|---|:---:|---  
-color | `<color>` | Theme color | No | Font color of the candidate items  
-font-size | `<length>` | 30px | No | Font size of the candidate items, in px  
-selected-color | `<length>` | #ffffff | No | Font color of the selected item  
-selected-font-size | `<length>` | 20px | No | Font size of the selected item, in px  
-selected-background-color | `<color>` |:---:| No | Background color of the selected item  
+color | `<color>` | Theme color | No | Font color of the candidate options  
+font-size | `<length>` | 30px | No | Font size of the candidate options, in px  
+selected-color | `<length>` | #ffffff | No | Font color of the selected option  
+selected-font-size | `<length>` | 20px | No | Font size of the selected option, in px  
+selected-background-color | `<color>` |:---:| No | Background color of the selected option  
   
 ## Events
 
-**Ordinary picker**
+**Normal picker**
 
-Event Name | Parameters | Description  
+Name | Parameters | Description  
 ---|:---:|---  
-change | {newValue:newValue, newSelected:newSelected} | Triggered when a value is selected from the scroll picker and confirmed (newSelected is the index).  
+change | {newValue:newValue, newSelected:newSelected} | Triggered when the scroll picker value is confirmed after selection. (**newSelected** is the index.)  
   
 **Time picker**
 
-Event Name | Parameters | Description  
+Name | Parameters | Description  
 ---|:---:|---  
-change | {hour:hour, minute:minute} | Triggered when a value is selected from the scroll picker and confirmed.  
+change | {hour:hour, minute:minute} | Triggered when the scroll picker value is confirmed after selection.  
   
 ## Sample Code
 ```html
-< template > < div class = " page " > < text class = " title " > Ordinary picker </ text > < picker class = " picker " type = " text " range = " {{pickerList}} " selected = " 1 " onchange = " onPickerChange " > </ picker > < text class = " value " > Selected value: {{v1}} </ text > < text class = " title " > Time picker </ text > < picker class = " picker " type = " time " selected = " 12:00 " onchange = " onTimePickerChange " > </ picker > < text class = " value " > Selected value: {{v2}} </ text > </ div > </ template > < script > export default { private : { pickerList : [ 'apple' , 'peach' , 'pear' , 'banana' ] , v1 : 'peach' , v2 : '12:00' } , onPickerChange (e) { this.v1 = e.newValue ; } , onTimePickerChange (e) { this.v2 = e.hour \+ ':' \+ e.minute ; } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; color : #000 ; } .value { margin-top : 5px ; margin-bottom : 30px ; color : #090 ; } .picker { font-size : 25px ; color : #000 ; selected-font-size : 30px ; selected-color : #09f ; selected-background-color : #ccc ; } </ style >
+< template > < div class = " page " > < text class = " title " > Normal picker </ text > < picker class = " picker " type = " text " range = " {{pickerList}} " selected = " 1 " onchange = " onPickerChange " > </ picker > < text class = " value " > Selected value: {{v1}} </ text > < text class = " title " > Time picker </ text > < picker class = " picker " type = " time " selected = " 12:00 " onchange = " onTimePickerChange " > </ picker > < text class = " value " > Selected value: {{v2}} </ text > </ div > </ template > < script > export default { private : { pickerList : [ 'apple' , 'peach' , 'pear' , 'banana' ] , v1 : 'peach' , v2 : '12:00' } , onPickerChange (e) { this.v1 = e.newValue ; } , onTimePickerChange (e) { this.v2 = e.hour \+ ':' \+ e.minute ; } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; color : #000 ; } .value { margin-top : 5px ; margin-bottom : 30px ; color : #090 ; } .picker { font-size : 25px ; color : #000 ; selected-font-size : 30px ; selected-color : #09f ; selected-background-color : #ccc ; } </ style >
 ```
 
 ![](../../images/picker.gif)

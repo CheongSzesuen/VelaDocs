@@ -76,12 +76,17 @@ dp 数值 = 物理分辨率 / 设备像素比(device pixel ratio)
 手表 | Xiaomi Watch S1 Pro | 圆形 | 1.47英寸 | 480x480 | 326 | 2.0 | 240  
 手表 | Xiaomi Watch H1 | 圆形 | 1.43英寸 | 466x466 | 326 | 2.0 | 233  
 手表 | Xiaomi Watch S3 | 圆形 | 1.43英寸 | 466x466 | 326 | 2.0 | 233  
+手表 | Xiaomi Watch S4 sport | 圆形 | 1.43英寸 | 466x466 | 326 | 2.0 | 233  
+手表 | Xiaomi Watch S4 | 圆形 | 1.43英寸 | 466x466 | 326 | 2.0 | 233  
+手表 | REDMI Watch 5 | 矩形 | 2.07英寸 | 432x514 | 324 | 2.0 | 216  
 手环 | 小米手环8 Pro | 矩形 | 1.74英寸 | 336x480 | 336 | 2.1 | 168  
 手环 | 小米手环9 | 胶囊形 | 1.62英寸 | 192x490 | 325 | 2.0 | 96  
+手环 | 小米手环9 Pro | 矩形 | 1.74英寸 | 336x480 | 336 | 2.1 | 168  
+手环 | 小米手环10 | 胶囊形 | 1.725英寸 | 212x520 | 326 | 2.0 | 106  
   
 示例代码：
 ```css
-//以下media query会在小米手环9生效，小米手环9的分辨率为：192*490，水平dp值为：96 @media (min-width : 80) and (max-width : 160) { .box { background-color : green ; } } //以下media query会在小米手环8 Pro生效，小米手环8 Pro的分辨率为：336*480，水平dp值为：168 @media (min-width : 160) and (max-width : 200) { .box { background-color : yellow ; } } //以下media query会在Xiaomi Watch S3手表生效，Xiaomi Watch S3手表的分辨率为：466*466，水平dp值为：233 @media (min-width : 200) and (max-width : 300) { .box { background-color : red ; } }
+//以下media query会在屏幕宽度为80dp ~ 160dp范围设备上生效 @media (min-width : 80) and (max-width : 160) { .box { background-color : green ; } } //以下media query会在屏幕宽度为160dp ~ 200dp范围设备上生效 @media (min-width : 160) and (max-width : 200) { .box { background-color : yellow ; } } //以下media query会在屏幕宽度为200dp ~ 300dp范围设备上生效 @media (min-width : 200) and (max-width : 300) { .box { background-color : red ; } }
 ```
 
 ## 逻辑操作符3+
@@ -118,8 +123,11 @@ or | or 运算符用于将多个媒体特性比较语句组合到一个媒体查
 ---|---  
 小米 S1 Pro 运动健康手表 | 不支持  
 小米手环 8 Pro | 不支持  
+小米手环 9 / 9 Pro | 支持2+特性  
 Xiaomi Watch S3 | 支持2+特性  
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
+小米手环 10 | 支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持
+REDMI Watch 5 | 支持  
+REDMI Watch 6 | 支持

@@ -1,6 +1,6 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/features/network/uploadtask.html -->
 
-# Upload3+
+# uploadtask 3+
 
 ## Interface Declaration
 ```json
@@ -26,15 +26,15 @@ Parameter Name | Type | Required | Description
 ---|:---:|---|---  
 url | String | Yes | Developer server interface address  
 filePath | String | Yes | Path to the file resource to upload (local path)  
-name | String | Yes | Key corresponding to the file. The developer can use this key to obtain the binary content of the file on the server side.  
-header | Object | No | Request header. All its properties will be set in the header part of the request.  
+name | String | Yes | Key corresponding to the file. Developers can use this key to obtain the binary content of the file on the server side  
+header | Object | No | Request header. All properties will be set in the header part of the request  
 formData | Object | No | Additional form data in the HTTP request  
 timeout | Number | No | Timeout duration in milliseconds  
 success | Function | No | Callback function for successful return  
 fail | Function | No | Callback function for failure  
-complete | Function | No | Callback function for completion (called on both success and failure)  
+complete | Function | No | Callback function for completion (executed on both success and failure)  
   
-#### success Return Value:
+#### success Return Values:
 
 Parameter Name | Type | Description  
 ---|:---:|---  
@@ -48,7 +48,7 @@ headers | Object | All headers from the server response
 
 ### UploadTask.abort()
 
-Interrupts the upload task.
+Aborts the upload task.
 
 ### UploadTask.onProgressUpdate(callback)
 
@@ -60,7 +60,7 @@ Parameter Name | Type | Required | Description
 ---|:---:|---|---  
 callback | Function | Yes | Callback function for upload progress change events  
   
-#### callback Return Value:
+#### callback Return Values:
 
 Parameter Name | Type | Description  
 ---|:---:|---  
@@ -70,26 +70,29 @@ totalBytesExpectedToSend | Number | Expected total length of data to upload, in 
   
 ### UploadTask.offProgressUpdate(function callback)
 
-Cancels listening for upload progress change events. callback is optional. If not provided, all upload progress change events listened to via onProgressUpdate will be canceled.
+Cancels listening for upload progress change events. The callback is optional. If not provided, all upload progress change events listened to via onProgressUpdate will be canceled.
 
 #### Example:
 ```javascript
-const retUploadTask = uploadtask.uploadFile({ url : 'http://www.example.com' , filePath : "internal://mass/download/test.png" , name : "testImg" , success : function(res){ console.log("Upload success.resp = " \+ JSON.stringify(res)) } , fail : function(data , code){ console.log(` handling fail, errMsg = ${ data)} `)console.log(` handling fail, errCode = ${ code } `)} })// Interrupt the request task retUploadTask.abort() // Listen for upload progress events retUploadTask.onProgressUpdate(res => { console.log(` listening upload progress update event, progressUpdate data = ${ JSON.stringify(res)} `)})// Cancel listening for upload progress events retUploadTask.offProgressUpdate()
+const retUploadTask = uploadtask.uploadFile({ url : 'http://www.example.com' , filePath : "internal://mass/download/test.png" , name : "testImg" , success : function(res){ console.log("Upload success.resp = " \+ JSON.stringify(res)) } , fail : function(data , code){ console.log(` handling fail, errMsg = ${ data } `)console.log(` handling fail, errCode = ${ code } `)} })// Abort the request task retUploadTask.abort() // Listen for upload progress events retUploadTask.onProgressUpdate(res => { console.log(` listening upload progress update event, progressUpdate data = ${ JSON.stringify(res)} `)})// Cancel listening for upload progress events retUploadTask.offProgressUpdate()
 ```
 
-Cancel a specific upload progress event
+Cancel a specific upload progress event:
 ```javascript
-function cb(res){ console.log(` listening for upload progress update event 1, progressUpdate data = ${ JSON.stringify(res)} `)} // This listener will be canceled retUploadTask.onProgressUpdate(cb)// event2 listener remains valid and will not be canceled retUploadTask.onProgressUpdate((res)=> { console.log(` listening for upload progress update event 2, progressUpdate data = ${ JSON.stringify(res)} `)})retUploadTask.offProgressUpdate(cb)
+function cb(res){ console.log(` listening for upload progress update event 1, progressUpdate data = ${ JSON.stringify(res)} `)} // This listener will be canceled retUploadTask.onProgressUpdate(cb)// event2 listener remains effective and will not be canceled retUploadTask.onProgressUpdate((res)=> { console.log(` listening for upload progress update event 2, progressUpdate data = ${ JSON.stringify(res)} `)})retUploadTask.offProgressUpdate(cb)
 ```
 
 ## Support Details
 
 Device Product | Description  
 ---|---  
-Xiaomi S1 Pro Sports Health Watch | Not supported  
+Xiaomi S1 Pro Fitness Watch | Not supported  
 Xiaomi Band 8 Pro | Not supported  
+Xiaomi Band 9 / 9 Pro | Not supported  
 Xiaomi Watch S3 | Supported  
 Redmi Watch 4 | Not supported  
-Xiaomi Wrist ECG and Blood Pressure Recorder | Not supported  
+Xiaomi Wrist ECG Blood Pressure Recorder | Not supported  
+Xiaomi Band 10 | Not supported  
 Xiaomi Watch S4 | Supported  
-REDMI Watch 5 | Supported
+REDMI Watch 5 | Supported  
+REDMI Watch 6 | Supported

@@ -128,8 +128,11 @@ geolocation.unsubscribe()
 ---|---  
 小米 S1 Pro 运动健康手表 | 不支持  
 小米手环 8 Pro | 不支持  
+小米手环 9 / 9 Pro | 不支持  
 Xiaomi Watch S3 | 支持  
 Redmi Watch 4 | 不支持  
 小米腕部心电血压记录仪 | 不支持  
+小米手环 10 | 不支持  
 Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持
+REDMI Watch 5 | 支持  
+REDMI Watch 6 | 支持

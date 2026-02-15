@@ -30,7 +30,7 @@ export default { protected : { timer : null } onShow () { this.timer = setTimeou
 
   5. Release file data promptly after use.
 ```js
-let foo = await storage.getItem ('key') let bar = await file.readText ('path') let fooObj = JSON.parse (foo) let barObj = JSON.parse (bar) // Release promptly after use foo = null bar = null fooObj = null barObj = null
+let fileData ; // File data read let storageData ; // Storage data read file.readText ({ uri : 'internal://files/work/demo.txt' , success : function (data) { fileData = data.text ; console.log ('text: ' \+ data.text) } , fail : function (data , code) { console.log (` handling fail, code = ${ code } `) } }) ; storage.get ({ key : 'A1' , success : function (data) { storageData = data ; console.log ('handling success') } , fail : function (data , code) { console.log (` handling fail, code = ${ code } `) } }) // Release promptly after use fileData = null ; storageData = null ;
 ```
 
   6. Call the `runGC` method.

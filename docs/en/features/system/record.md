@@ -1,48 +1,48 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/features/system/record.html -->
 
-# Record
+# Audio recording
 
-## Interface Declaration
+## Interface declaration
 ```json
 { "name" : "system.record" }
 ```
 
-## Importing the Module
+## Import module
 ```javascript
 import record from '@system.record' // or const record = require('@system.record')
 ```
 
-## Interface Definition
+## Interface definition
 
 ### record.start(OBJECT)
 
-Starts recording
+Starts audio recording.
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
+Parameter | Type | Required | Description  
 ---|:---:|---|---  
-duration | Number | No | Recording duration in ms. If duration is a valid value, recording will stop when the specified value is reached  
-sampleRate | Number | No | Sampling rate. The supported sampling rate ranges vary for different audio formats. The default is 8000, and it is recommended to use 8000/16000/32000/44100/48000  
-numberOfChannels | Number | No | Number of recording channels, valid values are 1/2  
-encodeBitRate | Number | No | Encoding bitrate. The encoding bitrate value depends on the sampling rate and audio format  
-format | String | No | Audio format, valid values are pcm/opus/wav. Defaults to pcm  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution is completed  
+duration | Number | No | Audio recording duration in ms. If a valid value is specified for duration, the recording stops when the specified duration is reached.  
+sampleRate | Number | No | Sampling rate. The supported sampling rate ranges vary for different audio formats. The default value is 8000. It is recommended to use 8000/16000/32000/44100/48000.  
+numberOfChannels | Number | No | Number of audio recording channels. Valid values: 1/2  
+encodeBitRate | Number | No | Encoding bitrate. The value of encoding bitrate depends on the sampling rate and audio format.  
+format | String | No | Audio format. Valid values: pcm/opus/wav. Default value: pcm  
+success | Function | No | Callback invoked when the operation succeeds.  
+fail | Function | No | Callback invoked when the operation fails.  
+complete | Function | No | Callback invoked when the operation completes, either successfully or unsuccessfully.  
   
-#### success Return Value:
+#### Return value of success:
 
-Parameter Name | Type | Description  
+Parameter | Type | Description  
 ---|:---:|---  
-uri | String | Storage path of the recording file, located in the application's cache directory  
+uri | String | Storage path of the audio recording file, which is in the cache directory of the application.  
   
-#### fail Return Error Codes:
+#### Error codes for fail:
 
-Error Code | Description  
+Error code | Description  
 ---|---  
-205 | Recording is already in progress  
-202 | Parameter error  
+205 | Audio recording is in progress.  
+202 | Incorrect parameter.  
   
 #### Example:
 ```javascript
@@ -51,7 +51,7 @@ record.start({ duration : 10000 , sampleRate : 8000 , numberOfChannels : 1 , enc
 
 ### record.stop()
 
-Stops recording
+Stops audio recording.
 
 #### Parameters:
 
@@ -61,3 +61,18 @@ None
 ```javascript
 record.stop()
 ```
+
+## Support details
+
+Device product | Description  
+---|---  
+Xiaomi S1 Pro Sports & Health Watch | Not supported  
+Xiaomi Smart Band 8 Pro | Not supported  
+Xiaomi Smart Band 9 / 9 Pro | Not supported  
+Xiaomi Watch S3 | Not supported  
+Redmi Watch 4 | Not supported  
+Xiaomi ECG & Blood Pressure Wristband | Not supported  
+Xiaomi Smart Band 10 | Not supported  
+Xiaomi Watch S4 | Not supported  
+REDMI Watch 5 | Not supported  
+REDMI Watch 6 | Not supported
