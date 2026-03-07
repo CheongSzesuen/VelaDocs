@@ -83,4 +83,5 @@ this.isloop = true
 
   * Add try-catch blocks to catch exceptions.
   * For scenarios with slow data requests, consider adding a loading indicator.
+  * If there are no high requirements for image visual quality, it is recommended to use the PNG8 format, which can effectively reduce the image size and improve the rendering frame rate of animations/pages.
 
