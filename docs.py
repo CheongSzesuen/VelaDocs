@@ -11,7 +11,7 @@
 import os
 import re
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 from urllib.parse import urljoin, urlparse, unquote
 from pathlib import Path
 import time
@@ -74,6 +74,7 @@ class MarkdownScraper:
         self.processed_pages = 0
 
         self.session = requests.Session()
+        self.session.trust_env = False
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
             'Accept-Language': 'en-US,en;q=0.9',
@@ -99,6 +100,12 @@ class MarkdownScraper:
         else:
             self.console = None
 
+    def _missing_image_text(self, img_url):
+        filename = os.path.basename(urlparse(img_url).path) or "unknown-image"
+        if self.subdir == 'en':
+            return f"Image missing: {filename} <{img_url}>"
+        return f"图片缺失: {filename} <{img_url}>"
+
     def _get_relative_path(self, url):
         # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
         # 例如，如果 base_url 是 https://iot.mi.com/vela/quickapp/zh/    ，url 是 https://iot.mi.com/vela/quickapp/zh/guide/start  
@@ -116,11 +123,146 @@ class MarkdownScraper:
         filename = unquote(filename)
         return re.sub(r'[\\/*?:"<>|]', "_", filename)[:100]
 
-    def download_asset(self, url, asset_type='images'):
+    def _get_site_root_path(self):
+        base_path = urlparse(self.base_url).path.rstrip('/')
+        if self.subdir and base_path.endswith(f"/{self.subdir}"):
+            base_path = base_path[:-(len(self.subdir) + 1)]
+        return base_path or '/'
+
+    def _build_asset_candidates(self, url, asset_type='images', page_url=None):
+        candidates = []
+
+        def add(candidate):
+            if candidate and candidate not in candidates:
+                candidates.append(candidate)
+
+        add(url)
+        if asset_type != 'images':
+            return candidates
+
+        parsed_url = urlparse(url)
+        parsed_base = urlparse(self.base_url)
+        origin = f"{parsed_base.scheme}://{parsed_base.netloc}"
+        filename = os.path.basename(unquote(parsed_url.path))
+        site_root_path = self._get_site_root_path().rstrip('/')
+
+        lang_image_prefix = f"/{self.subdir}/images/"
+        if self.subdir and lang_image_prefix in parsed_url.path:
+            add(urljoin(origin, parsed_url.path.replace(lang_image_prefix, "/images/", 1)))
+
+        if filename:
+            if page_url:
+                page_parts = [part for part in urlparse(page_url).path.strip('/').split('/') if part]
+                if len(page_parts) >= 2:
+                    section_name = page_parts[-2]
+                    add(urljoin(origin, f"{site_root_path}/images/{section_name}/{filename}"))
+
+            add(urljoin(origin, f"{site_root_path}/images/{filename}"))
+
+        return candidates
+
+    def _inspect_asset_payload(self, asset_type, content_type, first_chunk):
+        if not first_chunk:
+            return False, "响应体为空", None
+
+        if asset_type != 'images':
+            return True, "", None
+
+        content_type = (content_type or '').lower()
+        sample = first_chunk[:512].lstrip()
+        lower_sample = sample.lower()
+        html_markers = (
+            b'<!doctype html',
+            b'<html',
+            b'<head',
+            b'<body',
+        )
+        if 'text/html' in content_type or any(lower_sample.startswith(marker) for marker in html_markers):
+            return False, "响应是 HTML 页面", None
+
+        if b'<svg' in lower_sample or content_type == 'image/svg+xml':
+            image_kind = 'svg'
+        elif first_chunk.startswith(b'\x89PNG\r\n\x1a\n'):
+            image_kind = 'png'
+        elif first_chunk.startswith(b'\xff\xd8\xff'):
+            image_kind = 'jpeg'
+        elif first_chunk.startswith((b'GIF87a', b'GIF89a')):
+            image_kind = 'gif'
+        elif first_chunk.startswith(b'RIFF') and first_chunk[8:12] == b'WEBP':
+            image_kind = 'webp'
+        else:
+            content_type_map = {
+                'image/png': 'png',
+                'image/jpeg': 'jpeg',
+                'image/jpg': 'jpeg',
+                'image/gif': 'gif',
+                'image/webp': 'webp',
+            }
+            image_kind = content_type_map.get(content_type)
+
+        if not image_kind:
+            if content_type and content_type != 'application/octet-stream':
+                return False, f"响应类型异常: {content_type}", None
+            return False, "不是可识别的图片格式", None
+
+        return True, "", image_kind
+
+    def _is_existing_asset_valid(self, path, url, asset_type):
+        try:
+            with open(path, 'rb') as f:
+                first_chunk = f.read(512)
+        except OSError:
+            return False
+
+        is_valid, _, _ = self._inspect_asset_payload(asset_type, '', first_chunk)
+        return is_valid
+
+    def _download_asset_to_path(self, url, save_path, asset_type='images', page_url=None):
+        request_headers = {}
+        if asset_type == 'images':
+            request_headers.update({
+                'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+                'Referer': page_url or f"{self.base_url}/",
+            })
+
+        with self.session.get(url, stream=True, timeout=15, headers=request_headers) as response:
+            response.raise_for_status()
+            content_type = response.headers.get('Content-Type', '').split(';')[0].strip().lower()
+            chunks = response.iter_content(8192)
+            first_chunk = next(chunks, b'')
+
+            is_valid, reason, image_kind = self._inspect_asset_payload(asset_type, content_type, first_chunk)
+            if not is_valid:
+                raise ValueError(reason)
+
+            if asset_type == 'images':
+                declared_ext = Path(urlparse(url).path).suffix.lower()
+                ext_map = {
+                    '.png': 'png',
+                    '.jpg': 'jpeg',
+                    '.jpeg': 'jpeg',
+                    '.gif': 'gif',
+                    '.webp': 'webp',
+                    '.svg': 'svg',
+                }
+                declared_kind = ext_map.get(declared_ext)
+                if declared_kind and image_kind and declared_kind != image_kind:
+                    if self.console:
+                        self.console.print(f"[cyan]资源后缀与实际格式不一致，沿用原文件名: {url}[/cyan]")
+                    else:
+                        print(f"资源后缀与实际格式不一致，沿用原文件名: {url}")
+
+            with open(save_path, 'wb') as f:
+                f.write(first_chunk)
+                for chunk in chunks:
+                    f.write(chunk)
+
+    def download_asset(self, url, asset_type='images', page_url=None):
         if url in self.asset_map:
             return self.asset_map[url]
 
         try:
+            original_url = url
             asset_dir = self.output_dir / asset_type
             asset_dir.mkdir(parents=True, exist_ok=True)
 
@@ -134,27 +276,46 @@ class MarkdownScraper:
 
             save_path = asset_dir / filename
 
-            if not save_path.exists():
-                if RICH_AVAILABLE:
-                    self.console.print(f"[yellow]下载资源:[/yellow] {url}")
+            if save_path.exists() and not self._is_existing_asset_valid(save_path, url, asset_type):
+                if self.console:
+                    self.console.print(f"[yellow]检测到无效资源，准备重下: {save_path.name}[/yellow]")
                 else:
-                    print(f"下载资源: {url}")
-                response = self.session.get(url, stream=True, timeout=15)
-                response.raise_for_status()
-                with open(save_path, 'wb') as f:
-                    for chunk in response.iter_content(1024):
-                        f.write(chunk)
+                    print(f"检测到无效资源，准备重下: {save_path.name}")
+                save_path.unlink()
+
+            if not save_path.exists():
+                last_error = None
+                for candidate_url in self._build_asset_candidates(url, asset_type, page_url):
+                    try:
+                        if self.console:
+                            self.console.print(f"[yellow]下载资源: {candidate_url}[/yellow]")
+                        else:
+                            print(f"下载资源: {candidate_url}")
+                        self._download_asset_to_path(candidate_url, save_path, asset_type, page_url)
+                        url = candidate_url
+                        break
+                    except Exception as e:
+                        last_error = e
+                        if save_path.exists():
+                            save_path.unlink()
+                        if self.console:
+                            self.console.print(f"[yellow]资源候选地址失败: {candidate_url} - {e}[/yellow]")
+                        else:
+                            print(f"资源候选地址失败: {candidate_url} - {e}")
+                else:
+                    raise last_error or ValueError("没有可用的资源地址")
 
             relative_path = f"{asset_type}/{filename}"
+            self.asset_map[original_url] = relative_path
             self.asset_map[url] = relative_path
             return relative_path
 
         except Exception as e:
             if RICH_AVAILABLE:
-                self.console.print(f"[red]资源下载失败: {url} - {e}[/red]")
+                self.console.print(f"[red]资源下载失败: {original_url if 'original_url' in locals() else url} - {e}[/red]")
             else:
-                print(f"资源下载失败: {url} - {e}")
-            return url
+                print(f"资源下载失败: {original_url if 'original_url' in locals() else url} - {e}")
+            return None
 
     def _clean_markdown(self, markdown):
         """小米Vela文档专用清理函数"""
@@ -222,8 +383,13 @@ class MarkdownScraper:
         # 处理图片
         for img in soup.find_all('img', src=True):
             img_url = urljoin(page_url, img['src'])
-            local_path = self.download_asset(img_url, 'images')
-            img['src'] = local_path
+            local_path = self.download_asset(img_url, 'images', page_url)
+            if local_path:
+                img['src'] = local_path
+                continue
+
+            missing_text = NavigableString(self._missing_image_text(img_url))
+            img.replace_with(missing_text)
 
         # 使用html2text转换
         from html2text import HTML2Text
@@ -250,6 +416,8 @@ class MarkdownScraper:
         def adjust_img(match):
             alt_text = match.group(1)
             img_path = match.group(2)
+            if re.match(r'^[a-z]+://', img_path, flags=re.IGNORECASE):
+                return f"![{alt_text}]({img_path})"
             abs_img_path = Path(self.output_dir) / img_path
             rel_img_path = os.path.relpath(abs_img_path, start=md_path.parent)
             return f"![{alt_text}]({rel_img_path})"

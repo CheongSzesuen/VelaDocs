@@ -61,7 +61,7 @@ Effect display:
 
 Circular screen / Rectangular screen / Capsule screen
 
-![](../../images/background-image1.png) ![](../../images/background-image2.png) ![](../../images/background-image3.png)
+Image missing: background-image1.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image1.png> Image missing: background-image2.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image2.png> Image missing: background-image3.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image3.png>
 
 ### Page Title Bar
 

@@ -61,7 +61,7 @@ px长度单位会根据配置的项目配置基准宽度进行换算，过程中
 
 圆形屏幕 / 矩形屏 / 胶囊屏
 
-![](../../images/background-image1.png) ![](../../images/background-image2.png) ![](../../images/background-image3.png)
+图片缺失: background-image1.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image1.png> 图片缺失: background-image2.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image2.png> 图片缺失: background-image3.png <https://iot.mi.com/vela/quickapp/images/multi-screens/background-image3.png>
 
 ### 页面标题栏
 
