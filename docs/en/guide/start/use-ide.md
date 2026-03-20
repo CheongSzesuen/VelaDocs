@@ -10,12 +10,12 @@ This application supports **macOS** , **Windows** , and **Ubuntu** systems. Plea
 
 ## System Requirements
 
-Operating System | Minimum Version Required  
----|---  
-**macOS** | 14 (Sonoma) or later  
-**Windows** | 10 or later  
-**Ubuntu** | 20.04 LTS or later  
-  
+Operating System | Minimum Version Required
+---|---
+macOS | 14 (Sonoma) or later
+Windows | 10 or later
+Ubuntu | 20.04 LTS or later 
+
 ## Installing AIoT-IDE
 
 You may encounter the following installation error on macOS:

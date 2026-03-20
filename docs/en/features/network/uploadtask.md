@@ -26,26 +26,26 @@ Creates an upload request. Each successful call to uploadtask.uploadFile returns
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-url | String | Yes | Developer server interface address  
-filePath | String | Yes | Path to the file resource to upload (local path)  
-name | String | Yes | Key corresponding to the file. Developers can use this key to obtain the binary content of the file on the server side  
-header | Object | No | Request header. All properties will be set in the header part of the request  
-formData | Object | No | Additional form data in the HTTP request  
-timeout | Number | No | Timeout duration in milliseconds  
-success | Function | No | Callback function for successful return  
-fail | Function | No | Callback function for failure  
-complete | Function | No | Callback function for completion (executed on both success and failure)  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+url | String | Yes | Developer server interface address
+filePath | String | Yes | Path to the file resource to upload (local path)
+name | String | Yes | Key corresponding to the file. Developers can use this key to obtain the binary content of the file on the server side
+header | Object | No | Request header. All properties will be set in the header part of the request
+formData | Object | No | Additional form data in the HTTP request
+timeout | Number | No | Timeout duration in milliseconds
+success | Function | No | Callback function for successful return
+fail | Function | No | Callback function for failure
+complete | Function | No | Callback function for completion (executed on both success and failure) 
+
 #### success Return Values:
 
-Parameter Name | Type | Description  
----|:---:|---  
-statusCode | Integer | Server status code  
-data | String | Data returned by the developer server  
-headers | Object | All headers from the server response  
-  
+Parameter Name | Type | Description
+---|---|---
+statusCode | Integer | Server status code
+data | String | Data returned by the developer server
+headers | Object | All headers from the server response 
+
 # UploadTask
 
 ## Methods
@@ -60,18 +60,18 @@ Listens for upload progress change events.
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-callback | Function | Yes | Callback function for upload progress change events  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+callback | Function | Yes | Callback function for upload progress change events 
+
 #### callback Return Values:
 
-Parameter Name | Type | Description  
----|:---:|---  
-progress | Number | Upload progress percentage  
-totalBytesSent | Number | Length of data already uploaded, in Bytes  
-totalBytesExpectedToSend | Number | Expected total length of data to upload, in Bytes  
-  
+Parameter Name | Type | Description
+---|---|---
+progress | Number | Upload progress percentage
+totalBytesSent | Number | Length of data already uploaded, in Bytes
+totalBytesExpectedToSend | Number | Expected total length of data to upload, in Bytes 
+
 ### UploadTask.offProgressUpdate(function callback)
 
 Cancels listening for upload progress change events. The callback is optional. If not provided, all upload progress change events listened to via onProgressUpdate will be canceled.
@@ -133,15 +133,15 @@ retUploadTask.offProgressUpdate(cb)
 
 ## Support Details
 
-Device Product | Description  
----|---  
-Xiaomi S1 Pro Fitness Watch | Not supported  
-Xiaomi Band 8 Pro | Not supported  
-Xiaomi Band 9 / 9 Pro | Not supported  
-Xiaomi Watch S3 | Supported  
-Redmi Watch 4 | Not supported  
-Xiaomi Wrist ECG Blood Pressure Recorder | Not supported  
-Xiaomi Band 10 | Not supported  
-Xiaomi Watch S4 | Supported  
-REDMI Watch 5 | Supported  
+Device Product | Description
+---|---
+Xiaomi S1 Pro Fitness Watch | Not supported
+Xiaomi Band 8 Pro | Not supported
+Xiaomi Band 9 / 9 Pro | Not supported
+Xiaomi Watch S3 | Supported
+Redmi Watch 4 | Not supported
+Xiaomi Wrist ECG Blood Pressure Recorder | Not supported
+Xiaomi Band 10 | Not supported
+Xiaomi Watch S4 | Supported
+REDMI Watch 5 | Supported
 REDMI Watch 6 | Supported

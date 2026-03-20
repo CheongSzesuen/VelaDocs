@@ -12,14 +12,14 @@ The number of parameters can be one or two.
 
 The valid parameter list is as follows:
 
-Parameter | Description  
----|---  
-`contain` | Scales the background image proportionally to fit entirely within the container, potentially leaving some blank space in the container (only as a single parameter).  
-`cover` | Scales the background image proportionally to cover the entire container, potentially making some parts of the background image invisible (only as a single parameter).  
-`auto` | Indicates that the original image size remains unchanged. Note that the original image size is in physical resolution, consistent with the resolution unit of a mobile phone screen, not the `1px` length in JS applications.  
-`<length>` | Describes the specific dimensions of the image in units of px or dp. Floating-point calculations are not supported; setting a floating-point value will be rounded down.  
-`<percent>` | Describes the size of the image as a percentage of the corresponding dimension of the container. Floating-point calculations are not supported; setting a floating-point value will be rounded down.  
-  
+Parameter | Description
+---|---
+`contain` | Scales the background image proportionally to fit entirely within the container, potentially leaving some blank space in the container (only as a single parameter).
+`cover` | Scales the background image proportionally to cover the entire container, potentially making some parts of the background image invisible (only as a single parameter).
+`auto` | Indicates that the original image size remains unchanged. Note that the original image size is in physical resolution, consistent with the resolution unit of a mobile phone screen, not the `1px` length in JS applications.
+`<length>` | Describes the specific dimensions of the image in units of px or dp. Floating-point calculations are not supported; setting a floating-point value will be rounded down.
+`<percent>` | Describes the size of the image as a percentage of the corresponding dimension of the container. Floating-point calculations are not supported; setting a floating-point value will be rounded down. 
+
 When there are two parameters, the first parameter is interpreted as the width along the horizontal axis, and the second parameter is interpreted as the height along the vertical axis. If there is only one parameter, `auto` is supplemented as the second parameter, and then parsed according to the rules for two parameters.
 
 Invalid parameters are uniformly interpreted as the default value `auto`, which is the original image size.
@@ -70,13 +70,13 @@ The number of parameters is one.
 
 The valid parameter list is as follows:
 
-Parameter | Description  
----|---  
-`repeat` | Repeats the image along both the horizontal and vertical axes.  
-`repeat-x` | Repeats the image only along the horizontal axis.  
-`repeat-y` | Repeats the image only along the vertical axis.  
-`no-repeat` | Does not repeat the image.  
-  
+Parameter | Description
+---|---
+`repeat` | Repeats the image along both the horizontal and vertical axes.
+`repeat-x` | Repeats the image only along the horizontal axis.
+`repeat-y` | Repeats the image only along the vertical axis.
+`no-repeat` | Does not repeat the image. 
+
 Invalid parameters are interpreted as the default value, which is `repeat`.
 
 **Example**
@@ -205,15 +205,15 @@ Invalid parameters are all interpreted as the default value (0px, 0px), meaning 
 
 ## Support Details
 
-Device Product | Description  
----|---  
-Xiaomi S1 Pro Sports Health Watch | Not supported  
-Xiaomi Band 8 Pro | Not supported  
-Xiaomi Band 9 / 9 Pro | Not supported  
-Xiaomi Watch S3 | Not supported  
-Redmi Watch 4 | Not supported  
-Xiaomi Wrist ECG Blood Pressure Monitor | Not supported  
-Xiaomi Band 10 | Supported  
-Xiaomi Watch S4 | Supported  
-REDMI Watch 5 | Supported  
+Device Product | Description
+---|---
+Xiaomi S1 Pro Sports Health Watch | Not supported
+Xiaomi Band 8 Pro | Not supported
+Xiaomi Band 9 / 9 Pro | Not supported
+Xiaomi Watch S3 | Not supported
+Redmi Watch 4 | Not supported
+Xiaomi Wrist ECG Blood Pressure Monitor | Not supported
+Xiaomi Band 10 | Supported
+Xiaomi Watch S4 | Supported
+REDMI Watch 5 | Supported
 REDMI Watch 6 | Supported

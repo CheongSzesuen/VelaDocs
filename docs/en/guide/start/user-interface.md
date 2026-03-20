@@ -235,7 +235,7 @@ If the reference width of the design draft is not 480, it can be configured in t
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```0
+```
 
 ### Header Information
 
@@ -249,7 +249,7 @@ The modified template code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```1
+```
 
 The CSS code is as follows:
 
@@ -259,7 +259,7 @@ The CSS code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```2
+```
 
 Actual running result:  
 ![Header Information Running Result](../../images/ui-header.png)
@@ -276,7 +276,7 @@ The completed template code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```3
+```
 
 For the module of perceived temperature and other information, first arrange it horizontally (`flex-direction: row`), and then set `flex: 1` for each item to achieve the effect of equal width for each item.
 
@@ -290,7 +290,7 @@ The CSS code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```4
+```
 
 Actual running result:  
 ![Real-time Weather Running Result](../../images/ui-now-main.png)
@@ -309,7 +309,7 @@ The modified template code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```5
+```
 
 The CSS code is as follows:
 
@@ -319,7 +319,7 @@ The CSS code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```6
+```
 
 Actual running result:  
 ![Real-time Weather Running Result](../../images/ui-3d-list.png)
@@ -334,7 +334,7 @@ The final template code for the footer information is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```7
+```
 
 The CSS code is as follows:
 
@@ -344,7 +344,7 @@ The CSS code is as follows:
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```8
+```
 
 Actual running result:  
 ![Real-time Weather Running Result](../../images/ui-footer.png)
@@ -369,7 +369,7 @@ Data definition needs to be implemented through JavaScript scripts. Like HTML, J
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
-```9
+```
 
 After defining the data, replace the previous template code. The replaced code is as follows:
 
@@ -382,7 +382,7 @@ After defining the data, replace the previous template code. The replaced code i
     <text class="weather">Clear to Cloudy</text>
   </div>
 </div>
-```0
+```
 
 ## List Rendering
 
@@ -399,7 +399,7 @@ The data definition is as follows:
     <text class="weather">Clear to Cloudy</text>
   </div>
 </div>
-```1
+```
 
 The template code is as follows:
 
@@ -412,7 +412,7 @@ The template code is as follows:
     <text class="weather">Clear to Cloudy</text>
   </div>
 </div>
-```2
+```
 
 Running result:  
 ![List Rendering Result](../../images/ui-for-list-result.png)

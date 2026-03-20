@@ -14,10 +14,10 @@ Supported
 
 [Common attributes](</vela/quickapp/en/components/general/properties.html>) are supported.
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-type | `<string>` |:---:| Yes | The type of list-item, defined as a custom string, such as 'loadMore'. **List-items with the same type must have identical DOM structures**. Therefore, use `if` and `for` with caution inside list-items, as they may cause DOM structure inconsistencies for list-items of the same type, leading to errors.  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+type | `<string>` | - | Yes | The type of list-item, defined as a custom string, such as 'loadMore'. List-items with the same type must have identical DOM structures. Therefore, use `if` and `for` with caution inside list-items, as they may cause DOM structure inconsistencies for list-items of the same type, leading to errors. 
+
 ## Styles
 
 [Common styles](</vela/quickapp/en/components/general/style.html>) are supported.

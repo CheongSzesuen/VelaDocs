@@ -39,12 +39,13 @@ The style and class attributes are supported to control the component style:
 
 Supported selectors include:
 
-Selector | Example | Description  
----|:---:|---  
-.class | .intro | Select all components with class="intro"  
-#id | #firstname | Select the component with id="firstname"  
-tag | div | Select all div components  
-, | .a, .b | Select all components with class="a" and class="b"  
+Selector | Example | Description
+---|---|---
+.class | .intro | Select all components with class="intro"
+#id | #firstname | Select the component with id="firstname"
+tag | div | Select all div components
+, | .a, .b | Select all components with class="a" and class="b"
+
 ```html
 <style>
   /* Single selector */

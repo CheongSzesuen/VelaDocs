@@ -24,18 +24,18 @@ const network = require('@system.network')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调，可能是因为缺乏权限  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调，可能是因为缺乏权限
+complete | Function | 否 | 执行结束后的回调 
+
 #### success 返回Object值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others  
-  
+参数名 | 类型 | 说明
+---|---|---
+type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others 
+
 #### 示例：
 
 ```javascript
@@ -52,17 +52,17 @@ network.getType({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-callback | Function | 否 | 每次网络发生变化，都会被回调  
-fail | Function | 否 | 失败回调，可能是因为缺乏权限  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+callback | Function | 否 | 每次网络发生变化，都会被回调
+fail | Function | 否 | 失败回调，可能是因为缺乏权限 
+
 #### callback 返回Object值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others。注：网络类型为 none 以外的值并不保证设备一定能访问到目标服务器，需要请求接口进行判断  
-  
+参数名 | 类型 | 说明
+---|---|---
+type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others。注：网络类型为 none 以外的值并不保证设备一定能访问到目标服务器，需要请求接口进行判断 
+
 #### 示例：
 
 ```javascript
@@ -89,15 +89,15 @@ network.unsubscribe()
 
 ## 支持明细
 
-设备产品 | 说明  
----|---  
-小米 S1 Pro 运动健康手表 | 支持  
-小米手环 8 Pro | 不支持  
-小米手环 9 / 9 Pro | 不支持  
-Xiaomi Watch S3 | 支持  
-Redmi Watch 4 | 不支持  
-小米腕部心电血压记录仪 | 不支持  
-小米手环 10 | 不支持  
-Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
+设备产品 | 说明
+---|---
+小米 S1 Pro 运动健康手表 | 支持
+小米手环 8 Pro | 不支持
+小米手环 9 / 9 Pro | 不支持
+Xiaomi Watch S3 | 支持
+Redmi Watch 4 | 不支持
+小米腕部心电血压记录仪 | 不支持
+小米手环 10 | 不支持
+Xiaomi Watch S4 | 支持
+REDMI Watch 5 | 支持
 REDMI Watch 6 | 支持

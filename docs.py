@@ -117,6 +117,65 @@ class MarkdownScraper:
             markdown = markdown.replace(placeholder, code_block)
         return markdown
 
+    def _render_inline_markdown(self, node, page_url):
+        if isinstance(node, NavigableString):
+            return str(node)
+
+        if getattr(node, 'name', None) == 'code':
+            return f"`{node.get_text(strip=True)}`"
+
+        if getattr(node, 'name', None) == 'br':
+            return '<br>'
+
+        if getattr(node, 'name', None) == 'a':
+            text = ''.join(self._render_inline_markdown(child, page_url) for child in node.children).strip()
+            href = node.get('href')
+            if href:
+                return f"[{text or href}]({urljoin(page_url, href)})"
+            return text
+
+        return ''.join(self._render_inline_markdown(child, page_url) for child in node.children)
+
+    def _normalize_table_cell_text(self, text):
+        text = text.replace('\xa0', ' ')
+        text = re.sub(r'\s*<br>\s*', '<br>', text)
+        text = re.sub(r'[ \t\r\f\v]+', ' ', text)
+        text = re.sub(r'\n+', ' ', text)
+        text = re.sub(r' +', ' ', text).strip()
+        text = text.replace('|', r'\|')
+        return text or '-'
+
+    def _convert_table_to_markdown(self, table, page_url):
+        rows = []
+        for tr in table.find_all('tr'):
+            cells = tr.find_all(['th', 'td'], recursive=False)
+            if not cells:
+                cells = tr.find_all(['th', 'td'])
+            if not cells:
+                continue
+
+            row = []
+            for cell in cells:
+                cell_text = ''.join(self._render_inline_markdown(child, page_url) for child in cell.children)
+                row.append(self._normalize_table_cell_text(cell_text))
+            rows.append(row)
+
+        if not rows:
+            return ''
+
+        col_count = max(len(row) for row in rows)
+        normalized_rows = [row + ['-'] * (col_count - len(row)) for row in rows]
+        header = normalized_rows[0]
+        separator = ['---'] * col_count
+        body = normalized_rows[1:]
+
+        lines = [
+            ' | '.join(header),
+            '|'.join(separator),
+        ]
+        lines.extend(' | '.join(row) for row in body)
+        return '\n'.join(lines)
+
     def _normalize_code_block_spacing(self, markdown):
         # 确保代码块起始围栏前有空行，避免与列表或正文挤在同一行
         markdown = re.sub(
@@ -138,10 +197,50 @@ class MarkdownScraper:
             markdown
         )
 
+        # 某些页面在列表中的代码块会把行号或编号粘到闭合围栏后面，形成 ```0 / ```1，
+        # 这会导致后续内容被错误地吞进代码块。这里将这类尾缀剥离掉。
+        markdown = re.sub(
+            r'^([ \t]*)```[0-9]+([ \t]*)$',
+            r'\1```\2',
+            markdown,
+            flags=re.MULTILINE
+        )
+
         # 统一清理围栏行尾多余空格
         markdown = re.sub(r'^```([\w+-]*)[ \t]+$', r'```\1', markdown, flags=re.MULTILINE)
         markdown = re.sub(r'^```[ \t]+$', r'```', markdown, flags=re.MULTILINE)
         return markdown
+
+    def _normalize_table_continuations(self, markdown):
+        lines = markdown.split('\n')
+        normalized = []
+        i = 0
+
+        def is_table_row(line):
+            stripped = line.strip()
+            return stripped.count('|') >= 3 and not stripped.startswith('```')
+
+        def is_table_separator(line):
+            stripped = line.strip().replace(' ', '')
+            return bool(re.match(r'^[-:|]+$', stripped))
+
+        while i < len(lines):
+            line = lines[i]
+            if (
+                normalized
+                and is_table_row(normalized[-1])
+                and not is_table_separator(normalized[-1])
+            ):
+                stripped = line.strip()
+                if stripped and '|' not in stripped and not stripped.startswith('```'):
+                    normalized[-1] = f"{normalized[-1]}<br>{stripped}"
+                    i += 1
+                    continue
+
+            normalized.append(line)
+            i += 1
+
+        return '\n'.join(normalized)
 
     def _get_relative_path(self, url):
         # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
@@ -368,9 +467,6 @@ class MarkdownScraper:
             # 修复标题格式（移除锚点#号）
             part = re.sub(r'^#\s+#\s+(.*)$', r'## \1', part, flags=re.MULTILINE)
 
-            # 修复表格对齐
-            part = re.sub(r'\|(\s*-+\s*)\|', r'|:---:|', part)
-
             # 清理多余空行
             part = re.sub(r'\n{3,}', '\n\n', part)
             cleaned_parts.append(part)
@@ -382,6 +478,7 @@ class MarkdownScraper:
     def convert_html_to_markdown(self, html, page_url):
         soup = BeautifulSoup(html, 'html.parser')
         code_blocks = []
+        tables = []
 
         # 移除不需要的元素
         for element in soup(['script', 'style', 'nav', 'footer', 'iframe', 'svg']):
@@ -423,6 +520,12 @@ class MarkdownScraper:
             target = parent_div if parent_div else pre
             target.replace_with(NavigableString(f"\n\n{placeholder}\n\n"))
 
+        # 处理表格，避免 html2text 在默认值、续行和单元格中的 | 上发生错位
+        for table in soup.find_all('table'):
+            placeholder = f"TABLE_PLACEHOLDER_{len(tables)}"
+            tables.append((placeholder, self._convert_table_to_markdown(table, page_url)))
+            table.replace_with(NavigableString(f"\n\n{placeholder}\n\n"))
+
         # 处理图片
         for img in soup.find_all('img', src=True):
             img_url = urljoin(page_url, img['src'])
@@ -445,7 +548,9 @@ class MarkdownScraper:
         # 后处理清理
         markdown = self._clean_markdown(markdown)
         markdown = self._restore_code_blocks(markdown, code_blocks)
+        markdown = self._restore_code_blocks(markdown, tables)
         markdown = self._normalize_code_block_spacing(markdown)
+        markdown = self._normalize_table_continuations(markdown)
         markdown = re.sub(r'\n{3,}', '\n\n', markdown)
         return markdown
 

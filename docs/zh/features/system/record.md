@@ -24,30 +24,30 @@ const record = require('@system.record')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-duration | Number | 否 | 录音时长，单位为 ms。如果 duration 为有效值将在达到指定值时停止录音  
-sampleRate | Number | 否 | 采样率。不同的音频格式所支持的采样率范围不同。默认设置为 8000，建议使用 8000/16000/32000/44100/48000  
-numberOfChannels | Number | 否 | 录音通道数，有效值 1/2  
-encodeBitRate | Number | 否 | 编码码率。编码码率的取值与采样率和音频格式有关  
-format | String | 否 | 音频格式，有效值 pcm/opus/wav。缺省为 pcm  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+duration | Number | 否 | 录音时长，单位为 ms。如果 duration 为有效值将在达到指定值时停止录音
+sampleRate | Number | 否 | 采样率。不同的音频格式所支持的采样率范围不同。默认设置为 8000，建议使用 8000/16000/32000/44100/48000
+numberOfChannels | Number | 否 | 录音通道数，有效值 1/2
+encodeBitRate | Number | 否 | 编码码率。编码码率的取值与采样率和音频格式有关
+format | String | 否 | 音频格式，有效值 pcm/opus/wav。缺省为 pcm
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### success 返回值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-uri | String | 录音文件的存储路径，在应用的缓存目录中  
-  
+参数名 | 类型 | 说明
+---|---|---
+uri | String | 录音文件的存储路径，在应用的缓存目录中 
+
 #### fail 返回错误码：
 
-错误码 | 说明  
----|---  
-205 | 录音已在进行中  
-202 | 参数错误  
-  
+错误码 | 说明
+---|---
+205 | 录音已在进行中
+202 | 参数错误 
+
 #### 示例：
 
 ```javascript
@@ -85,15 +85,15 @@ record.stop()
 
 ## 支持明细
 
-设备产品 | 说明  
----|---  
-小米 S1 Pro 运动健康手表 | 不支持  
-小米手环 8 Pro | 不支持  
-小米手环 9 / 9 Pro | 不支持  
-Xiaomi Watch S3 | 不支持  
-Redmi Watch 4 | 不支持  
-小米腕部心电血压记录仪 | 不支持  
-小米手环 10 | 不支持  
-Xiaomi Watch S4 | 不支持  
-REDMI Watch 5 | 不支持  
+设备产品 | 说明
+---|---
+小米 S1 Pro 运动健康手表 | 不支持
+小米手环 8 Pro | 不支持
+小米手环 9 / 9 Pro | 不支持
+Xiaomi Watch S3 | 不支持
+Redmi Watch 4 | 不支持
+小米腕部心电血压记录仪 | 不支持
+小米手环 10 | 不支持
+Xiaomi Watch S4 | 不支持
+REDMI Watch 5 | 不支持
 REDMI Watch 6 | 不支持

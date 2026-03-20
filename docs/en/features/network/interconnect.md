@@ -44,32 +44,32 @@ Obtains the connection status of the app.
 
 #### OBJECT Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback 
+
 #### success Return Value:
 
-Property Value | Type | Description  
----|:---:|---  
-status | Number | 1: Connected successfully, 2: Connection disconnected  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected 
+
 #### fail Return Value:
 
-Parameter Value | Type | Description  
----|:---:|---  
-data | String | Error message  
-code | Number | Error code  
-  
+Parameter Value | Type | Description
+---|---|---
+data | String | Error message
+code | Number | Error code 
+
 #### Error Code Descriptions:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
-Error Code | Description  
----|---  
-1006 | Connection disconnected  
-  
+Error Code | Description
+---|---
+1006 | Connection disconnected 
+
 #### Example:
 
 ```javascript
@@ -93,29 +93,25 @@ Diagnoses the connection between the watch app and the counterpart app. Returns 
 
 #### Object Parameters:
 
-Property | Type | Required | Description  
----|:---:|---|---  
-timeout | Number | No | Timeout duration for waiting for diagnosis, in milliseconds   
-Default value: 10000ms  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-  
+Property | Type | Required | Description
+---|---|---|---
+timeout | Number | No | Timeout duration for waiting for diagnosis, in milliseconds<br>Default value: 10000ms
+success | Function | No | Success callback
+fail | Function | No | Failure callback 
+
 #### success Return Value:
 
-Property Value | Type | Description  
----|:---:|---  
-status | Number | 0: OK, connection successful  
-204: CONNECT_TIMEOUT, connection timeout  
-1001: APP_UNINSTALLED, counterpart app not installed  
-1000: OTHERS, other connection errors  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 0: OK, connection successful<br>204: CONNECT_TIMEOUT, connection timeout<br>1001: APP_UNINSTALLED, counterpart app not installed<br>1000: OTHERS, other connection errors 
+
 #### fail Return Value:
 
-Parameter Value | Type | Description  
----|:---:|---  
-data | String | Error message  
-code | Number | Error code  
-  
+Parameter Value | Type | Description
+---|---|---
+data | String | Error message
+code | Number | Error code 
+
 #### Error Code Descriptions:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
@@ -139,32 +135,32 @@ Sends data to the mobile app.
 
 #### Object Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-data | Object | Yes | Data to be sent  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+data | Object | Yes | Data to be sent
+success | Function | No | Success callback
+fail | Function | No | Failure callback 
+
 #### success Return Value:
 
 None
 
 #### fail Return Value:
 
-Parameter Value | Type | Description  
----|:---:|---  
-data | String | Error message  
-code | Number | Error code  
-  
+Parameter Value | Type | Description
+---|---|---
+data | String | Error message
+code | Number | Error code 
+
 #### Error Code Descriptions:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
-Error Code | Description  
----|---  
-204 | Connection timeout  
-1006 | Connection disconnected  
-  
+Error Code | Description
+---|---
+204 | Connection timeout
+1006 | Connection disconnected 
+
 #### Example:
 
 ```javascript
@@ -190,10 +186,10 @@ Receives data from the mobile app.
 
 #### Callback Parameters:
 
-Parameter | Type | Description  
----|:---:|---  
-data | String | Received data  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected0 
+
 #### Example:
 
 ```javascript
@@ -208,10 +204,10 @@ Callback function when the connection is opened.
 
 #### Callback Parameters:
 
-Parameter | Type | Description  
----|:---:|---  
-isReconnected | Boolean | Whether it is a reconnection  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected1 
+
 #### Example:
 
 ```javascript
@@ -226,11 +222,10 @@ Callback function when the connection is closed.
 
 #### Callback Parameters:
 
-Parameter | Type | Description  
----|:---:|---  
-code | Number | Connection closure status code  
-data | String | Data returned upon connection closure  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected2 
+
 #### Example:
 
 ```javascript
@@ -245,21 +240,18 @@ Callback function when a connection error occurs.
 
 #### Callback Parameters:
 
-Parameter | Type | Description  
----|:---:|---  
-code | Number | Error code, see error code descriptions  
-data | String | Error message  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected3 
+
 #### Error Code Descriptions:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
-Error Code | Description  
----|---  
-1000 | Unknown error  
-1001 | Mobile app not installed  
-1006 | Connection disconnected  
-  
+Property Value | Type | Description
+---|---|---
+status | Number | 1: Connected successfully, 2: Connection disconnected4 
+
 #### Example:
 
 ```javascript
@@ -281,14 +273,14 @@ For interconnect communication, ensure that the package names and signatures of 
 import interconnect from '@system.interconnect'
 // or
 const interconnect = require('@system.interconnect')
-```0
+```
   2. Convert the p12 to pem by executing the following command. After entering the password set for the p12 file in the previous step, a pem format file will be generated in the same directory.
 
 ```javascript
 import interconnect from '@system.interconnect'
 // or
 const interconnect = require('@system.interconnect')
-```1
+```
   3. Copy the private key and certificate from the pem format file:  
 Copy the content from -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY----- into private.pem.  
 Copy the content from -----BEGIN CERTIFICATE----- to -----END CERTIFICATE----- into certificate.pem.

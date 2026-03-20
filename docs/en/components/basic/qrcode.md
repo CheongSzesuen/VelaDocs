@@ -14,19 +14,19 @@ Not supported
 
 Supports [common attributes](</vela/quickapp/en/components/general/properties.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-value | `string` |:---:| Yes | The content used to generate the QR code  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+value | `string` | - | Yes | The content used to generate the QR code 
+
 ## Styles
 
 Supports [common styles](</vela/quickapp/en/components/general/style.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-color | `<color>` | #000000 | No | QR code color  
-background-color | `<color>` | #ffffff | No | QR code background color  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+color | `<color>` | #000000 | No | QR code color
+background-color | `<color>` | #ffffff | No | QR code background color 
+
 ## Events
 
 Supports [common events](</vela/quickapp/en/components/general/events.html>)

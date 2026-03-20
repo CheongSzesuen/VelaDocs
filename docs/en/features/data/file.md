@@ -24,21 +24,21 @@ Moves a source file to a specified location. For URI descriptions used in the in
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-srcUri | String | Yes | URI of the source file. Cannot be an app resource path or a tmp-type URI.  
-dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.  
-success | Function | No | Success callback, returns the URI of the destination file.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file. Cannot be an app resource path or a tmp-type URI.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends. 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error 
+
 #### Example:
 
 ```javascript
@@ -60,21 +60,21 @@ Copies a source file and stores it in a specified location. For URI descriptions
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-srcUri | String | Yes | URI of the source file.  
-dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.  
-success | Function | No | Success callback, returns the URI of the destination file.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends. 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error 
+
 #### Example:
 
 ```javascript
@@ -96,34 +96,34 @@ Gets a list of files in a specified directory. For URI descriptions used in the 
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | Directory URI.  
-success | Function | No | Success callback, returns {fileList:[{uri:'file1', lastModifiedTime:1234456, length:123456} ...]}  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+uri | String | Yes | Directory URI.
+success | Function | No | Success callback, returns {fileList:[{uri:'file1', lastModifiedTime:1234456, length:123456} ...]}
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends. 
+
 #### Return Values of success:
 
-Parameter | Type | Description  
----|:---:|---  
-fileList | Array | List of files, each in the format {uri:'file1', lastModifiedTime:1234456, length:123456}  
-  
+Parameter | Type | Description
+---|---|---
+fileList | Array | List of files, each in the format {uri:'file1', lastModifiedTime:1234456, length:123456} 
+
 #### Metadata for Each File:
 
-Parameter | Type | Description  
----|:---:|---  
-uri | String | URI of the file, which can be accessed by other components or features.  
-length | Number | File size in bytes.  
-lastModifiedTime | Number | Timestamp of when the file was saved, in milliseconds from 1970/01/01 00:00:00 GMT.  
-  
+Parameter | Type | Description
+---|---|---
+uri | String | URI of the file, which can be accessed by other components or features.
+length | Number | File size in bytes.
+lastModifiedTime | Number | Timestamp of when the file was saved, in milliseconds from 1970/01/01 00:00:00 GMT. 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error 
+
 #### Example:
 
 ```javascript
@@ -144,31 +144,31 @@ Gets file information for a local file. For URI descriptions used in the interfa
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | URI of the file. Cannot be an app resource path or a tmp-type URI.  
-recursive | Boolean | No | Whether to recursively get the file list in subdirectories. Default is false.  
-success | Function | No | Success callback, returns {uri:'file1', length:123456, lastModifiedTime:1233456}  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+uri | String | Yes | URI of the file. Cannot be an app resource path or a tmp-type URI.
+recursive | Boolean | No | Whether to recursively get the file list in subdirectories. Default is false.
+success | Function | No | Success callback, returns {uri:'file1', length:123456, lastModifiedTime:1233456}
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends. 
+
 #### Return Values of success:
 
-Parameter | Type | Description  
----|:---:|---  
-uri | String | URI of the file, which can be accessed by other components or features.  
-length | Number | File size in bytes. Returns 0 when type = dir.  
-lastModifiedTime | Number | Timestamp of when the file was saved, in milliseconds from 1970/01/01 08:00:00.  
-type | String | File type: dir for directory, file for file.  
-subFiles | Array | When type = dir, returns the list of files in the directory. When recursive is true, also returns file information in subdirectories.  
-  
+Parameter | Type | Description
+---|---|---
+uri | String | URI of the file, which can be accessed by other components or features.
+length | Number | File size in bytes. Returns 0 when type = dir.
+lastModifiedTime | Number | Timestamp of when the file was saved, in milliseconds from 1970/01/01 08:00:00.
+type | String | File type: dir for directory, file for file.
+subFiles | Array | When type = dir, returns the list of files in the directory. When recursive is true, also returns file information in subdirectories. 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error0 
+
 #### Example:
 
 ```javascript
@@ -191,20 +191,18 @@ Deletes a locally stored file. For URI descriptions used in the interface, refer
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | URI of the file to be deleted. Cannot be an app resource path or a tmp-type URI.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error1 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error2 
+
 #### Example:
 
 ```javascript
@@ -229,23 +227,18 @@ When using file write interfaces, ensure to clean up unused files promptly, espe
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | Local file path. Does not support resource file paths or tmp partitions. Creates the file if it does not exist.  
-text | String | Yes | String to be written.  
-encoding | String | No | Encoding format, default is UTF-8.  
-append | Boolean | No | Whether to append, default is false.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error3 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error4 
+
 #### Example:
 
 ```javascript
@@ -271,23 +264,18 @@ When using file write interfaces, ensure to clean up unused files promptly, espe
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | Local file path. Does not support resource file paths or tmp partitions. Creates the file if it does not exist.  
-buffer | Uint8Array | Yes | Buffer to be written.  
-position | Number | No | Offset from the start of the file where data begins to be written. Default is 0.  
-append | Boolean | No | Whether to append, default is false. When true, the position parameter is invalid.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error5 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error6 
+
 #### Example:
 
 ```javascript
@@ -309,28 +297,25 @@ Reads text from a file.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | Local file path. Supports app resource paths, e.g., '/Common/demo.txt'.  
-encoding | String | No | Encoding format, default is UTF-8.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error7 
+
 #### Return Values of success:
 
-Parameter | Type | Description  
----|:---:|---  
-text | String | The read text.  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error8 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-301 | File does not exist  
-  
+Error Code | Description
+---|---
+202 | Parameter error
+300 | I/O error9 
+
 #### Example:
 
 ```javascript
@@ -351,36 +336,41 @@ Reads a Buffer from a file.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | Local file path. Supports app resource paths, e.g., '/Common/demo.txt'.  
-position | Number | No | Starting position for reading. Default is the start of the file.  
-length | Number | No | Length to read. If not specified, reads to the end of the file.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.0 
+
 #### Return Values of success:
 
-Parameter | Type | Description  
----|:---:|---  
-buffer | Uint8Array | The read file content.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.1 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-301 | File does not exist  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.2 
+
 #### Example:
 
 ```javascript
 import file from '@system.file' 
 // or 
 const file = require('@system.file')
-```0
+```
 
 ### file.access(OBJECT)
 
@@ -388,27 +378,31 @@ Checks if a file or directory exists.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | URI of the directory or file.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.3 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.4 
+
 #### Example:
 
 ```javascript
 import file from '@system.file' 
 // or 
 const file = require('@system.file')
-```1
+```
 
 ### file.mkdir(OBJECT)
 
@@ -416,28 +410,31 @@ Creates a directory.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | URI of the directory. Cannot be an app resource path or a tmp-type URI.  
-recursive | Boolean | No | Whether to recursively create parent directories before creating this directory. Default is false.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.5 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.6 
+
 #### Example:
 
 ```javascript
 import file from '@system.file' 
 // or 
 const file = require('@system.file')
-```2
+```
 
 ### file.rmdir(OBJECT)
 
@@ -445,25 +442,28 @@ Deletes a directory.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-uri | String | Yes | URI of the directory. Cannot be an app resource path or a tmp-type URI.  
-recursive | Boolean | No | Whether to recursively delete subfiles and subdirectories. Default is false.  
-success | Function | No | Success callback.  
-fail | Function | No | Failure callback.  
-complete | Function | No | Callback after execution ends.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.7 
+
 #### Error Codes Returned by fail:
 
-Error Code | Description  
----|---  
-202 | Parameter error  
-300 | I/O error  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+srcUri | String | Yes | URI of the source file.
+dstUri | String | Yes | URI of the destination file. Cannot be an app resource path or a tmp-type URI.
+success | Function | No | Success callback, returns the URI of the destination file.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution ends.8 
+
 #### Example:
 
 ```javascript
 import file from '@system.file' 
 // or 
 const file = require('@system.file')
-```3
+```

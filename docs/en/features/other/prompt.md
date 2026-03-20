@@ -24,11 +24,11 @@ Displays Toast prompt information
 
 #### Parameters
 
-Parameter name | Type | Required | Description  
----|:---:|---|---  
-message | String | Yes | The text information to be displayed  
-duration | Number | No | The display duration in milliseconds. The default value is 1500. The recommended range is 1500-10000.  
-  
+Parameter name | Type | Required | Description
+---|---|---|---
+message | String | Yes | The text information to be displayed
+duration | Number | No | The display duration in milliseconds. The default value is 1500. The recommended range is 1500-10000. 
+
 #### Example:
 
 ```javascript

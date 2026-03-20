@@ -26,23 +26,23 @@ None.
 
 #### Return Value:
 
-Parameter Name | Type | Description  
----|:---:|---  
-packageName | String | Application package name  
-icon | String | Application icon path  
-name | String | Application name  
-versionName | String | Application version name  
-versionCode | Integer | Application version number  
-logLevel | String | Log level  
-source | Object | Application source  
-  
+Parameter Name | Type | Description
+---|---|---
+packageName | String | Application package name
+icon | String | Application icon path
+name | String | Application name
+versionName | String | Application version name
+versionCode | Integer | Application version number
+logLevel | String | Log level
+source | Object | Application source 
+
 #### source
 
-Parameter Name | Type | Description  
----|:---:|---  
-packageName | String | Package name of the source app, primary source  
-type | String | Source type, secondary source, values include shortcut, push, url, barcode, nfc, bluetooth, other  
-  
+Parameter Name | Type | Description
+---|---|---
+packageName | String | Package name of the source app, primary source
+type | String | Source type, secondary source, values include shortcut, push, url, barcode, nfc, bluetooth, other 
+
 #### Example:
 
 ```javascript
@@ -96,16 +96,16 @@ app.terminate()
 
 #### Parameters:
 
-Type | Description  
----|---  
-String | The capability to query, format as below  
-  
+Type | Description
+---|---
+String | The capability to query, format as below 
+
 #### Return Value:
 
-Type | Description  
----|---  
-Boolean | Whether the queried capability is supported  
-  
+Type | Description
+---|---
+Boolean | Whether the queried capability is supported 
+
 ### Input Parameter Format
 
 #### Query Interface

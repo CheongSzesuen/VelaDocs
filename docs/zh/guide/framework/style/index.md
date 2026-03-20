@@ -39,12 +39,13 @@
 
 支持的选择器有：
 
-选择器 | 样例 | 样例描述  
----|:---:|---  
-.class | .intro | 选择所有拥有 class="intro" 的组件  
-#id | #firstname | 选择拥有 id="firstname" 的组件  
-tag | div | 选择所有 div 组件  
-, | .a, .b | 选择所有 class="a"以及 class="b"的组件  
+选择器 | 样例 | 样例描述
+---|---|---
+.class | .intro | 选择所有拥有 class="intro" 的组件
+#id | #firstname | 选择拥有 id="firstname" 的组件
+tag | div | 选择所有 div 组件
+, | .a, .b | 选择所有 class="a"以及 class="b"的组件
+
 ```html
 <style>
   /* 单个选择器 */

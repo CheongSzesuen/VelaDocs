@@ -101,14 +101,14 @@
 
 URI 用于标识应用资源和文件，[组件](</vela/quickapp/zh/components/>)和[接口](</vela/quickapp/zh/features/>)通过 URI 来访问应用资源和文件。
 
-资源类型 | URI | 只读 | 示例 | 说明  
----|:---:|---|:---:|---  
-应用资源 | /path | 是 | /Common/header.png | -  
-Cache | internal://cache/path | 否 | internal://cache/fetch-123456.png | -  
-Files | internal://files/path | 否 | internal://files/image/demo.png | -  
-Mass | internal://mass/path | 否 | internal://mass/video/demo.mp4 | -  
-Temp | internal://tmp/path | 是 | internal://tmp/xxxxx | 由系统动态生成  
-  
+资源类型 | URI | 只读 | 示例 | 说明
+---|---|---|---|---
+应用资源 | /path | 是 | /Common/header.png | -
+Cache | internal://cache/path | 否 | internal://cache/fetch-123456.png | -
+Files | internal://files/path | 否 | internal://files/image/demo.png | -
+Mass | internal://mass/path | 否 | internal://mass/video/demo.mp4 | -
+Temp | internal://tmp/path | 是 | internal://tmp/xxxxx | 由系统动态生成 
+
 URI 允许的字符是`0-9a-zA-Z_-./%:`(不包含引号)，URI 中不能出现`..`，URI 支持目录结构，目录由斜线'/'分隔。
 
 internal URI 表示的是应用私有文件，即在指定 internal URI 时，无需指定应用标识，同一个 internal URI 对于不同的应用会指向不同的文件。

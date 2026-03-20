@@ -26,11 +26,11 @@ const configuration = require('@system.configuration')
 
 #### 返回值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-language | String | 语言  
-countryOrRegion | String | 国家或地区  
-  
+参数名 | 类型 | 说明
+---|---|---
+language | String | 语言
+countryOrRegion | String | 国家或地区 
+
 #### 示例：
 
 ```javascript

@@ -31,13 +31,9 @@ module.exports = {
 
 ## 常见编译参数
 
-参数名 | 值类型 | 描述 | 默认值  
----|:---:|---|---  
-\--devtool | `string` | sourcemap 的输出形式， 参数值及含义可以参考 [webpack/devtool (opens new window)](<https://www.webpackjs.com/configuration/devtool/#root>)   
-示例：`aiot server --devtool=source-map` | none  
-\--enable-jsc | `boolean` | 是否将 js 文件将转换为 jsc 文件，以提高运行性能   
-示例：`aiot server --enable-jsc` | false  
-\--enable-protobuf | `boolean` | 是否启用 protobuf 的二进制打包，以提高运行性能   
-示例：`aiot server --enable-protobuf` | false  
-\--enable-custom-component | `boolean` | 是否支持自定义组件   
-示例：`aiot server --enable-custom-component` | false
+参数名 | 值类型 | 描述 | 默认值
+---|---|---|---
+--devtool | `string` | sourcemap 的输出形式， 参数值及含义可以参考 [webpack/devtool (opens new window)](https://www.webpackjs.com/configuration/devtool/#root)<br>示例：`aiot server --devtool=source-map` | none
+--enable-jsc | `boolean` | 是否将 js 文件将转换为 jsc 文件，以提高运行性能<br>示例：`aiot server --enable-jsc` | false
+--enable-protobuf | `boolean` | 是否启用 protobuf 的二进制打包，以提高运行性能<br>示例：`aiot server --enable-protobuf` | false
+--enable-custom-component | `boolean` | 是否支持自定义组件<br>示例：`aiot server --enable-custom-component` | false

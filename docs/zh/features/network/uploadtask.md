@@ -26,26 +26,26 @@ const uploadtask = require('@system.uploadtask')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-url | String | 是 | 开发者服务器接口地址  
-filePath | String | 是 | 要上传文件资源的路径 (本地路径)  
-name | String | 是 | 文件对应的 key，开发者在服务端可以通过这个 key 获取文件的二进制内容  
-header | Object | 否 | 请求的 header，会将其所有属性设置到请求的 header 部分  
-formData | Object | 否 | HTTP 请求中其他额外的 form data  
-timeout | Number | 否 | 超时时间，单位为毫秒  
-success | Function | 否 | 成功返回的回调函数  
-fail | Function | 否 | 失败的回调函数  
-complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行）  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+url | String | 是 | 开发者服务器接口地址
+filePath | String | 是 | 要上传文件资源的路径 (本地路径)
+name | String | 是 | 文件对应的 key，开发者在服务端可以通过这个 key 获取文件的二进制内容
+header | Object | 否 | 请求的 header，会将其所有属性设置到请求的 header 部分
+formData | Object | 否 | HTTP 请求中其他额外的 form data
+timeout | Number | 否 | 超时时间，单位为毫秒
+success | Function | 否 | 成功返回的回调函数
+fail | Function | 否 | 失败的回调函数
+complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行） 
+
 #### success 返回值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-statusCode | Integer | 服务器状态 code  
-data | String | 开发者服务器返回的数据  
-headers | Object | 服务器 response 的所有 header  
-  
+参数名 | 类型 | 说明
+---|---|---
+statusCode | Integer | 服务器状态 code
+data | String | 开发者服务器返回的数据
+headers | Object | 服务器 response 的所有 header 
+
 # UploadTask
 
 ## 方法
@@ -60,18 +60,18 @@ headers | Object | 服务器 response 的所有 header
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-callback | Function | 是 | 上传进度变化事件的回调函数  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+callback | Function | 是 | 上传进度变化事件的回调函数 
+
 #### callback 返回值：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-progress | Number | 上传进度百分比  
-totalBytesSent | Number | 已经上传的数据长度，单位 Bytes  
-totalBytesExpectedToSend | Number | 预期需要上传的数据总长度，单位 Bytes  
-  
+参数名 | 类型 | 说明
+---|---|---
+progress | Number | 上传进度百分比
+totalBytesSent | Number | 已经上传的数据长度，单位 Bytes
+totalBytesExpectedToSend | Number | 预期需要上传的数据总长度，单位 Bytes 
+
 ### UploadTask.offProgressUpdate(function callback)
 
 取消监听上传进度变化事件。callback 是可选的，如果不传则取消所有通过 onProgressUpdate 监听的上传进度变化事件
@@ -133,15 +133,15 @@ retUploadTask.offProgressUpdate(cb)
 
 ## 支持明细
 
-设备产品 | 说明  
----|---  
-小米 S1 Pro 运动健康手表 | 不支持  
-小米手环 8 Pro | 不支持  
-小米手环 9 / 9 Pro | 不支持  
-Xiaomi Watch S3 | 支持  
-Redmi Watch 4 | 不支持  
-小米腕部心电血压记录仪 | 不支持  
-小米手环 10 | 不支持  
-Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
+设备产品 | 说明
+---|---
+小米 S1 Pro 运动健康手表 | 不支持
+小米手环 8 Pro | 不支持
+小米手环 9 / 9 Pro | 不支持
+Xiaomi Watch S3 | 支持
+Redmi Watch 4 | 不支持
+小米腕部心电血压记录仪 | 不支持
+小米手环 10 | 不支持
+Xiaomi Watch S4 | 支持
+REDMI Watch 5 | 支持
 REDMI Watch 6 | 支持

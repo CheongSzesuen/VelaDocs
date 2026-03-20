@@ -14,14 +14,10 @@ Only [`<span>`](</vela/quickapp/en/components/basic/span.html>) is supported.
 
 Supports [universal attributes](</vela/quickapp/en/components/general/properties.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-href | `string` |:---:| No | For supported formats, see the uri parameter in [page routing](</vela/quickapp/en/features/basic/router.html>).  
-Additional:  
-href can also add parameters in the format of "?param1=value1", and the parameters can be used in the page via `this.param1`. When using the `this.param1` variable, you need to define a property with the same key name under `public` (passing parameters outside the app) or `protected` (passing parameters inside the app) in the target page.  
-Example:  
-`<a href="/about?param1=value1">About</a>`  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+href | `string` | - | No | For supported formats, see the uri parameter in [page routing](https://iot.mi.com/vela/quickapp/en/features/basic/router.html).<br>Additional:<br>href can also add parameters in the format of "?param1=value1", and the parameters can be used in the page via `this.param1`. When using the `this.param1` variable, you need to define a property with the same key name under `public` (passing parameters outside the app) or `protected` (passing parameters inside the app) in the target page.<br>Example:<br>`<a href="/about?param1=value1">About</a>` 
+
 ## Styles
 
 Supports [text styles](</vela/quickapp/en/components/basic/text.html>)

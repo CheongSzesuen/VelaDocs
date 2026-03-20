@@ -24,18 +24,18 @@ Gets the current media volume.
 
 #### Parameters
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### success Return Value:
 
-Parameter | Type | Description  
----|:---:|---  
-value | Number | Current system media volume, between 0.0 and 1.0  
-  
+Parameter | Type | Description
+---|---|---
+value | Number | Current system media volume, between 0.0 and 1.0 
+
 #### Example
 
 ```javascript
@@ -55,13 +55,13 @@ Sets the current media volume.
 
 #### Parameters
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-value | Number | Yes | Volume to set, between 0.0 and 1.0  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+value | Number | Yes | Volume to set, between 0.0 and 1.0
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### fail Return Value:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
@@ -88,10 +88,10 @@ Triggered when the media volume changes.
 
 #### Callback Object Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-value | Number | Yes | Current system media volume, range: between 0.0 and 1.0  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+value | Number | Yes | Current system media volume, range: between 0.0 and 1.0 
+
 #### Example
 
 ```javascript

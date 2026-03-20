@@ -31,13 +31,9 @@ module.exports = {
 
 ## Common Build Parameters
 
-Parameter Name | Value Type | Description | Default  
----|:---:|---|---  
-\--devtool | `string` | The output format of the sourcemap. For parameter values and their meanings, refer to [webpack/devtool (opens new window)](<https://www.webpackjs.com/configuration/devtool/#root>)   
-Example: `aiot server --devtool=source-map` | none  
-\--enable-jsc | `boolean` | Whether to convert js files to jsc files to improve runtime performance   
-Example: `aiot server --enable-jsc` | false  
-\--enable-protobuf | `boolean` | Whether to enable protobuf binary packaging to improve runtime performance   
-Example: `aiot server --enable-protobuf` | false  
-\--enable-custom-component | `boolean` | Whether to support custom components   
-Example: `aiot server --enable-custom-component` | false
+Parameter Name | Value Type | Description | Default
+---|---|---|---
+--devtool | `string` | The output format of the sourcemap. For parameter values and their meanings, refer to [webpack/devtool (opens new window)](https://www.webpackjs.com/configuration/devtool/#root)<br>Example: `aiot server --devtool=source-map` | none
+--enable-jsc | `boolean` | Whether to convert js files to jsc files to improve runtime performance<br>Example: `aiot server --enable-jsc` | false
+--enable-protobuf | `boolean` | Whether to enable protobuf binary packaging to improve runtime performance<br>Example: `aiot server --enable-protobuf` | false
+--enable-custom-component | `boolean` | Whether to support custom components<br>Example: `aiot server --enable-custom-component` | false

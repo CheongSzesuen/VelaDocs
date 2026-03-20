@@ -82,9 +82,7 @@ export function promisify(fn) {
   return (opts={}) => {
     let { success, fail, complete, ...args } = opts;
 
-    if (typeof success === 'function' || typeof fail === 'function' || typeof complete === 'function') {
-      console.warn('[promisify] [WARN] The `success`, `fail` and `complete` callback will be ignored');
-    }
+    if (typeof success === 'function' || typeof fail === 'function' || typeof complete === 'function') {<br>console.warn('[promisify] [WARN] The `success`, `fail` and `complete` callback will be ignored');<br>}
 
     return new Promise((resolve, reject) => {
       try {
@@ -328,4 +326,4 @@ onInit(){
     }
   })
 }
-```0
+```

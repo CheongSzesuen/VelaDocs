@@ -24,11 +24,11 @@ const prompt = require('@system.prompt')
 
 #### 参数
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-message | String | 是 | 显示的文本信息  
-duration | Number | 否 | 显示持续时间，单位ms，默认值1500，建议区间：1500-10000  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+message | String | 是 | 显示的文本信息
+duration | Number | 否 | 显示持续时间，单位ms，默认值1500，建议区间：1500-10000 
+
 #### 示例：
 
 ```javascript

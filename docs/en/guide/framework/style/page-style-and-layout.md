@@ -289,7 +289,7 @@ To use scss, execute the following command under the JS application project to i
     "designWidth": 640
   }
 }
-```0
+```
 
 Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quickapp/en/guide/framework/style/#样式预编译>). Then add the attribute `lang="scss"` to the `<style>` tag.
 
@@ -301,7 +301,7 @@ Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quicka
     "designWidth": 640
   }
 }
-```1
+```
 
 ## Using PostCSS to Parse CSS
 
@@ -321,7 +321,7 @@ Using PostCSS to parse CSS involves three steps:
     "designWidth": 640
   }
 }
-```2
+```
 
 Here, precss is a PostCSS plugin.
 
@@ -333,7 +333,7 @@ Here, precss is a PostCSS plugin.
     "designWidth": 640
   }
 }
-```3
+```
 
 Now you can write the corresponding code in CSS.
 

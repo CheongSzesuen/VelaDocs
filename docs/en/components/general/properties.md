@@ -19,20 +19,20 @@ Developers can use `common attributes` on all component tags.
 
 ## Common Attributes
 
-Name | Type | Default Value | Description  
----|:---:|---|---  
-id | `<string>` |:---:| Unique ID  
-style | `<string>` |:---:| Style declaration  
-class | `<string>` |:---:| Reference to a style sheet  
-  
+Name | Type | Default Value | Description
+---|---|---|---
+id | `<string>` | - | Unique ID
+style | `<string>` | - | Style declaration
+class | `<string>` | - | Reference to a style sheet 
+
 ## Rendering Attributes
 
-Name | Type | Default Value | Description  
----|:---:|---|---  
-for | `<array>` |:---:| Expands the current tag cyclically based on a data list  
-if | `<boolean>` |:---:| Adds or removes the current tag based on a data boolean value  
-show | `<boolean>` |:---:| Shows or hides the current tag based on a data boolean value, which is equivalent to controlling { display: flex | none }  
-  
+Name | Type | Default Value | Description
+---|---|---|---
+for | `<array>` | - | Expands the current tag cyclically based on a data list
+if | `<boolean>` | - | Adds or removes the current tag based on a data boolean value
+show | `<boolean>` | - | Shows or hides the current tag based on a data boolean value, which is equivalent to controlling { display: flex \| none } 
+
 For details about how rendering attributes work, see [template](</vela/quickapp/en/guide/framework/template/>).
 
 Note

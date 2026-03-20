@@ -24,26 +24,26 @@ const event = require('@system.event')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-eventName | String | 是 | 事件名称，公共事件保留名称被系统占用，请勿使用  
-options | Object | 否 | 事件参数  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+eventName | String | 是 | 事件名称，公共事件保留名称被系统占用，请勿使用
+options | Object | 否 | 事件参数 
+
 #### options 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-params | Object | 否 | 事件参数  
-permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+params | Object | 否 | 事件参数
+permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件 
+
 #### 系统支持的公共事件：
 
-系统内部事件名称 | 订阅者所需权限 | 说明  
----|:---:|---  
-usual.event.BATTERY_CHANGED | 无 | 电量改变，参数：level:0.0 - 1.0 之间  
-usual.event.DISCHARGING | 无 | 停止充电  
-usual.event.CHARGING | 无 | 开始充电  
-  
+系统内部事件名称 | 订阅者所需权限 | 说明
+---|---|---
+usual.event.BATTERY_CHANGED | 无 | 电量改变，参数：level:0.0 - 1.0 之间
+usual.event.DISCHARGING | 无 | 停止充电
+usual.event.CHARGING | 无 | 开始充电 
+
 #### 返回值：
 
 无
@@ -66,24 +66,24 @@ event.publish({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-eventName | String | 是 | 事件名称  
-callback | Function | 是 | 回调函数  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+eventName | String | 是 | 事件名称
+callback | Function | 是 | 回调函数 
+
 #### 回调参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-params | Object | 否 | 事件参数  
-package | String | 否 | 事件推送者包名  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+params | Object | 否 | 事件参数
+package | String | 否 | 事件推送者包名 
+
 #### 返回值：
 
-类型 | 必填 | 说明  
----|:---:|---  
-Number | 是 | 事件id，订阅失败返回undefined  
-  
+类型 | 必填 | 说明
+---|---|---
+Number | 是 | 事件id，订阅失败返回undefined 
+
 #### 示例：
 
 ```javascript
@@ -104,10 +104,10 @@ console.log(evtId)
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-id | Number | 是 | 订阅id  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+id | Number | 是 | 订阅id 
+
 #### 示例：
 
 ```javascript
@@ -125,15 +125,15 @@ event.unsubscribe({ id: evtId })
 
 ## 支持明细
 
-设备产品 | 说明  
----|---  
-小米 S1 Pro 运动健康手表 | 不支持  
-小米手环 8 Pro | 不支持  
-小米手环 9 / 9 Pro | 不支持  
-Xiaomi Watch S3 | 不支持  
-Redmi Watch 4 | 不支持  
-小米腕部心电血压记录仪 | 不支持  
-小米手环 10 | 支持  
-Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
+设备产品 | 说明
+---|---
+小米 S1 Pro 运动健康手表 | 不支持
+小米手环 8 Pro | 不支持
+小米手环 9 / 9 Pro | 不支持
+Xiaomi Watch S3 | 不支持
+Redmi Watch 4 | 不支持
+小米腕部心电血压记录仪 | 不支持
+小米手环 10 | 支持
+Xiaomi Watch S4 | 支持
+REDMI Watch 5 | 支持
 REDMI Watch 6 | 支持

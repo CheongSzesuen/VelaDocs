@@ -14,27 +14,27 @@ Not supported
 
 Supports [universal attributes](</vela/quickapp/en/components/general/properties.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-checked | `<boolean>` | false | No | Can trigger the checked pseudo-class (checked pseudo-class style is not yet supported)  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+checked | `<boolean>` | false | No | Can trigger the checked pseudo-class (checked pseudo-class style is not yet supported) 
+
 ## Styles
 
 Supports [universal styles](</vela/quickapp/en/components/general/style.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-thumb-color | `<color>` | #ffffff or rgb(255, 255, 255) | No | Slider color  
-track-color | `<color>` | #0d84ff or rgb(13, 132, 255) | No | Track color  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+thumb-color | `<color>` | #ffffff or rgb(255, 255, 255) | No | Slider color
+track-color | `<color>` | #0d84ff or rgb(13, 132, 255) | No | Track color 
+
 ## Events
 
 Supports [universal events](</vela/quickapp/en/components/general/events.html>)
 
-Name | Parameters | Description  
----|:---:|---  
-change | {checked:checkedValue} | Triggered when the checked state changes  
-  
+Name | Parameters | Description
+---|---|---
+change | {checked:checkedValue} | Triggered when the checked state changes 
+
 ## Sample Code
 
 ```html

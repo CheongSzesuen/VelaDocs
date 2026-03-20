@@ -14,25 +14,25 @@
 
 Object object
 
-属性 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-success | function |  | 否 | 接口调用成功的回调函数  
-fail | function |  | 否 | 接口调用失败的回调函数  
-complete | function |  | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）  
-  
+属性 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+success | function | - | 否 | 接口调用成功的回调函数
+fail | function | - | 否 | 接口调用失败的回调函数
+complete | function | - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） 
+
 #### object.success 回调函数参数说明
 
 Object rect
 
-属性 | 类型 | 描述  
----|:---:|---  
-left | number | 元素的左边界坐标  
-right | number | 元素的右边界坐标  
-top | number | 元素的上边界坐标  
-bottom | number | 元素的下边界坐标  
-width | number | 元素的宽度  
-height | number | 元素的高度  
-  
+属性 | 类型 | 描述
+---|---|---
+left | number | 元素的左边界坐标
+right | number | 元素的右边界坐标
+top | number | 元素的上边界坐标
+bottom | number | 元素的下边界坐标
+width | number | 元素的宽度
+height | number | 元素的高度 
+
 #### 代码示例
 
 ```html
@@ -68,10 +68,10 @@ height | number | 元素的高度
 
 #### 参数
 
-属性 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-focus | boolean | true | 否 | 使组件获得或者失去焦点，聚焦时可触发 focus 伪类效果（focus 伪类样式还未支持）  
-  
+属性 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+focus | boolean | true | 否 | 使组件获得或者失去焦点，聚焦时可触发 focus 伪类效果（focus 伪类样式还未支持） 
+
 #### 代码示例
 
 ```html

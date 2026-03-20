@@ -263,11 +263,11 @@ export default {
 
 Taking QQ Music as an example, the following is a comparison of optimization effects before and after:
 
-| Before Optimization | Replace with Lightweight Dependencies | Use Global Methods  
----|:---:|---|---  
-Lines of Code | 21965 | 13156 | 6807  
-Maximum Memory | 4842844 | 3295928 | 1872528  
-  
+- | Before Optimization | Replace with Lightweight Dependencies | Use Global Methods
+---|---|---|---
+Lines of Code | 21965 | 13156 | 6807
+Maximum Memory | 4842844 | 3295928 | 1872528 
+
   3. Use low-resolution images while ensuring image quality.
 
 Large images consume more memory when loaded. Resize large images to smaller dimensions and then compress them (<https://tinypng.com>[ (opens new window)](<https://tinypng.com>)) to reduce their size.

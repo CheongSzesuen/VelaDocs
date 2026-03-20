@@ -22,24 +22,17 @@ const router = require('@system.router')
 
 #### 参数：
 
-参数 | 类型 | 必填 | 说明  
----|:---:|---|---  
-uri | String | 是 | 要跳转到的 uri，可以是下面的格式：  
-1、包含 schema 的完整 uri；  
-2、以‘/’开头的应用内页面的路径；例：/about  
-3、以非‘/’开头的应用内页面的名称；例：About  
-4、特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页  
-  
-支持包含 schema 的完整 uri。对于带有 schema 的 uri，处理流程如下：  
-如果 schema 是 hap （参见 [hap 链接](</vela/quickapp/zh/guide/framework/other/hap-schema.html>)），会跳转到 hap 链接所支持的类型  
-params | Object | 否 | 跳转时需要传递的数据，参数可以在目标页面中通过`this.param1`的方式使用，param1 为 json 中的参数名，param1 对应的值会统一转换为 String 类型。使用`this.param1`变量时，需要在目标页面中在 `public`（应用外传参）或 `protected` (应用内传参)下定义 key 名相同的属性  
-  
+参数 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 要跳转到的 uri，可以是下面的格式：<br>1、包含 schema 的完整 uri；<br>2、以‘/’开头的应用内页面的路径；例：/about<br>3、以非‘/’开头的应用内页面的名称；例：About<br>4、特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页<br><br>支持包含 schema 的完整 uri。对于带有 schema 的 uri，处理流程如下：<br>如果 schema 是 hap （参见 [hap 链接](https://iot.mi.com/vela/quickapp/zh/guide/framework/other/hap-schema.html)），会跳转到 hap 链接所支持的类型
+params | Object | 否 | 跳转时需要传递的数据，参数可以在目标页面中通过`this.param1`的方式使用，param1 为 json 中的参数名，param1 对应的值会统一转换为 String 类型。使用`this.param1`变量时，需要在目标页面中在 `public`（应用外传参）或 `protected` (应用内传参)下定义 key 名相同的属性 
+
 #### params参数：
 
-参数 | 类型 | 必填 | 说明  
----|:---:|---|---  
-___PARAM_LAUNCH_FLAG___ | String | 否 | JS 应用启动参数，目前仅支持"clearTask"，在启动目标页面时会清除除此页面外的其他页面。详见[页面启动模式](</vela/quickapp/zh/guide/framework/other/launch-mode.html>)  
-  
+参数 | 类型 | 必填 | 说明
+---|---|---|---
+___PARAM_LAUNCH_FLAG___ | String | 否 | JS 应用启动参数，目前仅支持"clearTask"，在启动目标页面时会清除除此页面外的其他页面。详见[页面启动模式](https://iot.mi.com/vela/quickapp/zh/guide/framework/other/launch-mode.html) 
+
 #### 示例：
 
   * 应用内切换页面
@@ -82,17 +75,11 @@ router.push({
 
 #### 参数：
 
-参数 | 类型 | 必填 | 说明  
----|:---:|---|---  
-uri | String | 是 | 要跳转到的 uri，可以是下面的格式：
+参数 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 要跳转到的 uri，可以是下面的格式：以"/"开头的应用内页面的路径；例：/about以非"/"开头的应用内页面的名称；例：About特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页
+params | Object | 否 | 跳转时需要传递的数据，参数可以在目标页面中通过`this.param1`的方式使用，param1 为 json 中的参数名，param1 对应的值会统一转换为 String 类型。使用`this.param1`变量时，需要在目标页面中在 `public`（应用外传参）或 `protected` (应用内传参)下定义 key 名相同的属性 
 
-  1. 以"/"开头的应用内页面的路径；例：/about
-  2. 以非"/"开头的应用内页面的名称；例：About
-  3. 特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页
-
-  
-params | Object | 否 | 跳转时需要传递的数据，参数可以在目标页面中通过`this.param1`的方式使用，param1 为 json 中的参数名，param1 对应的值会统一转换为 String 类型。使用`this.param1`变量时，需要在目标页面中在 `public`（应用外传参）或 `protected` (应用内传参)下定义 key 名相同的属性  
-  
 #### 示例：
 
 ```javascript
@@ -110,21 +97,10 @@ router.replace({
 
 #### 参数：
 
-参数 | 类型 | 必填 | 说明  
----|:---:|---|---  
-path | String | 否 | 返回目标页面的路径，可以是以下几种取值：
+参数 | 类型 | 必填 | 说明
+---|---|---|---
+path | String | 否 | 返回目标页面的路径，可以是以下几种取值：不传该参数，返回上一页面以"/"开头的应用内已打开页面的路径；例：/about特殊的，如果 path 的值是"/"，则跳转到页面名称为"/"的页，没有则跳转到首页注意点：path 需要是以"/"开头的当前应用已经打开的页面路径，否则均视为无效参数，返回上一页面若根据 path 未匹配到已经打开的页面，返回上一页面若根据 path 参数匹配到多个页面，返回至最后打开的页面 
 
-  1. 不传该参数，返回上一页面
-  2. 以"/"开头的应用内已打开页面的路径；例：/about
-  3. 特殊的，如果 path 的值是"/"，则跳转到页面名称为"/"的页，没有则跳转到首页
-
-注意点：
-  1. path 需要是以"/"开头的当前应用已经打开的页面路径，否则均视为无效参数，返回上一页面
-  2. 若根据 path 未匹配到已经打开的页面，返回上一页面
-  3. 若根据 path 参数匹配到多个页面，返回至最后打开的页面
-
-  
-  
 #### 示例：
 
 ```javascript
@@ -174,10 +150,10 @@ router.clear()
 
 #### 返回值:
 
-类型 | 说明  
----|---  
-Number | 页面数量  
-  
+类型 | 说明
+---|---
+Number | 页面数量 
+
 #### 示例：
 
 ```javascript
@@ -191,12 +167,12 @@ console.log(`page's length = ${length}`)
 
 #### 返回参数：
 
-参数名 | 类型 | 说明  
----|:---:|---  
-index | Number | 当前页面在页面栈中的位置  
-name | String | 当前页面的名称  
-path | String | 当前页面的路径  
-  
+参数名 | 类型 | 说明
+---|---|---
+index | Number | 当前页面在页面栈中的位置
+name | String | 当前页面的名称
+path | String | 当前页面的路径 
+
 #### 示例：
 
 ```javascript
@@ -212,17 +188,17 @@ console.log(`page path = ${page.path}`)
 
 #### 返回值：
 
-类型 | 说明  
----|---  
-Array | 页面栈列表。数组每一项都为 Object 类型  
-  
+类型 | 说明
+---|---
+Array | 页面栈列表。数组每一项都为 Object 类型 
+
 数组每一项构成：
 
-字段 | 类型 | 说明  
----|:---:|---  
-name | String | 页面的名称  
-path | String | 页面的路径  
-  
+字段 | 类型 | 说明
+---|---|---
+name | String | 页面的名称
+path | String | 页面的路径 
+
 #### 示例：
 
 ```javascript

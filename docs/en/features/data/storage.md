@@ -24,14 +24,14 @@ Reads stored content.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-key | String | Yes | Index  
-default | String | No | If the key does not exist, returns default. If default is not specified, returns an empty string with a length of 0  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+key | String | Yes | Index
+default | String | No | If the key does not exist, returns default. If default is not specified, returns an empty string with a length of 0
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### success Return Value:
 
 Stored content corresponding to the key
@@ -56,14 +56,14 @@ Modifies stored content.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-key | String | Yes | Index  
-value | String | No | New value. If the new value is an empty string with a length of 0, deletes the data item indexed by key  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+key | String | Yes | Index
+value | String | No | New value. If the new value is an empty string with a length of 0, deletes the data item indexed by key
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### Example:
 
 ```javascript
@@ -85,12 +85,12 @@ Clears stored content.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### Example:
 
 ```javascript
@@ -110,13 +110,13 @@ Deletes stored content.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-key | String | Yes | Index  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback after execution ends  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+key | String | Yes | Index
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback after execution ends 
+
 #### Example:
 
 ```javascript

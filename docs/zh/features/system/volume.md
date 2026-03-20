@@ -24,18 +24,18 @@ const volume = require('@system.volume')
 
 #### 参数
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### success 返回值：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-value | Number | 系统媒体当前音量，0.0-1.0 之间  
-  
+参数值 | 类型 | 说明
+---|---|---
+value | Number | 系统媒体当前音量，0.0-1.0 之间 
+
 #### 示例
 
 ```javascript
@@ -55,13 +55,13 @@ volume.getMediaValue({
 
 #### 参数
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-value | Number | 是 | 设置的音量，0.0-1.0 之间  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+value | Number | 是 | 设置的音量，0.0-1.0 之间
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### fail 返回值：
 
 [支持通用错误码](</vela/quickapp/zh/features/grammar.html#通用错误码>)
@@ -88,10 +88,10 @@ volume.setMediaValue({
 
 #### 回调Object参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-value | Number | 是 | 系统媒体当前音量，范围：0.0-1.0 之间  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+value | Number | 是 | 系统媒体当前音量，范围：0.0-1.0 之间 
+
 #### 示例
 
 ```javascript

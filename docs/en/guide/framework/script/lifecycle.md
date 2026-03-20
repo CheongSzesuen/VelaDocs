@@ -134,22 +134,22 @@ Listens for changes in application configuration. Triggered when the application
 
 **Parameters**
 
-Parameter | Type | Description  
----|:---:|---  
-event | Object | Event indicating a change in application configuration  
-  
+Parameter | Type | Description
+---|---|---
+event | Object | Event indicating a change in application configuration 
+
 **event Parameters**
 
-Parameter | Type | Description  
----|:---:|---  
-type | String | Reason type for the application configuration change. Supported type values are as follows:  
-  
+Parameter | Type | Description
+---|---|---
+type | String | Reason type for the application configuration change. Supported type values are as follows: 
+
 **Supported type values in event**
 
-Parameter | Description  
----|---  
-locale | Application configuration changed due to language or region changes  
-  
+Parameter | Description
+---|---
+locale | Application configuration changed due to language or region changes 
+
 **Example** :
 
 ```javascript

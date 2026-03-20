@@ -14,11 +14,11 @@ Not supported.
 
 Supports [General Attributes](</vela/quickapp/en/components/general/properties.html>).
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-src | `<uri>` |:---:| No | URI of the image, supporting both local and cloud paths. Supported image formats include png and jpg.  
-alt | `<uri>` | 'blank' |:---:| No | Placeholder image displayed during loading; only supports local image resources.  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+src | `<uri>` | - | No | URI of the image, supporting both local and cloud paths. Supported image formats include png and jpg.
+alt | `<uri>` \| 'blank' | - | No | Placeholder image displayed during loading; only supports local image resources. 
+
 Note: Details about the alt attribute are as follows:
 
   * If the alt value is not set for the Image component, the terminal will add a default gray placeholder image.
@@ -37,30 +37,30 @@ Note: The scaling mode can be configured through the style value `object-fit`, w
 
 Supports [General Styles](</vela/quickapp/en/components/general/style.html>).
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-object-fit | contain | cover | none | scale-down | cover | No | Scaling type of the image.  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+object-fit | contain \| cover \| none \| scale-down | cover | No | Scaling type of the image. 
+
 Note:
 
   1. The object-fit parameter list is as follows:
 
-Type | Description  
----|---  
-contain | Maintains aspect ratio, scales down or up so that the image is fully displayed within the display boundary, centered.  
-cover | Maintains aspect ratio, scales down or up so that both sides are greater than or equal to the display boundary, centered.  
-none | Centers without scaling.  
-scale-down | Maintains aspect ratio, scales down or remains unchanged, takes the smaller display between `contain` and `none`, centered.  
-  
+Type | Description
+---|---
+contain | Maintains aspect ratio, scales down or up so that the image is fully displayed within the display boundary, centered.
+cover | Maintains aspect ratio, scales down or up so that both sides are greater than or equal to the display boundary, centered.
+none | Centers without scaling.
+scale-down | Maintains aspect ratio, scales down or remains unchanged, takes the smaller display between `contain` and `none`, centered. 
+
 ## Events
 
 Supports [General Events](</vela/quickapp/en/components/general/events.html>).
 
-Name | Parameters | Description  
----|:---:|---  
-complete | {width: widthValue(px), height: heightValue(px)} | Triggered when the image is fully loaded.  
-error |:---:| Triggered when the image fails to load.  
-  
+Name | Parameters | Description
+---|---|---
+complete | {width: widthValue(px), height: heightValue(px)} | Triggered when the image is fully loaded.
+error | - | Triggered when the image fails to load. 
+
 ## Sample Code
 
 ```html

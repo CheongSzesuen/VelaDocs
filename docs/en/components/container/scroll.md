@@ -14,29 +14,26 @@ Supported. Nested child scroll components are also supported.
 
 Supports [Common Attributes](</vela/quickapp/en/components/general/properties.html>)
 
-Name | Type | Default | Required | Description  
----|:---:|---|:---:|---  
-scroll-x | `<boolean>` | false | No | Whether to allow horizontal scrolling  
-scroll-y | `<boolean>` | false | No | Whether to allow vertical scrolling  
-scroll-top | `<number>` | `<string>` |  | No | Sets the vertical scroll bar position, the distance from the top of the content to the top of the scroll. If there is a scroll snap effect, it will scroll first and then snap.  
-scroll-bottom | `<number>` | `<string>` |  | No | Sets the vertical scroll bar position, the distance from the bottom of the content to the bottom of the scroll. If there is a scroll snap effect, it will scroll first and then snap. If both scroll-top and scroll-bottom are set, scroll-top takes precedence.  
-scroll-left | `<number>` | `<string>` |  | No | Sets the horizontal scroll bar position, the distance from the left side of the content to the left side of the scroll. If there is a scroll snap effect, it will scroll first and then snap.  
-scroll-right | `<number>` | `<string>` |  | No | Sets the horizontal scroll bar position, the distance from the right side of the content to the right side of the scroll. If there is a scroll snap effect, it will scroll first and then snap. If both scroll-left and scroll-right are set, scroll-left takes precedence.  
-bounces | `<boolean>` | false | No | Whether to enable boundary rebound  
-  
+Name | Type | Default | Required | Description
+---|---|---|---|---
+scroll-x | `<boolean>` | false | No | Whether to allow horizontal scrolling
+scroll-y | `<boolean>` | false | No | Whether to allow vertical scrolling
+scroll-top | `<number>` \| `<string>` | - | No | Sets the vertical scroll bar position, the distance from the top of the content to the top of the scroll. If there is a scroll snap effect, it will scroll first and then snap.
+scroll-bottom | `<number>` \| `<string>` | - | No | Sets the vertical scroll bar position, the distance from the bottom of the content to the bottom of the scroll. If there is a scroll snap effect, it will scroll first and then snap. If both scroll-top and scroll-bottom are set, scroll-top takes precedence.
+scroll-left | `<number>` \| `<string>` | - | No | Sets the horizontal scroll bar position, the distance from the left side of the content to the left side of the scroll. If there is a scroll snap effect, it will scroll first and then snap.
+scroll-right | `<number>` \| `<string>` | - | No | Sets the horizontal scroll bar position, the distance from the right side of the content to the right side of the scroll. If there is a scroll snap effect, it will scroll first and then snap. If both scroll-left and scroll-right are set, scroll-left takes precedence.
+bounces | `<boolean>` | false | No | Whether to enable boundary rebound 
+
 ## Styles
 
 Supports [Common Styles](</vela/quickapp/en/components/general/style.html>)
 
-Name | Type | Default | Description  
----|:---:|---|---  
-scroll-snap-type[3+](</vela/quickapp/zh/guide/version/APILevel3>) |:---:| none | Used in conjunction with scroll-snap-align, applied to the scroll component, indicating the scroll snap type. The first parameter is x or y, indicating horizontal or vertical scrolling; the second parameter is mandatory, proximity, or cross. mandatory: snaps to the nearest anchor; proximity: snaps only when the distance to the snap anchor is less than 30% of the container height; cross: snaps only when the child component's boundary that can be snapped appears in the scroll viewport. Default is proximity   
-Minimum aiot-toolkit version: 1.1.4  
-scroll-snap-align[3+](</vela/quickapp/zh/guide/version/APILevel3>) | none | start | center | end | edge | none | Used in conjunction with scroll-snap-type, applied to the scroll child component, indicating the alignment form between the child component and the scroll. none: no alignment, default value; start: aligns the component with the start edge of the scroll; center: aligns the component with the center of the scroll; end: aligns the component with the end edge of the scroll; edge: in the scrolling direction, aligns the component with the start or end edge of the scroll   
-Minimum aiot-toolkit version: 1.1.4  
-scroll-snap-stop[3+](</vela/quickapp/zh/guide/version/APILevel3>) | normal | always | normal | When set to always, cannot skip elements during snapping   
-Minimum aiot-toolkit version: 1.1.4  
-  
+Name | Type | Default | Description
+---|---|---|---
+scroll-snap-type[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | - | none | Used in conjunction with scroll-snap-align, applied to the scroll component, indicating the scroll snap type. The first parameter is x or y, indicating horizontal or vertical scrolling; the second parameter is mandatory, proximity, or cross. mandatory: snaps to the nearest anchor; proximity: snaps only when the distance to the snap anchor is less than 30% of the container height; cross: snaps only when the child component's boundary that can be snapped appears in the scroll viewport. Default is proximity<br>Minimum aiot-toolkit version: 1.1.4
+scroll-snap-align[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | none \| start \| center \| end \| edge | none | Used in conjunction with scroll-snap-type, applied to the scroll child component, indicating the alignment form between the child component and the scroll. none: no alignment, default value; start: aligns the component with the start edge of the scroll; center: aligns the component with the center of the scroll; end: aligns the component with the end edge of the scroll; edge: in the scrolling direction, aligns the component with the start or end edge of the scroll<br>Minimum aiot-toolkit version: 1.1.4
+scroll-snap-stop[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | normal \| always | normal | When set to always, cannot skip elements during snapping<br>Minimum aiot-toolkit version: 1.1.4 
+
 ### Example Code
 
   * scroll-snap-type & scroll-snap-align
@@ -156,43 +153,43 @@ Minimum aiot-toolkit version: 1.1.4
 
 ## Events
 
-Name | Parameters | Description  
----|:---:|---  
-scrolltop |:---:| Triggered when scrolling to the top  
-scrollbottom |:---:| Triggered when scrolling to the bottom  
-scroll | { scrollX, scrollY } | Triggered when scrolling, scrollX represents the horizontal distance scrolled; scrollY represents the vertical distance scrolled  
-  
+Name | Parameters | Description
+---|---|---
+scrolltop | - | Triggered when scrolling to the top
+scrollbottom | - | Triggered when scrolling to the bottom
+scroll | { scrollX, scrollY } | Triggered when scrolling, scrollX represents the horizontal distance scrolled; scrollY represents the vertical distance scrolled 
+
 ## Methods
 
-Name | Parameters | Return Value | Description  
----|:---:|---|---  
-getScrollRect | None | `<object>` | Gets the dimensions of the scrollable content  
-scrollTo | Object | None | Scrolls the scroll component window to a specific coordinate position  
-scrollBy | Object | None | Scrolls the scroll component window by a certain distance  
-  
+Name | Parameters | Return Value | Description
+---|---|---|---
+getScrollRect | None | `<object>` | Gets the dimensions of the scrollable content
+scrollTo | Object | None | Scrolls the scroll component window to a specific coordinate position
+scrollBy | Object | None | Scrolls the scroll component window by a certain distance 
+
 ### scrollTo Method Object Parameters
 
-Name | Type | Default | Required | Description  
----|:---:|---|:---:|---  
-left | number |:---:| No | The horizontal coordinate value of the scroll component. If not provided, no horizontal scrolling occurs. Negative values are treated as 0. Values beyond the scroll range are treated as the scroll boundary.  
-top | number |:---:| No | The vertical coordinate value of the scroll component. If not provided, no vertical scrolling occurs. Negative values are treated as 0. Values beyond the scroll range are treated as the scroll boundary.  
-behavior | smooth / instant / auto | auto | No | The scrolling behavior. smooth-smooth scrolling, instant-instant scrolling, auto-same as instant  
-  
+Name | Type | Default | Required | Description
+---|---|---|---|---
+left | number | - | No | The horizontal coordinate value of the scroll component. If not provided, no horizontal scrolling occurs. Negative values are treated as 0. Values beyond the scroll range are treated as the scroll boundary.
+top | number | - | No | The vertical coordinate value of the scroll component. If not provided, no vertical scrolling occurs. Negative values are treated as 0. Values beyond the scroll range are treated as the scroll boundary.
+behavior | smooth / instant / auto | auto | No | The scrolling behavior. smooth-smooth scrolling, instant-instant scrolling, auto-same as instant 
+
 ### scrollBy Method Object Parameters
 
-Name | Type | Default | Required | Description  
----|:---:|---|:---:|---  
-left | number |:---:| No | The horizontal offset of the scroll component. Can be negative. Values beyond the scroll range are treated as the scroll boundary.  
-top | number |:---:| No | The vertical offset of the scroll component. Can be negative. Values beyond the scroll range are treated as the scroll boundary.  
-behavior | smooth / instant / auto | auto | No | The scrolling behavior. smooth-smooth scrolling, instant-instant scrolling, auto-same as instant  
-  
+Name | Type | Default | Required | Description
+---|---|---|---|---
+left | number | - | No | The horizontal offset of the scroll component. Can be negative. Values beyond the scroll range are treated as the scroll boundary.
+top | number | - | No | The vertical offset of the scroll component. Can be negative. Values beyond the scroll range are treated as the scroll boundary.
+behavior | smooth / instant / auto | auto | No | The scrolling behavior. smooth-smooth scrolling, instant-instant scrolling, auto-same as instant 
+
 ### Return Value (Asynchronous)
 
-Property | Type | Description  
----|:---:|---  
-width | `<number>` | The width of the scrollable content, including border and padding  
-height | `<number>` | The height of the scrollable content, including border and padding  
-  
+Property | Type | Description
+---|---|---
+width | `<number>` | The width of the scrollable content, including border and padding
+height | `<number>` | The height of the scrollable content, including border and padding 
+
 ## Example Code
 
 ```html

@@ -24,19 +24,18 @@ const crypto = require('@system.crypto')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String/Uint8Array | 否 | 待计算内容，和uri二者必须有一个  
-uri | String | 否 | 待计算文件地址，和data二者必须有一个  
-algo | String | 否 | 算法 默认： SHA256   
-可选：MD5， SHA1，SHA256，SHA512  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String/Uint8Array | 否 | 待计算内容，和uri二者必须有一个
+uri | String | 否 | 待计算文件地址，和data二者必须有一个
+algo | String | 否 | 算法 默认： SHA256<br>可选：MD5， SHA1，SHA256，SHA512 
+
 #### 返回值：
 
-类型 | 说明  
----|---  
-String | 经过计算生成的摘要内容  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容 
+
 #### 示例：
 
 ```javascript
@@ -52,22 +51,21 @@ const digest = crypto.hashDigest({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String | 是 | 待计算数据  
-algo | String | 否 | 算法 默认： SHA256   
-可选：MD5， SHA1，SHA256，SHA512  
-key | String | 是 | 密钥  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 完成回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String | 是 | 待计算数据
+algo | String | 否 | 算法 默认： SHA256<br>可选：MD5， SHA1，SHA256，SHA512
+key | String | 是 | 密钥
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 完成回调 
+
 #### success 返回值 Object：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-data | String | 摘要  
-  
+参数值 | 类型 | 说明
+---|---|---
+data | String | 摘要 
+
 #### 示例：
 
 ```javascript
@@ -90,23 +88,22 @@ crypto.hmacDigest({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个  
-uri | String | 否 | 被签名文件地址，和data二者必须有一个  
-algo | String | 否 | 签名算法，默认：'RSA-SHA256'   
-可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512  
-privateKey | String | 是 | 私钥  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 完成回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个
+uri | String | 否 | 被签名文件地址，和data二者必须有一个
+algo | String | 否 | 签名算法，默认：'RSA-SHA256'<br>可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512
+privateKey | String | 是 | 私钥
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 完成回调 
+
 #### success 返回值 Object：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-data | String/Uint8Array | 如果输入为字符串，则返回经过base64编码的字符串；否则返回Uint8Array；如果只传uri，默认返回string  
-  
+参数值 | 类型 | 说明
+---|---|---
+data | String/Uint8Array | 如果输入为字符串，则返回经过base64编码的字符串；否则返回Uint8Array；如果只传uri，默认返回string 
+
 #### 示例：
 
 ```javascript
@@ -129,24 +126,23 @@ crypto.sign({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个  
-uri | String | 否 | 被签名文件地址，和data二者必须有一个  
-algo | String | 否 | 签名算法，默认：'RSA-SHA256'   
-可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512  
-signature | String/Uint8Array | 是 | 签名  
-publicKey | String | 是 | 公钥  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 完成回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个
+uri | String | 否 | 被签名文件地址，和data二者必须有一个
+algo | String | 否 | 签名算法，默认：'RSA-SHA256'<br>可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512
+signature | String/Uint8Array | 是 | 签名
+publicKey | String | 是 | 公钥
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 完成回调 
+
 #### success 返回值 Boolean：
 
-类型 | 说明  
----|---  
-Boolean | 校验结果，通过为true，不通过为false  
-  
+类型 | 说明
+---|---
+Boolean | 校验结果，通过为true，不通过为false 
+
 #### 示例：
 
 ```javascript
@@ -170,38 +166,34 @@ crypto.verify({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String/Uint8Array | 是 | 待加密数据  
-algo | String | 否 | 加密算法 默认： RSA   
-可选：RSA， AES  
-key | String | 是 | 加密使用到的密钥，经过 base64 编码后生成的字符串  
-options | Object | 否 | 加密参数  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 完成回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String/Uint8Array | 是 | 待加密数据
+algo | String | 否 | 加密算法 默认： RSA<br>可选：RSA， AES
+key | String | 是 | 加密使用到的密钥，经过 base64 编码后生成的字符串
+options | Object | 否 | 加密参数
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 完成回调 
+
 #### RSA 参数options：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-transformation | String | 否 | RSA 算法的加密模式和填充项，默认为"RSA/None/PKCS1Padding"  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+transformation | String | 否 | RSA 算法的加密模式和填充项，默认为"RSA/None/PKCS1Padding" 
+
 #### AES 参数options：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-transformation | String | 否 | AES 算法的加密模式和填充项，默认为"AES/CBC/PKCS7Padding"  
-iv | String | 否 | AES 加解密的初始向量，经过 base64 编码后的字符串，默认值为 key 值  
-ivOffset | Number | 否 | AES 加解密的初始向量偏移，整数，默认值为 0  
-ivLen | Number | 否 | AES 加解密的初始向量字节长度，整数，默认值为 16  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容0 
+
 #### success 返回值 Object：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-data | String/Uint8Array | 如果输入为字符串，则返回经过base64编码的字符串；否则返回Uint8Array  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容1 
+
 #### 示例：
 
 ```javascript
@@ -226,38 +218,28 @@ crypto.encrypt({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-data | String/Uint8Array | 是 | 待解密数据  
-algo | String | 否 | 解密算法 默认： RSA   
-可选：RSA， AES  
-key | String | 是 | 加密或解密使用到的密钥，经过 base64 编码后生成的字符串  
-options | Object | 否 | 解密参数  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 完成回调  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容2 
+
 #### RSA 参数options：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-transformation | String | 否 | RSA 算法的加密模式和填充项，默认为"RSA/None/PKCS1Padding"  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容3 
+
 #### AES 参数options：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-transformation | String | 否 | AES 算法的加密模式和填充项，默认为"AES/CBC/PKCS7Padding"  
-iv | String | 否 | AES 加解密的初始向量，经过 base64 编码后的字符串，默认值为 key 值  
-ivOffset | Number | 否 | AES 加解密的初始向量偏移，整数，默认值为 0  
-ivLen | Number | 否 | AES 加解密的初始向量字节长度，整数，默认值为 16  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容4 
+
 #### success 返回值 Object：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-data | String/Uint8Array | 如果输入为字符串，则返回经过base64编码的字符串；否则返回Uint8Array  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容5 
+
 #### 示例：
 
 ```javascript
@@ -282,16 +264,16 @@ crypto.decrypt({
 
 #### 参数：
 
-类型 | 必填 | 说明  
----|:---:|---  
-String | 是 | 待编码文本  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容6 
+
 #### 返回值 String：
 
-类型 | 说明  
----|---  
-String | 经过编码之后的结果  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容7 
+
 #### 示例：
 
 ```javascript
@@ -304,16 +286,16 @@ const encodeData = crypto.btoa('hello')
 
 #### 参数：
 
-类型 | 必填 | 说明  
----|:---:|---  
-String | 是 | 待解码文本  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容8 
+
 #### 返回值 String：
 
-类型 | 说明  
----|---  
-String | 经过解码之后的结果  
-  
+类型 | 说明
+---|---
+String | 经过计算生成的摘要内容9 
+
 #### 示例：
 
 ```javascript
@@ -323,15 +305,11 @@ const res = crypto.atob(encodeString)
 
 ## 支持明细
 
-设备产品 | 说明  
----|---  
-小米 S1 Pro 运动健康手表 | 不支持  
-小米手环 8 Pro | 不支持  
-小米手环 9 / 9 Pro | 不支持  
-Xiaomi Watch S3 | 支持  
-Redmi Watch 4 | 不支持  
-小米腕部心电血压记录仪 | 不支持  
-小米手环 10 | 不支持  
-Xiaomi Watch S4 | 支持  
-REDMI Watch 5 | 支持  
-REDMI Watch 6 | 支持
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+data | String | 是 | 待计算数据
+algo | String | 否 | 算法 默认： SHA256<br>可选：MD5， SHA1，SHA256，SHA512
+key | String | 是 | 密钥
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 完成回调0

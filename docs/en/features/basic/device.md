@@ -24,34 +24,34 @@ Obtains device information.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback invoked when the execution is complete  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback invoked when the execution is complete 
+
 #### Return Value of success:
 
-Parameter | Type | Description  
----|:---:|---  
-brand | string | Device brand  
-manufacturer | string | Device manufacturer  
-model | string | Device model  
-product | string | Device code name  
-osType | string | Operating system name  
-osVersionName | string | Operating system version name  
-osVersionCode | number | Operating system version number  
-platformVersionName | string | Runtime platform version name  
-platformVersionCode | number | Runtime platform version number  
-language | string | System language  
-region | string | System region  
-APILevel[2+](</vela/quickapp/zh/guide/version/APILevel2>) | number | Framework API version  
-screenWidth | number | Screen width  
-screenHeight | number | Screen height  
-screenDensity[3+](</vela/quickapp/zh/guide/version/APILevel3>) | number | Screen density, that is, the device pixel ratio (DPR), which is the ratio of the device's physical pixels to logical pixels (DP). The calculation formula is: DPR = device PPI / 160, where PPI (pixels per inch) indicates the number of pixels per inch.  
-screenShape | string | Screen shape. The value can be: rect (rectangular screen), circle (circular screen), or pill-shaped[3+](</vela/quickapp/zh/guide/version/APILevel3>) (capsule-shaped screen).  
-deviceType[2+](</vela/quickapp/zh/guide/version/APILevel2>) | string | Device type. The value can be: watch, band, or smartspeaker.  
-  
+Parameter | Type | Description
+---|---|---
+brand | string | Device brand
+manufacturer | string | Device manufacturer
+model | string | Device model
+product | string | Device code name
+osType | string | Operating system name
+osVersionName | string | Operating system version name
+osVersionCode | number | Operating system version number
+platformVersionName | string | Runtime platform version name
+platformVersionCode | number | Runtime platform version number
+language | string | System language
+region | string | System region
+APILevel[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | number | Framework API version
+screenWidth | number | Screen width
+screenHeight | number | Screen height
+screenDensity[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | number | Screen density, that is, the device pixel ratio (DPR), which is the ratio of the device's physical pixels to logical pixels (DP). The calculation formula is: DPR = device PPI / 160, where PPI (pixels per inch) indicates the number of pixels per inch.
+screenShape | string | Screen shape. The value can be: rect (rectangular screen), circle (circular screen), or pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) (capsule-shaped screen).
+deviceType[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | string | Device type. The value can be: watch, band, or smartspeaker. 
+
 #### Example:
 
 ```javascript
@@ -82,18 +82,18 @@ Developers need to configure the permission in manifest.json:
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback invoked when the execution is complete  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback invoked when the execution is complete 
+
 #### Return Value of success:
 
-Parameter | Type | Description  
----|:---:|---  
-deviceId | String | Unique device identifier  
-  
+Parameter | Type | Description
+---|---|---
+deviceId | String | Unique device identifier 
+
 #### Example:
 
 ```javascript
@@ -127,17 +127,18 @@ Developers need to configure the permission in manifest.json:
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback invoked when the execution is complete  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback invoked when the execution is complete 
+
 #### Return Value of success:
 
-Parameter | Type | Description  
----|:---:|---  
-serial | String | Device serial number  
+Parameter | Type | Description
+---|---|---
+serial | String | Device serial number
+
 ```javascript
 device.getSerial({
     success: (data) => {
@@ -155,17 +156,18 @@ Obtains the total size of the storage space.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback invoked when the execution is complete  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback invoked when the execution is complete 
+
 #### Return Value of success:
 
-Parameter | Type | Description  
----|:---:|---  
-totalStorage | Number | Total size of the storage space, in bytes  
+Parameter | Type | Description
+---|---|---
+totalStorage | Number | Total size of the storage space, in bytes
+
 ```javascript
 device.getTotalStorage({
     success: (data) => {
@@ -183,17 +185,18 @@ Obtains the available size of the storage space.
 
 #### Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-success | Function | No | Success callback  
-fail | Function | No | Failure callback  
-complete | Function | No | Callback invoked when the execution is complete  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+success | Function | No | Success callback
+fail | Function | No | Failure callback
+complete | Function | No | Callback invoked when the execution is complete 
+
 #### Return Value of success:
 
-Parameter | Type | Description  
----|:---:|---  
-availableStorage | Number | Available size of the storage space, in bytes  
+Parameter | Type | Description
+---|---|---
+availableStorage | Number | Available size of the storage space, in bytes
+
 ```javascript
 device.getAvailableStorage({
     success: (data) => {

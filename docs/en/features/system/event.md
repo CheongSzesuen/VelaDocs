@@ -24,26 +24,26 @@ Publish a public event.
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-eventName | String | Yes | Event name. Reserved names for public events are occupied by the system and should not be used.  
-options | Object | No | Event parameters  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+eventName | String | Yes | Event name. Reserved names for public events are occupied by the system and should not be used.
+options | Object | No | Event parameters 
+
 #### options Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-params | Object | No | Event parameters  
-permissions | Array<String> | No | Subscriber permissions. Only packages with these permissions can receive the sent event.  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+params | Object | No | Event parameters
+permissions | Array<String> | No | Subscriber permissions. Only packages with these permissions can receive the sent event. 
+
 #### Public Events Supported by the System:
 
-System Internal Event Name | Required Permissions for Subscribers | Description  
----|:---:|---  
-usual.event.BATTERY_CHANGED | None | Battery level change. Parameter: level: between 0.0 and 1.0  
-usual.event.DISCHARGING | None | Charging stopped  
-usual.event.CHARGING | None | Charging started  
-  
+System Internal Event Name | Required Permissions for Subscribers | Description
+---|---|---
+usual.event.BATTERY_CHANGED | None | Battery level change. Parameter: level: between 0.0 and 1.0
+usual.event.DISCHARGING | None | Charging stopped
+usual.event.CHARGING | None | Charging started 
+
 #### Return Value:
 
 None
@@ -66,24 +66,24 @@ Subscribe to a public event.
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-eventName | String | Yes | Event name  
-callback | Function | Yes | Callback function  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+eventName | String | Yes | Event name
+callback | Function | Yes | Callback function 
+
 #### Callback Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-params | Object | No | Event parameters  
-package | String | No | Package name of the event sender  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+params | Object | No | Event parameters
+package | String | No | Package name of the event sender 
+
 #### Return Value:
 
-Type | Required | Description  
----|:---:|---  
-Number | Yes | Event ID. Returns undefined if subscription fails.  
-  
+Type | Required | Description
+---|---|---
+Number | Yes | Event ID. Returns undefined if subscription fails. 
+
 #### Example:
 
 ```javascript
@@ -104,10 +104,10 @@ Unsubscribe from a public event.
 
 #### Parameters:
 
-Parameter Name | Type | Required | Description  
----|:---:|---|---  
-id | Number | Yes | Subscription ID  
-  
+Parameter Name | Type | Required | Description
+---|---|---|---
+id | Number | Yes | Subscription ID 
+
 #### Example:
 
 ```javascript
@@ -125,15 +125,15 @@ event.unsubscribe({ id: evtId })
 
 ## Support Details
 
-Device Product | Description  
----|---  
-Xiaomi S1 Pro Sports & Health Watch | Not supported  
-Xiaomi Smart Band 8 Pro | Not supported  
-Xiaomi Smart Band 9 / 9 Pro | Not supported  
-Xiaomi Watch S3 | Not supported  
-Redmi Watch 4 | Not supported  
-Xiaomi Wrist ECG Blood Pressure Monitor | Not supported  
-Xiaomi Smart Band 10 | Supported  
-Xiaomi Watch S4 | Supported  
-REDMI Watch 5 | Supported  
+Device Product | Description
+---|---
+Xiaomi S1 Pro Sports & Health Watch | Not supported
+Xiaomi Smart Band 8 Pro | Not supported
+Xiaomi Smart Band 9 / 9 Pro | Not supported
+Xiaomi Watch S3 | Not supported
+Redmi Watch 4 | Not supported
+Xiaomi Wrist ECG Blood Pressure Monitor | Not supported
+Xiaomi Smart Band 10 | Supported
+Xiaomi Watch S4 | Supported
+REDMI Watch 5 | Supported
 REDMI Watch 6 | Supported

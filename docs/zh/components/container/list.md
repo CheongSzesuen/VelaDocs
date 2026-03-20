@@ -14,10 +14,10 @@
 
 支持[通用属性](</vela/quickapp/zh/components/general/properties.html>)
 
-名称 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-bounces | `<boolean>` | false | 否 | 是否边界回弹  
-  
+名称 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+bounces | `<boolean>` | false | 否 | 是否边界回弹 
+
 ## 样式
 
 支持[通用样式](</vela/quickapp/zh/components/general/style.html>)
@@ -28,18 +28,14 @@ bounces | `<boolean>` | false | 否 | 是否边界回弹
 
 支持[通用事件](</vela/quickapp/zh/components/general/events.html>)
 
-名称 | 参数 | 描述  
----|:---:|---  
-scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`} | 列表滑动；  
-stateValue 取值说明：  
-0：list停止滑动  
-1：list正在通过用户的手势滑动  
-2：list正在滑动，用户已松手  
-scrollbottom |:---:| 列表滑动到底部  
-scrolltop |:---:| 列表滑动到顶部  
-scrollend |:---:| 列表滑动结束  
-scrolltouchup |:---:| 列表滑动过程中手指抬起  
-  
+名称 | 参数 | 描述
+---|---|---
+scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`} | 列表滑动；<br>stateValue 取值说明：<br>0：list停止滑动<br>1：list正在通过用户的手势滑动<br>2：list正在滑动，用户已松手
+scrollbottom | - | 列表滑动到底部
+scrolltop | - | 列表滑动到顶部
+scrollend | - | 列表滑动结束
+scrolltouchup | - | 列表滑动过程中手指抬起 
+
 ## 示例代码
 
 ```html
@@ -117,22 +113,22 @@ scrolltouchup |:---:| 列表滑动过程中手指抬起
 
 ## 方法
 
-名称 | 参数 | 描述  
----|:---:|---  
-scrollTo | Object | list 滚动到指定 item 位置  
-scrollBy | Object | 使 list 的内容滑动一定距离  
-  
+名称 | 参数 | 描述
+---|---|---
+scrollTo | Object | list 滚动到指定 item 位置
+scrollBy | Object | 使 list 的内容滑动一定距离 
+
 **scrollTo 的参数说明：**
 
-名称 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-index | number | 0 | 否 | list 滚动的目标 item 位置  
-behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant  
-  
+名称 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+index | number | 0 | 否 | list 滚动的目标 item 位置
+behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant 
+
 **scrollBy 的参数说明：**
 
-名称 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-left | number | 0 | 否 | 从当前位置水平方向滑动距离，单位 px。值为正时向左滑动，为负时向右滑动。flex-direction 为 column 或 column-reverse 时不生效  
-top | number | 0 | 否 | 从当前位置垂直方向滑动距离，单位 px。值为正时向上滑动，为负时向下滑动。flex-direction 为 row 或 row-reverse 时不生效  
+名称 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+left | number | 0 | 否 | 从当前位置水平方向滑动距离，单位 px。值为正时向左滑动，为负时向右滑动。flex-direction 为 column 或 column-reverse 时不生效
+top | number | 0 | 否 | 从当前位置垂直方向滑动距离，单位 px。值为正时向上滑动，为负时向下滑动。flex-direction 为 row 或 row-reverse 时不生效
 behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant

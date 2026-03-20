@@ -14,10 +14,10 @@
 
 支持[通用属性](</vela/quickapp/zh/components/general/properties.html>)
 
-名称 | 类型 | 默认值 | 必填 | 描述  
----|:---:|---|:---:|---  
-type | `<string>` |:---:| 是 | list-item 类型，值为自定义的字符串，如'loadMore'。**相同的 type 的 list-item 必须具备完全一致的 DOM 结构** 。因此，在 list-item 内部需谨慎使用 if 和 for，因为 if 和 for 可能造成相同的 type 的 list-item 的 DOM 结构不一致，从而引发错误  
-  
+名称 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+type | `<string>` | - | 是 | list-item 类型，值为自定义的字符串，如'loadMore'。相同的 type 的 list-item 必须具备完全一致的 DOM 结构。因此，在 list-item 内部需谨慎使用 if 和 for，因为 if 和 for 可能造成相同的 type 的 list-item 的 DOM 结构不一致，从而引发错误 
+
 ## 样式
 
 支持[通用样式](</vela/quickapp/zh/components/general/style.html>)

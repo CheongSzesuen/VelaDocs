@@ -24,18 +24,18 @@ const brightness = require('@system.brightness')
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### success 返回值：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-value | Integer | 屏幕亮度，取值范围 0-255  
-  
+参数值 | 类型 | 说明
+---|---|---
+value | Integer | 屏幕亮度，取值范围 0-255 
+
 #### 示例：
 
 ```javascript
@@ -55,13 +55,13 @@ brightness.getValue({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-value | Integer | 是 | 屏幕亮度，取值范围 0-255  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+value | Integer | 是 | 屏幕亮度，取值范围 0-255
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### 示例：
 
 ```javascript
@@ -82,18 +82,18 @@ brightness.setValue({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### success 返回值：
 
-参数值 | 类型 | 说明  
----|:---:|---  
-mode | Integer | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度  
-  
+参数值 | 类型 | 说明
+---|---|---
+mode | Integer | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度 
+
 #### 示例：
 
 ```javascript
@@ -113,13 +113,13 @@ brightness.getMode({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-mode | Integer | 是 | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+mode | Integer | 是 | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### 示例：
 
 ```javascript
@@ -140,13 +140,13 @@ brightness.setMode({
 
 #### 参数：
 
-参数名 | 类型 | 必填 | 说明  
----|:---:|---|---  
-keepScreenOn | Boolean | 是 | 是否保持屏幕常亮  
-success | Function | 否 | 成功回调  
-fail | Function | 否 | 失败回调  
-complete | Function | 否 | 执行结束后的回调  
-  
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+keepScreenOn | Boolean | 是 | 是否保持屏幕常亮
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调 
+
 #### 示例：
 
 ```javascript

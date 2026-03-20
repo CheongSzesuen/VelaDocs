@@ -14,10 +14,10 @@ Only supports [`<list-item>`](</vela/quickapp/en/components/container/list-item.
 
 Supports [universal attributes](</vela/quickapp/en/components/general/properties.html>)
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-bounces | `<boolean>` | false | No | Whether to bounce at the boundary  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+bounces | `<boolean>` | false | No | Whether to bounce at the boundary 
+
 ## Styles
 
 Supports [universal styles](</vela/quickapp/en/components/general/style.html>)
@@ -28,18 +28,14 @@ You need to explicitly set the height when using it.
 
 Supports [universal events](</vela/quickapp/en/components/general/events.html>)
 
-Name | Parameters | Description  
----|:---:|---  
-scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`} | List scrolling;   
-Description of stateValue values:   
-0: List stops scrolling   
-1: List is scrolling via user gesture   
-2: List is scrolling, user has released hand  
-scrollbottom |:---:| List scrolls to the bottom  
-scrolltop |:---:| List scrolls to the top  
-scrollend |:---:| List scrolling ends  
-scrolltouchup |:---:| Finger lifts during list scrolling  
-  
+Name | Parameters | Description
+---|---|---
+scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`} | List scrolling;<br>Description of stateValue values:<br>0: List stops scrolling<br>1: List is scrolling via user gesture<br>2: List is scrolling, user has released hand
+scrollbottom | - | List scrolls to the bottom
+scrolltop | - | List scrolls to the top
+scrollend | - | List scrolling ends
+scrolltouchup | - | Finger lifts during list scrolling 
+
 ## Example Code
 
 ```html
@@ -117,22 +113,22 @@ scrolltouchup |:---:| Finger lifts during list scrolling
 
 ## Methods
 
-Name | Parameters | Description  
----|:---:|---  
-scrollTo | Object | Scrolls the list to the specified item position  
-scrollBy | Object | Scrolls the list content by a certain distance  
-  
+Name | Parameters | Description
+---|---|---
+scrollTo | Object | Scrolls the list to the specified item position
+scrollBy | Object | Scrolls the list content by a certain distance 
+
 **Parameter description for scrollTo** :
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-index | number | 0 | No | Target item position for list scrolling  
-behavior | smooth / instant / auto | auto | No | Whether to scroll smoothly. Supported parameters: smooth (smooth scrolling), instant (instant scrolling). The default value is auto, which has the same effect as instant  
-  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+index | number | 0 | No | Target item position for list scrolling
+behavior | smooth / instant / auto | auto | No | Whether to scroll smoothly. Supported parameters: smooth (smooth scrolling), instant (instant scrolling). The default value is auto, which has the same effect as instant 
+
 **Parameter description for scrollBy** :
 
-Name | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-left | number | 0 | No | Horizontal scrolling distance from the current position, in px. A positive value scrolls left, and a negative value scrolls right. Does not take effect when flex-direction is column or column-reverse  
-top | number | 0 | No | Vertical scrolling distance from the current position, in px. A positive value scrolls up, and a negative value scrolls down. Does not take effect when flex-direction is row or row-reverse  
+Name | Type | Default Value | Required | Description
+---|---|---|---|---
+left | number | 0 | No | Horizontal scrolling distance from the current position, in px. A positive value scrolls left, and a negative value scrolls right. Does not take effect when flex-direction is column or column-reverse
+top | number | 0 | No | Vertical scrolling distance from the current position, in px. A positive value scrolls up, and a negative value scrolls down. Does not take effect when flex-direction is row or row-reverse
 behavior | smooth / instant / auto | auto | No | Whether to scroll smoothly. Supported parameters: smooth (smooth scrolling), instant (instant scrolling). The default value is auto, which has the same effect as instant

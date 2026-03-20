@@ -14,25 +14,25 @@ Returns the size of the element and its position relative to the viewport. It mu
 
 Object object
 
-Property | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-success | function |  | No | Callback function for successful API calls  
-fail | function |  | No | Callback function for failed API calls  
-complete | function |  | No | Callback function for completed API calls (executed for both success and failure)  
-  
+Property | Type | Default Value | Required | Description
+---|---|---|---|---
+success | function | - | No | Callback function for successful API calls
+fail | function | - | No | Callback function for failed API calls
+complete | function | - | No | Callback function for completed API calls (executed for both success and failure) 
+
 #### Description of object.success callback function parameters
 
 Object rect
 
-Property | Type | Description  
----|:---:|---  
-left | number | Left boundary coordinate of the element  
-right | number | Right boundary coordinate of the element  
-top | number | Top boundary coordinate of the element  
-bottom | number | Bottom boundary coordinate of the element  
-width | number | Width of the element  
-height | number | Height of the element  
-  
+Property | Type | Description
+---|---|---
+left | number | Left boundary coordinate of the element
+right | number | Right boundary coordinate of the element
+top | number | Top boundary coordinate of the element
+bottom | number | Bottom boundary coordinate of the element
+width | number | Width of the element
+height | number | Height of the element 
+
 #### Code Example
 
 ```html
@@ -68,10 +68,10 @@ A method to make a component gain or lose focus.
 
 #### Parameters
 
-Property | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-focus | boolean | true | No | Makes the component gain or lose focus. Focusing can trigger the `focus` pseudo-class effect (the `focus` pseudo-class style is not yet supported)  
-  
+Property | Type | Default Value | Required | Description
+---|---|---|---|---
+focus | boolean | true | No | Makes the component gain or lose focus. Focusing can trigger the `focus` pseudo-class effect (the `focus` pseudo-class style is not yet supported) 
+
 #### Code Example
 
 ```html

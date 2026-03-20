@@ -14,20 +14,20 @@ Vela JS 应用支持开发者制作动画，提供了`transform`类、`transform
 
 ## 动画样式列表
 
-名称 | 类型 | 默认值 | 描述  
----|:---:|---|---  
-transform | `<string>` |:---:| 见下面 transform 操作  
-transform-origin | `<string>` |:---:| 见下面 transform-origin 操作  
-animation-name | `<string>` |:---:| 与@keyframes 的 name 相呼应，见下面@keyframes 属性  
-animation-delay | `<time>` | 0 | 目前支持的单位为[ s(秒) | ms(毫秒) ]  
-animation-duration | `<time>` | 0 | 目前支持的单位为[ s(秒) | ms(毫秒) ]  
-animation-iteration-count | `<integer>` | `infinite` | 1 | 定义动画播放的次数，可设置为`infinite`无限次播放  
-animation-timing-function | linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) | step-start | step-end | steps(number_of_steps[, step-direction]?) | ease | -  
-transition-property | `<string>` | all | 指定执行 transition 效果的通用样式属性名称，参见详情  
-transition-duration | `<time>` | 0s | 指定 transition 执行时间  
-transition-timing-function | linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) | step-start | step-end | steps(number_of_steps[, step-direction]?) | ease | 指定 transition 执行时的时间函数。该参数释义与 animation 相同  
-transition-delay | `<time>` | 0s | 指定 transition 开始执行的时间，即当改变元素属性值后多长时间开始执行 transition 效果  
-  
+名称 | 类型 | 默认值 | 描述
+---|---|---|---
+transform | `<string>` | - | 见下面 transform 操作
+transform-origin | `<string>` | - | 见下面 transform-origin 操作
+animation-name | `<string>` | - | 与@keyframes 的 name 相呼应，见下面@keyframes 属性
+animation-delay | `<time>` | 0 | 目前支持的单位为[ s(秒) \| ms(毫秒) ]
+animation-duration | `<time>` | 0 | 目前支持的单位为[ s(秒) \| ms(毫秒) ]
+animation-iteration-count | `<integer>` \| `infinite` | 1 | 定义动画播放的次数，可设置为`infinite`无限次播放
+animation-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out \| cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) \| step-start \| step-end \| steps(number_of_steps[, step-direction]?) | ease | -
+transition-property | `<string>` | all | 指定执行 transition 效果的通用样式属性名称，参见[详情](https://iot.mi.com/vela/quickapp/zh/components/general/animation-style.html#transition-property-%E6%94%AF%E6%8C%81%E7%9A%84%E9%80%9A%E7%94%A8%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7)
+transition-duration | `<time>` | 0s | 指定 transition 执行时间
+transition-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out \| cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) \| step-start \| step-end \| steps(number_of_steps[, step-direction]?) | ease | 指定 transition 执行时的时间函数。该参数释义与 animation 相同
+transition-delay | `<time>` | 0s | 指定 transition 开始执行的时间，即当改变元素属性值后多长时间开始执行 transition 效果 
+
 **注** ：
 
   * animation-timing-function 类型
@@ -36,11 +36,11 @@ cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) | step-start | step
 
 steps(number_of_steps，step-direction)
 
-名称 | 类型 | 默认值  | 必填  | 描述  
----|:---:|---|:---:|---  
-number_of_steps | `<integer>` |:---:| 是 | 表示等间隔步数的正整数  
-step-direction | jump-start | jump-end | jump-none | jump-both | start | end | end | 否 | 指示函数左连续或右连续的关键字  
-  
+名称 | 类型 | 默认值 | 必填 | 描述
+---|---|---|---|---
+number_of_steps | `<integer>` | - | 是 | 表示等间隔步数的正整数
+step-direction | jump-start \| jump-end \| jump-none \| jump-both \| start \| end | end | 否 | 指示函数左连续或右连续的关键字 
+
   * cubic-bezier(x1, y1, x2, y2)
 
 参数 x1, y1, x2, y2 是 `<number>` 类型的值，代表当前定义的立方贝塞尔曲线中的 P1 和 P2 点的横坐标和纵坐标，x1 和 x2 必须在 [0，1] 范围内，否则当前值无效。
@@ -49,16 +49,16 @@ step-direction | jump-start | jump-end | jump-none | jump-both | start | end | e
 
 向元素应用 2D 转换。该属性允许我们对元素进行旋转、缩放、移动。 支持的样式属性列表如下：
 
-名称 | 类型  
----|---  
-translate | `<length>` | `<percent>`  
-translateX | `<length>` | `<percent>`  
-translateY | `<length>` | `<percent>`  
-scale | `<number>`  
-scaleX | `<number>`  
-scaleY | `<number>`  
-rotate | `<deg>`  
-  
+名称 | 类型
+---|---
+translate | `<length>` \| `<percent>`
+translateX | `<length>` \| `<percent>`
+translateY | `<length>` \| `<percent>`
+scale | `<number>`
+scaleX | `<number>`
+scaleY | `<number>`
+rotate | `<deg>` 
+
 ## transform-origin 操作
 
 更改一个元素变形的原点，目前支持改变元素的 X 和 Y 轴。
@@ -101,14 +101,14 @@ animation-name: Width, translate, rotate;
 
 ## @keyframes 属性
 
-名称 | 类型 | 默认值 | 描述  
----|:---:|---|---  
-background-color | `<color>` |:---:| -  
-background-position | `<length>` |`<percentage>`| left | right | top | bottom | center | 0px 0px | 描述了背景图片在容器中绘制的位置，支持 1-4 个参数，详情见[背景图样式](</vela/quickapp/zh/components/general/background-img-styles.html>)  
-opacity | `<number>` |:---:| -  
-width/height | `<length>` |:---:| 暂不支持百分比  
-transform | `<string>` |:---:| 可以对元素进行旋转、缩放、移动  
-  
+名称 | 类型 | 默认值 | 描述
+---|---|---|---
+background-color | `<color>` | - | -
+background-position | `<length>` \|`<percentage>`\| left \| right \| top \| bottom \| center | 0px 0px | 描述了背景图片在容器中绘制的位置，支持 1-4 个参数，详情见[背景图样式](https://iot.mi.com/vela/quickapp/zh/components/general/background-img-styles.html)
+opacity | `<number>` | - | -
+width/height | `<length>` | - | 暂不支持百分比
+transform | `<string>` | - | 可以对元素进行旋转、缩放、移动 
+
 **注** ：
 
 暂时不支持起始值(0%)或终止值(100%)缺省的情况，都需显式指定。
@@ -174,33 +174,33 @@ transition 过渡动画是实现动画的另一种方式。过渡动画可以为
 
 JS 应用中 transition-property 支持的通用样式属性列表如下：
 
-样式名称 | 备注  
----|---  
-width | √  
-height | √  
-opacity | √  
-visibility | √  
-color | 暂不支持  
-transform-origin | 暂不支持  
-transform | 暂不支持  
-padding | 暂不支持  
-padding-[left|top|right|bottom] | 暂不支持  
-margin | 暂不支持  
-margin-[left|top|right|bottom] | 暂不支持  
-border | 暂不支持  
-border-[left|top|right|bottom] | 暂不支持  
-border-width | √  
-border-[left|top|right|bottom]-width | 暂不支持  
-border-color | √  
-border-[left|top|right|bottom]-color | 暂不支持  
-border-radius | 暂不支持  
-border-[top|bottom]-[left|right]-radius | 暂不支持  
-background | 暂不支持  
-background-color | √  
-background-size | 暂不支持  
-background-position | √  
-flex | 暂不支持  
-flex-grow | 暂不支持  
-flex-shrink | 暂不支持  
-flex-basis | 暂不支持  
-[left|top|right|bottom] | 暂不支持
+样式名称 | 备注
+---|---
+width | √
+height | √
+opacity | √
+visibility | √
+color | 暂不支持
+transform-origin | 暂不支持
+transform | 暂不支持
+padding | 暂不支持
+padding-[left\|top\|right\|bottom] | 暂不支持
+margin | 暂不支持
+margin-[left\|top\|right\|bottom] | 暂不支持
+border | 暂不支持
+border-[left\|top\|right\|bottom] | 暂不支持
+border-width | √
+border-[left\|top\|right\|bottom]-width | 暂不支持
+border-color | √
+border-[left\|top\|right\|bottom]-color | 暂不支持
+border-radius | 暂不支持
+border-[top\|bottom]-[left\|right]-radius | 暂不支持
+background | 暂不支持
+background-color | √
+background-size | 暂不支持
+background-position | √
+flex | 暂不支持
+flex-grow | 暂不支持
+flex-shrink | 暂不支持
+flex-basis | 暂不支持
+[left\|top\|right\|bottom] | 暂不支持

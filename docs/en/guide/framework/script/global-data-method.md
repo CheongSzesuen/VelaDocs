@@ -6,12 +6,12 @@
 
 ### Common Objects
 
-Attribute | Type | Description  
----|:---:|---  
-$app | Object | Application object  
-$page | Object | Page object  
-$valid | Boolean | Whether the page object is valid  
-  
+Attribute | Type | Description
+---|---|---
+$app | Object | Application object
+$page | Object | Page object
+$valid | Boolean | Whether the page object is valid 
+
 #### Application Object
 
 In a page, the global application object can be accessed via `$app`.
@@ -44,20 +44,20 @@ this.$app.$def.func()
 
 The following built-in methods can be accessed via `$app`:
 
-Attribute | Type | Description  
----|:---:|---  
-exit | Function | Exit the JS application and end the application lifecycle. Usage: `this.$app.exit()`  
-  
+Attribute | Type | Description
+---|---|---
+exit | Function | Exit the JS application and end the application lifecycle. Usage: `this.$app.exit()` 
+
 #### Page Object
 
 In a page, the current page object can be accessed via `this.$page`. The following attributes can be accessed on this object:
 
-Attribute | Type | Description  
----|:---:|---  
-name | String | Get the name of the current page route, consistent with the corresponding property name in `router.pages` in the manifest file  
-path | String | Get the path of the current page route, consistent with the corresponding path in `router.pages` in the manifest file  
-component | String | Get the component of the current page route, consistent with the corresponding component in `router.pages` in the manifest file  
-  
+Attribute | Type | Description
+---|---|---
+name | String | Get the name of the current page route, consistent with the corresponding property name in `router.pages` in the manifest file
+path | String | Get the path of the current page route, consistent with the corresponding path in `router.pages` in the manifest file
+component | String | Get the component of the current page route, consistent with the corresponding component in `router.pages` in the manifest file 
+
 ## Methods
 
 ### this.$canIUse3+
@@ -66,16 +66,16 @@ In a page, you can use `this.$canIUse` to query available capabilities, includin
 
 #### Parameters:
 
-Type | Description  
----|---  
-String | The capability to query, see the format below  
-  
+Type | Description
+---|---
+String | The capability to query, see the format below 
+
 #### Return Value:
 
-Type | Description  
----|---  
-Boolean | Whether the queried capability is supported  
-  
+Type | Description
+---|---
+Boolean | Whether the queried capability is supported 
+
 #### Parameter Format
 
 ##### Querying Interfaces
@@ -127,11 +127,11 @@ If monitoring a property in an object, use dots to separate parameters, e.g., `$
 
 #### Parameters
 
-Attribute | Type | Description  
----|:---:|---  
-data | String | Property name, supports 'a.b.c' format, does not support array indices  
-handler | String | Event handler function name. The first parameter is the new property value, the second is the old property value  
-  
+Attribute | Type | Description
+---|---|---
+data | String | Property name, supports 'a.b.c' format, does not support array indices
+handler | String | Event handler function name. The first parameter is the new property value, the second is the old property value 
+
 #### Code Example
 
 ```html
@@ -169,10 +169,10 @@ Get the DOM object of a component with the specified ID. If no ID is specified, 
 
 #### Parameters
 
-Type | Description  
----|---  
-String | `this.$element('idName')` to get the DOM node  
-  
+Type | Description
+---|---
+String | `this.$element('idName')` to get the DOM node 
+
 #### Code Example
 
 ```html
@@ -202,10 +202,10 @@ Execute a delayed callback after the next DOM update cycle. Using this method im
 
 #### Parameters
 
-Type | Description  
----|---  
-Function | The callback function that performs operations on the DOM  
-  
+Type | Description
+---|---
+Function | The callback function that performs operations on the DOM 
+
 #### Code Example
 
 ```html
@@ -265,15 +265,12 @@ Function | The callback function that performs operations on the DOM
 
 In addition to the above common methods, there are event methods such as `this.$on`, `this.$off`, `this.$dispatch`, `this.$broadcast`, and `this.$emit` for parent-child component communication. The method descriptions are as follows:
 
-Method | Parameters | Description  
----|:---:|---  
-this.$on | type: String Event name  
-handler: Function Event handler function | Add an event handler. Usage: `this.$on('xxxx', this.fn)`, where `fn` is a function defined in `<script>`  
-this.$off | type: String Event name  
-handler: Function Event handler function | Remove an event handler. Usage: `this.$off('xxxx', this.fn)` or `this.$off('xxx')` to remove all handlers for the specified event  
-this.$dispatch | type: String Event name | Send an event notification to the parent component. Usage: `this.$dispatch('xxx')`. Normally, the event will bubble up. To stop bubbling, call `evt.stop()` in the event handler function  
-this.$broadcast | type: String Event name | Send an event notification to child components. Usage: `this.$broadcast('xxx')`. Normally, the event will propagate down. To stop propagation, call `evt.stop()` in the event handler function  
-this.$emit | type: String Event name  
-data: Object Event parameters | Trigger an event, and the corresponding handler function will be called. Usage: `this.$emit('xxx')` or `this.$emit('xxx', {a:1})`. The passed event parameters can be accessed in the event callback function via `evt.detail`, e.g., `evt.detail.a`  
-  
+Method | Parameters | Description
+---|---|---
+this.$on | type: String Event name<br>handler: Function Event handler function | Add an event handler. Usage: `this.$on('xxxx', this.fn)`, where `fn` is a function defined in `<script>`
+this.$off | type: String Event name<br>handler: Function Event handler function | Remove an event handler. Usage: `this.$off('xxxx', this.fn)` or `this.$off('xxx')` to remove all handlers for the specified event
+this.$dispatch | type: String Event name | Send an event notification to the parent component. Usage: `this.$dispatch('xxx')`. Normally, the event will bubble up. To stop bubbling, call `evt.stop()` in the event handler function
+this.$broadcast | type: String Event name | Send an event notification to child components. Usage: `this.$broadcast('xxx')`. Normally, the event will propagate down. To stop propagation, call `evt.stop()` in the event handler function
+this.$emit | type: String Event name<br>data: Object Event parameters | Trigger an event, and the corresponding handler function will be called. Usage: `this.$emit('xxx')` or `this.$emit('xxx', {a:1})`. The passed event parameters can be accessed in the event callback function via `evt.detail`, e.g., `evt.detail.a` 
+
 For examples of using event methods, refer to the [documentation](</vela/quickapp/en/guide/framework/template/component.html#parent-child-component-communication>).

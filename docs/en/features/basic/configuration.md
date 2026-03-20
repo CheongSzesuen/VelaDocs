@@ -26,11 +26,11 @@ None
 
 #### Return Value:
 
-Parameter Name | Type | Description  
----|:---:|---  
-language | String | Language  
-countryOrRegion | String | Country or region  
-  
+Parameter Name | Type | Description
+---|---|---
+language | String | Language
+countryOrRegion | String | Country or region 
+
 #### Example:
 
 ```javascript

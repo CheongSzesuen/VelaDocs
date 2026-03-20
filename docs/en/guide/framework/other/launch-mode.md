@@ -10,12 +10,10 @@ In the manifest file, the launch mode field launchMode can be added to the page 
 
 ### Page Launch Mode Parameters:
 
-Property | Type | Default Value | Required | Description  
----|:---:|---|:---:|---  
-launchMode | String | standard | No | Declares the launch mode of the page. Supports two page launch modes: "singleTask" and "standard".   
-When identified as the "singleTask" mode, each time the target page is opened, the existing target page will be opened and the onRefresh lifecycle function will be called back. Other pages opened on this page will be cleared. If this page has not been opened before, a new target page instance will be created.   
-When identified as the "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).  
-  
+Property | Type | Default Value | Required | Description
+---|---|---|---|---
+launchMode | String | standard | No | Declares the launch mode of the page. Supports two page launch modes: "singleTask" and "standard".<br>When identified as the "singleTask" mode, each time the target page is opened, the existing target page will be opened and the onRefresh lifecycle function will be called back. Other pages opened on this page will be cleared. If this page has not been opened before, a new target page instance will be created.<br>When identified as the "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times). 
+
 ### Example:
 
 ```
@@ -55,10 +53,10 @@ There are two ways to dynamically declare. One is to carry the launch flag param
 
 ### Page Launch Mode Parameters:
 
-Parameter | Type | Required | Description  
----|:---:|---|---  
-___PARAM_LAUNCH_FLAG___ | String | No | The page parameter passed when jumping to a JS application page. When carrying clearTask, opening the target page will clear other pages outside this page. When there are multiple target pages, only the earliest opened target page will be retained, and the onRefresh lifecycle will be called back. If the target page does not exist, all pages will be cleared, and a new target page instance will be created.  
-  
+Parameter | Type | Required | Description
+---|---|---|---
+___PARAM_LAUNCH_FLAG___ | String | No | The page parameter passed when jumping to a JS application page. When carrying clearTask, opening the target page will clear other pages outside this page. When there are multiple target pages, only the earliest opened target page will be retained, and the onRefresh lifecycle will be called back. If the target page does not exist, all pages will be cleared, and a new target page instance will be created. 
+
 ### Example:
 
 ```
