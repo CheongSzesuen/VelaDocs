@@ -28,8 +28,7 @@ Parameter | Type | Required | Description
 ---|:---:|---|---  
 data | String | Uint8Array | No | Content to be computed. Either data or uri must be provided.  
 uri | String | No | Address of the file to be computed. Either data or uri must be provided.  
-algo | String | No | Algorithm. Default: SHA256   
-Optional: MD5, SHA1, SHA256, SHA512  
+algo | String | No | Algorithm. Default: SHA256   <br>Optional: MD5, SHA1, SHA256, SHA512
   
 #### Return Value:
 
@@ -55,8 +54,7 @@ Create a cryptographic HMAC digest.
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
 data | String | Yes | Data to be computed  
-algo | String | No | Algorithm. Default: SHA256   
-Optional: MD5, SHA1, SHA256, SHA512  
+algo | String | No | Algorithm. Default: SHA256   <br>Optional: MD5, SHA1, SHA256, SHA512
 key | String | Yes | Key  
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
@@ -94,8 +92,7 @@ Parameter | Type | Required | Description
 ---|:---:|---|---  
 data | String | Uint8Array | No | Text to be signed. Either data or uri must be provided.  
 uri | String | No | Address of the file to be signed. Either data or uri must be provided.  
-algo | String | No | Signature algorithm. Default: 'RSA-SHA256'   
-Optional: RSA-MD5, RSA-SHA1, RSA-SHA256, RSA-SHA512  
+algo | String | No | Signature algorithm. Default: 'RSA-SHA256'   <br>Optional: RSA-MD5, RSA-SHA1, RSA-SHA256, RSA-SHA512
 privateKey | String | Yes | Private key  
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
@@ -133,8 +130,7 @@ Parameter | Type | Required | Description
 ---|:---:|---|---  
 data | String | Uint8Array | No | Text to be signed. Either data or uri must be provided.  
 uri | String | No | Address of the file to be signed. Either data or uri must be provided.  
-algo | String | No | Signature algorithm. Default: 'RSA-SHA256'   
-Optional: RSA-MD5, RSA-SHA1, RSA-SHA256, RSA-SHA512  
+algo | String | No | Signature algorithm. Default: 'RSA-SHA256'   <br>Optional: RSA-MD5, RSA-SHA1, RSA-SHA256, RSA-SHA512
 signature | String | Uint8Array | Yes | Signature  
 publicKey | String | Yes | Public key  
 success | Function | No | Success callback  
@@ -172,15 +168,9 @@ Encryption.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-data | String | Uint8Array | Yes | Data to be encrypted   
-string: plaintext to be encrypted, processed with 'utf-8' encoding by default   
-Uint8Array: other encoding formats such as hexadecimal or base64 need to be converted to this type  
-algo | String | No | Encryption algorithm. Default: RSA   
-Optional: RSA, AES  
-key | String | Uint8Array | Yes | Key used for encryption   
-AES encryption mode supports 128-bit (Uint8Array 16 bytes) / 192-bit (Uint8Array 24 bytes) / 256-bit (Uint8Array 32 bytes) keys   
-String: string generated after base64 encoding; RSA encryption requires a PEM format string   
-Uint8Array: other encoding formats such as hexadecimal can be converted to this type  
+data | String | Uint8Array | Yes | Data to be encrypted   <br>string: plaintext to be encrypted, processed with 'utf-8' encoding by default<br>Uint8Array: other encoding formats such as hexadecimal or base64 need to be converted to this type
+algo | String | No | Encryption algorithm. Default: RSA   <br>Optional: RSA, AES
+key | String | Uint8Array | Yes | Key used for encryption   <br>AES encryption mode supports 128-bit (Uint8Array 16 bytes) / 192-bit (Uint8Array 24 bytes) / 256-bit (Uint8Array 32 bytes) keys<br>String: string generated after base64 encoding; RSA encryption requires a PEM format string<br>Uint8Array: other encoding formats such as hexadecimal can be converted to this type
 options | Object | No | Encryption parameters  
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
@@ -196,26 +186,12 @@ transformation | String | No | Encryption mode and padding for RSA algorithm, su
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-transformation | String | No | Encryption mode and padding for AES algorithm, defaults to "AES/CBC/PKCS7Padding"   
-See transformation support details  
-iv | String | No | Initialization vector for AES encryption/decryption, string after base64 encoding   
-AES CBC/ECB mode:   
-Default value is key   
-Default value extraction method:   
-1\. If key is a string, the string is decoded and the byte content is used as iv   
-2\. If key is a uint8array, the byte content is used as iv   
-AES-CCM mode:   
-No default value  
+transformation | String | No | Encryption mode and padding for AES algorithm, defaults to "AES/CBC/PKCS7Padding"   <br>See transformation support details
+iv | String | No | Initialization vector for AES encryption/decryption, string after base64 encoding   <br>AES CBC/ECB mode:<br>Default value is key<br>Default value extraction method:<br>1\. If key is a string, the string is decoded and the byte content is used as iv<br>2\. If key is a uint8array, the byte content is used as iv<br>AES-CCM mode:<br>No default value
 ivOffset | Number | No | Offset of the initialization vector for AES encryption/decryption, integer, default is 0  
-ivLen | Number | No | Byte length of the initialization vector for AES encryption/decryption, integer   
-AES CBC/ECB mode: default is keyLen 16   
-AES-CCM mode: no default value  
-aad | String | Uint8Array | No | Additional authenticated data for AES-CCM encryption, provides additional authentication information during encryption   
-String: string after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-tagLen | Number | No | Length of the authentication tag generated by AES-CCM encryption   
-Must be even, valid range is 4~16   
-Default is 4  
+ivLen | Number | No | Byte length of the initialization vector for AES encryption/decryption, integer   <br>AES CBC/ECB mode: default is keyLen 16<br>AES-CCM mode: no default value
+aad | String | Uint8Array | No | Additional authenticated data for AES-CCM encryption, provides additional authentication information during encryption   <br>String: string after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+tagLen | Number | No | Length of the authentication tag generated by AES-CCM encryption   <br>Must be even, valid range is 4~16<br>Default is 4
   
 #### transformation Support Details:
 
@@ -229,10 +205,8 @@ NoPadding | AES/CBC/NoPadding |:---:| AES/CCM/NoPadding
 
 Parameter | Type | Description  
 ---|:---:|---  
-data | String | Uint8Array | Encrypted data   
-If input data is a string, returns a base64-encoded string; otherwise, returns Uint8Array  
-tag | String | Uint8Array | AES-CCM encryption returns an authentication tag   
-If input data is a string, returns a base64-encoded string; otherwise, returns Uint8Array  
+data | String | Uint8Array | Encrypted data   <br>If input data is a string, returns a base64-encoded string; otherwise, returns Uint8Array
+tag | String | Uint8Array | AES-CCM encryption returns an authentication tag   <br>If input data is a string, returns a base64-encoded string; otherwise, returns Uint8Array
   
 #### Example:
 
@@ -284,15 +258,9 @@ Decryption.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-data | String | Uint8Array | Yes | Data to be decrypted   
-String: data to be decrypted, processed with base64 encoding by default   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-algo | String | No | Decryption algorithm. Default: RSA   
-Optional: RSA, AES  
-key | String | Uint8Array | Yes | Key used for encryption   
-AES encryption mode supports 128-bit (Uint8Array 16 bytes) / 192-bit (Uint8Array 24 bytes) / 256-bit (Uint8Array 32 bytes) keys   
-String: string generated after base64 encoding; RSA encryption requires a PEM format string   
-Uint8Array: other encoding formats such as hexadecimal can be converted to this type  
+data | String | Uint8Array | Yes | Data to be decrypted   <br>String: data to be decrypted, processed with base64 encoding by default<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+algo | String | No | Decryption algorithm. Default: RSA   <br>Optional: RSA, AES
+key | String | Uint8Array | Yes | Key used for encryption   <br>AES encryption mode supports 128-bit (Uint8Array 16 bytes) / 192-bit (Uint8Array 24 bytes) / 256-bit (Uint8Array 32 bytes) keys<br>String: string generated after base64 encoding; RSA encryption requires a PEM format string<br>Uint8Array: other encoding formats such as hexadecimal can be converted to this type
 options | Object | No | Decryption parameters  
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
@@ -308,26 +276,12 @@ transformation | String | No | Encryption mode and padding for RSA algorithm, su
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-transformation | String | No | Encryption mode and padding for AES algorithm, defaults to "AES/CBC/PKCS7Padding"   
-See transformation support details  
-iv | String | No | Initialization vector for AES encryption/decryption, string after base64 encoding   
-AES CBC/ECB mode:   
-Default value is key   
-Default value extraction method:   
-1\. If key is a string, the string is decoded and the byte content is used as iv   
-2\. If key is a uint8arrary, the byte content is used as iv   
-AES-CCM mode:   
-No default value  
+transformation | String | No | Encryption mode and padding for AES algorithm, defaults to "AES/CBC/PKCS7Padding"   <br>See transformation support details
+iv | String | No | Initialization vector for AES encryption/decryption, string after base64 encoding   <br>AES CBC/ECB mode:<br>Default value is key<br>Default value extraction method:<br>1\. If key is a string, the string is decoded and the byte content is used as iv<br>2\. If key is a uint8arrary, the byte content is used as iv<br>AES-CCM mode:<br>No default value
 ivOffset | Number | No | Offset of the initialization vector for AES encryption/decryption, integer, default is 0  
-ivLen | Number | No | Byte length of the initialization vector for AES encryption/decryption, integer   
-AES CBC/ECB mode: default is keyLen 16   
-AES-CCM mode: no default value  
-aad | String | Uint8Array | No | Additional authenticated data for AES-CCM encryption, provides additional authentication information during encryption   
-String: string after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-tag | String | Uint8Array | No | Authentication tag for AES-CCM, used to verify data integrity and authenticity   
-String: string after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
+ivLen | Number | No | Byte length of the initialization vector for AES encryption/decryption, integer   <br>AES CBC/ECB mode: default is keyLen 16<br>AES-CCM mode: no default value
+aad | String | Uint8Array | No | Additional authenticated data for AES-CCM encryption, provides additional authentication information during encryption   <br>String: string after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+tag | String | Uint8Array | No | Authentication tag for AES-CCM, used to verify data integrity and authenticity   <br>String: string after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
   
 #### transformation Support Details:
 
@@ -341,8 +295,7 @@ NoPadding | AES/CBC/NoPadding |:---:| AES/CCM/NoPadding
 
 Parameter | Type | Description  
 ---|:---:|---  
-data | String | Uint8Array | Decrypted data   
-If input data is a string, returns plaintext after decryption. If the decrypted content cannot be converted to a utf-8 string, an error will occur (CODE: 200); otherwise, returns Uint8Array  
+data | String | Uint8Array | Decrypted data   <br>If input data is a string, returns plaintext after decryption. If the decrypted content cannot be converted to a utf-8 string, an error will occur (CODE: 200); otherwise, returns Uint8Array
   
 #### Example:
 
@@ -408,7 +361,7 @@ String | Result after encoding
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```0
+```
 
 ### crypto.atob(STRING)
 
@@ -432,7 +385,7 @@ String | Result after decoding
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```1
+```
 
 ### crypto.hkdf(OBJECT)
 
@@ -442,19 +395,11 @@ Create a derived key.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-algo | String | No | Digest algorithm to be used. Default: SHA256   
-Optional: SHA256, SHA512  
-key | String | Uint8Array | Yes | Key material, source key   
-String: string generated after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-salt | String | Uint8Array | Yes | Salt value   
-String: string generated after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-info | String | Uint8Array | Yes | Additional information value. Length cannot exceed 1024 bytes   
-String: string generated after base64 encoding   
-Uint8Array: other encoding formats such as hexadecimal need to be converted to this type  
-keyLen | Number | Yes | Length of the key to be generated, in bytes   
-Maximum allowed value is 255 times the number of bytes produced by the selected digest function (e.g., sha256 produces 32-byte hashes, maximum HKDF output is 8160 bytes; sha512 produces 64-byte hashes, maximum HKDF output is 16320 bytes)  
+algo | String | No | Digest algorithm to be used. Default: SHA256   <br>Optional: SHA256, SHA512
+key | String | Uint8Array | Yes | Key material, source key   <br>String: string generated after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+salt | String | Uint8Array | Yes | Salt value   <br>String: string generated after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+info | String | Uint8Array | Yes | Additional information value. Length cannot exceed 1024 bytes   <br>String: string generated after base64 encoding<br>Uint8Array: other encoding formats such as hexadecimal need to be converted to this type
+keyLen | Number | Yes | Length of the key to be generated, in bytes   <br>Maximum allowed value is 255 times the number of bytes produced by the selected digest function (e.g., sha256 produces 32-byte hashes, maximum HKDF output is 8160 bytes; sha512 produces 64-byte hashes, maximum HKDF output is 16320 bytes)
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
 complete | Function | No | Completion callback  
@@ -473,7 +418,7 @@ Conversion utility functions:
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```2
+```
 
 utf8-String
 
@@ -481,7 +426,7 @@ utf8-String
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```3
+```
 
 Hexadecimal
 
@@ -489,7 +434,7 @@ Hexadecimal
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```4
+```
 
 base64
 
@@ -497,7 +442,7 @@ base64
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```5
+```
 
 ### crypto.createECDH(String)
 
@@ -522,7 +467,7 @@ Type | Description
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```6
+```
 
 ### ECDH
 
@@ -536,8 +481,7 @@ Generate a key pair.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-encoding | String | No | Defines the encoding format of the returned public key. Default is buffer   
-Supports base64, hex, buffer  
+encoding | String | No | Defines the encoding format of the returned public key. Default is buffer   <br>Supports base64, hex, buffer
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
 complete | Function | No | Completion callback  
@@ -546,8 +490,7 @@ complete | Function | No | Completion callback
 
 Parameter | Type | Description  
 ---|:---:|---  
-publicKey | String | Uint8Array | Public key from the generated key pair, returned in different types based on the set public key encoding format   
-base64, hex return String, buffer returns Uint8Array  
+publicKey | String | Uint8Array | Public key from the generated key pair, returned in different types based on the set public key encoding format   <br>base64, hex return String, buffer returns Uint8Array
   
 #### Example:
 
@@ -555,7 +498,7 @@ base64, hex return String, buffer returns Uint8Array
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```7
+```
 
 ### ecdh.getPrivateKey(encoding)
 
@@ -565,8 +508,7 @@ Get the private key from the generated key pair.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-encoding | String | No | Defines the encoding format of the returned private key, default is buffer   
-Supports base64, hex, buffer  
+encoding | String | No | Defines the encoding format of the returned private key, default is buffer   <br>Supports base64, hex, buffer
   
 #### Return Value:
 
@@ -582,7 +524,7 @@ buffer encoding returns Uint8Array
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```8
+```
 
 ### ecdh.getPublicKey(encoding)
 
@@ -592,8 +534,7 @@ Get the public key from the generated key pair.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-encoding | String | No | Defines the encoding format of the returned public key, default is buffer   
-Supports base64, hex, buffer  
+encoding | String | No | Defines the encoding format of the returned public key, default is buffer   <br>Supports base64, hex, buffer
   
 #### Return Value:
 
@@ -609,7 +550,7 @@ buffer encoding returns Uint8Array
 import crypto from '@system.crypto' 
 // or 
 const crypto = require('@system.crypto')
-```9
+```
 
 ### ecdh.setPrivateKey(Object)
 
@@ -619,9 +560,7 @@ Set the private key, will attempt to generate the associated public key with the
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-privateKey | String | Uint8Array | Yes | Private key value to be set:   
-String type: must be a PEM format string   
-Uint8Array type: byte array converted from other formats (such as hexadecimal)  
+privateKey | String | Uint8Array | Yes | Private key value to be set:   <br>String type: must be a PEM format string<br>Uint8Array type: byte array converted from other formats (such as hexadecimal)
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
 complete | Function | No | Completion callback  
@@ -633,7 +572,7 @@ const digest = crypto.hashDigest({
   data: 'hello',
   algo: 'MD5'
 })
-```0
+```
 
 ### ecdh.computeSecret(Object)
 
@@ -644,10 +583,8 @@ Compute the shared secret using the provided public key.
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
 otherPublicKey | String | Uint8Array | Yes | Other party's public key used to compute the shared secret  
-inputEncoding | String | No | Encoding format of the provided public key, default is buffer   
-Supports base64, hex, buffer  
-outputEncoding | String | No | Encoding format of the returned computed shared secret, default is buffer   
-Supports base64, hex, buffer  
+inputEncoding | String | No | Encoding format of the provided public key, default is buffer   <br>Supports base64, hex, buffer
+outputEncoding | String | No | Encoding format of the returned computed shared secret, default is buffer   <br>Supports base64, hex, buffer
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
 complete | Function | No | Completion callback  
@@ -665,7 +602,7 @@ const digest = crypto.hashDigest({
   data: 'hello',
   algo: 'MD5'
 })
-```1
+```
 
 ## Support Details
 

@@ -28,8 +28,7 @@ const crypto = require('@system.crypto')
 ---|:---:|---|---  
 data | String/Uint8Array | 否 | 待计算内容，和uri二者必须有一个  
 uri | String | 否 | 待计算文件地址，和data二者必须有一个  
-algo | String | 否 | 算法 默认： SHA256   
-可选：MD5， SHA1，SHA256，SHA512  
+algo | String | 否 | 算法 默认： SHA256   <br>可选：MD5， SHA1，SHA256，SHA512
   
 #### 返回值：
 
@@ -55,8 +54,7 @@ const digest = crypto.hashDigest({
 参数名 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
 data | String | 是 | 待计算数据  
-algo | String | 否 | 算法 默认： SHA256   
-可选：MD5， SHA1，SHA256，SHA512  
+algo | String | 否 | 算法 默认： SHA256   <br>可选：MD5， SHA1，SHA256，SHA512
 key | String | 是 | 密钥  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
@@ -94,8 +92,7 @@ crypto.hmacDigest({
 ---|:---:|---|---  
 data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个  
 uri | String | 否 | 被签名文件地址，和data二者必须有一个  
-algo | String | 否 | 签名算法，默认：'RSA-SHA256'   
-可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512  
+algo | String | 否 | 签名算法，默认：'RSA-SHA256'   <br>可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512
 privateKey | String | 是 | 私钥  
 success | Function | 否 | 成功回调  
 fail | Function | 否 | 失败回调  
@@ -133,8 +130,7 @@ crypto.sign({
 ---|:---:|---|---  
 data | String/Uint8Array | 否 | 被签名文本，和uri二者必须有一个  
 uri | String | 否 | 被签名文件地址，和data二者必须有一个  
-algo | String | 否 | 签名算法，默认：'RSA-SHA256'   
-可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512  
+algo | String | 否 | 签名算法，默认：'RSA-SHA256'   <br>可选：RSA-MD5， RSA-SHA1，RSA-SHA256，RSA-SHA512
 signature | String/Uint8Array | 是 | 签名  
 publicKey | String | 是 | 公钥  
 success | Function | 否 | 成功回调  
@@ -173,8 +169,7 @@ crypto.verify({
 参数名 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
 data | String/Uint8Array | 是 | 待加密数据  
-algo | String | 否 | 加密算法 默认： RSA   
-可选：RSA， AES  
+algo | String | 否 | 加密算法 默认： RSA   <br>可选：RSA， AES
 key | String | 是 | 加密使用到的密钥，经过 base64 编码后生成的字符串  
 options | Object | 否 | 加密参数  
 success | Function | 否 | 成功回调  
@@ -229,8 +224,7 @@ crypto.encrypt({
 参数名 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
 data | String/Uint8Array | 是 | 待解密数据  
-algo | String | 否 | 解密算法 默认： RSA   
-可选：RSA， AES  
+algo | String | 否 | 解密算法 默认： RSA   <br>可选：RSA， AES
 key | String | 是 | 加密或解密使用到的密钥，经过 base64 编码后生成的字符串  
 options | Object | 否 | 解密参数  
 success | Function | 否 | 成功回调  

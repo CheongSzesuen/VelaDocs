@@ -12,9 +12,7 @@ In the manifest file, the launch mode field launchMode can be added to the page 
 
 Property | Type | Default Value | Required | Description  
 ---|:---:|---|:---:|---  
-launchMode | String | standard | No | Declares the launch mode of the page. Supports two page launch modes: "singleTask" and "standard".   
-When identified as the "singleTask" mode, each time the target page is opened, the existing target page will be opened and the onRefresh lifecycle function will be called back. Other pages opened on this page will be cleared. If this page has not been opened before, a new target page instance will be created.   
-When identified as the "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).  
+launchMode | String | standard | No | Declares the launch mode of the page. Supports two page launch modes: "singleTask" and "standard".   <br>When identified as the "singleTask" mode, each time the target page is opened, the existing target page will be opened and the onRefresh lifecycle function will be called back. Other pages opened on this page will be cleared. If this page has not been opened before, a new target page instance will be created.<br>When identified as the "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).
   
 ### Example:
 

@@ -24,11 +24,7 @@ Navigates to a page within the application.
 
 Parameter | Type | Required | Description  
 ---|:---:|---|---  
-uri | String | Yes | The URI to navigate to, which can be in the following formats:  
-1\. A complete URI containing the schema;  
-2\. A path to a page within the application starting with '/'; for example, /about  
-3\. The name of a page within the application not starting with '/'; for example, About  
-4\. If the URI value is "/", it navigates to the page with the path "/", or to the home page if no such page exists.  
+uri | String | Yes | The URI to navigate to, which can be in the following formats:  <br>1\. A complete URI containing the schema;<br>2\. A path to a page within the application starting with '/'; for example, /about<br>3\. The name of a page within the application not starting with '/'; for example, About<br>4\. If the URI value is "/", it navigates to the page with the path "/", or to the home page if no such page exists.
   
 Complete URIs containing the schema are supported. For URIs with a schema, the processing flow is as follows:  
 If the schema is hap (refer to [hap Links](</vela/quickapp/en/guide/framework/other/hap-schema.html>)), it navigates to the type supported by the hap link.  

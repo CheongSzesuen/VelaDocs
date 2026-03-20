@@ -30,12 +30,9 @@ Supports [Common Styles](</vela/quickapp/en/components/general/style.html>)
 
 Name | Type | Default | Description  
 ---|:---:|---|---  
-scroll-snap-type[3+](</vela/quickapp/zh/guide/version/APILevel3>) |:---:| none | Used in conjunction with scroll-snap-align, applied to the scroll component, indicating the scroll snap type. The first parameter is x or y, indicating horizontal or vertical scrolling; the second parameter is mandatory, proximity, or cross. mandatory: snaps to the nearest anchor; proximity: snaps only when the distance to the snap anchor is less than 30% of the container height; cross: snaps only when the child component's boundary that can be snapped appears in the scroll viewport. Default is proximity   
-Minimum aiot-toolkit version: 1.1.4  
-scroll-snap-align[3+](</vela/quickapp/zh/guide/version/APILevel3>) | none | start | center | end | edge | none | Used in conjunction with scroll-snap-type, applied to the scroll child component, indicating the alignment form between the child component and the scroll. none: no alignment, default value; start: aligns the component with the start edge of the scroll; center: aligns the component with the center of the scroll; end: aligns the component with the end edge of the scroll; edge: in the scrolling direction, aligns the component with the start or end edge of the scroll   
-Minimum aiot-toolkit version: 1.1.4  
-scroll-snap-stop[3+](</vela/quickapp/zh/guide/version/APILevel3>) | normal | always | normal | When set to always, cannot skip elements during snapping   
-Minimum aiot-toolkit version: 1.1.4  
+scroll-snap-type[3+](</vela/quickapp/zh/guide/version/APILevel3>) |:---:| none | Used in conjunction with scroll-snap-align, applied to the scroll component, indicating the scroll snap type. The first parameter is x or y, indicating horizontal or vertical scrolling; the second parameter is mandatory, proximity, or cross. mandatory: snaps to the nearest anchor; proximity: snaps only when the distance to the snap anchor is less than 30% of the container height; cross: snaps only when the child component's boundary that can be snapped appears in the scroll viewport. Default is proximity   <br>Minimum aiot-toolkit version: 1.1.4
+scroll-snap-align[3+](</vela/quickapp/zh/guide/version/APILevel3>) | none | start | center | end | edge | none | Used in conjunction with scroll-snap-type, applied to the scroll child component, indicating the alignment form between the child component and the scroll. none: no alignment, default value; start: aligns the component with the start edge of the scroll; center: aligns the component with the center of the scroll; end: aligns the component with the end edge of the scroll; edge: in the scrolling direction, aligns the component with the start or end edge of the scroll   <br>Minimum aiot-toolkit version: 1.1.4
+scroll-snap-stop[3+](</vela/quickapp/zh/guide/version/APILevel3>) | normal | always | normal | When set to always, cannot skip elements during snapping   <br>Minimum aiot-toolkit version: 1.1.4
   
 ### Example Code
 

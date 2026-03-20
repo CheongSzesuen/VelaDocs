@@ -95,8 +95,7 @@ Diagnoses the connection between the watch app and the counterpart app. Returns 
 
 Property | Type | Required | Description  
 ---|:---:|---|---  
-timeout | Number | No | Timeout duration for waiting for diagnosis, in milliseconds   
-Default value: 10000ms  
+timeout | Number | No | Timeout duration for waiting for diagnosis, in milliseconds   <br>Default value: 10000ms
 success | Function | No | Success callback  
 fail | Function | No | Failure callback  
   
@@ -281,14 +280,14 @@ For interconnect communication, ensure that the package names and signatures of 
 import interconnect from '@system.interconnect'
 // or
 const interconnect = require('@system.interconnect')
-```0
+```
   2. Convert the p12 to pem by executing the following command. After entering the password set for the p12 file in the previous step, a pem format file will be generated in the same directory.
 
 ```javascript
 import interconnect from '@system.interconnect'
 // or
 const interconnect = require('@system.interconnect')
-```1
+```
   3. Copy the private key and certificate from the pem format file:  
 Copy the content from -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY----- into private.pem.  
 Copy the content from -----BEGIN CERTIFICATE----- to -----END CERTIFICATE----- into certificate.pem.

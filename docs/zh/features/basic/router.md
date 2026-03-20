@@ -24,11 +24,7 @@ const router = require('@system.router')
 
 参数 | 类型 | 必填 | 说明  
 ---|:---:|---|---  
-uri | String | 是 | 要跳转到的 uri，可以是下面的格式：  
-1、包含 schema 的完整 uri；  
-2、以‘/’开头的应用内页面的路径；例：/about  
-3、以非‘/’开头的应用内页面的名称；例：About  
-4、特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页  
+uri | String | 是 | 要跳转到的 uri，可以是下面的格式：  <br>1、包含 schema 的完整 uri；<br>2、以‘/’开头的应用内页面的路径；例：/about<br>3、以非‘/’开头的应用内页面的名称；例：About<br>4、特殊的，如果 uri 的值是"/"，则跳转到 path 为"/"的页，没有则跳转到首页
   
 支持包含 schema 的完整 uri。对于带有 schema 的 uri，处理流程如下：  
 如果 schema 是 hap （参见 [hap 链接](</vela/quickapp/zh/guide/framework/other/hap-schema.html>)），会跳转到 hap 链接所支持的类型  

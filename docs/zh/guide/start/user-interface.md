@@ -235,7 +235,7 @@ text {
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```0
+```
 
 ### 头部信息
 
@@ -249,7 +249,7 @@ text {
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```1
+```
 
 CSS代码如下：
 
@@ -259,7 +259,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```2
+```
 
 实际运行结果：  
 ![头部信息运行结果](../../images/ui-header.png)
@@ -276,7 +276,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```3
+```
 
 体感温度等信息模块，首先水平方向排列(`flex-direction: row`)，然后各个item设置`flex: 1`，这样就实现了各个item宽度相等的效果。
 
@@ -290,7 +290,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```4
+```
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-now-main.png)
@@ -309,7 +309,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```5
+```
 
 CSS代码为：
 
@@ -319,7 +319,7 @@ CSS代码为：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```6
+```
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-3d-list.png)
@@ -334,7 +334,7 @@ CSS代码为：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```7
+```
 
 CSS代码如下：
 
@@ -344,7 +344,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```8
+```
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-footer.png)
@@ -369,7 +369,7 @@ CSS代码如下：
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
-```9
+```
 
 定义好数据之后，替换之前的模板代码，替换后为：
 
@@ -382,7 +382,7 @@ CSS代码如下：
     <text class="weather">晴转多云</text>
   </div>
 </div>
-```0
+```
 
 ## 列表渲染
 
@@ -399,7 +399,7 @@ CSS代码如下：
     <text class="weather">晴转多云</text>
   </div>
 </div>
-```1
+```
 
 模板代码：
 
@@ -412,7 +412,7 @@ CSS代码如下：
     <text class="weather">晴转多云</text>
   </div>
 </div>
-```2
+```
 
 运行结果：  
 ![列表渲染结果](../../images/ui-for-list-result.png)

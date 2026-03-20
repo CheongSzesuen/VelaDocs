@@ -380,7 +380,7 @@ buffer | Uint8Array | 读取的文件内容
 import file from '@system.file' 
 // 或 
 const file = require('@system.file')
-```0
+```
 
 ### file.access(OBJECT)
 
@@ -408,7 +408,7 @@ complete | Function | 否 | 执行结束后的回调
 import file from '@system.file' 
 // 或 
 const file = require('@system.file')
-```1
+```
 
 ### file.mkdir(OBJECT)
 
@@ -437,7 +437,7 @@ complete | Function | 否 | 执行结束后的回调
 import file from '@system.file' 
 // 或 
 const file = require('@system.file')
-```2
+```
 
 ### file.rmdir(OBJECT)
 
@@ -466,4 +466,4 @@ complete | Function | 否 | 执行结束后的回调
 import file from '@system.file' 
 // 或 
 const file = require('@system.file')
-```3
+```

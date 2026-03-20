@@ -21,9 +21,7 @@ iteration | `<number>`|`<string>` | `infinite` | No | Sets the number of frame a
 reverse | `<boolean>` | `false` | No | Sets the playback sequence. **false** indicates that the playback starts from the first image to the last image; **true** indicates that the playback starts from the last image to the first image.  
 fixedsize | `<boolean>` | `true` | No | Sets whether the image size is fixed to the component size. **true** indicates that the image size is the same as the component size. In this case, the **width** , **height** , **top** , and **left** attributes of the image are invalid. **false** indicates that the **width** , **height** , **top** , and **left** attributes of each image must be set separately.  
 duration | `<string>` |:---:| No | Sets the duration of a single playback. The unit supports [s(second)|ms(millisecond)], and the default unit is ms.  
-fillmode | `<string>` | `forwards` | No | Specifies the state of the frame animation after the execution is complete. The options are as follows:  
-**none** : restores to the initial state.  
-**forwards** : maintains the state of the frame animation at the end (defined in the last keyframe).  
+fillmode | `<string>` | `forwards` | No | Specifies the state of the frame animation after the execution is complete. The options are as follows:  <br>**none** : restores to the initial state.<br>**forwards** : maintains the state of the frame animation at the end (defined in the last keyframe).
   
 Description of **ImageFrame**
 

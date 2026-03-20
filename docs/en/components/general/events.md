@@ -28,11 +28,7 @@ touchmove | TouchEvent | Triggered when a finger moves after touching the compon
 touchend | TouchEvent | Triggered when a finger ends the touch action | Supported  
 click | MouseEvent | Triggered when the component is clicked | Supported  
 longpress | MouseEvent | Triggered when the component is long-pressed | Supported  
-swipe | { direction: <`"left"` | `"right"` | `"up"` | `"down"`> } | Triggered after a quick swipe on the component (not triggered when there is a scrollbar in the swipe direction)  
-Parameter description:  
-left: swipe left;  
-right: swipe right;  
-up: swipe up;  
+swipe | { direction: <`"left"` | `"right"` | `"up"` | `"down"`> } | Triggered after a quick swipe on the component (not triggered when there is a scrollbar in the swipe direction)  <br>Parameter description:<br>left: swipe left;<br>right: swipe right;<br>up: swipe up;
 down: swipe down; | Not Supported  
   
 ## Event Objects

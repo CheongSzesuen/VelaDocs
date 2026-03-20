@@ -28,11 +28,7 @@ touchmove | TouchEvent | 手指触摸后移动时触发 | 支持
 touchend | TouchEvent | 手指触摸动作结束时触发 | 支持  
 click | MouseEvent | 组件被点击时触发 | 支持  
 longpress | MouseEvent | 组件被长按时触发 | 支持  
-swipe | { direction: <`"left"` | `"right"` | `"up"` | `"down"`> } | 组件上快速滑动后触发（滑动方向有滚动条时不触发该事件）  
-参数说明：  
-left： 向左滑动；  
-right： 向右滑动；  
-up： 向上滑动；  
+swipe | { direction: <`"left"` | `"right"` | `"up"` | `"down"`> } | 组件上快速滑动后触发（滑动方向有滚动条时不触发该事件）  <br>参数说明：<br>left： 向左滑动；<br>right： 向右滑动；<br>up： 向上滑动；
 down：向下滑动； | 不支持  
   
 ## 事件对象
