@@ -187,23 +187,23 @@ function Ensure-RuntimeFiles {
     }
 
     if (-not (Test-RootPythonFile)) {
-        Write-Info "检测到当前目录没有 Python 文件，准备自动下载运行文件。"
+        Write-Info "No Python file was found in the current directory. Bootstrap download will start."
     } else {
-        Write-Info "检测到运行文件缺失，准备自动下载。"
+        Write-Info "Required runtime files are missing. Bootstrap download will start."
     }
 
     $cachedSource = Get-CachedSource
     if ($cachedSource) {
-        Write-Info "优先尝试缓存下载源: $cachedSource"
+        Write-Info "Trying cached source: $cachedSource"
         if (Download-RequiredFilesFromSource -SourceName $cachedSource) {
             return
         }
-        Write-Info "缓存下载源不可用，开始按顺序尝试内置下载源。"
+        Write-Info "Cached source failed. Falling back to built-in sources."
         Remove-CachedSource
     }
 
     foreach ($source in $CandidateSources) {
-        Write-Info "尝试下载源: $source"
+        Write-Info "Trying source: $source"
         if (Download-RequiredFilesFromSource -SourceName $source) {
             Set-CachedSource -SourceName $source
             return
@@ -232,7 +232,7 @@ if (-not $pythonCmd) {
 }
 
 $pythonVersion = & python --version 2>&1
-Write-Info "找到 Python: $pythonVersion"
+Write-Info "Python found: $pythonVersion"
 
 Ensure-RuntimeFiles
 
@@ -243,15 +243,15 @@ if (-not (Test-Path -LiteralPath $ScriptName)) {
 $venvPython = Join-Path $VenvName "Scripts\python.exe"
 if (Test-Path -LiteralPath $VenvName) {
     if (Test-Path -LiteralPath $venvPython) {
-        Write-Info "虚拟环境 '$VenvName' 已存在且完整，正在复用。"
+        Write-Info "Reusing virtual environment '$VenvName'."
     } else {
-        Write-Info "检测到虚拟环境 '$VenvName' 不完整或已损坏，正在重新创建..."
+        Write-Info "Broken virtual environment detected. Recreating '$VenvName'."
         Remove-Item -LiteralPath $VenvName -Recurse -Force
     }
 }
 
 if (-not (Test-Path -LiteralPath $venvPython)) {
-    Write-Info "正在创建虚拟环境: $VenvName"
+    Write-Info "Creating virtual environment: $VenvName"
     Invoke-CommandChecked -FilePath "python" -Arguments @("-m", "venv", $VenvName) -ErrorMessage "Failed to create virtual environment."
 }
 
@@ -260,19 +260,19 @@ if (-not (Test-Path -LiteralPath $venvPython)) {
     throw "Virtual environment python executable was not found."
 }
 
-Write-Info "正在升级 pip..."
+Write-Info "Upgrading pip..."
 Invoke-CommandChecked -FilePath $venvPython -Arguments @("-m", "pip", "install", "--upgrade", "pip") -ErrorMessage "Failed to upgrade pip."
 
 if (Test-Path -LiteralPath $ReqFile) {
-    Write-Info "正在从 $ReqFile 安装依赖..."
+    Write-Info "Installing dependencies from $ReqFile..."
     Invoke-CommandChecked -FilePath $venvPython -Arguments @("-m", "pip", "install", "-r", $ReqFile) -ErrorMessage "Failed to install dependencies from requirements file."
 } else {
-    Write-Info "正在安装必要的依赖 (requests, beautifulsoup4, html2text)..."
+    Write-Info "Installing fallback dependencies (requests, beautifulsoup4, html2text)..."
     Invoke-CommandChecked -FilePath $venvPython -Arguments @("-m", "pip", "install", "requests", "beautifulsoup4", "html2text") -ErrorMessage "Failed to install fallback dependencies."
 }
 
-Write-Info "依赖安装完成。"
-Write-Info "正在启动脚本: $ScriptName"
+Write-Info "Dependencies installed."
+Write-Info "Starting script: $ScriptName"
 Invoke-CommandChecked -FilePath $venvPython -Arguments @($ScriptName) -ErrorMessage "Python script execution failed."
 
-Write-Info "脚本执行完成。"
+Write-Info "Script completed."
