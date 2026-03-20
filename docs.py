@@ -106,6 +106,43 @@ class MarkdownScraper:
             return f"Image missing: {filename} <{img_url}>"
         return f"图片缺失: {filename} <{img_url}>"
 
+    def _build_code_block(self, language, code):
+        language = (language or '').strip()
+        code = code.replace('\r\n', '\n').replace('\r', '\n').strip('\n')
+        fence = f"```{language}".rstrip()
+        return f"{fence}\n{code}\n```"
+
+    def _restore_code_blocks(self, markdown, code_blocks):
+        for placeholder, code_block in code_blocks:
+            markdown = markdown.replace(placeholder, code_block)
+        return markdown
+
+    def _normalize_code_block_spacing(self, markdown):
+        # 确保代码块起始围栏前有空行，避免与列表或正文挤在同一行
+        markdown = re.sub(
+            r'([^\n])([ \t]*)```([\w+-]+)\n',
+            r'\1\n\n```\3\n',
+            markdown
+        )
+
+        # 相邻代码块之间强制分隔，避免闭合围栏与下一个起始围栏连在同一行
+        markdown = re.sub(
+            r'```\s+```([\w+-]+)\n',
+            r'```\n\n```\1\n',
+            markdown
+        )
+
+        markdown = re.sub(
+            r'```[ \t]+```',
+            '```\n\n```',
+            markdown
+        )
+
+        # 统一清理围栏行尾多余空格
+        markdown = re.sub(r'^```([\w+-]*)[ \t]+$', r'```\1', markdown, flags=re.MULTILINE)
+        markdown = re.sub(r'^```[ \t]+$', r'```', markdown, flags=re.MULTILINE)
+        return markdown
+
     def _get_relative_path(self, url):
         # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
         # 例如，如果 base_url 是 https://iot.mi.com/vela/quickapp/zh/    ，url 是 https://iot.mi.com/vela/quickapp/zh/guide/start  
@@ -319,30 +356,32 @@ class MarkdownScraper:
 
     def _clean_markdown(self, markdown):
         """小米Vela文档专用清理函数"""
-        # 修复标题格式（移除锚点#号）
-        markdown = re.sub(r'^#\s+#\s+(.*)$', r'## \1', markdown, flags=re.MULTILINE)
+        # 仅清理非代码块区域，避免误改代码内容
+        parts = re.split(r'(```.*?```)', markdown, flags=re.DOTALL)
+        cleaned_parts = []
 
-        # 修复代码块格式
-        markdown = re.sub(r'```(\w+)\s+', r'```\1\n', markdown)
-        markdown = re.sub(r'(\S)\s+```', r'\1\n```', markdown)
+        for part in parts:
+            if part.startswith('```') and part.endswith('```'):
+                cleaned_parts.append(part)
+                continue
 
-        # 修复方法调用中的多余空格
-        markdown = re.sub(r'(\w)\s+\.\s+(\w)', r'\1.\2', markdown)
+            # 修复标题格式（移除锚点#号）
+            part = re.sub(r'^#\s+#\s+(.*)$', r'## \1', part, flags=re.MULTILINE)
 
-        # 修复括号内的多余空格
-        markdown = re.sub(r'\(\s+', '(', markdown)
-        markdown = re.sub(r'\s+\)', ')', markdown)
+            # 修复表格对齐
+            part = re.sub(r'\|(\s*-+\s*)\|', r'|:---:|', part)
 
-        # 修复表格对齐
-        markdown = re.sub(r'\|(\s*-+\s*)\|', r'|:---:|', markdown)
+            # 清理多余空行
+            part = re.sub(r'\n{3,}', '\n\n', part)
+            cleaned_parts.append(part)
 
-        # 清理多余空行
+        markdown = ''.join(cleaned_parts)
         markdown = re.sub(r'\n{3,}', '\n\n', markdown)
-
-        return markdown
+        return markdown.strip() + '\n'
 
     def convert_html_to_markdown(self, html, page_url):
         soup = BeautifulSoup(html, 'html.parser')
+        code_blocks = []
 
         # 移除不需要的元素
         for element in soup(['script', 'style', 'nav', 'footer', 'iframe', 'svg']):
@@ -363,22 +402,26 @@ class MarkdownScraper:
         # 处理代码块
         for pre in soup.find_all('pre'):
             parent_div = pre.find_parent('div', class_=re.compile('language-'))
-            if parent_div:
-                # 提取语言类型
-                lang_match = re.search(r'language-(\w+)', ' '.join(parent_div['class']))
-                language = lang_match.group(1) if lang_match else ''
+            code_tag = pre.find('code')
+            class_source = []
+            if parent_div and parent_div.get('class'):
+                class_source.extend(parent_div.get('class', []))
+            if code_tag and code_tag.get('class'):
+                class_source.extend(code_tag.get('class', []))
 
-                # 提取原始代码（保留换行和缩进）
-                code = pre.get_text('\n')
+            # 提取语言类型
+            class_text = ' '.join(class_source)
+            lang_match = re.search(r'language-([\w+-]+)', class_text)
+            language = lang_match.group(1) if lang_match else ''
 
-                # 特殊处理JavaScript代码
-                if language == 'javascript':
-                    code = re.sub(r'(\w)\s+\.\s+(\w)', r'\1.\2', code)
-                    code = re.sub(r'\s+\(\s+', '(', code)
-                    code = re.sub(r'\s+\)\s+', ')', code)
+            # 提取原始代码（保留换行和缩进）
+            code = pre.get_text()
+            placeholder = f"CODE_BLOCK_PLACEHOLDER_{len(code_blocks)}"
+            code_blocks.append((placeholder, self._build_code_block(language, code)))
 
-                # 替换为Markdown代码块
-                pre.replace_with(f"```{language}\n{code}\n```")
+            # 用占位符替换，避免 html2text 压平 fenced code block
+            target = parent_div if parent_div else pre
+            target.replace_with(NavigableString(f"\n\n{placeholder}\n\n"))
 
         # 处理图片
         for img in soup.find_all('img', src=True):
@@ -401,6 +444,9 @@ class MarkdownScraper:
 
         # 后处理清理
         markdown = self._clean_markdown(markdown)
+        markdown = self._restore_code_blocks(markdown, code_blocks)
+        markdown = self._normalize_code_block_spacing(markdown)
+        markdown = re.sub(r'\n{3,}', '\n\n', markdown)
         return markdown
 
     def save_markdown_file(self, content, url):

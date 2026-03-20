@@ -3,13 +3,17 @@
 # Unzip
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.zip" }
+{ "name": "system.zip" }
 ```
 
 ## Import Module
+
 ```javascript
-import zip from '@system.zip' // or const zip = require('@system.zip')
+import zip from '@system.zip'
+// or
+const zip = require('@system.zip')
 ```
 
 ## Interface Definition
@@ -40,6 +44,16 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-zip.decompress({ srcUri : 'internal://cache/test.zip' , dstUri : 'internal://files/unzip/' , success : function() { console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+zip.decompress({
+  srcUri: 'internal://cache/test.zip',
+  dstUri: 'internal://files/unzip/',
+  success: function() {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

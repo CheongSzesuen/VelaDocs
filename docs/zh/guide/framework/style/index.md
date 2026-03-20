@@ -11,15 +11,28 @@
 ## 文件导入
 
 支持 2 种导入外部文件的方式：
+
 ```html
-<!-- 导入外部文件, 代替style内部样式 --> < style src = " ./style.css " > </ style > <!-- 合并外部文件 --> < style > @import './style.css' ; .a { } </ style >
+<!-- 导入外部文件, 代替style内部样式 -->
+<style src="./style.css"></style>
+
+<!-- 合并外部文件 -->
+<style>
+  @import './style.css';
+  .a {
+  }
+</style>
 ```
 
 ## 模板内部样式
 
 支持使用 style、class 属性来控制组件的样式：
+
 ```html
-<!-- 内联inline --> < div style = " color : red ; margin : 10px ; " /> <!-- class声明 --> < div class = " normal append " />
+<!-- 内联inline -->
+<div style="color:red; margin: 10px;"/>
+<!-- class声明 -->
+<div class="normal append"/>
 ```
 
 ## 选择器
@@ -31,9 +44,20 @@
 .class | .intro | 选择所有拥有 class="intro" 的组件  
 #id | #firstname | 选择拥有 id="firstname" 的组件  
 tag | div | 选择所有 div 组件  
-, | .a, .b | 选择所有 class="a"以及 class="b"的组件
+, | .a, .b | 选择所有 class="a"以及 class="b"的组件  
 ```html
-< style > /* 单个选择器 */ text { } .class-abc { } #idAbc { } /* 同一样式适应多个选择器 */ .font-text, .font-comma { } </ style >
+<style>
+  /* 单个选择器 */
+  text {
+  }
+  .class-abc {
+  }
+  #idAbc {
+  }
+  /* 同一样式适应多个选择器 */
+  .font-text, .font-comma {
+  }
+</style>
 ```
 
 ## 选择器优先级
@@ -53,6 +77,16 @@ css 的优先级计算文档也可以查看[MDN 文档 (opens new window)](<http
 ## 样式预编译
 
 目前 JS 应用支持`less`与`sass`的预编译，具体教程也可以参考[这里](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html#引入-less-scss-预编译>)。
+
 ```html
-<!--导入外部文件, 代替style内部样式--> < style lang = " less " src = " ./lessFile.less " > </ style > <!--合并外部文件--> < style lang = " less " > @import './lessFile.less' ; .less-font-text, .less-font-comma { font-size : 60px ; } </ style >
+<!--导入外部文件, 代替style内部样式-->
+<style lang="less" src="./lessFile.less"></style>
+
+<!--合并外部文件-->
+<style lang="less">
+  @import './lessFile.less';
+  .less-font-text, .less-font-comma {
+    font-size: 60px;
+  }
+</style>
 ```

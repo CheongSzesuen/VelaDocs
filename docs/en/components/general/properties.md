@@ -7,8 +7,14 @@ Common attributes are those supported by all components.
 Developers can use `common attributes` on all component tags.
 
 ## Sample Code
+
 ```html
-< template > < div > < text id = " text1 " class = " text-normal " > line 1 </ text > < text id = " text2 " class = " text-normal red " > line 2 </ text > </ div > </ template >
+<template>
+  <div>
+      <text id="text1" class="text-normal">line 1</text>
+      <text id="text2" class="text-normal red">line 2</text>
+  </div>
+</template>
 ```
 
 ## Common Attributes
@@ -38,6 +44,21 @@ Attributes and styles cannot be mixed. Do not set styles in the attribute field.
 Bind data attributes to components and then obtain them through `dataset` during runtime for further judgment.
 
 **Example** :
+
 ```html
-< template > < div > < div id = " elNode1 " data-person-name = " Jack " > </ div > </ div > </ template > < script > export default { onReady () { const el = this . $element ('elNode1') const elData = el.dataset.personName console.info (` Output data attribute: ${ elData } `) } } </ script >
+<template>
+  <div>
+    <div id="elNode1" data-person-name="Jack"></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    onReady () {
+      const el = this.$element('elNode1')
+      const elData = el.dataset.personName
+      console.info(`Output data attribute: ${elData}`)
+    }
+  }
+</script>
 ```

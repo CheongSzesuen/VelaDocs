@@ -3,13 +3,17 @@
 # 振动 vibrator
 
 ## 接口声明
+
 ```json
-{ "name" : "system.vibrator" }
+{ "name": "system.vibrator" }
 ```
 
 ## 导入模块
+
 ```javascript
-import vibrator from '@system.vibrator' // 或 const vibrator = require('@system.vibrator')
+import vibrator from '@system.vibrator' 
+// 或 
+const vibrator = require('@system.vibrator')
 ```
 
 ## 接口定义
@@ -25,8 +29,11 @@ import vibrator from '@system.vibrator' // 或 const vibrator = require('@system
 mode | String | 否 | 振动模式，"long"表示长振动，"short"表示短振动。默认为 long  
   
 #### 示例：
+
 ```javascript
-vibrator.vibrate({ mode : 'long' })
+vibrator.vibrate({
+  mode: 'long'
+})
 ```
 
 ### vibrator.start(OBJECT)
@@ -58,8 +65,22 @@ id | Number | 唯一的 ID，标识振动任务
 202 | 参数错误  
   
 #### 示例：
+
 ```javascript
-vibrator.start({ duration : 1000 , interval : 1000 , count : 10 , success : function(data){ console.log(` handling success, id = ${ data.id } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} , complete : function() { console.log(` handling complete `)} })
+vibrator.start({
+  duration: 1000,
+  interval: 1000,
+  count: 10,
+  success: function (data) {
+    console.log(`handling success, id = ${data.id}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  },
+  complete: function () {
+    console.log(`handling complete`)
+  }
+})
 ```
 
 ### vibrator.stop(Number)
@@ -79,6 +100,7 @@ Number | 是 | 振动任务 ID
 Boolean | true：成功；false：失败  
   
 #### 示例：
+
 ```javascript
 vibrator.stop(1)
 ```
@@ -98,6 +120,7 @@ vibrator.stop(1)
 Number | 0：关闭振动；1：标准振动；2：加强振动  
   
 #### 示例：
+
 ```javascript
 vibrator.getSystemDefaultMode()
 ```

@@ -5,4 +5,3 @@
 ## 组件
 
   * 新增接口：[@system.event](</vela/quickapp/zh/features/system/event.html>)
-

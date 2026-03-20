@@ -3,13 +3,17 @@
 # Power Information battery
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.battery" }
+{ "name": "system.battery" }
 ```
 
 ## Import Module
+
 ```javascript
-import battery from '@system.battery' // or const battery = require('@system.battery')
+import battery from '@system.battery' 
+// or 
+const battery = require('@system.battery')
 ```
 
 ## Interface Definition
@@ -34,8 +38,16 @@ charging | Boolean | Whether it is currently charging
 level | Number | Current power level, ranging from 0.0 to 1.0  
   
 #### Example
+
 ```javascript
-battery.getStatus({ success : function(data){ console.log(` handling success: ${ data.level } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+battery.getStatus({
+  success: function(data) {
+      console.log(`handling success: ${data.level}`)
+  },
+  fail: function(data, code) {
+      console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## Support Details

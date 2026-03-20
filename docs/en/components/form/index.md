@@ -8,4 +8,3 @@ Components used for interaction, such as submitting data, etc.
   * [picker](</vela/quickapp/en/components/form/picker.html>)
   * [switch](</vela/quickapp/en/components/form/switch.html>)
   * [slider](</vela/quickapp/en/components/form/slider.html>)
-

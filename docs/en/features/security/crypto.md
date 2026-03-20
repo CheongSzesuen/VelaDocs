@@ -3,13 +3,17 @@
 # Cryptographic Algorithm crypto
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.crypto" }
+{ "name": "system.crypto" }
 ```
 
 ## Module Import
+
 ```javascript
-import crypto from '@system.crypto' // or const crypto = require('@system.crypto')
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
 ```
 
 ## Interface Definition
@@ -34,8 +38,12 @@ Type | Description
 String | Computed digest content  
   
 #### Example:
+
 ```javascript
-const digest = crypto.hashDigest({ data : 'hello' , algo : 'MD5' })
+const digest = crypto.hashDigest({
+  data: 'hello',
+  algo: 'MD5'
+})
 ```
 
 ### crypto.hmacDigest(OBJECT)
@@ -61,8 +69,19 @@ Parameter | Type | Description
 data | String | Digest  
   
 #### Example:
+
 ```javascript
-crypto.hmacDigest({ data : 'hello' , algo : 'SHA256' , key : 'a secret' , success : function(res){ console.log(` ### crypto.hmacDigest success: ` , res.data)} , fail : function(data , code){ console.log(` ### crypto.hmacDigest fail ### ${ code } : ${ data } `)} })
+crypto.hmacDigest({
+  data: 'hello',
+  algo: 'SHA256',
+  key: 'a secret',
+  success: function(res) {
+    console.log(`### crypto.hmacDigest success:`, res.data)
+  },
+  fail: function(data, code) {
+    console.log(`### crypto.hmacDigest fail ### ${code}: ${data}`)
+  }
+})
 ```
 
 ### crypto.sign(OBJECT)
@@ -89,8 +108,19 @@ Parameter | Type | Description
 data | String | Uint8Array | If input is a string, returns a base64-encoded string; otherwise, returns Uint8Array; if only uri is passed, returns string by default  
   
 #### Example:
+
 ```javascript
-crypto.sign({ data : 'hello' , algo : 'RSA-SHA256' , privateKey : 'a secret' , success : function(res){ console.log(` ### crypto.sign success: ` , res.data)} , fail : function(data , code){ console.log(` ### crypto.sign fail ### ${ code } : ${ data } `)} })
+crypto.sign({
+  data: 'hello',
+  algo: 'RSA-SHA256',
+  privateKey: 'a secret',
+  success: function(res) {
+    console.log(`### crypto.sign success:`, res.data)
+  },
+  fail: function(data, code) {
+    console.log(`### crypto.sign fail ### ${code}: ${data}`)
+  }
+})
 ```
 
 ### crypto.verify(OBJECT)
@@ -118,8 +148,20 @@ Type | Description
 Boolean | Verification result. True if passed, false if not passed  
   
 #### Example:
+
 ```javascript
-crypto.verify({ data : 'hello' , algo : 'RSA-SHA256' , publicKey : 'public key' , signature : 'signature' , success : function(data){ console.log(` ### crypto.verify success: ` , data)} , fail : function(data , code){ console.log(` ### crypto.verify fail ### ${ code } : ${ data } `)} })
+crypto.verify({
+  data: 'hello',
+  algo: 'RSA-SHA256',
+  publicKey: 'public key',
+  signature: 'signature',
+  success: function(data) {
+    console.log(`### crypto.verify success:`, data)
+  },
+  fail: function(data, code) {
+    console.log(`### crypto.verify fail ### ${code}: ${data}`)
+  }
+})
 ```
 
 ### crypto.encrypt(OBJECT)
@@ -193,12 +235,45 @@ tag | String | Uint8Array | AES-CCM encryption returns an authentication tag
 If input data is a string, returns a base64-encoded string; otherwise, returns Uint8Array  
   
 #### Example:
+
 ```javascript
-// AES-CBC Encryption crypto.encrypt({ // Text content to be encrypted data : 'hello' , // Encryption public key after base64 encoding key : crypto.btoa('KEYKEYKEYKEYKEYK'), algo : 'AES' , success : function(res){ console.log(` ### crypto.encrypt success: ` , res.data)} , fail : function(data , code){ console.log(` ### crypto.encrypt fail ### ${ code } : ${ data } `)} })
+// AES-CBC Encryption
+crypto.encrypt({
+  // Text content to be encrypted
+  data: 'hello',
+  // Encryption public key after base64 encoding
+  key: crypto.btoa('KEYKEYKEYKEYKEYK'),
+  algo: 'AES',
+  success: function(res) {
+    console.log(`### crypto.encrypt success:`, res.data)
+  },
+  fail: function(data, code) {
+    console.log(`### crypto.encrypt fail ### ${code}: ${data}`)
+  }
+})
 ```
 
 ```javascript
-// AES-CCM Encryption crypto.encrypt({ // Text content to be encrypted data : 'hello' , // Encryption public key after base64 encoding key : crypto.btoa('KEYKEYKEYKEYKEYK'), algo : 'AES' , options : { transformation : 'AES/CCM/NoPadding' , iv : crypto.btoa('iv_info'), aad : crypto.btoa('Associated Data'), tagLen : 16 } , success : function(res){ console.log('### crypto.encrypt success:' , res.data , res.tag)} , fail : function(data , code){ console.log('### crypto.encrypt fail ### ' , code , data)} })
+// AES-CCM Encryption
+crypto.encrypt({
+  // Text content to be encrypted
+  data: 'hello',
+  // Encryption public key after base64 encoding
+  key: crypto.btoa('KEYKEYKEYKEYKEYK'),
+  algo: 'AES',
+  options: {
+    transformation: 'AES/CCM/NoPadding',
+    iv: crypto.btoa('iv_info'),
+    aad: crypto.btoa('Associated Data'),
+    tagLen: 16
+  },
+  success: function(res) {
+    console.log('### crypto.encrypt success:', res.data, res.tag)
+  },
+  fail: function(data, code) {
+    console.log('### crypto.encrypt fail ### ', code , data)
+  }
+})
 ```
 
 ### crypto.decrypt(OBJECT)
@@ -270,12 +345,45 @@ data | String | Uint8Array | Decrypted data
 If input data is a string, returns plaintext after decryption. If the decrypted content cannot be converted to a utf-8 string, an error will occur (CODE: 200); otherwise, returns Uint8Array  
   
 #### Example:
+
 ```javascript
-// AES-CBC Decryption crypto.decrypt({ // Content to be decrypted data : 'WB96uM08PfYIHu5G1p6YwA==' , // Encryption public key after base64 encoding key : crypto.btoa('KEYKEYKEYKEYKEYK'), algo : 'AES' , success : function(res){ console.log(` ### crypto.decrypt success: ` , res.data)} , fail : function(data , code){ console.log(` ### crypto.decrypt fail ### ${ code } : ${ data } `)} })
+// AES-CBC Decryption
+crypto.decrypt({
+  // Content to be decrypted
+  data: 'WB96uM08PfYIHu5G1p6YwA==',
+  // Encryption public key after base64 encoding
+  key: crypto.btoa('KEYKEYKEYKEYKEYK'),
+  algo: 'AES',
+  success: function(res) {
+    console.log(`### crypto.decrypt success:`, res.data)
+  },
+  fail: function(data, code) {
+    console.log(`### crypto.decrypt fail ### ${code}: ${data}`)
+  }
+})
 ```
 
 ```javascript
-// AES-CCM Decryption crypto.decrypt({ // Text content to be decrypted data : '9KFkqz8=' , // Encryption public key after base64 encoding key : crypto.btoa('KEYKEYKEYKEYKEYK'), algo : 'AES' , options : { transformation : 'AES/CCM/NoPadding' , iv : crypto.btoa('iv_info'), aad : crypto.btoa('Associated Data'), tag : 'kHX6EGYOEvKwA0PS79TAUQ==' } , success : function(res){ console.log('### crypto.decrypt success:' , res.data)} , fail : function(data , code){ console.log('### crypto.decrypt fail ### ' , code , data)} })
+// AES-CCM Decryption
+crypto.decrypt({
+  // Text content to be decrypted
+  data: '9KFkqz8=',
+  // Encryption public key after base64 encoding
+  key: crypto.btoa('KEYKEYKEYKEYKEYK'),
+  algo: 'AES',
+  options: {
+    transformation: 'AES/CCM/NoPadding',
+    iv: crypto.btoa('iv_info'),
+    aad: crypto.btoa('Associated Data'),
+    tag: 'kHX6EGYOEvKwA0PS79TAUQ=='
+  },
+  success: function(res) {
+    console.log('### crypto.decrypt success:', res.data)
+  },
+  fail: function(data, code) {
+    console.log('### crypto.decrypt fail ### ', code , data)
+  }
+})
 ```
 
 ### crypto.btoa(STRING)
@@ -295,9 +403,12 @@ Type | Description
 String | Result after encoding  
   
 #### Example:
+
 ```javascript
-const encodeData = crypto.btoa('hello')
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```0
 
 ### crypto.atob(STRING)
 
@@ -316,9 +427,12 @@ Type | Description
 String | Result after decoding  
   
 #### Example:
+
 ```javascript
-const encodeString = crypto.btoa('hello')const res = crypto.atob(encodeString)
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```1
 
 ### crypto.hkdf(OBJECT)
 
@@ -354,24 +468,36 @@ data | Uint8Array | Derived key result
 #### Example:
 
 Conversion utility functions:
+
 ```javascript
-// Convert hexadecimal string to uint8Array function hexToUint8Array(hex){ // Remove possible prefix 0x hex = hex.replace(/ ^0x / , ''); // If length is odd, pad with a leading zero if(hex.length % 2 !== 0){ hex = '0' \+ hex ; } // Check for invalid characters if(/ [^0-9A-Fa-f] / . test(hex)) { throw new Error('Invalid hex string: contains non-hexadecimal characters.'); } // Calculate length of byte array const byteLength = hex.length / 2 ; const bytes = new Uint8Array(byteLength); // Convert each pair of hexadecimal characters to a byte for(let i = 0 ; i < byteLength ; i ++){ const byteString = hex.substr(i * 2 , 2); bytes [ i ] = parseInt(byteString , 16); } return bytes ; } // Convert uint8Array to hexadecimal string function uint8ArrayToHex(bytes){ if(!(bytes instanceof Uint8Array)) { throw new TypeError('Expected input to be an instance of Uint8Array.'); } // Convert each byte to a two-digit hexadecimal string return Array.from(bytes , byte => byte.toString(16). padStart(2 , '0')) . join(''); } /** * Create Base64 decoding table (outside the function, created only once) */ const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' ; const base64Map = new Map() ; for(let i = 0 ; i < base64Chars.length ; i ++){ base64Map.set(base64Chars [ i ] , i); } // Convert Base64 encoded string to Uint8Array function base64ToUint8Array(base64){ // Remove possible whitespace characters from Base64 string base64 = base64.trim() ; // Base64 length must be a multiple of 4 if(base64.length % 4 !== 0){ throw new Error('Invalid Base64 string length'); } // Calculate number of padding characters const padding = base64.endsWith('==')? 2 :(base64.endsWith('=')) ? 1 : 0 ; // Calculate length of output array const outputLength =(base64.length * 3)/ 4 \- padding ; const output = new Uint8Array(outputLength); let buffer = 0 ; let bufferLength = 0 ; let outputIndex = 0 ; for(let i = 0 ; i < base64.length ; i ++){ const char = base64 [ i ] ; if(char === '=')continue ; const value = base64Map.get(char); if(value === undefined){ throw new Error('Invalid Base64 character'); } buffer =(buffer << 6)| value ; bufferLength += 6 ; if(bufferLength >= 8){ bufferLength -= 8 ; output [ outputIndex ++ ] =(buffer >> bufferLength)& 0xFF ; } } return output ; }
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```2
 
 utf8-String
+
 ```javascript
-// Define input parameters const key = crypto.btoa('initialkeymaterial'); // Initial key material const salt = crypto.btoa('salt'); // Salt const info = crypto.btoa('info'); // Additional information const keyLen = 32 ; // Length of the key to be generated crypto.hkdf({ key , salt , info , keyLen , success(res){ try { const derivedKey = res.data console.log('Derived Key (hex): ' , uint8ArrayToHex(derivedKey)) ; // Derived key (hex): 00e02dcb12e9ca343bc57a1441ccd76a845d9f80e716cfc5a61f8daea81e57ec } catch(e){ console.error('Decoding error:' , e.message); } } , fail(msg , code){ console.log('crypto.hkdf error:' , msg , code); } })
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```3
 
 Hexadecimal
+
 ```javascript
-// Define input parameters const key = hexToUint8Array('696e697469616c6b65796d6174657269616c'); // Initial key material initialkeymaterial hex const salt = hexToUint8Array('73616c74'); // Salt salt hex const info = hexToUint8Array('696e666f'); // Additional information info hex const keyLen = 32 ; // Length of the key to be generated crypto.hkdf({ key , salt , info , keyLen , success(res){ try { const derivedKey = res.data console.log('Derived Key (hex): ' , uint8ArrayToHex(derivedKey)) ; // Derived key (hex): 00e02dcb12e9ca343bc57a1441ccd76a845d9f80e716cfc5a61f8daea81e57ec } catch(e){ console.error('Decoding error:' , e.message); } } , fail(msg , code){ console.log('crypto.hkdf error:' , msg , code); } })
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```4
 
 base64
+
 ```javascript
-// Define input parameters const key = 'aW5pdGlhbGtleW1hdGVyaWFs' ; // Initial key material initialkeymaterial base64 const salt = 'c2FsdA==' ; // Salt salt base64 const info = 'aW5mbw==' ; // Additional information info base64 const keyLen = 32 ; // Length of the key to be generated crypto.hkdf({ key , salt , info , keyLen , success(res){ try { const derivedKey = res.data console.log('Derived Key (hex): ' , uint8ArrayToHex(derivedKey)) ; // Derived key (hex): 00e02dcb12e9ca343bc57a1441ccd76a845d9f80e716cfc5a61f8daea81e57ec } catch(e){ console.error('Decoding error:' , e.message); } } , fail(msg , code){ console.log('crypto.hkdf error:' , msg , code); } })
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```5
 
 ### crypto.createECDH(String)
 
@@ -391,9 +517,12 @@ Type | Description
 <ECDH> | Elliptic Curve Diffie-Hellman (ECDH) key exchange instance object  
   
 #### Example:
+
 ```javascript
-// Create an ECDH object using the secp256r1 curve const ecdh = crypto.createECDH('secp256r1');
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```6
 
 ### ECDH
 
@@ -421,9 +550,12 @@ publicKey | String | Uint8Array | Public key from the generated key pair, return
 base64, hex return String, buffer returns Uint8Array  
   
 #### Example:
+
 ```javascript
-// Create an ECDH object using the secp256r1 curve const ecdh = crypto.createECDH('secp256r1'); ecdh.generateKeys({ encoding : 'base64' , success : function(res){ console.log('### generateKeys success publicKey: ' , res.publicKey)} , fail : function(data , code){ console.log('### generateKeys fail ### ' , code , data)} })
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```7
 
 ### ecdh.getPrivateKey(encoding)
 
@@ -445,9 +577,12 @@ base64, hex encoding return String
 buffer encoding returns Uint8Array  
   
 #### Example:
+
 ```javascript
-const privateKey = ecdh.getPrivateKey('hex'); console.log('privateKey hex: ' , privateKey);
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```8
 
 ### ecdh.getPublicKey(encoding)
 
@@ -469,9 +604,12 @@ base64, hex encoding return String
 buffer encoding returns Uint8Array  
   
 #### Example:
+
 ```javascript
-const publicKey = ecdh.getPublicKey('hex'); console.log('publicKey hex: ' , publicKey);
-```
+import crypto from '@system.crypto' 
+// or 
+const crypto = require('@system.crypto')
+```9
 
 ### ecdh.setPrivateKey(Object)
 
@@ -489,9 +627,13 @@ fail | Function | No | Failure callback
 complete | Function | No | Completion callback  
   
 #### Example:
+
 ```javascript
-// Create an ECDH object using the secp256r1 curve const ecdh = crypto.createECDH('secp256r1'); const key = '-----BEGIN EC PRIVATE KEY-----\n' \+ 'MHcCAQEEIB6c3X+2K7f3B3XXo4KPbQv0YP5ddTx0/zh8S2C0AXfkoAoGCCqGSM49\n' \+ 'AwEHoUQDQgAEp4K5yOimfJxvZ0fX0TQh4h2d7G2JDo5pujpJwZmLdrX7vF7Lp1HU\n' \+ 'AoIttMRXxktBjdvY9m7hfRp/Uu9paU7X3Q==\n' \+ '-----END EC PRIVATE KEY-----' ecdh.setPrivateKey({ privateKey : key , success :() => { console.log('#### privateKey: ' , ecdh.getPrivateKey('base64')) console.log('#### publicKey: ' , ecdh.getPublicKey('base64')) } , fail :(data , code)=> { console.log('### setPrivateKey fail ### ' , code , data)} })
-```
+const digest = crypto.hashDigest({
+  data: 'hello',
+  algo: 'MD5'
+})
+```0
 
 ### ecdh.computeSecret(Object)
 
@@ -517,9 +659,13 @@ Parameter | Type | Description
 shareKey | String | Uint8Array | Generated computed shared secret  
   
 #### Example:
+
 ```javascript
-async function fn() { try { // Create Alice's ECDH object and generate key pair const alice = crypto.createECDH('secp256r1'); // Create Bob's ECDH object and generate key pair const bob = crypto.createECDH('secp256r1'); // Interface processing as promise const aliceGen = promisify(alice.generateKeys)const bobGen = promisify(bob.generateKeys)const aliceCompute = promisify(alice.computeSecret)const bobCompute = promisify(bob.computeSecret)await aliceGen() await bobGen() // Get Alice's and Bob's public keys const alicePublicKey = alice.getPublicKey('hex'); const bobPublicKey = bob.getPublicKey('hex'); // Alice computes the shared secret using Bob's public key const { shareKey : aliceSharedSecret } = await aliceCompute(bobPublicKey , 'hex' , 'hex'); // Bob computes the shared secret using Alice's public key const { shareKey : bobSharedSecret } = await bobCompute(alicePublicKey , 'hex' , 'hex'); // Print results console.log('Alice Public Key:' , alicePublicKey); console.log('Bob Public Key:' , bobPublicKey); console.log('Alice Shared Secret:' , aliceSharedSecret); console.log('Bob Shared Secret:' , bobSharedSecret); // Verify shared secrets are the same if(aliceSharedSecret === bobSharedSecret){ console.log('Shared secrets match!'); } else { console.log('Shared secrets do not match!'); } } catch(e){ console.log('error： ' , e)} } fn()
-```
+const digest = crypto.hashDigest({
+  data: 'hello',
+  algo: 'MD5'
+})
+```1
 
 ## Support Details
 

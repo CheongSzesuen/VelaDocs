@@ -10,4 +10,3 @@
   * [scroll](</vela/quickapp/zh/components/container/scroll.html>)
   * [stack](</vela/quickapp/zh/components/container/stack.html>)
   * [swiper](</vela/quickapp/zh/components/container/swiper.html>)
-

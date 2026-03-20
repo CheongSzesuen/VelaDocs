@@ -3,13 +3,17 @@
 # 屏幕亮度 brightness
 
 ## 接口声明
+
 ```json
-{ "name" : "system.brightness" }
+{ "name": "system.brightness" }
 ```
 
 ## 导入模块
+
 ```javascript
-import brightness from '@system.brightness' // 或 const brightness = require('@system.brightness')
+import brightness from '@system.brightness' 
+// 或 
+const brightness = require('@system.brightness')
 ```
 
 ## 接口定义
@@ -33,8 +37,16 @@ complete | Function | 否 | 执行结束后的回调
 value | Integer | 屏幕亮度，取值范围 0-255  
   
 #### 示例：
+
 ```javascript
-brightness.getValue({ success : function(data){ console.log(` handling success, value = ${ data.value } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.getValue({
+  success: function(data) {
+    console.log(`handling success, value = ${data.value}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setValue(OBJECT)
@@ -51,8 +63,17 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-brightness.setValue({ value : 100 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setValue({
+  value: 100,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.getMode(OBJECT)
@@ -74,8 +95,16 @@ complete | Function | 否 | 执行结束后的回调
 mode | Integer | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度  
   
 #### 示例：
+
 ```javascript
-brightness.getMode({ success : function(data){ console.log(` handling success, mode = ${ data.mode } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.getMode({
+  success: function(data) {
+    console.log(`handling success, mode = ${data.mode}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setMode(OBJECT)
@@ -92,8 +121,17 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-brightness.setMode({ mode : 1 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setMode({
+  mode: 1,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setKeepScreenOn(OBJECT)
@@ -110,6 +148,15 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-brightness.setKeepScreenOn({ keepScreenOn : true , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setKeepScreenOn({
+  keepScreenOn: true,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

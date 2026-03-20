@@ -3,13 +3,17 @@
 # Download request
 
 ## Interface statement
+
 ```json
-{ "name" : "system.request" }
+{ "name": "system.request" }
 ```
 
 ## Import module
+
 ```javascript
-import request from '@system.request' // or const request = require('@system.request')
+import request from '@system.request' 
+// or 
+const request = require('@system.request')
 ```
 
 ## Interface definition
@@ -36,8 +40,17 @@ Parameter | Type | Description
 token | String | Download token, used to get the download status  
   
 #### Example:
+
 ```javascript
-request.download({ url : 'http://www.example.com' , success : function(data){ console.log(` handling success ${ data.token } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+request.download({
+  url: 'http://www.example.com',
+  success: function(data) {
+    console.log(`handling success${data.token}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### request.onDownloadComplete(OBJECT)
@@ -67,8 +80,17 @@ Error code | Description
 1001 | Download task does not exist  
   
 #### Example:
+
 ```javascript
-request.onDownloadComplete({ token : '123' , success : function(data){ console.log(` handling success ${ data.uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+request.onDownloadComplete({
+  token: '123',
+  success: function(data) {
+    console.log(`handling success${data.uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## Support details

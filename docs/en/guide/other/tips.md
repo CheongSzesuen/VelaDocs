@@ -29,4 +29,3 @@
   7. Use third-party dependencies cautiously and prefer lightweight ones
   8. Consider placing common code in the global scope to avoid multiple imports
   9. Add a loading state to prevent multiple network requests from being initiated due to frequent button clicks
-

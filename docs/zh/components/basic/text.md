@@ -34,15 +34,25 @@ text-overflow | clip | ellipsis | clip | 否 | 在设置了行数的情况下生
 **示例**
 
   * 单行省略
+
 ```css
-text { width : 150px ; lines : 1 ; text-overflow : ellipsis ; }
+text {
+  width: 150px;
+  lines: 1;
+  text-overflow: ellipsis;
+}
 ```
 
 ![](../../images/text-overflow.png)
 
   * 多行省略，以两行为例
+
 ```css
-text { width : 100px ; lines : 2 ; text-overflow : ellipsis ; }
+text {
+  width: 100px;
+  lines: 2;
+  text-overflow: ellipsis;
+}
 ```
 
 ![](../../images/text-overflow-2.png)
@@ -52,8 +62,13 @@ text { width : 100px ; lines : 2 ; text-overflow : ellipsis ; }
 支持[通用事件](</vela/quickapp/zh/components/general/events.html>)
 
 ## 示例代码
+
 ```html
-< template > < div > < text > 这是一段文本 </ text > </ div > </ template >
+<template>
+  <div>
+    <text>这是一段文本</text>
+  </div>
+</template>
 ```
 
 ![](../../images/text-example.png)

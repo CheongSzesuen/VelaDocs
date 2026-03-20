@@ -15,8 +15,41 @@
 由于自定义组件拥有独立的ViewModel，因此存在一定内存开销，在手表手环等轻量级设备上不建议使用。
 
 **示例如下：**
+
 ```html
-< template > < div class = " tutorial-page " > < text class = " tutorial-title " > 自定义组件: </ text > < text > {{ say }} </ text > < text > {{ obj.name }} </ text > </ div > </ template > < style lang = " less " > .tutorial-page { flex-direction : column ; padding-top : 20px ; .tutorial-title { font-weight : bold ; } } </ style > < script > // 子组件 export default { data : { say : 'hello' , obj : { name : 'quickApp' } } , onInit () { console.log ('我是子组件') } } </ script >
+<template>
+  <div class="tutorial-page">
+    <text class="tutorial-title">自定义组件:</text>
+    <text>{{ say }}</text>
+    <text>{{ obj.name }}</text>
+  </div>
+</template>
+
+<style lang="less">
+  .tutorial-page {
+    flex-direction: column;
+    padding-top: 20px;
+
+    .tutorial-title {
+      font-weight: bold;
+    }
+  }
+</style>
+
+<script>
+  // 子组件
+  export default {
+    data: {
+      say: 'hello',
+      obj: {
+        name: 'quickApp'
+      }
+    },
+    onInit() {
+      console.log('我是子组件')
+    }
+  }
+</script>
 ```
 
 自定义组件中数据模型只能使用**data 属性** ，data 类型是 **Object** 。
@@ -32,15 +65,44 @@
 ## 组件引入
 
 vela中是通过`<import>`标签引入组件，如下面代码所示：
+
 ```html
-< import name = " XXX " src = " XXX " > </ import >
+<import name="XXX" src="XXX"></import>
 ```
 
 `<import>`标签中的`src`属性指定自定义组件的地址，`name`属性指定在父组件中引用该组件时使用的 **标签名称** 。
 
 **示例如下：**
+
 ```html
-< import name = " comp-part1 " src = " ./part1 " > </ import > < template > < div class = " tutorial-page " > < text class = " tutorial-title " > 引入组件： </ text > < comp-part1 > </ comp-part1 > </ div > </ template > < style lang = " less " > .tutorial-page { flex-direction : column ; padding : 20px 10px ; } .tutorial-title { font-weight : bold ; } </ style > < script > // 父组件 export default { private : { } , onInit () { console.log ('引入组件') } } </ script >
+<import name="comp-part1" src="./part1"></import>
+
+<template>
+  <div class="tutorial-page">
+    <text class="tutorial-title">引入组件：</text>
+    <comp-part1></comp-part1>
+  </div>
+</template>
+
+<style lang="less">
+  .tutorial-page {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+  .tutorial-title {
+      font-weight: bold;
+  }
+</style>
+
+<script>
+  // 父组件
+  export default {
+    private: {},
+    onInit() {
+      console.log('引入组件')
+    }
+  }
+</script>
 ```
 
 ## 父子组件通信
@@ -50,12 +112,44 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
 父组件向子组件传递数据，通过在子组件的`props`属性中声明对外暴露的属性名称，然后在组件引用标签上声明传递的父组件数据，详见[Props](</vela/quickapp/zh/guide/framework/template/Props.html>)部分。
 
 **示例如下：**
+
 ```html
-<!-- 子组件 --> < template > < div class = " child-demo " > < text class = " title " > 子组件: </ text > < text > {{ say }} </ text > < text > {{ propObject.name }} </ text > </ div > </ template > < script > export default { props : [ 'say' , 'propObject' ] , onInit () { console.info (` 外部传递的数据： ` , this.say , this.propObject) } } </ script >
+<!-- 子组件 -->
+<template>
+  <div class="child-demo">
+    <text class="title">子组件:</text>
+    <text>{{ say }}</text>
+    <text>{{ propObject.name }}</text>
+  </div>
+</template>
+<script>
+  export default {
+    props: ['say', 'propObject'],
+    onInit() {
+      console.info(`外部传递的数据：`, this.say, this.propObject)
+    }
+  }
+</script>
 ```
 
 ```html
-<!-- 父组件 --> < import name = " comp " src = " ./comp " > </ import > < template > < div class = " parent-demo " > < comp say = " {{say}} " prop-object = " {{obj}} " > </ comp > </ div > </ template > < script > export default { private : { say : 'hello' obj : { name : 'child-demo' } } } </ script >
+<!-- 父组件 -->
+<import name="comp" src="./comp"></import>
+<template>
+  <div class="parent-demo">
+    <comp say="{{say}}" prop-object="{{obj}}"></comp>
+  </div>
+</template>
+<script>
+  export default {
+    private: {
+      say:'hello'
+      obj:{
+        name:'child-demo'
+      }
+    }
+  }
+</script>
 ```
 
 ### 子组件对父组件通信
@@ -64,20 +158,126 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
   * 子组件通过`$dispatch()`触发自定义事件，父组件通过`$on()`监控自定义事件的触发，如父组件与组件二；
 
 **示例如下：**
+
 ```html
-<!-- 父组件 --> < import name = " comp1 " src = " ./comp1.ux " > </ import > < import name = " comp2 " src = " ./comp2.ux " > </ import > < import name = " comp3 " src = " ./comp3.ux " > </ import > < template > < div class = " parent-demo " > < text > 我是父组件count:{{count}} </ text > < comp1 count = " {{count}} " onemit-evt = " emitEvt " > </ comp1 > < text > 我是父组件num:{{num}} </ text > < comp2 num = " {{num}} " > </ comp2 > < text > 我是父组件age:{{age}} </ text > < input type = " button " onclick = " evtTypeEmit " value = " 触发$broadcast() " > </ input > < comp3 > </ comp3 > </ div > </ template > < script > export default { private : { count : 20 , num : 20 , age : 18 } , onInit () { this . $on ('dispatchEvt' , this.dispatchEvt) } , emitEvt (evt) { this.count = evt.detail.count } , dispatchEvt (evt) { this.num = evt.detail.num } , evtTypeEmit () { this . $broadcast ('broadevt' , { age : 19 }) } , } </ script >
+ <!-- 父组件 -->
+<import name="comp1" src="./comp1.ux"></import>
+<import name="comp2" src="./comp2.ux"></import>
+<import name="comp3" src="./comp3.ux"></import>
+<template>
+  <div class="parent-demo">
+    <text>我是父组件count:{{count}}</text>
+    <comp1 count="{{count}}" onemit-evt="emitEvt"></comp1>
+
+    <text>我是父组件num:{{num}}</text>
+    <comp2 num="{{num}}"></comp2>
+
+    <text>我是父组件age:{{age}}</text>
+    <input type="button" onclick="evtTypeEmit" value="触发$broadcast()"></input>
+    <comp3></comp3>
+  </div>
+</template>
+
+<script>
+  export default {
+    private:{
+      count:20,
+      num:20,
+      age:18
+    },
+    onInit(){
+      this.$on('dispatchEvt',this.dispatchEvt)
+    },
+    emitEvt(evt){
+      this.count = evt.detail.count
+    },
+    dispatchEvt(evt){
+      this.num = evt.detail.num
+    },
+    evtTypeEmit(){
+      this.$broadcast('broadevt',{
+        age:19
+      })
+    },
+  }
+</script>
 ```
 
 ```html
-<!-- comp1 --> < template > < div class = " child-demo " > < text > 我是子组件一count:{{compCount}} </ text > < input type = " button " onclick = ' addHandler ' value = ' add ' > </ input > </ div > </ template > < script > export default { props : [ 'count' ] , data () { return { compCount : this.count } } , addHandler () { this.compCount ++ this . $emit ('emitEvt' , { count : this.compCount }) } , } </ script >
+<!-- comp1 -->
+<template>
+  <div class="child-demo">
+    <text>我是子组件一count:{{compCount}}</text>
+    <input type="button" onclick='addHandler' value='add'></input>
+  </div>
+</template>
+<script>
+  export default {
+    props: ['count'],
+    data(){
+      return{
+        compCount:this.count
+      }
+    },
+    addHandler(){
+      this.compCount ++
+      this.$emit('emitEvt',{
+        count:this.compCount
+      })
+    },
+  }
+</script>
 ```
 
 ```html
-<!-- comp2 --> < template > < div class = " child-demo " > < text > 我是子组件二num:{{compNum}} </ text > < input type = " button " onclick = ' delHandler ' value = ' del ' > </ input > </ div > </ template > < script > export default { props : [ 'num' ] , data () { return { compNum : this.num } } , delHandler () { this.compNum \-- this . $dispatch ('dispatchEvt' , { num : this.compNum }) } , } </ script >
+<!-- comp2 -->
+<template>
+  <div class="child-demo">
+    <text>我是子组件二num:{{compNum}}</text>
+    <input type="button" onclick='delHandler' value='del'></input>
+  </div>
+</template>
+<script>
+  export default {
+    props: ['num'],
+    data(){
+      return{
+        compNum:this.num
+      }
+    },
+    delHandler(){
+      this.compNum --
+      this.$dispatch('dispatchEvt',{
+        num:this.compNum
+      })
+    },
+  }
+</script>
 ```
 
 ```html
-<!-- comp3 --> < template > < div class = " child-demo " > < text > 我是子组件三age:{{compAge}} </ text > </ div > </ template > < script > export default { props : [ ] , data () { return { compAge : null } } , onInit () { this . $on ('broadevt' , this.broadevt) } , broadevt (evt) { this.compAge = evt.detail.age } } </ script >
+<!-- comp3 -->
+<template>
+  <div class="child-demo">
+    <text>我是子组件三age:{{compAge}}</text>
+  </div>
+</template>
+<script>
+  export default {
+    props:[],
+    data(){
+      return{
+        compAge:null
+      }
+    },
+    onInit(){
+      this.$on('broadevt',this.broadevt)
+    },
+    broadevt(evt){
+      this.compAge = evt.detail.age
+    }
+  }
+</script>
 ```
 
 框架向开发者提供了双向的事件传递
@@ -89,4 +289,3 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
 
   * 触发时传递参数，再接收时使用`evt.detail`来获取参数
   * 当传递结束后，可以调用`evt.stop()`来结束传递,否则会一直传递下去
-

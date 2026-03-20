@@ -34,24 +34,31 @@ If your project uses **AIoT-toolkit2.0** but not the minimum official version su
 Compared to **AIoT-toolkit1.0** , **AIoT-toolkit2.0** offers the following significant improvements:
 
   1. Complex functions can be directly written in template syntax.
-```html
-< div id = " {{(x=> x+ y)(1)}} " onclick = " (evt) => { const x = 10 ; return sum (x , evt , y) } " > </ div >
-```
 
+```html
+<div 
+    id="{{(x=> x+ y)(1)}}" 
+    onclick="(evt)=>{
+       const x = 10;
+       return sum(x, evt, y)
+    }">
+</div>
+```
   2. Variables in class can contain multiple class names (previously, each variable could only contain one class name).
-```html
-class="a {{x}}" // x="a1 a2 a3"
-```
 
+```html
+class="a {{x}}"  // x="a1 a2 a3"
+```
   3. Style can be a string or an object (previously, it was only an object).
-```html
-< div style = " a { { b } } c " > </ div >
-```
 
+```html
+ <div style="a{{b}}c">
+
+ </div>
+```
   4. The order of styles can be written arbitrarily (previously, a fixed order was required).
+
 ```html
-border: solid red 10px;
+ border: solid red 10px; 
 ```
-
   5. Error prompts are located by row and column. ![alt text](../../images/ide-toolkit-3.png)
-

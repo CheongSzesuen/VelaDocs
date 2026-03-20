@@ -3,13 +3,17 @@
 # 文件存储 file
 
 ## 接口声明
+
 ```json
-{ "name" : "system.file" }
+{ "name": "system.file" }
 ```
 
 ## 导入模块
+
 ```javascript
-import file from '@system.file' // 或 const file = require('@system.file')
+import file from '@system.file' 
+// 或 
+const file = require('@system.file')
 ```
 
 ## 接口定义
@@ -36,8 +40,18 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.move({ srcUri : 'internal://cache/path/to/file' , dstUri : 'internal://files/path/to/file' , success : function(uri){ console.log(` move success: ${ uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.move({
+  srcUri: 'internal://cache/path/to/file',
+  dstUri: 'internal://files/path/to/file',
+  success: function(uri) {
+    console.log(`move success: ${uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.copy(OBJECT)
@@ -62,8 +76,18 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.copy({ srcUri : 'internal://cache/path/to/file' , dstUri : 'internal://files/path/to/file' , success : function(uri){ console.log(` copy success: ${ uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.copy({
+  srcUri: 'internal://cache/path/to/file',
+  dstUri: 'internal://files/path/to/file',
+  success: function(uri) {
+    console.log(`copy success: ${uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.list(OBJECT)
@@ -101,8 +125,17 @@ lastModifiedTime | Number | 文件的保存是的时间戳，从 1970/01/01 00:0
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.list({ uri : 'internal://files/movies/' , success : function(data){ console.log(data.fileList)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.list({
+  uri: 'internal://files/movies/',
+  success: function(data) {
+    console.log(data.fileList)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.get(OBJECT)
@@ -137,8 +170,19 @@ subFiles | Array | 当 type = dir 时，返回目录中的文件列表，recursi
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.get({ uri : 'internal://files/path/to/file' , success : function(data){ console.log(data.uri)console.log(data.length)console.log(data.lastModifiedTime)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.get({
+  uri: 'internal://files/path/to/file',
+  success: function(data) {
+    console.log(data.uri)
+    console.log(data.length)
+    console.log(data.lastModifiedTime)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.delete(OBJECT)
@@ -162,8 +206,17 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.delete({ uri : 'internal://files/path/to/file' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.delete({
+  uri: 'internal://files/path/to/file',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.writeText(OBJECT)
@@ -194,8 +247,18 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.writeText({ uri : 'internal://files/work/demo.txt' , text : 'test' , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.writeText({
+  uri: 'internal://files/work/demo.txt',
+  text: 'test',
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.writeArrayBuffer(OBJECT)
@@ -226,8 +289,18 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.writeArrayBuffer({ uri : 'internal://files/work/demo' , buffer : buffer , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.writeArrayBuffer({
+  uri: 'internal://files/work/demo',
+  buffer: buffer,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.readText(OBJECT)
@@ -259,8 +332,17 @@ text | String | 读取的文本
 301 | 文件不存在  
   
 #### 示例：
+
 ```javascript
-file.readText({ uri : 'internal://files/work/demo.txt' , success : function(data){ console.log('text: ' \+ data.text)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.readText({
+  uri: 'internal://files/work/demo.txt',
+  success: function(data) {
+    console.log('text: ' + data.text)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.readArrayBuffer(OBJECT)
@@ -293,9 +375,12 @@ buffer | Uint8Array | 读取的文件内容
 301 | 文件不存在  
   
 #### 示例：
+
 ```javascript
-file.readArrayBuffer({ uri : 'internal://files/work/demo' , position : 100 , length : 100 , success : function(data){ console.log('buffer.length: ' \+ data.buffer.length)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// 或 
+const file = require('@system.file')
+```0
 
 ### file.access(OBJECT)
 
@@ -318,9 +403,12 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.access({ uri : 'internal://files/test' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// 或 
+const file = require('@system.file')
+```1
 
 ### file.mkdir(OBJECT)
 
@@ -344,9 +432,12 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.mkdir({ uri : 'internal://files/dir/' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// 或 
+const file = require('@system.file')
+```2
 
 ### file.rmdir(OBJECT)
 
@@ -370,6 +461,9 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-file.rmdir({ uri : 'internal://files/dir/' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// 或 
+const file = require('@system.file')
+```3

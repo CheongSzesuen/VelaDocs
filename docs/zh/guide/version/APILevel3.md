@@ -21,4 +21,3 @@
 
   * 扩展[媒体查询](</vela/quickapp/zh/guide/framework/style/media-query.html>)，支持新特性以及逻辑运算
   * 新增[dp单位](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html>)
-

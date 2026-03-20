@@ -29,8 +29,44 @@ To achieve component reuse and optimize performance, explicitly specify the widt
 [Common events](</vela/quickapp/en/components/general/events.html>) are supported.
 
 ## Example Code
+
 ```html
-< template > < div class = " page " > < list class = " list " > < list-item for = " {{productList}} " class = " item " type = " list-item " > < text > {{$item.name}}: {{$item.price}} </ text > </ list-item > </ list > </ div > </ template > < script > export default { data : { productList : [ { name : 'Clothes' , price : '100' } , { name : 'Pants' , price : '200' } ] , } } </ script > < style > .page { padding : 30px ; background-color : white ; } .list { width : 100% ; height : 100% ; } .item { height : 40px ; } </ style >
+<template>
+  <div class="page">
+    <list class="list">
+      <list-item for="{{productList}}" class="item" type="list-item">
+        <text>{{$item.name}}: {{$item.price}}</text>
+      </list-item>
+    </list>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: {
+      productList: [
+        { name: 'Clothes', price: '100' },
+        { name: 'Pants', price: '200' }
+      ],
+    }
+  }
+</script>
+
+<style>
+  .page {
+    padding: 30px;
+    background-color: white;
+  }
+
+  .list {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item {
+    height: 40px;
+  }
+</style>
 ```
 
 ### Display Effect

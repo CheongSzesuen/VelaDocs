@@ -34,8 +34,32 @@ width | number | Width of the element
 height | number | Height of the element  
   
 #### Code Example
+
 ```html
-< template > < div > < div id = " box1 " class = " box-normal " > </ div > < div id = " box2 " class = " box-normal " > </ div > </ div > </ template > < script > export default { onShow () { this . $element ('box1') . getBoundingClientRect ({ success : function (data) { const { top , bottom , left , right , width , height } = data ; console.log (data) ; } , fail : (errorData , errorCode) => { console.log (` Error reason: ${ JSON.stringify (errorData) } , Error code: ${ errorCode } `) } , complete : function () { console.info ('complete') } }) } } </ script >
+<template>
+  <div>
+    <div id="box1" class="box-normal"></div>
+    <div id="box2" class="box-normal"></div>
+  </div>
+</template>
+<script>
+  export default {
+    onShow(){
+      this.$element('box1').getBoundingClientRect({
+        success: function(data) {
+          const { top, bottom, left, right, width, height } = data;
+          console.log(data);
+        },
+        fail: (errorData, errorCode) => {
+          console.log(`Error reason: ${JSON.stringify(errorData)}, Error code: ${errorCode}`)
+        },
+        complete: function() {
+          console.info('complete')
+        }
+      })
+    }
+  }
+</script>
 ```
 
 ### focus(Object object)
@@ -49,6 +73,14 @@ Property | Type | Default Value | Required | Description
 focus | boolean | true | No | Makes the component gain or lose focus. Focusing can trigger the `focus` pseudo-class effect (the `focus` pseudo-class style is not yet supported)  
   
 #### Code Example
+
 ```html
-< script > // Focus effect this . $element ('box1') . focus () ; // Focus effect this . $element ('box2') . focus ({ focus : true }) ; // Blur effect this . $element ('box3') . focus ({ focus : false }) ; </ script >
+<script>
+  // Focus effect
+  this.$element('box1').focus();
+  // Focus effect
+  this.$element('box2').focus({focus:true});
+  // Blur effect
+  this.$element('box3').focus({focus:false});
+</script>
 ```

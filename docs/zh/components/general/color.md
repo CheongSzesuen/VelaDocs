@@ -170,4 +170,3 @@ Vela JS 应用支持 `rgb()` and `rgba()` 颜色值设置，
   * __whitesmoke (#f5f5f5)
   * __yellow (#ffff00)
   * __yellowgreen (#9acd32)
-

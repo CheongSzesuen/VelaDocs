@@ -10,4 +10,3 @@ In general, it refers to components that can contain child components.
   * [scroll](</vela/quickapp/en/components/container/scroll.html>)
   * [stack](</vela/quickapp/en/components/container/stack.html>)
   * [swiper](</vela/quickapp/en/components/container/swiper.html>)
-

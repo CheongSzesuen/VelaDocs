@@ -8,4 +8,3 @@
   * [设备通信](</vela/quickapp/zh/features/network/interconnect.html>)
   * [下载](</vela/quickapp/zh/features/network/request.html>)
   * [上传](</vela/quickapp/zh/features/network/uploadtask.html>)
-

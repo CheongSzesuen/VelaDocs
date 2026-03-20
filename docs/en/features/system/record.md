@@ -3,13 +3,17 @@
 # Audio recording
 
 ## Interface declaration
+
 ```json
-{ "name" : "system.record" }
+{ "name": "system.record" }
 ```
 
 ## Import module
+
 ```javascript
-import record from '@system.record' // or const record = require('@system.record')
+import record from '@system.record' 
+// or 
+const record = require('@system.record')
 ```
 
 ## Interface definition
@@ -45,8 +49,24 @@ Error code | Description
 202 | Incorrect parameter.  
   
 #### Example:
+
 ```javascript
-record.start({ duration : 10000 , sampleRate : 8000 , numberOfChannels : 1 , encodeBitRate : 128000 , format : 'pcm' , success : function(data){ console.log(` handling success: ${ data.uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} , complete : function() { console.log(` handling complete `)} })
+record.start({
+  duration: 10000,
+  sampleRate: 8000,
+  numberOfChannels: 1,
+  encodeBitRate: 128000,
+  format: 'pcm',
+  success: function(data) {
+    console.log(`handling success: ${data.uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  },
+  complete: function () {
+    console.log(`handling complete`)
+  }
+})
 ```
 
 ### record.stop()
@@ -58,6 +78,7 @@ Stops audio recording.
 None
 
 #### Example:
+
 ```javascript
 record.stop()
 ```

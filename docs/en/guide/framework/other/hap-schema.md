@@ -13,4 +13,3 @@ Parameter description:
   * package: The application package name (required)
   * path: The path to the page within the application (optional, defaults to the homepage)
   * key-value: Parameters to be passed to the page (optional, multiple parameters can be included)
-

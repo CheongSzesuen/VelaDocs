@@ -41,8 +41,74 @@ scrollend |:---:| 列表滑动结束
 scrolltouchup |:---:| 列表滑动过程中手指抬起  
   
 ## 示例代码
+
 ```html
-< template > < div class = " page " > < list class = " list " bounces = " true " onscroll = " onScroll " onscrolltop = " onScrollTop " onscrollbottom = " onScrollBottom " onscrolltouchup = " onScrollTouchup " > < list-item for = " {{productList}} " class = " item " type = " item " > < text > {{$item.name}}: {{$item.price}} </ text > </ list-item > </ list > </ div > </ template > < script > export default { private : { productList : [ { name : '衣服' , price : '100' } , { name : '裤子' , price : '200' } , { name : '鞋子' , price : '300' } , { name : '帽子' , price : '60' } , { name : '雨伞' , price : '300' } , { name : '书包' , price : '60' } , { name : '书本' , price : '30' } ] , } , onScroll (e) { console.log ('### list onScroll evt: ' , e) } , onScrollTop (e) { console.log ('### list onScrollTop evt: ' , e) } , onScrollBottom (e) { console.log ('### list onScrollBottom evt: ' , e) } , onScrollTouchup (e) { console.log ('### list onScrollTouchup evt: ' , e) } } </ script > < style > .page { justify-content : center ; align-items : center ; background-color : #000 ; } .list { width : 300px ; height : 200px ; border : 1px solid #fff ; } text { color : #fff ; } .item { height : 40px ; width : 100% ; align-items : center ; justify-content : center ; border : 1px solid #fff ; } </ style >
+<template>
+  <div class="page">
+    <list class="list" bounces="true" 
+      onscroll="onScroll" 
+      onscrolltop="onScrollTop" 
+      onscrollbottom="onScrollBottom"
+      onscrolltouchup="onScrollTouchup">
+      <list-item for="{{productList}}" class="item" type="item">
+        <text>{{$item.name}}: {{$item.price}}</text>
+      </list-item>
+    </list>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      productList: [
+        { name: '衣服', price: '100' },
+        { name: '裤子', price: '200' },
+        { name: '鞋子', price: '300' },
+        { name: '帽子', price: '60' },
+        { name: '雨伞', price: '300' },
+        { name: '书包', price: '60' },
+        { name: '书本', price: '30' }
+      ],
+    },
+    onScroll(e) {
+      console.log('### list onScroll evt: ', e)
+    },
+    onScrollTop(e) {
+      console.log('### list onScrollTop evt: ', e)
+    },
+    onScrollBottom(e) {
+      console.log('### list onScrollBottom evt: ', e)
+    },
+    onScrollTouchup(e) {
+      console.log('### list onScrollTouchup evt: ', e)
+    }
+  }
+</script>
+
+<style>
+  .page {
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+
+  .list {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #fff;
+  }
+
+  text {
+   color: #fff;
+  }
+  .item {
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+  }
+</style>
 ```
 
 ### 效果展示

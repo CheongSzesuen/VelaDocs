@@ -3,13 +3,17 @@
 # System Volume
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.volume" }
+{ "name": "system.volume" }
 ```
 
 ## Import Module
+
 ```javascript
-import volume from '@system.volume' // or const volume = require('@system.volume')
+import volume from '@system.volume' 
+// or 
+const volume = require('@system.volume')
 ```
 
 ## Interface Definition
@@ -33,8 +37,16 @@ Parameter | Type | Description
 value | Number | Current system media volume, between 0.0 and 1.0  
   
 #### Example
+
 ```javascript
-volume.getMediaValue({ success : function(data){ console.log(` handling success: ${ data.value } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+volume.getMediaValue({
+  success: function(data) {
+    console.log(`handling success: ${data.value}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### volume.setMediaValue (OBJECT)
@@ -55,8 +67,17 @@ complete | Function | No | Callback after execution ends
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
 #### Example
+
 ```javascript
-volume.setMediaValue({ value : 0.5 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+volume.setMediaValue({
+  value: 0.5,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## Events
@@ -72,6 +93,9 @@ Parameter | Type | Required | Description
 value | Number | Yes | Current system media volume, range: between 0.0 and 1.0  
   
 #### Example
+
 ```javascript
-volume.onMediaValueChanged = function(res){ console.log('volume media value changed:' , res.value)}
+volume.onMediaValueChanged = function(res) {
+  console.log('volume media value changed:', res.value)
+}
 ```

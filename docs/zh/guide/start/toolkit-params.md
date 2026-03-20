@@ -9,18 +9,24 @@
 通常有两种方式设置编译参数，以抽取单独的 source-map 文件为例：
 
   * 在命令行携带编译参数
-```shell
-aiot build \--devtool = source-map
-```
 
+```shell
+aiot build --devtool=source-map
+```
   * 在项目根目录新建配置文件 quickapp.config.js，并配置 cli 属性；
+
 ```js
-module.exports = { cli : { devtool : "source-map" , } , } ;
+module.exports = {
+  cli: {
+    devtool: "source-map",
+  },
+};
 ```
 
 ## 查看当前工具支持的全部编译参数
+
 ```shell
-npx aiot build -h
+ npx aiot build -h
 ```
 
 ## 常见编译参数

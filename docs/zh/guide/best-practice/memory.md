@@ -7,44 +7,152 @@
 ## 代码注意事项
 
   1. 和 UI 无关，不需要绑定的数据，不要声明到 viewModel 的数据里，减少 observer 或者数据代理
+
 ```html
-< template > < div > < text > {{name}} </ text > </ div > </ template > < script > const someObj = { a : 1 } // 推荐写法 export default { protected : { name : 'aaa' , someObj : { // 不推荐写法 a : 1 } } } </ script >
-```
+<template>
+  <div>
+    <text>{{name}}</text>     
+  </div>
+</template>
 
+<script>
+  const someObj = { a: 1 } // 推荐写法
+  export default {
+    protected: {
+      name: 'aaa',
+      someObj: { // 不推荐写法
+        a: 1
+      }
+    }
+  }
+</script>
+```
   2. 页面对象更新时，尽量原地更新，不要重新赋值，开辟新的内存空间
-```js
-export default { protected : { list : [ { name : 'aa' , age : 22 } ] } , onClick () { // 不推荐写法 this.list = [ { name : 'bb' , age : 21 } ] // 推荐写法 this.list [ 0 ] . name = 'bb' , this.list [ 0 ] . age = 21 } }
-```
 
+```js
+export default {
+  protected: {
+    list: [{
+      name: 'aa',
+      age: 22
+    }]
+  },
+  
+  onClick() {
+    // 不推荐写法
+    this.list = [{
+      name: 'bb',
+      age: 21
+    }]
+    // 推荐写法
+    this.list[0].name = 'bb',
+    this.list[0].age = 21
+  }
+}
+```
   3. 页面中声明的属性和方法不要缓存到全局上
 
 页面销毁时，为清理内存，会将页面对象相关的属性和方法尽量解除引用。如果被引用到全局，就无法清理其占用的内存，并且在其他地方调用该缓存的属性和方法，可能引起报错。
+
 ```js
-export default { protected : { list : [ { name : 'aa' , age : 22 } ] } , onShow () { this . $app . $def.somearray.push (this.foo) // 不推荐写法 } ， foo () { this.list.push ({ name : 'bb' , age : 21 }) } }
+export default {
+  protected: {
+    list: [{
+      name: 'aa',
+      age: 22
+    }]
+  },
+  
+  onShow() {
+    this.$app.$def.somearray.push(this.foo) // 不推荐写法
+  }，
+  
+  foo() {
+    this.list.push({
+      name: 'bb',
+      age: 21
+    })
+  }
+}
 ```
 
   4. 页面销毁时，清除未执行完的定时器
-```js
-export default { protected : { timer : null } onShow () { this.timer = setTimeout (() => { } , 1000000) } onDestroy () { if (this.timer) { clearTimeout (this.timer) } } }
-```
 
+```js
+export default {
+  protected: {
+    timer: null
+  }
+  
+  onShow() {
+    this.timer = setTimeout(()=>{}, 1000000)
+  }
+  
+  onDestroy() {
+    if(this.timer){
+      clearTimeout(this.timer)
+    }
+  }
+}
+```
   5. 读取文件数据，用完后及时释放
-```js
-let fileData ; // 读取文件数据 let storageData ; // 读取storage数据 file.readText ({ uri : 'internal://files/work/demo.txt' , success : function (data) { fileData = data.text ; console.log ('text: ' \+ data.text) } , fail : function (data , code) { console.log (` handling fail, code = ${ code } `) } }) ; storage.get ({ key : 'A1' , success : function (data) { storageData = data ; console.log ('handling success') } , fail : function (data , code) { console.log (` handling fail, code = ${ code } `) } }) // 用完后及时释放 fileData = null ; storageData = null ;
-```
 
+```js
+let fileData; // 读取文件数据
+let storageData; // 读取storage数据
+
+file.readText({
+  uri: 'internal://files/work/demo.txt',
+  success: function(data) {
+    fileData = data.text;
+    console.log('text: ' + data.text)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+});
+storage.get({
+  key: 'A1',
+  success: function(data) {
+    storageData = data;
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+
+// 用完后及时释放
+fileData = null;
+storageData = null;
+```
   6. 调用runGC方法
 
 通过执行全局对象global上的runGC方法，及时进行垃圾回收，避免内存泄漏。不要频繁调用，防止页面卡顿。
+
 ```js
-global.runGC ()
+global.runGC()
 ```
 
   7. `static`属性
 
 `template`模板中提供了`static`属性支持，如果绑定的变量后面不会再改变，添加`static`标记有助于框架减少实现动态节点，减少内存，也会降低页面销毁删除对象的时间。
+
 ```html
-< template > < div > < text static > {{name}} </ text > < image static src = " /assets/icon/a.png " /> </ div > </ template > < script > export default { protected : { name : 'aaa' } } </ script >
+<template>
+  <div>
+    <text static >{{name}}</text>
+    <image static src="/assets/icon/a.png"/>   
+  </div>
+</template>
+
+<script>
+  export default {
+    protected: {
+      name: 'aaa'
+    }
+  }
+</script>
 ```
 
 另外，还支持在 `template` 上使用`.static`修饰符修饰节点的某个静态属性，适用于节点的该属性值仅在初始时被赋值一次，之后不会再变更。使用语法：`attr.static="{{ attrValue }}"`
@@ -53,13 +161,74 @@ global.runGC ()
 
   * 节点的 `if` / `for` 静态属性只能通过 `.static` 修饰词进行修饰
   * 节点的 `static` 属性优先级比 `.static`高。对于声明了 `static` 属性的节点，可以不需要额外声明某个属性的静态修饰词 `attr.static`
+
 ```html
-< template > < div > < div if.static = " {{ bool }} " > < text style = " { { styl } } " someattr = " {{ some }} " class = " {{ cls }} " static > {{name}} </ text > < input style = " { { styl } } " name = " {{ some }} " class = " {{ cls }} " value = " {{ name }} " static /> </ div > < text if.static = " {{ bool }} " style.static = " {{ styl }} " someattr.static = " {{ some }} " class.static = " {{ cls }} " value.static > {{name}} </ text > < input if.static = " {{ bool }} " style.static = " {{ styl }} " someattr.static = " {{ some }} " class.static = " {{ cls }} " value.static = " {{name}} " /> </ div > </ template > < script > export default { private : { name : 'aaa' , bool : true , cls : 'basic-text' , some : 'someattr' , styl : { backgroundColor : '#d1d1d1' } } } </ script >
+<template>
+  <div>
+    <div if.static="{{ bool }}">
+      <text style="{{ styl }}" someattr="{{ some }}" class="{{ cls }}" static>{{name}}</text>
+
+      <input style="{{ styl }}" name="{{ some }}" class="{{ cls }}" value="{{ name }}" static />
+    </div>
+
+    <text
+      if.static="{{ bool }}"
+      style.static="{{ styl }}"
+      someattr.static="{{ some }}"
+      class.static="{{ cls }}"
+      value.static
+    >{{name}}</text>
+
+    <input
+      if.static="{{ bool }}"
+      style.static="{{ styl }}"
+      someattr.static="{{ some }}"
+      class.static="{{ cls }}"
+      value.static="{{name}}"
+    />
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      name: 'aaa',
+      bool: true,
+      cls: 'basic-text',
+      some: 'someattr',
+      styl: {
+        backgroundColor: '#d1d1d1'
+      }
+    }
+  }
+</script>
 ```
 
 `block`组件是一个逻辑区块节点，如果增加了`static`属性，表示`block`包含的所有节点都是静态数据绑定，绑定的数据只计算一次，后面不会再发生改变，适用于绑定一些枚举值或者不可变的列表数据等，有效减少内存占用。
+
 ```html
-< template > <!-- block 内部节点数据只计算一次只渲染一次 --> < block static > < text class = " {{cls}} " > 标题： {{title}} </ text > < text > 条件渲染 </ text > < list > < list-item for = " {{list}} " type = " item " > < text > {{$item}} </ text > </ list-item > </ list > </ block > </ template > < script > export default { private : { title : '我是标题1' , cls : 'txt-cls' , display : true , list : [ 'a' , 'b' , 'c' ] } } </ script >
+<template>
+  <!-- block 内部节点数据只计算一次只渲染一次 -->
+  <block static>
+    <text class="{{cls}}">标题： {{title}}</text>
+    <text>条件渲染</text>
+    <list>
+      <list-item for="{{list}}" type="item">
+        <text>{{$item}}</text>
+      </list-item>
+    </list>
+  </block>
+</template>
+<script>
+  export default {
+    private: {
+      title: '我是标题1',
+      cls: 'txt-cls',
+      display: true,
+      list: ['a', 'b', 'c']
+    }
+  }
+</script>
 ```
 
 ## 减少打包代码体积
@@ -71,8 +240,25 @@ global.runGC ()
   2. 使用全局方法
 
 将通用的方法、常量和对象实例统一挂在`global`上，在页面中不用再`import`，需要用的时候直接从`global`上取。
+
 ```js
-// global.js import foo from './foo' import bar from './bar' global.foo = foo global.bar = bar // app.ux import './global' // pages/xxx/index.js const { foo , bar } = global export default { // 调用foo、bar //...... }
+// global.js
+import foo from './foo'
+import bar from './bar'
+
+global.foo = foo
+global.bar = bar
+
+// app.ux
+import  './global'
+
+// pages/xxx/index.js
+const {foo, bar} = global
+
+export default {
+    // 调用foo、bar
+    //......
+}
 ```
 
 以QQ音乐为例，以下为优化前后效果对比：
@@ -90,4 +276,3 @@ global.runGC ()
 
   5. 尽可能减少页面数量  
 在不影响业务需求的前提下，用最少的页面去实现，减少代码体积，简化应用逻辑。
-

@@ -3,13 +3,17 @@
 # Popup
 
 ## Interface declaration
+
 ```json
-{ "name" : "system.prompt" }
+{ "name": "system.prompt" }
 ```
 
 ## Import module
+
 ```javascript
-import prompt from '@system.prompt' // or const prompt = require('@system.prompt')
+import prompt from '@system.prompt' 
+// or 
+const prompt = require('@system.prompt')
 ```
 
 ## Interface definition
@@ -26,6 +30,10 @@ message | String | Yes | The text information to be displayed
 duration | Number | No | The display duration in milliseconds. The default value is 1500. The recommended range is 1500-10000.  
   
 #### Example:
+
 ```javascript
-prompt.showToast({ message : 'Message Info' , duration : 2000 })
+prompt.showToast({
+  message: 'Message Info',
+  duration: 2000
+})
 ```

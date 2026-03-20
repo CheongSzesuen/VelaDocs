@@ -7,7 +7,23 @@
 An app contains: a [manifest file](</vela/quickapp/en/guide/framework/manifest.html>) describing project configuration information, an [app.ux file](</vela/quickapp/en/guide/framework/ux.html>) for placing public resource scripts of the project, multiple [ux files](</vela/quickapp/en/guide/framework/ux.html>) describing pages. A typical example is as follows:
 
 App root directory:
-``` ├── manifest.json ├── app.ux ├── pages │ ├── index | | └── index.ux │ └── detail | └── detail.ux ├── i18n | ├── defaults.json | ├── zh-CN.json | └── en-US.json └── common ├── style.css ├── utils.js └── logo.png
+
+```
+├── manifest.json
+├── app.ux
+├── pages
+│   ├── index
+|   |   └── index.ux
+│   └── detail
+|       └── detail.ux
+├── i18n
+|   ├── defaults.json
+|   ├── zh-CN.json
+|   └── en-US.json
+└── common
+    ├── style.css
+    ├── utils.js
+    └── logo.png
 ```
 
 ## ux Template
@@ -17,13 +33,53 @@ A page usually consists of three parts: page structure, style, and logical inter
 If placed in one ux file, the ux file needs to contain three tags: `template`, `style`, and `script`.
 
 Example:
+
 ```html
-< template > < div class = " page " > < text class = " title " > Welcome to open {{title}} </ text > < input class = " btn " type = " button " value = " Jump to detail page " onclick = " routeDetail " > </ div > </ template > < style > .btn { width : 400px ; height : 60px ; background-color : #09ba07 ; color : #ffffff ; } </ style > < script > import router from '@system.router' export default { // Page data object private : { title : 'Example Page' } , // Callback after button click routeDetail () { router.push ({ uri : '/pages/detail' }) } } </ script >
+<template>
+  <div class="page">
+    <text class="title">Welcome to open {{title}}</text>
+    <input class="btn" type="button" value="Jump to detail page" onclick="routeDetail">
+  </div>
+</template>
+
+<style>
+  .btn {
+    width: 400px;
+    height: 60px;
+    background-color: #09ba07;
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  import router from '@system.router'
+
+  export default {
+    // Page data object
+    private: {
+      title: 'Example Page'
+    },
+    // Callback after button click
+    routeDetail() {
+      router.push({
+        uri: '/pages/detail'
+      })
+    }
+  }
+</script>
 ```
 
 If the page structure, style, and logical interaction are separated into independent files, the following directory structure can be used:
+
 ```bash
-├── .. . ├── pages │ ├── .. . │ └── detail | ├── detail.ux | ├── detail.css | └── detail.js ├── .. .
+├── ...
+├── pages
+│   ├── ...
+│   └── detail
+|       ├── detail.ux
+|       ├── detail.css
+|       └── detail.js
+├── ...
 ```
 
 Note
@@ -67,4 +123,3 @@ App resource files are divided into code files and resource files. Code files re
   2. In code files, when referencing resource files (e.g., images, videos), generally use relative paths, such as: ./abc.png;
   3. When a code file needs to be imported, if the importing file and the imported file are in the same directory, the imported file can use relative paths when referencing resource files. However, if they are not in the same directory, absolute paths must be used because the imported file will be copied to the importing file during compilation, and the directory will change after compilation. For example, if the a.css file is imported by b.ux, and a.css and b.ux are in the same directory, a.css can use a relative path when referencing resource files: abc.png. If they are not in the same directory, an absolute path must be used: /Common/abc.png. Similarly, when the a.ux file is imported by the b.ux file, if a.ux and b.ux are in the same directory, a.ux can use a relative path when referencing resource files: a.png. If they are not in the same directory, a.ux must use an absolute path when referencing resources: /Common/abc.png;
   4. In CSS, consistent with front-end development, resource files are accessed using the url(PATH) method, such as: url(/Common/abc.png).
-

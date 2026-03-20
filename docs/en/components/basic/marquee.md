@@ -48,8 +48,23 @@ start |:---:| Starts scrolling the marquee.
 stop |:---:| Stops scrolling the marquee.  
   
 ## Example Code
+
 ```html
-< template > < div > < marquee id = " marquee " scrollamount = {{6}} loop = {{-1}} > scrollamount controls the scrolling speed. The default value is 6 (6 px/s). </ marquee > </ div > </ template > < script > export default { onReady () { this . $element ('marquee') . start () } } </ script >
+<template>
+  <div>
+    <marquee id="marquee" scrollamount={{6}} loop={{-1}}>
+      scrollamount controls the scrolling speed. The default value is 6 (6 px/s).
+    </marquee>
+  </div>
+</template>
+
+<script>
+  export default {
+    onReady() {
+      this.$element('marquee').start()
+    }
+  }
+</script>
 ```
 
 ![](../../images/marquee.gif)

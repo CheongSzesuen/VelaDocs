@@ -3,13 +3,17 @@
 # 录音 record
 
 ## 接口声明
+
 ```json
-{ "name" : "system.record" }
+{ "name": "system.record" }
 ```
 
 ## 导入模块
+
 ```javascript
-import record from '@system.record' // 或 const record = require('@system.record')
+import record from '@system.record' 
+// 或 
+const record = require('@system.record')
 ```
 
 ## 接口定义
@@ -45,8 +49,24 @@ uri | String | 录音文件的存储路径，在应用的缓存目录中
 202 | 参数错误  
   
 #### 示例：
+
 ```javascript
-record.start({ duration : 10000 , sampleRate : 8000 , numberOfChannels : 1 , encodeBitRate : 128000 , format : 'pcm' , success : function(data){ console.log(` handling success: ${ data.uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} , complete : function() { console.log(` handling complete `)} })
+record.start({
+  duration: 10000,
+  sampleRate: 8000,
+  numberOfChannels: 1,
+  encodeBitRate: 128000,
+  format: 'pcm',
+  success: function(data) {
+    console.log(`handling success: ${data.uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  },
+  complete: function () {
+    console.log(`handling complete`)
+  }
+})
 ```
 
 ### record.stop()
@@ -58,6 +78,7 @@ record.start({ duration : 10000 , sampleRate : 8000 , numberOfChannels : 1 , enc
 无
 
 #### 示例：
+
 ```javascript
 record.stop()
 ```

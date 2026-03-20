@@ -7,8 +7,11 @@
 No declaration required
 
 ## Import Module
+
 ```javascript
-import configuration from '@system.configuration' // or const configuration = require('@system.configuration')
+import configuration from '@system.configuration' 
+// or 
+const configuration = require('@system.configuration')
 ```
 
 ## Interface Definition
@@ -29,6 +32,8 @@ language | String | Language
 countryOrRegion | String | Country or region  
   
 #### Example:
+
 ```javascript
-const locale = configuration.getLocale() console.log(locale.language)
+const locale = configuration.getLocale()
+console.log(locale.language)
 ```

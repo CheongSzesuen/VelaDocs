@@ -20,4 +20,4 @@ Provides a variety of commonly used components and interfaces, such as networkin
 
 Application development based on Vela OS offers high real-time capability, low power consumption, and low latency, along with exceptional rendering capabilities for a native-like smooth experience.
 
-© Xiaomi Vela all rights reserved. 
+© Xiaomi Vela all rights reserved.

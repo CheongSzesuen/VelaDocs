@@ -37,8 +37,13 @@ Note
 Supports [universal events](</vela/quickapp/en/components/general/events.html>)
 
 ## Example Code
+
 ```html
-< template > < div > < barcode value = " barcodetest " style = " color : #008cff ; " > </ barcode > </ div > </ template >
+<template>
+  <div>
+    <barcode value="barcodetest" style="color: #008cff;"></barcode>
+  </div>
+</template>
 ```
 
 ![](../../images/barcode.png)

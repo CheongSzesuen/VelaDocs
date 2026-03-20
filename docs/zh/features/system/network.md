@@ -3,13 +3,17 @@
 # 网络信息 network
 
 ## 接口声明
+
 ```json
-{ "name" : "system.network" }
+{ "name": "system.network" }
 ```
 
 ## 导入模块
+
 ```javascript
-import network from '@system.network' // 或 const network = require('@system.network')
+import network from '@system.network' 
+// 或 
+const network = require('@system.network')
 ```
 
 ## 接口定义
@@ -33,8 +37,13 @@ complete | Function | 否 | 执行结束后的回调
 type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others  
   
 #### 示例：
+
 ```javascript
-network.getType({ success : function(data){ console.log(` handling success: ${ data.type } `)} })
+network.getType({
+  success: function(data) {
+    console.log(`handling success: ${data.type}`)
+  }
+})
 ```
 
 ### network.subscribe(OBJECT)
@@ -55,8 +64,13 @@ fail | Function | 否 | 失败回调，可能是因为缺乏权限
 type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others。注：网络类型为 none 以外的值并不保证设备一定能访问到目标服务器，需要请求接口进行判断  
   
 #### 示例：
+
 ```javascript
-network.subscribe({ callback : function(data){ console.log(` handling callback ${ data.type } `)} })
+network.subscribe({
+  callback: function(data) {
+    console.log(`handling callback ${data.type}`)
+  }
+})
 ```
 
 ### network.unsubscribe()
@@ -68,6 +82,7 @@ network.subscribe({ callback : function(data){ console.log(` handling callback $
 无
 
 #### 示例：
+
 ```javascript
 network.unsubscribe()
 ```

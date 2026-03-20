@@ -55,8 +55,83 @@ checked | √ |:---:| -
 focus | {focus:true|false}，focus 不传默认为 true | 使组件获得或者失去焦点，可触发 focus 伪类（focus 伪类样式还未支持）  
   
 ## 示例代码
+
 ```html
-< template > < div class = " page " > < div class = " section " > < text class = " title " > input-button 组件 </ text > < input class = " button " type = " button " value = " 按钮 " @click = " onButtonClick " /> < text > {{ buttonText }} </ text > </ div > < div class = " section " > < text class = " title " > input-checkbox 组件 </ text > < input class = " checkbox " type = " checkbox " checked = " {{ checkboxChecked }} " @change = " onCheckboxChange " /> < text > 我的勾选状态: {{ checkboxChecked }} </ text > </ div > < div class = " section " > < text class = " title " > input-radio 组件 </ text > < div > < input class = " radio " type = " radio " name = " radio " value = " 1 " checked = " {{radioValue === '1'}} " @change = " onRadioChange " /> < input class = " radio " type = " radio " name = " radio " value = " 2 " checked = " {{radioValue === '2'}} " @change = " onRadioChange " /> < input class = " radio " type = " radio " name = " radio " value = " 3 " checked = " {{radioValue === '3'}} " @change = " onRadioChange " /> </ div > < text > 当前选中第{{ radioValue }}个 </ text > </ div > </ div > </ template > < script > export default { private : { buttonText : '' , checkboxChecked : true , radioValue : '1' } , onTextChange (e) { this.textValue = e.value } , onButtonClick () { this.buttonText = '按钮被点击了' } , onCheckboxChange (e) { this.checkboxChecked = e.checked } , onRadioChange (e) { this.radioValue = e.value } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .section { flex-direction : column ; margin-bottom : 30px ; } .title { font-weight : bold ; } .button { width : 140px ; height : 50px ; font-size : 25px ; color : white ; } .checkbox, .radio { width : 40px ; height : 40px ; margin-right : 10px ; } </ style >
+<template>
+  <div class="page">
+    <div class="section">
+      <text class="title">input-button 组件</text>
+      <input class="button" type="button" value="按钮" @click="onButtonClick" />
+      <text>{{ buttonText }}</text>
+    </div>
+    <div class="section">
+      <text class="title">input-checkbox 组件</text>
+      <input class="checkbox" type="checkbox" checked="{{ checkboxChecked }}" @change="onCheckboxChange" />
+      <text>我的勾选状态: {{ checkboxChecked }}</text>
+    </div>
+    <div class="section">
+      <text class="title">input-radio 组件</text>
+      <div>
+        <input class="radio" type="radio" name="radio" value="1" checked="{{radioValue === '1'}}" @change="onRadioChange" />
+        <input class="radio" type="radio" name="radio" value="2" checked="{{radioValue === '2'}}" @change="onRadioChange" />
+        <input class="radio" type="radio" name="radio" value="3" checked="{{radioValue === '3'}}" @change="onRadioChange" />
+      </div>
+      <text>当前选中第{{ radioValue }}个</text>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      buttonText: '',
+      checkboxChecked: true,
+      radioValue: '1'
+    },
+    onTextChange(e) {
+      this.textValue = e.value
+    },
+    onButtonClick() {
+      this.buttonText = '按钮被点击了'
+    },
+    onCheckboxChange(e) {
+      this.checkboxChecked = e.checked
+    },
+    onRadioChange(e) {
+      this.radioValue = e.value
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .section {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .button {
+    width: 140px;
+    height: 50px;
+    font-size: 25px;
+    color: white;
+  }
+
+  .checkbox, .radio {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+</style>
 ```
 
 ![](../../images/input.gif)

@@ -9,8 +9,29 @@
 关于组件样式的设置，可以参考此[文档](</vela/quickapp/zh/guide/framework/style/page-style-and-layout.html>)。
 
 ## 示例代码
+
 ```html
-< template > < div class = " page " > < div class = " box-normal " style = " background-color : #f76160 " > </ div > < div class = " box-normal " > </ div > </ div > </ template > < style > .page { padding : 30px ; background-color : white ; } .box-normal { background-color : #09ba07 ; width : 100px ; height : 100px ; border-radius : 8px ; margin-right : 10px ; } </ style >
+<template>
+  <div class="page">
+    <div class="box-normal" style="background-color:#f76160"></div>
+    <div class="box-normal"></div>
+  </div>
+</template>
+
+<style>
+  .page {
+    padding: 30px;
+    background-color: white;
+  }
+
+  .box-normal {
+    background-color: #09ba07;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+</style>
 ```
 
 ![](../../images/general-style.png)

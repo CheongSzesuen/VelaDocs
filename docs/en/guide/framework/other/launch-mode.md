@@ -17,7 +17,25 @@ When identified as the "singleTask" mode, each time the target page is opened, t
 When identified as the "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).  
   
 ### Example:
-``` "router": { "entry": "PageA", "pages": { "PageA": { "launchMode": "singleTask", "component": "index" }, "PageB": { "launchMode": "standard", "component": "index" }, "PageC": { "launchMode": "singleTask", "component": "index" } } }
+
+```
+"router": {
+    "entry": "PageA",
+    "pages": {
+      "PageA": {
+        "launchMode": "singleTask",
+        "component": "index"
+      },
+      "PageB": {
+        "launchMode": "standard",
+        "component": "index"
+      },
+      "PageC": {
+        "launchMode": "singleTask",
+        "component": "index"
+      }
+    }
+  }
 ```
 
 Behavior logic for opening pages:
@@ -42,7 +60,14 @@ Parameter | Type | Required | Description
 ___PARAM_LAUNCH_FLAG___ | String | No | The page parameter passed when jumping to a JS application page. When carrying clearTask, opening the target page will clear other pages outside this page. When there are multiple target pages, only the earliest opened target page will be retained, and the onRefresh lifecycle will be called back. If the target page does not exist, all pages will be cleared, and a new target page instance will be created.  
   
 ### Example:
-``` router.push({ uri: '/PageB', params: { ___PARAM_LAUNCH_FLAG___: 'clearTask' } })
+
+```
+router.push({
+  uri: '/PageB',
+  params: {
+    ___PARAM_LAUNCH_FLAG___: 'clearTask'
+  }
+})
 ```
 
 Behavior logic for opening pages:
@@ -58,4 +83,3 @@ If the page stack that has already been opened is PageA -> PageC, and PageB is l
   * The PageC page instance is destroyed.
   * The PageA page instance is destroyed.
   * The PageB page instance does not exist. Create and display a new PageB page instance.
-

@@ -40,8 +40,11 @@ See [Background Running](</vela/quickapp/en/guide/framework/other/background-run
 The minimum supported API standard version number, indicating that the developer's rpk package can be compatible and run on devices that implement at least this version of the API standard. The default value is 1. When using features added in API standard version 1 or higher, ensure that minAPILevel is at least this version number to avoid errors when running on devices that implement lower API standard versions.
 
 Example:
+
 ```json
-{ "minAPILevel" : 1 }
+{
+  "minAPILevel": 1
+}
 ```
 
 ### router
@@ -54,8 +57,16 @@ entry | String |:---:| Yes | Homepage name. When using the sub-package feature, 
 pages | Object |:---:| Yes | Page configuration list. The key value is the page name (corresponding to the page directory name, e.g., Hello corresponds to the 'Hello' directory), and the value is the detailed page configuration page. See the description below.  
   
 Example code:
+
 ```json
-"router" : { "entry" : "Demo" , "pages" : { "Demo" : { "component" : "index" } } }
+"router": {
+  "entry": "Demo",
+  "pages": {
+    "Demo": {
+      "component": "index"
+    }
+  }
+}
 ```
 
 #### router.pages
@@ -74,8 +85,26 @@ When set to "singleTask" mode, each time the target page is opened, the existing
 When set to "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).  
   
 ### Example Code
+
 ```json
-{ "package" : "com.company.unit" , "name" : "appName" , "icon" : "/Common/icon.png" , "versionName" : "1.0" , "versionCode" : 1 , "minPlatformVersion" : 1000 , "features" : [ { "name" : "system.network" } ] , "router" : { "entry" : "Hello" , "pages" : { "Hello" : { "component" : "hello" , "path" : "/" } } } }
+{
+  "package": "com.company.unit",
+  "name": "appName",
+  "icon": "/Common/icon.png",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "minPlatformVersion": 1000,
+  "features": [{"name": "system.network"}],
+  "router": {
+    "entry": "Hello",
+    "pages": {
+      "Hello": {
+        "component": "hello",
+        "path": "/"
+      }
+    }
+  }
+}
 ```
 
 ### display

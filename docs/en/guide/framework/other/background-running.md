@@ -21,6 +21,21 @@ Declare the required background running interface in `manifest.json`. The backgr
   1. Audio playback: `system.audio`
   2. Upload and download: `system.request`
   3. Geolocation: `system.geolocation`
+
 ```javascript
-{ "package" : "com.hybrid.demo.sample" , // ...... "config" : { "logLevel" : "trace" , "background" : { "features" : [ "system.audio" , "system.request" ] } } // ...... }
+{
+  "package": "com.hybrid.demo.sample",
+  //  ......
+
+  "config": {
+    "logLevel": "trace",
+    "background": {
+      "features":[
+        "system.audio",
+        "system.request"
+      ]
+    }
+  }
+  //  ......
+}
 ```

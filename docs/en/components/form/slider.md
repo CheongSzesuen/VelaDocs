@@ -43,8 +43,46 @@ isFromUser description:
 Indicates whether the event was triggered by user dragging  
   
 ## Example Code
+
 ```html
-< template > < div class = " page " > < text class = " title " > Slider Component </ text > < slider class = " slider " min = " 0 " max = " 100 " step = " 10 " value = " {{ initialSliderValue }} " onchange = " onSliderChange " > </ slider > < text > Slider value: {{ sliderValue }} </ text > </ div > </ template > < script > export default { private : { initialSliderValue : 10 , sliderValue : null } , onSliderChange (e) { this.sliderValue = e.progress } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; } .slider { margin-top : 20px ; margin-bottom : 20px ; padding-left : 0 ; padding-right : 0 ; } </ style >
+<template>
+  <div class="page">
+    <text class="title">Slider Component</text>
+    <slider class="slider" min="0" max="100" step="10" value="{{ initialSliderValue }}" onchange="onSliderChange"></slider>
+    <text>Slider value: {{ sliderValue }}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      initialSliderValue: 10,
+      sliderValue: null
+    },
+    onSliderChange (e) {
+      this.sliderValue = e.progress
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .slider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+</style>
 ```
 
 ![](../../images/slider.gif)

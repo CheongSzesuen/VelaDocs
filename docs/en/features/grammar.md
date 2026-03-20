@@ -7,15 +7,19 @@ The framework provides various interfaces to obtain basic application informatio
 ## Interface Declaration
 
 The declaration is made under the features field in the manifest.json file, for example:
+
 ```javascript
-[ { "name" : "system.network" } ]
+[{ "name": "system.network" }]
 ```
 
 ## Importing Modules
 
 Before using an interface, you need to import the interface module in your code, for example:
+
 ```javascript
-import network from '@system.network' // or const network = require('@system.network')
+import network from '@system.network'
+// or
+const network = require('@system.network')
 ```
 
 ## Interface API Calls
@@ -29,6 +33,7 @@ The APIs provided by interfaces can be called in the following ways:
 ### Synchronous API Calls
 
 If an API does not return a value, it is generally defined as a synchronous API and can be called directly, for example:
+
 ```javascript
 audio.play()
 ```
@@ -45,8 +50,17 @@ fail | data | any | The error information content of the API execution, generall
 complete |:---:| - |:---:| Triggered upon completion of the API execution.  
   
 Code example:
+
 ```javascript
-storage.get({ key : 'A1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.get({
+  key: 'A1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### Subscription/Unsubscription APIs
@@ -60,8 +74,20 @@ fail | data | any | The error information content, generally a string, but may a
 | code | number | The error code of the API execution. For details, see Universal Error Codes. |   
   
 Code example:
+
 ```javascript
-geolocation.subscribe({ success : function(data){ console.log(` handling success: longitude = ${ data.longitude } , latitude = ${ data.latitude } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+geolocation.subscribe({
+  success: function(data) {
+    console.log(
+      `handling success: longitude = ${data.longitude}, latitude = ${
+        data.latitude
+      }`
+    )
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## Universal Error Codes

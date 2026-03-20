@@ -55,8 +55,83 @@ Name | Parameters | Description
 focus | {focus:true|false}, if focus is not passed, the default value is true | Enable or disable the focus of the component. It can trigger the focus pseudo-class (focus pseudo-class style is not supported yet).  
   
 ## Example Code
+
 ```html
-< template > < div class = " page " > < div class = " section " > < text class = " title " > input-button component </ text > < input class = " button " type = " button " value = " Button " @click = " onButtonClick " /> < text > {{ buttonText }} </ text > </ div > < div class = " section " > < text class = " title " > input-checkbox component </ text > < input class = " checkbox " type = " checkbox " checked = " {{ checkboxChecked }} " @change = " onCheckboxChange " /> < text > My checked status: {{ checkboxChecked }} </ text > </ div > < div class = " section " > < text class = " title " > input-radio component </ text > < div > < input class = " radio " type = " radio " name = " radio " value = " 1 " checked = " {{radioValue === '1'}} " @change = " onRadioChange " /> < input class = " radio " type = " radio " name = " radio " value = " 2 " checked = " {{radioValue === '2'}} " @change = " onRadioChange " /> < input class = " radio " type = " radio " name = " radio " value = " 3 " checked = " {{radioValue === '3'}} " @change = " onRadioChange " /> </ div > < text > Currently, the {{ radioValue }}th one is selected. </ text > </ div > </ div > </ template > < script > export default { private : { buttonText : '' , checkboxChecked : true , radioValue : '1' } , onTextChange (e) { this.textValue = e.value } , onButtonClick () { this.buttonText = 'The button is clicked.' } , onCheckboxChange (e) { this.checkboxChecked = e.checked } , onRadioChange (e) { this.radioValue = e.value } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .section { flex-direction : column ; margin-bottom : 30px ; } .title { font-weight : bold ; } .button { width : 140px ; height : 50px ; font-size : 25px ; color : white ; } .checkbox, .radio { width : 40px ; height : 40px ; margin-right : 10px ; } </ style >
+<template>
+  <div class="page">
+    <div class="section">
+      <text class="title">input-button component</text>
+      <input class="button" type="button" value="Button" @click="onButtonClick" />
+      <text>{{ buttonText }}</text>
+    </div>
+    <div class="section">
+      <text class="title">input-checkbox component</text>
+      <input class="checkbox" type="checkbox" checked="{{ checkboxChecked }}" @change="onCheckboxChange" />
+      <text>My checked status: {{ checkboxChecked }}</text>
+    </div>
+    <div class="section">
+      <text class="title">input-radio component</text>
+      <div>
+        <input class="radio" type="radio" name="radio" value="1" checked="{{radioValue === '1'}}" @change="onRadioChange" />
+        <input class="radio" type="radio" name="radio" value="2" checked="{{radioValue === '2'}}" @change="onRadioChange" />
+        <input class="radio" type="radio" name="radio" value="3" checked="{{radioValue === '3'}}" @change="onRadioChange" />
+      </div>
+      <text>Currently, the {{ radioValue }}th one is selected.</text>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      buttonText: '',
+      checkboxChecked: true,
+      radioValue: '1'
+    },
+    onTextChange(e) {
+      this.textValue = e.value
+    },
+    onButtonClick() {
+      this.buttonText = 'The button is clicked.'
+    },
+    onCheckboxChange(e) {
+      this.checkboxChecked = e.checked
+    },
+    onRadioChange(e) {
+      this.radioValue = e.value
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .section {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .button {
+    width: 140px;
+    height: 50px;
+    font-size: 25px;
+    color: white;
+  }
+
+  .checkbox, .radio {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+</style>
 ```
 
 ![](../../images/input.gif)

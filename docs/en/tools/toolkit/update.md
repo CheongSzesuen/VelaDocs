@@ -21,23 +21,60 @@ Dynamic paths are not converted to full paths:
 There are also some special dynamic CSS values that need to use new syntax when upgrading from **AIoT-toolkit1.0** to **AIoT-toolkit2.0** :
 
   * transform
-```js
-this.divStyle = { transform : JSON.stringify ({ translateX : "10px" , translateY : "20px" , scaleX : 2 , scaleY : 0.5 , rotate : "10deg" , }) , } ;
-```
 
+```js
+ this.divStyle = {
+   transform: JSON.stringify({
+       translateX: "10px",
+       translateY: "20px",
+       scaleX: 2,
+       scaleY: 0.5,
+       rotate: "10deg",
+   }),
+ };
+```
   * background
-```js
-// Linear gradient this.divStyle = { background : JSON.stringify ({ values : [ { type : "linearGradient" , directions : [ "to" , "left" ] , values : [ "#FF0000 10px" , "#0000FF 100%" ] , } , ] , }) , } ; // Radial gradient this.divStyle = { background : JSON.stringify ({ values : [ { type : "radialGradient" , size : [ "farthest-corner" ] , directions : [ "center" ] , values : [ "#3f87a6" , "#ebf8e1" , "#f69d3c" ] , } ] , }) , } ;
-```
 
+```js
+  // Linear gradient
+  this.divStyle = {
+      background: JSON.stringify({
+          values: [
+          {
+              type: "linearGradient",
+              directions: ["to", "left"],
+              values: ["#FF0000 10px", "#0000FF 100%"],
+          },
+          ],
+      }),
+  };
+  // Radial gradient
+  this.divStyle = {
+      background: JSON.stringify({
+          values: [{
+              type: "radialGradient",
+              size: ["farthest-corner"],
+              directions: ["center"],
+              values: ["#3f87a6", "#ebf8e1", "#f69d3c"],
+          }],
+      }),
+  };
+```
   * filter
-```js
-this.divStyle = { filter : JSON.stringify ({ blur : "10px" , }) , } ;
-```
 
-  * url
 ```js
-this.divStyle = { backgroundImage : "/common/logo.png" , } ;
+   this.divStyle = {
+       filter: JSON.stringify({
+           blur: "10px",
+       }),
+   };
+```
+  * url
+
+```js
+this.divStyle = {
+   backgroundImage: "/common/logo.png",
+};
 ```
 
 Note

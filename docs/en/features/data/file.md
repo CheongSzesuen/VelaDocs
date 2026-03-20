@@ -3,13 +3,17 @@
 # File Storage
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.file" }
+{ "name": "system.file" }
 ```
 
 ## Import Module
+
 ```javascript
-import file from '@system.file' // or const file = require('@system.file')
+import file from '@system.file' 
+// or 
+const file = require('@system.file')
 ```
 
 ## Interface Definition
@@ -36,8 +40,18 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.move({ srcUri : 'internal://cache/path/to/file' , dstUri : 'internal://files/path/to/file' , success : function(uri){ console.log(` move success: ${ uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.move({
+  srcUri: 'internal://cache/path/to/file',
+  dstUri: 'internal://files/path/to/file',
+  success: function(uri) {
+    console.log(`move success: ${uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.copy(OBJECT)
@@ -62,8 +76,18 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.copy({ srcUri : 'internal://cache/path/to/file' , dstUri : 'internal://files/path/to/file' , success : function(uri){ console.log(` copy success: ${ uri } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.copy({
+  srcUri: 'internal://cache/path/to/file',
+  dstUri: 'internal://files/path/to/file',
+  success: function(uri) {
+    console.log(`copy success: ${uri}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.list(OBJECT)
@@ -101,8 +125,17 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.list({ uri : 'internal://files/movies/' , success : function(data){ console.log(data.fileList)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.list({
+  uri: 'internal://files/movies/',
+  success: function(data) {
+    console.log(data.fileList)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.get(OBJECT)
@@ -137,8 +170,19 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.get({ uri : 'internal://files/path/to/file' , success : function(data){ console.log(data.uri)console.log(data.length)console.log(data.lastModifiedTime)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.get({
+  uri: 'internal://files/path/to/file',
+  success: function(data) {
+    console.log(data.uri)
+    console.log(data.length)
+    console.log(data.lastModifiedTime)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.delete(OBJECT)
@@ -162,8 +206,17 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.delete({ uri : 'internal://files/path/to/file' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.delete({
+  uri: 'internal://files/path/to/file',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.writeText(OBJECT)
@@ -194,8 +247,18 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.writeText({ uri : 'internal://files/work/demo.txt' , text : 'test' , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.writeText({
+  uri: 'internal://files/work/demo.txt',
+  text: 'test',
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.writeArrayBuffer(OBJECT)
@@ -226,8 +289,18 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.writeArrayBuffer({ uri : 'internal://files/work/demo' , buffer : buffer , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.writeArrayBuffer({
+  uri: 'internal://files/work/demo',
+  buffer: buffer,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.readText(OBJECT)
@@ -259,8 +332,17 @@ Error Code | Description
 301 | File does not exist  
   
 #### Example:
+
 ```javascript
-file.readText({ uri : 'internal://files/work/demo.txt' , success : function(data){ console.log('text: ' \+ data.text)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+file.readText({
+  uri: 'internal://files/work/demo.txt',
+  success: function(data) {
+    console.log('text: ' + data.text)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.readArrayBuffer(OBJECT)
@@ -293,9 +375,12 @@ Error Code | Description
 301 | File does not exist  
   
 #### Example:
+
 ```javascript
-file.readArrayBuffer({ uri : 'internal://files/work/demo' , position : 100 , length : 100 , success : function(data){ console.log('buffer.length: ' \+ data.buffer.length)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// or 
+const file = require('@system.file')
+```0
 
 ### file.access(OBJECT)
 
@@ -318,9 +403,12 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.access({ uri : 'internal://files/test' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// or 
+const file = require('@system.file')
+```1
 
 ### file.mkdir(OBJECT)
 
@@ -344,9 +432,12 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.mkdir({ uri : 'internal://files/dir/' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// or 
+const file = require('@system.file')
+```2
 
 ### file.rmdir(OBJECT)
 
@@ -370,6 +461,9 @@ Error Code | Description
 300 | I/O error  
   
 #### Example:
+
 ```javascript
-file.rmdir({ uri : 'internal://files/dir/' , success : function(data){ console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
-```
+import file from '@system.file' 
+// or 
+const file = require('@system.file')
+```3

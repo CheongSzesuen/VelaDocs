@@ -14,4 +14,3 @@ Components on a page, such as text and images.
   * [chart](</vela/quickapp/en/components/basic/chart.html>)
   * [qrcode](</vela/quickapp/en/components/basic/qrcode.html>)
   * [barcode](</vela/quickapp/en/components/basic/barcode.html>)
-

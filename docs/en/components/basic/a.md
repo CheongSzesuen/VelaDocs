@@ -33,6 +33,14 @@ Supports [universal styles](</vela/quickapp/en/components/general/style.html>)
 Supports [universal events](</vela/quickapp/en/components/general/events.html>)
 
 ## Example Code
+
 ```html
-< template > < div > < a class = " link " href = " /home " > goHome </ a > < a href = " /home " > < span class = " link " > Using span child component </ span > </ a > </ div > </ template >
+<template>
+  <div>
+    <a class="link" href="/home">goHome</a>
+    <a href="/home">
+      <span class="link">Using span child component</span>
+    </a>
+  </div>
+</template>
 ```

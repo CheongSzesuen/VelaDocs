@@ -20,4 +20,4 @@
 
 基于 Vela OS 进行应用开发，具有高实时性、低功耗、低延迟等特点，同时具备出色的渲染能力，媲美原生的流畅体验。
 
-© Xiaomi Vela all rights reserved. 
+© Xiaomi Vela all rights reserved.

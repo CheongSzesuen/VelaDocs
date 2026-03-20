@@ -11,15 +11,28 @@ To solve the screen adaptation problem, all size-related styles (such as width a
 ## File Import
 
 Two ways to import external files are supported:
+
 ```html
-<!-- Import external file to replace internal style --> < style src = " ./style.css " > </ style > <!-- Merge external file --> < style > @import './style.css' ; .a { } </ style >
+<!-- Import external file to replace internal style -->
+<style src="./style.css"></style>
+
+<!-- Merge external file -->
+<style>
+  @import './style.css';
+  .a {
+  }
+</style>
 ```
 
 ## Internal Template Style
 
 The style and class attributes are supported to control the component style:
+
 ```html
-<!-- Inline style --> < div style = " color : red ; margin : 10px ; " /> <!-- Class declaration --> < div class = " normal append " />
+<!-- Inline style -->
+<div style="color:red; margin: 10px;"/>
+<!-- Class declaration -->
+<div class="normal append"/>
 ```
 
 ## Selectors
@@ -31,9 +44,20 @@ Selector | Example | Description
 .class | .intro | Select all components with class="intro"  
 #id | #firstname | Select the component with id="firstname"  
 tag | div | Select all div components  
-, | .a, .b | Select all components with class="a" and class="b"
+, | .a, .b | Select all components with class="a" and class="b"  
 ```html
-< style > /* Single selector */ text { } .class-abc { } #idAbc { } /* Multiple selectors with the same style */ .font-text, .font-comma { } </ style >
+<style>
+  /* Single selector */
+  text {
+  }
+  .class-abc {
+  }
+  #idAbc {
+  }
+  /* Multiple selectors with the same style */
+  .font-text, .font-comma {
+  }
+</style>
 ```
 
 ## Selector Priority
@@ -53,6 +77,16 @@ The CSS priority calculation document can also be viewed in the [MDN documentati
 ## Style Precompilation
 
 Currently, JS applications support precompilation of `less` and `sass`. For specific tutorials, please refer to [here](</vela/quickapp/en/guide/framework/style/page-style-and-layout.html#引入-less-scss-预编译>).
+
 ```html
-<!-- Import external file to replace internal style --> < style lang = " less " src = " ./lessFile.less " > </ style > <!-- Merge external file --> < style lang = " less " > @import './lessFile.less' ; .less-font-text, .less-font-comma { font-size : 60px ; } </ style >
+<!-- Import external file to replace internal style -->
+<style lang="less" src="./lessFile.less"></style>
+
+<!-- Merge external file -->
+<style lang="less">
+  @import './lessFile.less';
+  .less-font-text, .less-font-comma {
+    font-size: 60px;
+  }
+</style>
 ```

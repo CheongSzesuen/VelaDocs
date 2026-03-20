@@ -18,8 +18,68 @@ Long copy typically involves displaying a large amount of text on small device s
 
     * It is usually recommended to display the agreement link via a QR code. Scanning the code to view on a mobile device is a common design practice.
     * If the product requires full rendering at once, it may cause page rendering lag and affect the initial user experience. Here, chunked rendering of the copy is recommended. Below is a code example:
+
 ```html
-<!-- Area for rendering the copy, with handleScroll scroll listener bound --> < template > < scroll id = " scroll " scroll-y = " true " class = " scroll " onscroll = " handleScroll " > < div id = " content " class = " connent " > < block if = " {{currentKey >= 0}} " > < text class = " header-1 " > {{contentArray[0]}} </ text > </ block > < block if = " {{currentKey >= 1}} " > < text class = " header-1 " > {{contentArray[1]}} </ text > </ block > < block if = " {{currentKey >= 2}} " > < text class = " header-1 " > {{contentArray[2]}} </ text > </ block > </ div > </ scroll > </ template > <!-- Save the copy content as an array and record the sequence number of the currently rendered copy --> < script > export default { data : { contentArray : [ { content : 'Copy one..........' } , { content : 'Copy two..........' } , { content : 'Copy three..........' } ] , // Current sequence number of the rendered copy currentKey : 0 , // Current total height currentTHEight : 0 , } // Assign initial value to current total height onReady onReady () { this . $element ('content') . getBoundingClientRect ({ success : (data) => { const { height } = data ; this.currentTHEight = height } }) } // Real-time judgment of scroll height vs. total height; load next copy if near bottom, and reassign total height handleScroll (e) { if (currentTHEight \- e.scrollY < 40) { this.currentKey = currentKey \+ 1 } this . $element ('content') . getBoundingClientRect ({ success : (data) => { const { height } = data ; this.currentTHEight = height } }) } } </ script >
+<!-- Area for rendering the copy, with handleScroll scroll listener bound -->
+<template>
+  <scroll id="scroll" scroll-y="true" class="scroll" onscroll="handleScroll">
+    <div id="content" class="connent">
+      <block if="{{currentKey >= 0}}">
+        <text class="header-1">{{contentArray[0]}}</text>
+      </block>
+        <block if="{{currentKey >= 1}}">
+        <text class="header-1">{{contentArray[1]}}</text>
+      </block>
+        <block if="{{currentKey >= 2}}">
+        <text class="header-1">{{contentArray[2]}}</text>
+      </block>
+    </div>
+  </scroll>
+</template>
+<!-- Save the copy content as an array and record the sequence number of the currently rendered copy -->
+<script>
+export default {
+  data:{
+    contentArray:[
+      {
+        content:'Copy one..........'
+      },
+      {
+        content:'Copy two..........'
+      },
+      {
+        content:'Copy three..........'
+      }
+    ],
+    // Current sequence number of the rendered copy
+    currentKey:0,
+    // Current total height
+    currentTHEight:0,
+  }
+  // Assign initial value to current total height onReady
+  onReady(){
+    this.$element('content').getBoundingClientRect({
+      success: (data) => {
+        const { height } = data;
+        this.currentTHEight = height
+      }
+    })
+  }
+  // Real-time judgment of scroll height vs. total height; load next copy if near bottom, and reassign total height
+  handleScroll(e) {
+    if(currentTHEight - e.scrollY <40){
+        this.currentKey = currentKey + 1
+    }
+    this.$element('content').getBoundingClientRect({
+      success: (data) => {
+        const { height } = data;
+        this.currentTHEight = height
+      }
+    })
+  }
+}
+
+</script>
 ```
 
 ## Swiper Multi-Image Optimization
@@ -42,31 +102,87 @@ Suppose an album has `200` images to display, creating `200` sub-components in t
   * Specific Implementation Idea
 
 Monitor the swiper's swiping via the `@change` event in the code. The logic for judging left and right swipes is as follows:
+
 ```js
-// Judge right swipe if ((! (this.currentIndex === 0 && index === length \- 1) && index > this.currentIndex) || (index === 0 && this.currentIndex === length \- 1)) { } else { }
+// Judge right swipe
+if (
+  (!(this.currentIndex === 0 && index === length - 1) && index > this.currentIndex) ||
+  (index === 0 && this.currentIndex === length - 1)
+) {
+}else{
+}
 ```
 
 The logic for right swiping is as follows:
+
 ```js
-// Update data index this.dataIndex = this.dataIndex \+ 1 // Update next right swipe index const updateIndex = this.dataIndex \+ 1 if (updateIndex < this.bigThumbnailInfo.length) { // Update next right swipe to the next image updateItem = this.bigThumbnailInfo [ updateIndex ] // If swiping from the first image if (this.currentIndex === 0) { // Before swiping, it's the first image; update the last in swiper after right swipe this.data [ length \- 1 ] = updateItem resIndex = length \- 1 } else { // console.info("Right swipe: update left") this.data [ this.currentIndex \- 1 ] = updateItem resIndex = this.currentIndex \- 1 } }
+// Update data index
+this.dataIndex = this.dataIndex + 1
+// Update next right swipe index
+const updateIndex = this.dataIndex + 1
+if (updateIndex < this.bigThumbnailInfo.length) {
+  // Update next right swipe to the next image
+  updateItem = this.bigThumbnailInfo[updateIndex]
+  // If swiping from the first image
+  if (this.currentIndex === 0) {
+    // Before swiping, it's the first image; update the last in swiper after right swipe
+    this.data[length - 1] = updateItem
+    resIndex = length - 1
+  } else {
+    // console.info("Right swipe: update left")
+    this.data[this.currentIndex - 1] = updateItem
+    resIndex = this.currentIndex - 1
+  }
+}
 ```
 
 The logic for left swiping is as follows:
+
 ```js
-// Update data index this.dataIndex = this.dataIndex \- 1 // Update next right swipe index const updateIndex = this.dataIndex \- 1 // Update next left swipe to the previous image updateItem = this.bigThumbnailInfo [ updateIndex ] if (this.currentIndex === length \- 1) { // Before swiping, it's the last image; update the first in swiper after left swipe this.data [ 0 ] = updateItem resIndex = 0 } else { this.data [ this.currentIndex \+ 1 ] = updateItem resIndex = this.currentIndex \+ 1 }
+// Update data index
+this.dataIndex = this.dataIndex - 1
+// Update next right swipe index
+const updateIndex = this.dataIndex - 1
+// Update next left swipe to the previous image
+updateItem = this.bigThumbnailInfo[updateIndex]
+if (this.currentIndex === length - 1) {
+  // Before swiping, it's the last image; update the first in swiper after left swipe
+  this.data[0] = updateItem
+  resIndex = 0
+} else {
+  this.data[this.currentIndex + 1] = updateItem
+  resIndex = this.currentIndex + 1
+}
 ```
 
 Judge if the current image is the last one:
+
 ```js
-this.data = [ this.bigThumbnailInfo [ len \- 3 ] , this.bigThumbnailInfo [ len \- 2 ] , this.bigThumbnailInfo [ len \- 1 ] ] indexTemp = 2 this.swiperIndex = this.currentIndex this.isloop = false
+this.data = [
+  this.bigThumbnailInfo[len - 3],
+  this.bigThumbnailInfo[len - 2],
+  this.bigThumbnailInfo[len - 1]
+]
+indexTemp = 2
+this.swiperIndex = this.currentIndex
+this.isloop = false
 ```
 
 Judge if the upcoming image is the first one:
+
 ```js
-this.data = [ this.bigThumbnailInfo [ 0 ] , this.bigThumbnailInfo [ 1 ] , this.bigThumbnailInfo [ 2 ] ] indexTemp = 0 this.swiperIndex = this.currentIndex this.isloop = false
+this.data = [
+  this.bigThumbnailInfo[0],
+  this.bigThumbnailInfo[1],
+  this.bigThumbnailInfo[2]
+]
+indexTemp = 0
+this.swiperIndex = this.currentIndex
+this.isloop = false
 ```
 
 If it's neither the first nor the last image, set the `swiper`'s `loop` to `true`:
+
 ```js
 this.isloop = true
 ```
@@ -84,4 +200,3 @@ this.isloop = true
   * Add try-catch blocks to catch exceptions.
   * For scenarios with slow data requests, consider adding a loading indicator.
   * If there are no high requirements for image visual quality, it is recommended to use the PNG8 format, which can effectively reduce the image size and improve the rendering frame rate of animations/pages.
-

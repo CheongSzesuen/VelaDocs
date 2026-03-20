@@ -9,4 +9,3 @@ Other expansion capabilities of the framework.
   * [HAP Link](</vela/quickapp/en/guide/framework/other/hap-schema.html>)
   * [Page Launch Modes](</vela/quickapp/en/guide/framework/other/launch-mode.html>)
   * [Multi-screen Adaptation](</vela/quickapp/en/guide/multi-screens/>)
-

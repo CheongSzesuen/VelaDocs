@@ -9,4 +9,3 @@
   * [hap 链接](</vela/quickapp/zh/guide/framework/other/hap-schema.html>)
   * [页面启动模式](</vela/quickapp/zh/guide/framework/other/launch-mode.html>)
   * [多屏适配](</vela/quickapp/zh/guide/multi-screens/>)
-

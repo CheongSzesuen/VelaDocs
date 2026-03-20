@@ -3,13 +3,17 @@
 # Geolocation
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.geolocation" }
+{ "name": "system.geolocation" }
 ```
 
 ## Import Module
+
 ```javascript
-import geolocation from '@system.geolocation' // or const geolocation = require('@system.geolocation')
+import geolocation from '@system.geolocation' 
+// or 
+const geolocation = require('@system.geolocation')
 ```
 
 ## Interface Definition
@@ -23,8 +27,13 @@ Obtain the geolocation.
 Precise device positioning.
 
 Developers need to configure permissions in manifest.json:
+
 ```json
-{ "permissions" : [ { "name" : "hapjs.permission.LOCATION" } ] }
+{
+  "permissions": [
+    { "name": "hapjs.permission.LOCATION" }
+  ]
+}
 ```
 
 #### Parameters:
@@ -55,8 +64,20 @@ Error Code | Description
 204 | Timeout occurred.  
   
 #### Example:
+
 ```javascript
-geolocation.getLocation({ success : function(data){ console.log(` handling success: longitude = ${ data.longitude } , latitude = ${ data.latitude } , speed = ${ data.speed } , altitude = ${ data.altitude } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} })
+geolocation.getLocation({
+  success: function(data) {
+    console.log(
+      `handling success: longitude = ${data.longitude}, latitude = ${
+        data.latitude
+      }, speed = ${data.speed}, altitude = ${data.altitude}`
+    )
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  }
+})
 ```
 
 ### geolocation.subscribe(OBJECT)
@@ -68,8 +89,13 @@ Listen for geolocation changes. If called multiple times, only the last call tak
 Precise device positioning.
 
 Developers need to configure permissions in manifest.json:
+
 ```json
-{ "permissions" : [ { "name" : "hapjs.permission.LOCATION" } ] }
+{
+  "permissions": [
+    { "name": "hapjs.permission.LOCATION" }
+  ]
+}
 ```
 
 #### Parameters:
@@ -96,8 +122,20 @@ Error Code | Description
 203 | This function is not supported.  
   
 #### Example:
+
 ```javascript
-geolocation.subscribe({ callback : function(data){ console.log(` handling success: longitude = ${ data.longitude } , latitude = ${ data.latitude } , speed = ${ data.speed } , altitude = ${ data.altitude } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} })
+geolocation.subscribe({
+  callback: function(data) {
+    console.log(
+      `handling success: longitude = ${data.longitude}, latitude = ${
+        data.latitude
+      }, speed = ${data.speed}, altitude = ${data.altitude}`
+    )
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  }
+})
 ```
 
 ### geolocation.unsubscribe()
@@ -109,8 +147,13 @@ Cancel listening for geolocation changes.
 Precise device positioning.
 
 Developers need to configure permissions in manifest.json:
+
 ```json
-{ "permissions" : [ { "name" : "hapjs.permission.LOCATION" } ] }
+{
+  "permissions": [
+    { "name": "hapjs.permission.LOCATION" }
+  ]
+}
 ```
 
 #### Parameters:
@@ -118,6 +161,7 @@ Developers need to configure permissions in manifest.json:
 None
 
 #### Example:
+
 ```javascript
 geolocation.unsubscribe()
 ```

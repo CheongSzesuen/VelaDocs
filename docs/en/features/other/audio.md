@@ -3,13 +3,17 @@
 # Audio
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.audio" }
+{ "name": "system.audio" }
 ```
 
 ## Importing the Module
+
 ```javascript
-import audio from '@system.audio' // or const audio = require('@system.audio')
+import audio from '@system.audio' 
+// or 
+const audio = require('@system.audio')
 ```
 
 ## Methods
@@ -23,6 +27,7 @@ Starts audio playback.
 None
 
 #### Example:
+
 ```javascript
 audio.play()
 ```
@@ -36,6 +41,7 @@ Pauses audio playback.
 None
 
 #### Example:
+
 ```javascript
 audio.pause()
 ```
@@ -49,6 +55,7 @@ Stops audio playback. Playback can be restarted with play.
 None
 
 #### Example:
+
 ```javascript
 audio.stop()
 ```
@@ -80,8 +87,16 @@ muted | Boolen | Whether the audio is muted
 duration | Number | Duration of the audio in seconds; NaN if unknown  
   
 #### Example:
+
 ```javascript
-audio.getPlayState({ success : function(data){ console.log(` handling success: state: ${ data.state } ,src: ${ data.src } ,currentTime: ${ data.currentTime } ,autoplay: ${ data.autoplay } ,loop: ${ data.loop } ,volume: ${ data.volume } ,muted: ${ data.muted } ,notificationVisible: ${ data.notificationVisible } `)} , fail : function(data , code){ console.log('handling fail, code=' \+ code)} })
+audio.getPlayState({
+  success: function(data) {
+    console.log(`handling success: state: ${data.state},src:${data.src},currentTime:${data.currentTime},autoplay:${data.autoplay},loop:${data.loop},volume: ${data.volume},muted:${data.muted},notificationVisible:${data.notificationVisible}`)
+  },
+  fail: function(data, code) {
+    console.log('handling fail, code=' + code)
+  }
+})
 ```
 
 ## Properties
@@ -99,8 +114,10 @@ streamType | String | Yes | No | No | Audio stream type: 'music' (speaker) or 'v
 meta | Object<{title: string, artist: string, album: string}> | No | Yes | No | Audio metadata including title, artist, and album  
   
 #### Example:
+
 ```javascript
-// let currentTime = audio.currentTime audio.currentTime = 5
+// let currentTime = audio.currentTime
+audio.currentTime = 5
 ```
 
 ## Events
@@ -116,6 +133,10 @@ durationchange | Triggered when the duration changes
 error | Triggered when a playback error occurs  
   
 #### Example:
+
 ```javascript
-audio.onplay = function() { console.log(` audio starts to play `)} audio.onplay = null
+audio.onplay = function() {
+  console.log(`audio starts to play`)
+}
+audio.onplay = null
 ```

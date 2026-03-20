@@ -5,4 +5,3 @@
 Notes on VELA device design.
 
   * [Multi-Screen Design](</vela/quickapp/en/guide/design/multi-screens.html>)
-

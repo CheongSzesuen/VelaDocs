@@ -9,8 +9,14 @@
 更详细的讲解，可查阅[事件绑定](</vela/quickapp/zh/guide/framework/template/event.html>)文档了解。
 
 ## 示例代码
+
 ```html
-< template > < div > < text onclick = " clickFunction1 " > line 1 </ text > < text @click = " clickFunction2 " > line 2 </ text > </ div > </ template >
+<template>
+  <div>
+      <text onclick="clickFunction1">line 1</text>
+      <text @click="clickFunction2">line 2</text>
+  </div>
+</template>
 ```
 
 ## 通用事件列表
@@ -68,18 +74,73 @@ offsetY | number | 距离事件触发对象上边沿 Y 轴的距离
 ## 示例
 
 如下，在 div 上绑定了 click 和 touchmove 事件，触发事件时将事件打印出来。
+
 ```html
-< template > < div class = " root-page " > < div class = " touch-region " onclick = " click " ontouchmove = " move " > </ div > </ div > </ template > < style > .root-page { flex-direction : column ; align-items : center ; } .touch-region { width : 80% ; height : 20% ; background-color : #444444 ; } </ style > < script > export default { private : { } , click (event) { console.log ("click event fired") } , move (event) { console.log ("move event touches:" \+ JSON.stringify (event.touches)) console.log ("move event changedTouches:" \+ JSON.stringify (event.changedTouches)) } } </ script >
+<template>
+  <div class="root-page">
+    <div class="touch-region" onclick="click" ontouchmove="move"></div>
+  </div>
+</template>
+
+<style>
+  .root-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .touch-region {
+    width: 80%;
+    height: 20%;
+    background-color: #444444;
+  }
+
+</style>
+
+<script>
+  export default {
+    private: {},
+    click(event) {
+      console.log("click event fired")
+    },
+    move(event) {
+      console.log("move event touches:" + JSON.stringify(event.touches))
+      console.log("move event changedTouches:" + JSON.stringify(event.changedTouches))
+    }
+  }
+
+</script>
 ```
 
 **打印结果如下，click 事件：**
+
 ```js
-move event touches : [ { "offsetX" : 296 , "identifier" : 0 , "offsetY" : 113.48148345947266 , "clientY" : 113.48148345947266 , "clientX" : 360 , "pageY" : 113.48148345947266 , "pageX" : 360 } ]
+move event touches:[
+  {
+    "offsetX": 296,
+    "identifier": 0,
+    "offsetY": 113.48148345947266,
+    "clientY": 113.48148345947266,
+    "clientX": 360,
+    "pageY": 113.48148345947266,
+    "pageX": 360
+  }
+]
 ```
 
 ```js
-move event changedTouches : [ { "offsetX" : 296 , "identifier" : 0 , "offsetY" : 113.48148345947266 , "clientY" : 113.48148345947266 , "clientX" : 360 , "pageY" : 113.48148345947266 , "pageX" : 360 } ]
+move event changedTouches:[
+  {
+    "offsetX": 296,
+    "identifier": 0,
+    "offsetY": 113.48148345947266,
+    "clientY": 113.48148345947266,
+    "clientX": 360,
+    "pageY": 113.48148345947266,
+    "pageX": 360
+  }
+]
 ```
 
-``` click event fired
+```
+click event fired
 ```

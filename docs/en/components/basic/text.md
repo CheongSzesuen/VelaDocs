@@ -34,15 +34,25 @@ text-overflow | clip | ellipsis | clip | No | Takes effect when the number of li
 **Examples**
 
   * Single-line ellipsis
+
 ```css
-text { width : 150px ; lines : 1 ; text-overflow : ellipsis ; }
+text {
+  width: 150px;
+  lines: 1;
+  text-overflow: ellipsis;
+}
 ```
 
 ![](../../images/text-overflow.png)
 
   * Multi-line ellipsis, taking two lines as an example
+
 ```css
-text { width : 100px ; lines : 2 ; text-overflow : ellipsis ; }
+text {
+  width: 100px;
+  lines: 2;
+  text-overflow: ellipsis;
+}
 ```
 
 ![](../../images/text-overflow-2.png)
@@ -52,8 +62,13 @@ text { width : 100px ; lines : 2 ; text-overflow : ellipsis ; }
 [General events](</vela/quickapp/en/components/general/events.html>) are supported.
 
 ## Sample Code
+
 ```html
-< template > < div > < text > This is a piece of text. </ text > </ div > </ template >
+<template>
+  <div>
+    <text>This is a piece of text.</text>
+  </div>
+</template>
 ```
 
 ![](../../images/text-example.png)

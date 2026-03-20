@@ -21,23 +21,60 @@
 还有一些特殊的动态css值，从**AIoT-toolkit1.0** 升级到**AIoT-toolkit2.0** ，也要使用新的写法:
 
   * transform
-```js
-this.divStyle = { transform : JSON.stringify ({ translateX : "10px" , translateY : "20px" , scaleX : 2 , scaleY : 0.5 , rotate : "10deg" , }) , } ;
-```
 
+```js
+ this.divStyle = {
+   transform: JSON.stringify({
+       translateX: "10px",
+       translateY: "20px",
+       scaleX: 2,
+       scaleY: 0.5,
+       rotate: "10deg",
+   }),
+ };
+```
   * background
-```js
-// 线性渐变 this.divStyle = { background : JSON.stringify ({ values : [ { type : "linearGradient" , directions : [ "to" , "left" ] , values : [ "#FF0000 10px" , "#0000FF 100%" ] , } , ] , }) , } ; // 径向渐变 this.divStyle = { background : JSON.stringify ({ values : [ { type : "radialGradient" , size : [ "farthest-corner" ] , directions : [ "center" ] , values : [ "#3f87a6" , "#ebf8e1" , "#f69d3c" ] , } ] , }) , } ;
-```
 
+```js
+  // 线性渐变
+  this.divStyle = {
+      background: JSON.stringify({
+          values: [
+          {
+              type: "linearGradient",
+              directions: ["to", "left"],
+              values: ["#FF0000 10px", "#0000FF 100%"],
+          },
+          ],
+      }),
+  };
+  // 径向渐变
+  this.divStyle = {
+      background: JSON.stringify({
+          values: [{
+              type: "radialGradient",
+              size: ["farthest-corner"],
+              directions: ["center"],
+              values: ["#3f87a6", "#ebf8e1", "#f69d3c"],
+          }],
+      }),
+  };
+```
   * filter
-```js
-this.divStyle = { filter : JSON.stringify ({ blur : "10px" , }) , } ;
-```
 
-  * url
 ```js
-this.divStyle = { backgroundImage : "/common/logo.png" , } ;
+   this.divStyle = {
+       filter: JSON.stringify({
+           blur: "10px",
+       }),
+   };
+```
+  * url
+
+```js
+this.divStyle = {
+   backgroundImage: "/common/logo.png",
+};
 ```
 
 注意

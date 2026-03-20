@@ -3,13 +3,17 @@
 # uploadtask 3+
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.uploadtask" }
+{ "name": "system.uploadtask" }
 ```
 
 ## Import Module
+
 ```javascript
-import uploadtask from '@system.uploadtask' // or const uploadtask = require('@system.uploadtask')
+import uploadtask from '@system.uploadtask' 
+// or 
+const uploadtask = require('@system.uploadtask')
 ```
 
 ## Interface Definition
@@ -73,13 +77,58 @@ totalBytesExpectedToSend | Number | Expected total length of data to upload, in 
 Cancels listening for upload progress change events. The callback is optional. If not provided, all upload progress change events listened to via onProgressUpdate will be canceled.
 
 #### Example:
+
 ```javascript
-const retUploadTask = uploadtask.uploadFile({ url : 'http://www.example.com' , filePath : "internal://mass/download/test.png" , name : "testImg" , success : function(res){ console.log("Upload success.resp = " \+ JSON.stringify(res)) } , fail : function(data , code){ console.log(` handling fail, errMsg = ${ data } `)console.log(` handling fail, errCode = ${ code } `)} })// Abort the request task retUploadTask.abort() // Listen for upload progress events retUploadTask.onProgressUpdate(res => { console.log(` listening upload progress update event, progressUpdate data = ${ JSON.stringify(res)} `)})// Cancel listening for upload progress events retUploadTask.offProgressUpdate()
+const retUploadTask = uploadtask.uploadFile({
+  url: 'http://www.example.com',
+  filePath: "internal://mass/download/test.png",
+  name: "testImg",
+  success: function(res){
+    console.log("Upload success.resp = " + JSON.stringify(res))
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, errMsg = ${data}`)
+    console.log(`handling fail, errCode = ${code}`)
+  }
+})
+// Abort the request task
+retUploadTask.abort()
+
+// Listen for upload progress events
+retUploadTask.onProgressUpdate(res => {
+  console.log(
+    `listening upload progress update event, progressUpdate data = ${JSON.stringify(res)}`
+  )
+})
+
+// Cancel listening for upload progress events
+retUploadTask.offProgressUpdate()
 ```
 
 Cancel a specific upload progress event:
+
 ```javascript
-function cb(res){ console.log(` listening for upload progress update event 1, progressUpdate data = ${ JSON.stringify(res)} `)} // This listener will be canceled retUploadTask.onProgressUpdate(cb)// event2 listener remains effective and will not be canceled retUploadTask.onProgressUpdate((res)=> { console.log(` listening for upload progress update event 2, progressUpdate data = ${ JSON.stringify(res)} `)})retUploadTask.offProgressUpdate(cb)
+function cb(res) {
+  console.log(
+    `listening for upload progress update event 1, progressUpdate data = ${JSON.stringify(
+      res
+    )}`
+  )
+}
+
+// This listener will be canceled
+retUploadTask.onProgressUpdate(cb)
+
+// event2 listener remains effective and will not be canceled
+retUploadTask.onProgressUpdate((res) => {
+  console.log(
+    `listening for upload progress update event 2, progressUpdate data = ${JSON.stringify(
+      res
+    )}`
+  )
+})
+
+retUploadTask.offProgressUpdate(cb)
 ```
 
 ## Support Details

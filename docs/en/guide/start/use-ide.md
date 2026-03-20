@@ -151,4 +151,3 @@ The dist folder will contain a `.debug.rpk` file, and the build folder will cont
 
     * Manual generation: Similarly, openssl must be installed in the system environment. Then, open the terminal and run the following command to generate the signature files. Create a new sign directory in the project and place the generated files private.pem and certificate.pem in this directory.  
 `openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem`
-

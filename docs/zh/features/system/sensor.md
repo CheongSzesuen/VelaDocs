@@ -3,13 +3,17 @@
 # 传感器 sensor
 
 ## 接口声明
+
 ```json
-{ "name" : "system.sensor" }
+{ "name": "system.sensor" }
 ```
 
 ## 导入模块
+
 ```javascript
-import sensor from '@system.sensor' // 或 const sensor = require('@system.sensor')
+import sensor from '@system.sensor' 
+// 或 
+const sensor = require('@system.sensor')
 ```
 
 ## 接口定义
@@ -33,8 +37,13 @@ callback | Function | 是 | 每次位置信息发生变化，都会被回调
 pressure | Number | 压力、压强，单位hpa，百帕，浮点数  
   
 #### 示例：
+
 ```javascript
-sensor.subscribePressure({ callback : function(ret){ console.log(` handling callback, pressure = ${ ret.pressure } `)} })
+sensor.subscribePressure({
+  callback: function(ret) {
+    console.log(`handling callback, pressure = ${ret.pressure}`)
+  }
+})
 ```
 
 ### sensor.unsubscribePressure()
@@ -46,6 +55,7 @@ sensor.subscribePressure({ callback : function(ret){ console.log(` handling call
 无
 
 #### 示例：
+
 ```javascript
 sensor.unsubscribePressure()
 ```
@@ -79,8 +89,16 @@ y | Number | y 轴坐标
 z | Number | z 轴坐标  
   
 #### 示例：
+
 ```javascript
-sensor.subscribeAccelerometer({ callback : function(ret){ console.log(` handling callback, x = ${ ret.x } , y = ${ ret.y } , z = ${ ret.z } `)} , fail : function(msg , code){ console.log(` handling callback, fail: ` , msg , code)} })
+sensor.subscribeAccelerometer({
+  callback: function(ret) {
+    console.log(`handling callback, x = ${ret.x}, y = ${ret.y}, z = ${ret.z}`)
+  },
+  fail: function(msg, code) {
+    console.log(`handling callback, fail:`, msg, code)
+  }
+})
 ```
 
 ### sensor.unsubscribeAccelerometer()
@@ -92,6 +110,7 @@ sensor.subscribeAccelerometer({ callback : function(ret){ console.log(` handling
 无
 
 #### 示例：
+
 ```javascript
 sensor.unsubscribeAccelerometer()
 ```
@@ -121,8 +140,16 @@ accuracy | Number | 精度，详见compass精度说明
 1000 | 当前设备不支持罗盘传感器  
   
 #### 示例：
+
 ```javascript
-sensor.subscribeCompass({ callback : function(res){ console.log(` handling subscribeCompass callback, direction = ${ res.direction } , accuracy = ${ res.accuracy } `)} , fail : function(data , code){ console.log(` handling subscribeCompass fail, code = ${ code } `)} })
+sensor.subscribeCompass({
+  callback: function (res) {
+    console.log(`handling subscribeCompass callback, direction = ${res.direction}, accuracy = ${res.accuracy}`)
+  },
+  fail: function (data, code) {
+    console.log(`handling subscribeCompass fail, code = ${code}`)
+  }
+})
 ```
 
 ### sensor.unsubscribeCompass()
@@ -134,6 +161,7 @@ sensor.subscribeCompass({ callback : function(res){ console.log(` handling subsc
 无
 
 #### 示例：
+
 ```javascript
 sensor.unsubscribeCompass()
 ```

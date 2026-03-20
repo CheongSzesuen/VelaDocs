@@ -3,13 +3,17 @@
 # 数据请求 fetch
 
 ## 接口声明
+
 ```json
-{ "name" : "system.fetch" }
+{ "name": "system.fetch" }
 ```
 
 ## 导入模块
+
 ```javascript
-import fetch from '@system.fetch' // 或 const fetch = require('@system.fetch')
+import fetch from '@system.fetch' 
+// 或 
+const fetch = require('@system.fetch')
 ```
 
 ## 接口定义
@@ -62,8 +66,43 @@ file | String | 返回存储的临时文件的 uri
 arraybuffer | ArrayBuffer | 返回 ArrayBuffer 对象  
   
 #### 示例：
+
 ```javascript
-fetch.fetch({ url : 'http://www.example.com' , responseType : 'text' , success : function(response){ console.log(` the status code of the response: ${ response.code } `)console.log(` the data of the response: ${ response.data } `)console.log(` the headers of the response: ${ JSON.stringify(response.headers)} `)} , fail : function(data , code){ console.log(` handling fail, errMsg = ${ data } `)console.log(` handling fail, errCode = ${ code } `)} })// 我们也可以使用promise的方式处理回调 fetch.fetch({ url : 'http://www.example.com' , responseType : 'text' }). then(res => { const result = res.data console.log(` the status code of the response: ${ result.code } `)console.log(` the data of the response: ${ result.data } `)console.log(` the headers of the response: ${ JSON.stringify(result.headers)} `)}). catch(error => { console.log(` handling fail, errMsg = ${ error.data } `)console.log(` handling fail, errCode = ${ error.code } `)})
+fetch.fetch({
+  url: 'http://www.example.com',
+  responseType: 'text',
+  success: function(response) {
+    console.log(`the status code of the response: ${response.code}`)
+    console.log(`the data of the response: ${response.data}`)
+    console.log(
+      `the headers of the response: ${JSON.stringify(response.headers)}`
+    )
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, errMsg = ${data}`)
+    console.log(`handling fail, errCode = ${code}`)
+  }
+})
+
+// 我们也可以使用promise的方式处理回调
+fetch
+  .fetch({
+    url: 'http://www.example.com',
+    responseType: 'text'
+  })
+  .then(res => {
+    const result = res.data
+
+    console.log(`the status code of the response: ${result.code}`)
+    console.log(`the data of the response: ${result.data}`)
+    console.log(
+      `the headers of the response: ${JSON.stringify(result.headers)}`
+    )
+  })
+  .catch(error => {
+    console.log(`handling fail, errMsg = ${error.data}`)
+    console.log(`handling fail, errCode = ${error.code}`)
+  })
 ```
 
 ## 支持明细

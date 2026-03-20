@@ -34,8 +34,32 @@ width | number | 元素的宽度
 height | number | 元素的高度  
   
 #### 代码示例
+
 ```html
-< template > < div > < div id = " box1 " class = " box-normal " > </ div > < div id = " box2 " class = " box-normal " > </ div > </ div > </ template > < script > export default { onShow () { this . $element ('box1') . getBoundingClientRect ({ success : function (data) { const { top , bottom , left , right , width , height } = data ; console.log (data) ; } , fail : (errorData , errorCode) => { console.log (` 错误原因： ${ JSON.stringify (errorData) } , 错误代码： ${ errorCode } `) } , complete : function () { console.info ('complete') } }) } } </ script >
+<template>
+  <div>
+    <div id="box1" class="box-normal"></div>
+    <div id="box2" class="box-normal"></div>
+  </div>
+</template>
+<script>
+  export default {
+    onShow(){
+      this.$element('box1').getBoundingClientRect({
+        success: function(data) {
+          const { top, bottom, left, right, width, height } = data;
+          console.log(data);
+        },
+        fail: (errorData, errorCode) => {
+          console.log(`错误原因：${JSON.stringify(errorData)}, 错误代码：${errorCode}`)
+        },
+        complete: function() {
+          console.info('complete')
+        }
+      })
+    }
+  }
+</script>
 ```
 
 ### focus(Object object)
@@ -49,6 +73,14 @@ height | number | 元素的高度
 focus | boolean | true | 否 | 使组件获得或者失去焦点，聚焦时可触发 focus 伪类效果（focus 伪类样式还未支持）  
   
 #### 代码示例
+
 ```html
-< script > // 聚焦效果 this . $element ('box1') . focus () ; // 聚焦效果 this . $element ('box2') . focus ({ focus : true }) ; // 失焦效果 this . $element ('box3') . focus ({ focus : false }) ; </ script >
+<script>
+  // 聚焦效果
+  this.$element('box1').focus();
+  // 聚焦效果
+  this.$element('box2').focus({focus:true});
+  // 失焦效果
+  this.$element('box3').focus({focus:false});
+</script>
 ```

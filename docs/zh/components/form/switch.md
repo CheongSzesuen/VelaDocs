@@ -36,8 +36,43 @@ track-color | `<color>` | #0d84ff 或者 rgb(13, 132, 255) | 否 | 滑轨颜色
 change | {checked:checkedValue} | checked 状态改变时触发  
   
 ## 示例代码
+
 ```html
-< template > < div class = " page " > < text class = " title " > switch 组件 </ text > < switch checked = " {{ switchValue }} " class = " switch " @change = " onSwitchChange " > </ switch > < text > 状态：{{ switchValue }} </ text > </ div > </ template > < script > export default { private : { switchValue : true } , onSwitchChange (e) { this.switchValue = e.checked } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; } .switch { width : 100px ; margin-top : 10px ; } </ style >
+<template>
+  <div class="page">
+    <text class="title">switch 组件</text>
+    <switch checked="{{ switchValue }}" class="switch" @change="onSwitchChange"></switch>
+    <text>状态：{{ switchValue }}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      switchValue: true
+    },
+    onSwitchChange(e) {
+      this.switchValue = e.checked
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .switch {
+    width: 100px;
+    margin-top: 10px;
+  }
+</style>
 ```
 
 ![](../../images/switch.gif)

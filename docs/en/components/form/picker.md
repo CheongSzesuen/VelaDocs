@@ -56,8 +56,73 @@ Name | Parameters | Description
 change | {hour:hour, minute:minute} | Triggered when the scroll picker value is confirmed after selection.  
   
 ## Sample Code
+
 ```html
-< template > < div class = " page " > < text class = " title " > Normal picker </ text > < picker class = " picker " type = " text " range = " {{pickerList}} " selected = " 1 " onchange = " onPickerChange " > </ picker > < text class = " value " > Selected value: {{v1}} </ text > < text class = " title " > Time picker </ text > < picker class = " picker " type = " time " selected = " 12:00 " onchange = " onTimePickerChange " > </ picker > < text class = " value " > Selected value: {{v2}} </ text > </ div > </ template > < script > export default { private : { pickerList : [ 'apple' , 'peach' , 'pear' , 'banana' ] , v1 : 'peach' , v2 : '12:00' } , onPickerChange (e) { this.v1 = e.newValue ; } , onTimePickerChange (e) { this.v2 = e.hour \+ ':' \+ e.minute ; } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; color : #000 ; } .value { margin-top : 5px ; margin-bottom : 30px ; color : #090 ; } .picker { font-size : 25px ; color : #000 ; selected-font-size : 30px ; selected-color : #09f ; selected-background-color : #ccc ; } </ style >
+<template>
+  <div class="page">
+    <text class="title">Normal picker</text>
+    <picker 
+      class="picker" 
+      type="text" 
+      range="{{pickerList}}" 
+      selected="1" 
+      onchange="onPickerChange">
+    </picker>
+    <text class="value">Selected value: {{v1}}</text>
+
+    <text class="title">Time picker</text>
+    <picker 
+      class="picker" 
+      type="time"
+      selected="12:00" 
+      onchange="onTimePickerChange">
+    </picker>
+    <text class="value">Selected value: {{v2}}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      pickerList: ['apple', 'peach', 'pear', 'banana'],
+      v1: 'peach',
+      v2: '12:00'
+    },
+    onPickerChange(e) {
+      this.v1 = e.newValue;
+    },
+    onTimePickerChange(e) {
+      this.v2 = e.hour + ':' + e.minute;
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .title {
+    font-weight: bold;
+    color: #000;
+  }
+
+  .value {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: #090;
+  }
+
+  .picker {
+    font-size: 25px;
+    color: #000;
+    selected-font-size: 30px;
+    selected-color: #09f;
+    selected-background-color: #ccc;
+  }
+</style>
 ```
 
 ![](../../images/picker.gif)

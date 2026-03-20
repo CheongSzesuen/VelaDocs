@@ -9,8 +9,23 @@
 Vela JS 应用项目由配置文件（manifest.json）、模板代码（ux文件）、 样式代码（css文件）、逻辑代码（js文件）以及资源文件（图片、音频等）组成。
 
 典型的项目目录结构如下：
+
 ```bash
-├── manifest.json ├── app.ux ├── pages │ ├── index | | └── index.ux │ └── detail | └── detail.ux ├── i18n | ├── defaults.json | ├── zh-CN.json | └── en-US.json └── common ├── style.css ├── utils.js └── logo.png
+├── manifest.json
+├── app.ux
+├── pages
+│   ├── index
+|   |   └── index.ux
+│   └── detail
+|       └── detail.ux
+├── i18n
+|   ├── defaults.json
+|   ├── zh-CN.json
+|   └── en-US.json
+└── common
+    ├── style.css
+    ├── utils.js
+    └── logo.png
 ```
 
 ## 配置文件
@@ -26,13 +41,53 @@ Vela JS 应用项目由配置文件（manifest.json）、模板代码（ux文件
 如果放在一个ux文件中，则ux文件需要包含三标签：`template`、`style`和`script`。
 
 示例：
+
 ```html
-< template > < div class = " page " > < text class = " title " > 欢迎打开{{title}} </ text > < input class = " btn " type = " button " value = " 跳转到详情页 " onclick = " routeDetail " > </ div > </ template > < style > .btn { width : 400px ; height : 60px ; background-color : #09ba07 ; color : #ffffff ; } </ style > < script > import router from '@system.router' export default { // 页面数据对象 private : { title : '示例页面' } , // 按钮点击后的回调 routeDetail () { router.push ({ uri : '/pages/detail' }) } } </ script >
+<template>
+  <div class="page">
+    <text class="title">欢迎打开{{title}}</text>
+    <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail">
+  </div>
+</template>
+
+<style>
+  .btn {
+    width: 400px;
+    height: 60px;
+    background-color: #09ba07;
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  import router from '@system.router'
+
+  export default {
+    // 页面数据对象
+    private: {
+      title: '示例页面'
+    },
+    // 按钮点击后的回调
+    routeDetail() {
+      router.push({
+        uri: '/pages/detail'
+      })
+    }
+  }
+</script>
 ```
 
 如果将页面结构、样式和逻辑交互分开作为独立的文件，可以使用如下目录结构：
+
 ```bash
-├── .. . ├── pages │ ├── .. . │ └── detail | ├── detail.ux | ├── detail.css | └── detail.js ├── .. .
+├── ...
+├── pages
+│   ├── ...
+│   └── detail
+|       ├── detail.ux
+|       ├── detail.css
+|       └── detail.js
+├── ...
 ```
 
 说明

@@ -3,13 +3,17 @@
 # Vibration Vibrator
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.vibrator" }
+{ "name": "system.vibrator" }
 ```
 
 ## Import Module
+
 ```javascript
-import vibrator from '@system.vibrator' // or const vibrator = require('@system.vibrator')
+import vibrator from '@system.vibrator' 
+// or 
+const vibrator = require('@system.vibrator')
 ```
 
 ## Interface Definition
@@ -25,8 +29,11 @@ Parameter | Type | Required | Description
 mode | String | No | Vibration mode, "long" for long vibration, "short" for short vibration. Defaults to long.  
   
 #### Example:
+
 ```javascript
-vibrator.vibrate({ mode : 'long' })
+vibrator.vibrate({
+  mode: 'long'
+})
 ```
 
 ### vibrator.start(OBJECT)
@@ -58,8 +65,22 @@ Error Code | Description
 202 | Parameter error.  
   
 #### Example:
+
 ```javascript
-vibrator.start({ duration : 1000 , interval : 1000 , count : 10 , success : function(data){ console.log(` handling success, id = ${ data.id } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } , errorMsg= ${ data } `)} , complete : function() { console.log(` handling complete `)} })
+vibrator.start({
+  duration: 1000,
+  interval: 1000,
+  count: 10,
+  success: function (data) {
+    console.log(`handling success, id = ${data.id}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}, errorMsg=${data}`)
+  },
+  complete: function () {
+    console.log(`handling complete`)
+  }
+})
 ```
 
 ### vibrator.stop(Number)
@@ -79,6 +100,7 @@ Type | Description
 Boolean | true: Success; false: Failure.  
   
 #### Example:
+
 ```javascript
 vibrator.stop(1)
 ```
@@ -98,6 +120,7 @@ Type | Description
 Number | 0: Vibration off; 1: Standard vibration; 2: Enhanced vibration.  
   
 #### Example:
+
 ```javascript
 vibrator.getSystemDefaultMode()
 ```

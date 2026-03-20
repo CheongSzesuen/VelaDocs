@@ -60,4 +60,3 @@ Windows和Mac可以打包rpk。
   3. 在手表上复现问题；
   4. 点击【小米运动健康】-->【我的】-->【关于】-->【Debug】-->【拉取固件日志】；
   5. 拉取成功后保存在手机，日志文件目录: `/sdcard/Android/data/com.mi.health/files/log`。
-

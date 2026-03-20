@@ -37,8 +37,13 @@ background-color | `<color>` | #ffffff | 否 | 条形码背景颜色
 支持[通用事件](</vela/quickapp/zh/components/general/events.html>)
 
 ## 示例代码
+
 ```html
-< template > < div > < barcode value = " barcodetest " style = " color : #008cff ; " > </ barcode > </ div > </ template >
+<template>
+  <div>
+    <barcode value="barcodetest" style="color: #008cff;"></barcode>
+  </div>
+</template>
 ```
 
 ![](../../images/barcode.png)

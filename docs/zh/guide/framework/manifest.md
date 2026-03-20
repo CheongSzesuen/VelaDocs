@@ -40,8 +40,11 @@ system.request 等
 支持的最小 API 标准版本号，标识开发者的 rpk 包能兼容运行在最小实现了该版本 API 标准的设备上，其值默认为1。当使用了 1 及以上的 API 标准版本新增特性时，就必须确保 minAPILevel 最低为该版本号，避免上线后在实现了更低版本 API 标准的设备上运行出错。
 
 示例如下：
+
 ```json
-{ "minAPILevel" : 1 }
+{
+  "minAPILevel": 1
+}
 ```
 
 ### router
@@ -54,8 +57,16 @@ entry | String |:---:| 是 | 首页名称，使用分包功能时，建议将首
 pages | Object |:---:| 是 | 页面配置列表，key 值为页面名称（对应页面目录名，例如 Hello 对应'Hello'目录），value 为页面详细配置 page，详见下面说明  
   
 示例代码：
+
 ```json
-"router" : { "entry" : "Demo" , "pages" : { "Demo" : { "component" : "index" } } }
+"router": {
+  "entry": "Demo",
+  "pages": {
+    "Demo": {
+      "component": "index"
+    }
+  }
+}
 ```
 
 #### router.pages
@@ -74,8 +85,26 @@ launchMode | String | standard | 否 | 声明页面的启动模式，支持"sing
 标识为"standard"模式时会每次打开新的目标页面（多次打开目标页面地址时会存在多个相同页面）  
   
 ### 示例代码
+
 ```json
-{ "package" : "com.company.unit" , "name" : "appName" , "icon" : "/Common/icon.png" , "versionName" : "1.0" , "versionCode" : 1 , "minPlatformVersion" : 1000 , "features" : [ { "name" : "system.network" } ] , "router" : { "entry" : "Hello" , "pages" : { "Hello" : { "component" : "hello" , "path" : "/" } } } }
+{
+  "package": "com.company.unit",
+  "name": "appName",
+  "icon": "/Common/icon.png",
+  "versionName": "1.0",
+  "versionCode": 1,
+  "minPlatformVersion": 1000,
+  "features": [{ "name": "system.network" }],
+  "router": {
+    "entry": "Hello",
+    "pages": {
+      "Hello": {
+        "component": "hello",
+        "path": "/"
+      }
+    }
+  }
+}
 ```
 
 ### display

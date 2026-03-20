@@ -100,8 +100,60 @@ foreground.png configured
 ## Creation of Layout File
 
 Copy the following code and modify the information according to the comments, keeping the rest unchanged.
+
 ```bash
-parts { device { display { # Emulator size width 466 # Emulator size height 466 # x and y fill 0 x 0 y 0 } } portrait { background { # Name of the background image image background.png } foreground { # Name of the foreground image mask foreground.png } } } layouts { portrait { // The size of the entire skin, usually using the pixel size of the background image width 572 height 938 event EV_SW:0:1 part1 { name portrait x 0 y 0 } part2 { name device # The starting coordinates of the foreground image when cutting from the background image, calculated with the top left corner as 0,0 x 54 y 236 } } } // Fields that will be passed to the underlying configuration when creating the emulator props { // Screen shape. Optional values: circle (circular) , rect (rectangular) , pill-shaped (capsule-shaped screen eg: full-screen bracelet) shape circle // Screen density, optional values: [ '120' , '140' , '160' , '180' , '213' , '240' , '280' , '320' , '340' , '360' , '400' , '420' , '440' , '480' , '560' , '640' ] density 320 // Device type, optional values: phone (mobile phone) , watch (watch) , pad (tablet) , car (car) , tv (television) , band (bracelet) , smartspeaker (speaker) , default is watch flavor watch }
+  parts {
+    device {
+      display {
+        # Emulator size 
+        width 466
+        # Emulator size
+        height 466
+        # x and y fill 0
+        x 0
+        y 0
+      }
+    }
+    portrait {
+      background {
+        # Name of the background image
+        image background.png
+      }
+      foreground {
+        # Name of the foreground image
+        mask foreground.png
+      }
+    }
+  }
+  layouts {
+    portrait {
+      // The size of the entire skin, usually using the pixel size of the background image
+      width 572
+      height 938
+      event EV_SW:0:1 
+      part1 {
+        name portrait
+        x 0
+        y 0
+      }
+      part2 {
+        name device
+        # The starting coordinates of the foreground image when cutting from the background image, calculated with the top left corner as 0,0
+        x 54
+        y 236
+      }
+    }
+  }
+
+  // Fields that will be passed to the underlying configuration when creating the emulator
+  props {
+    // Screen shape. Optional values: circle (circular), rect (rectangular), pill-shaped (capsule-shaped screen eg: full-screen bracelet)
+    shape circle
+    // Screen density, optional values: ['120', '140', '160', '180', '213', '240', '280', '320', '340', '360', '400', '420', '440', '480', '560', '640']
+    density 320
+    // Device type, optional values: phone (mobile phone), watch (watch), pad (tablet), car (car), tv (television), band (bracelet), smartspeaker (speaker), default is watch
+    flavor watch
+  }
 ```
 
 ## Application of Skin File
@@ -131,4 +183,3 @@ The content in the layout file is as follows:
   * **part2** refers to the **display** defined in the parts above. The name represents the name of the referenced part, and x, y represent the starting coordinates of the layout, starting from the top left corner as 0,0.
 
   * **parts** defines the components of the skin, usually consisting of two parts, namely the skin and the emulator screen. The one with **display** represents the emulator screen, and the one with **background** and **foreground** represents the skin.
-

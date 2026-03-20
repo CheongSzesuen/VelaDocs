@@ -6,4 +6,3 @@ Other abilities.
 
   * [Audio](</vela/quickapp/en/features/other/audio.html>)
   * [Prompt](</vela/quickapp/en/features/other/prompt.html>)
-

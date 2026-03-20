@@ -16,8 +16,13 @@ In this weather forecast app, the interaction we use is swiping to switch pages:
 We want the swipe action to perform the jump no matter where it occurs on the page, so we register the swipe event (`swipe`) on the root node.
 
 The template code is as follows:
+
 ```html
-< template > < div class = " page column " @swipe = " toListPage " > <!-- Other content of the page --> </ div > </ template >
+<template>
+  <div class="page column" @swipe="toListPage">
+    <!-- Other content of the page -->
+  </div>
+</template>
 ```
 
 Note
@@ -27,8 +32,14 @@ Note
 ## Page Jump
 
 After registering the event, we need to define the `toListPage()` callback method in the JavaScript code. By judging the swipe direction, we decide whether to perform a page jump. Page jumps require the use of the `@system.router` module. Please declare it in `manifest.json` before using it:
+
 ```js
-{ // ... "features" : [ { "name" : "system.router" } ] }
+{
+  // ...
+  "features": [
+    { "name": "system.router" }
+  ]
+}
 ```
 
 Note
@@ -36,15 +47,45 @@ Note
 For more details about router, please refer to [Page Switching](</vela/quickapp/zh/guide/framework/page-switch.html>).
 
 After declaring the module, you can import it in the JavaScript script and then use the API provided by `router` to jump between pages:
+
 ```html
-< script > import router from '@system.router' export default { // ... toListPage (eve) { if (eve.direction === 'up') { router.push ({ uri : '/pages/list' }) } } } </ script >
+<script>
+  import router from '@system.router'
+
+  export default {
+    // ...
+    toListPage(eve) {
+      if (eve.direction === 'up') {
+        router.push({
+          uri: '/pages/list'
+        })
+      }
+    }
+  }
+</script>
 ```
 
 Similarly, on the 3-day weather forecast page, use the same method to implement the page return logic. The corresponding code is:
+
 ```html
-< template > < div class = " page column " @swipe = " toHomePage " > <!-- Other content of the page --> </ div > </ template >
+<template>
+  <div class="page column" @swipe="toHomePage">
+    <!-- Other content of the page -->
+  </div>
+</template>
 ```
 
 ```html
-< script > import router from '@system.router' export default { // ... toHomePage (eve) { if (eve.direction === 'right') { router.back () } } } </ script >
+<script>
+  import router from '@system.router'
+
+  export default {
+    // ...
+    toHomePage(eve) {
+      if (eve.direction === 'right') {
+        router.back()
+      }
+    }
+  }
+</script>
 ```

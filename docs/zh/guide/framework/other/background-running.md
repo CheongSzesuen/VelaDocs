@@ -22,6 +22,21 @@ manifest.json 中声明所需的后台运行接口。后台运行接口包括：
   1. 音频播放： `system.audio`
   2. 上传下载： `system.request`
   3. 地理位置： `system.geolocation`
+
 ```javascript
-{ "package" : "com.hybrid.demo.sample" , // ...... "config" : { "logLevel" : "trace" , "background" : { "features" : [ "system.audio" , "system.request" ] } } // ...... }
+{
+  "package": "com.hybrid.demo.sample",
+  //  ......
+
+  "config": {
+    "logLevel": "trace",
+    "background": {
+      "features":[
+        "system.audio",
+        "system.request"
+      ]
+    }
+  }
+  //  ......
+}
 ```

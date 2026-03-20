@@ -3,13 +3,17 @@
 # 弹窗 prompt
 
 ## 接口声明
+
 ```json
-{ "name" : "system.prompt" }
+{ "name": "system.prompt" }
 ```
 
 ## 导入模块
+
 ```javascript
-import prompt from '@system.prompt' // 或 const prompt = require('@system.prompt')
+import prompt from '@system.prompt' 
+// 或 
+const prompt = require('@system.prompt')
 ```
 
 ## 接口定义
@@ -26,6 +30,10 @@ message | String | 是 | 显示的文本信息
 duration | Number | 否 | 显示持续时间，单位ms，默认值1500，建议区间：1500-10000  
   
 #### 示例：
+
 ```javascript
-prompt.showToast({ message : 'Message Info' , duration : 2000 })
+prompt.showToast({
+  message: 'Message Info',
+  duration: 2000
+})
 ```

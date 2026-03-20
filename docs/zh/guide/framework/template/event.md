@@ -3,13 +3,15 @@
 # 事件绑定
 
 ## 格式
+
 ```html
-< text onclick = " press " > </ text >
+<text onclick="press"></text>
 ```
 
 可以简写为：
+
 ```html
-< text @click = " press " > </ text >
+<text @click="press"></text>
 ```
 
 **fn** ：`fn`为事件回调函数名（在`<script>`中有对应的函数实现），上例中`press`为事件回调函数。
@@ -17,15 +19,52 @@
 ## 传参
 
 ### 常量
+
 ```html
-< template > < div class = " page " > < text for = " {{list}} " onclick = " handle ($idx , $item) " > {{$item}} </ text > </ div > </ template > < script > export default { private : { list : [ 1 , 2 , 3 , 4 , 5 ] } , handle (idx , item , $evt) { // 点击第一个元素 console.log (idx) // 0 console.log (item) // 1 console.log ($evt) // { pageX: 4, pageY: 246, clientX: 4, clientY: 246, offsetX: 4, offsetY: 246 } } } </ script >
+<template>
+  <div class="page">
+    <text for="{{list}}" onclick="handle($idx,$item)">{{$item}}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      list:[1,2,3,4,5]
+    },
+    handle(idx,item,$evt) { // 点击第一个元素
+      console.log(idx) // 0
+      console.log(item) // 1
+      console.log($evt) // { pageX: 4, pageY: 246, clientX: 4, clientY: 246, offsetX: 4, offsetY: 246 }
+    }
+  }
+</script>
 ```
 
 ### 变量
 
 `<script>`中定义的页面的数据变量（前面不用写`this`）。
+
 ```html
-< template > < div class = " page " > < text for = " {{list}} " onclick = " handle (total , $item) " > {{$item}} </ text > </ div > </ template > < script > export default { private : { list : [ 1 , 2 , 3 , 4 , 5 ] , total : 0 } , handle (total , num , $evt) { console.log (total) console.log (num) console.log ($evt) } } </ script >
+<template>
+  <div class="page">
+    <text for="{{list}}" onclick="handle(total,$item)"> {{$item}}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      list:[1,2,3,4,5],
+      total:0
+    },
+    handle(total,num,$evt){
+      console.log(total)
+      console.log(num)
+      console.log($evt)
+    }
+  }
+</script>
 ```
 
 注意

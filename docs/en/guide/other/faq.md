@@ -59,4 +59,3 @@ Yes, Windows and Mac can package rpk.
   3. Reproduce the issue on the watch.
   4. Click on [Mi Fitness] --> [Me] --> [About] --> [Debug] --> [Pull firmware logs].
   5. After successful pulling, the logs are saved on the mobile phone. Log file directory: `/sdcard/Android/data/com.mi.health/files/log`.
-

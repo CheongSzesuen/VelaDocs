@@ -5,4 +5,3 @@
 Provides security and encryption-related capabilities.
 
   * [Cryptographic-Algorithm](</vela/quickapp/en/features/security/crypto.html>)
-

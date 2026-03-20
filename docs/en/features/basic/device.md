@@ -3,13 +3,17 @@
 # Device Information
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.device" }
+{ "name": "system.device" }
 ```
 
 ## Importing the Module
+
 ```javascript
-import device from '@system.device' // or const device = require('@system.device')
+import device from '@system.device' 
+// or 
+const device = require('@system.device')
 ```
 
 ## Interface Definitions
@@ -49,8 +53,13 @@ screenShape | string | Screen shape. The value can be: rect (rectangular screen)
 deviceType[2+](</vela/quickapp/zh/guide/version/APILevel2>) | string | Device type. The value can be: watch, band, or smartspeaker.  
   
 #### Example:
+
 ```javascript
-device.getInfo({ success : function(ret){ console.log(` handling success， brand = ${ ret.brand } `)} })
+device.getInfo({
+  success: function(ret) {
+    console.log(`handling success， brand = ${ret.brand}`)
+  }
+})
 ```
 
 ### device.getDeviceId(OBJECT)
@@ -62,8 +71,13 @@ Obtains the unique device identifier.
 Obtaining device information
 
 Developers need to configure the permission in manifest.json:
+
 ```json
-{ "permissions" : [ { "name" : "hapjs.permission.DEVICE_INFO" } ] }
+{
+  "permissions": [
+    { "name": "hapjs.permission.DEVICE_INFO" }
+  ]
+}
 ```
 
 #### Parameters:
@@ -81,8 +95,16 @@ Parameter | Type | Description
 deviceId | String | Unique device identifier  
   
 #### Example:
+
 ```javascript
-device.getDeviceId({ success : function(data){ console.log(` handling success: ${ data.deviceId } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} , })
+device.getDeviceId({
+  success: function (data) {
+    console.log(`handling success: ${data.deviceId}`)
+  },
+  fail: function (data, code) {
+    console.log(`handling fail, code = ${code}`)
+  },
+})
 ```
 
 ### device.getSerial(OBJECT)
@@ -94,8 +116,13 @@ Obtains the device serial number.
 Obtaining device information
 
 Developers need to configure the permission in manifest.json:
+
 ```json
-{ "permissions" : [ { "name" : "hapjs.permission.DEVICE_INFO" } ] }
+{
+  "permissions": [
+    { "name": "hapjs.permission.DEVICE_INFO" }
+  ]
+}
 ```
 
 #### Parameters:
@@ -110,9 +137,16 @@ complete | Function | No | Callback invoked when the execution is complete
 
 Parameter | Type | Description  
 ---|:---:|---  
-serial | String | Device serial number
+serial | String | Device serial number  
 ```javascript
-device.getSerial({ success :(data)=> { console.log(` handling success: ${ data.serial } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+device.getSerial({
+    success: (data) => {
+        console.log(`handling success: ${data.serial}`)
+    },
+    fail: (data, code) => {
+        console.log(`handling fail, code = ${code}`)
+    }
+})
 ```
 
 ### device.getTotalStorage(OBJECT)
@@ -131,9 +165,16 @@ complete | Function | No | Callback invoked when the execution is complete
 
 Parameter | Type | Description  
 ---|:---:|---  
-totalStorage | Number | Total size of the storage space, in bytes
+totalStorage | Number | Total size of the storage space, in bytes  
 ```javascript
-device.getTotalStorage({ success :(data)=> { console.log(` handling success: ${ data.totalStorage } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+device.getTotalStorage({
+    success: (data) => {
+        console.log(`handling success: ${data.totalStorage}`)
+    },
+    fail: (data, code) => {
+        console.log(`handling fail, code = ${code}`)
+    }
+})
 ```
 
 ### device.getAvailableStorage(OBJECT)
@@ -152,7 +193,14 @@ complete | Function | No | Callback invoked when the execution is complete
 
 Parameter | Type | Description  
 ---|:---:|---  
-availableStorage | Number | Available size of the storage space, in bytes
+availableStorage | Number | Available size of the storage space, in bytes  
 ```javascript
-device.getAvailableStorage({ success :(data)=> { console.log(` handling success: ${ data.availableStorage } `)} , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+device.getAvailableStorage({
+    success: (data) => {
+        console.log(`handling success: ${data.availableStorage}`)
+    },
+    fail: (data, code) => {
+        console.log(`handling fail, code = ${code}`)
+    }
+})
 ```

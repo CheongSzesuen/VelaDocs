@@ -18,4 +18,3 @@
 ## APIs
 
   * Added the return values deviceType and APILevel to getInfo() of [@system.device](</vela/quickapp/en/features/basic/device.html>)
-

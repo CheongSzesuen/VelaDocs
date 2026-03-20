@@ -3,13 +3,17 @@
 # Data Storage
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.storage" }
+{ "name": "system.storage" }
 ```
 
 ## Import Module
+
 ```javascript
-import storage from '@system.storage' // or const storage = require('@system.storage')
+import storage from '@system.storage' 
+// or 
+const storage = require('@system.storage')
 ```
 
 ## Methods
@@ -33,8 +37,17 @@ complete | Function | No | Callback after execution ends
 Stored content corresponding to the key
 
 #### Example:
+
 ```javascript
-storage.get({ key : 'A1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.get({
+  key: 'A1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.set(OBJECT)
@@ -52,8 +65,18 @@ fail | Function | No | Failure callback
 complete | Function | No | Callback after execution ends  
   
 #### Example:
+
 ```javascript
-storage.set({ key : 'A1' , value : 'V1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.set({
+  key: 'A1',
+  value: 'V1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.clear(OBJECT)
@@ -69,8 +92,16 @@ fail | Function | No | Failure callback
 complete | Function | No | Callback after execution ends  
   
 #### Example:
+
 ```javascript
-storage.clear({ success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.clear({
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.delete(OBJECT)
@@ -87,6 +118,15 @@ fail | Function | No | Failure callback
 complete | Function | No | Callback after execution ends  
   
 #### Example:
+
 ```javascript
-storage.delete({ key : 'A1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.delete({
+  key: 'A1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

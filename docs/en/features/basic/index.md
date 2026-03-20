@@ -8,4 +8,3 @@ Obtain basic information about applications, platforms, frameworks, and systems,
   * [Device-Information](</vela/quickapp/en/features/basic/device.html>)
   * [Page-Routing](</vela/quickapp/en/features/basic/router.html>)
   * [Application-Configuration](</vela/quickapp/en/features/basic/configuration.html>)
-

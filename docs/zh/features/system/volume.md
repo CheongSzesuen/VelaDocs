@@ -3,13 +3,17 @@
 # 系统音量 volume
 
 ## 接口声明
+
 ```json
-{ "name" : "system.volume" }
+{ "name": "system.volume" }
 ```
 
 ## 导入模块
+
 ```javascript
-import volume from '@system.volume' // 或 const volume = require('@system.volume')
+import volume from '@system.volume' 
+// 或 
+const volume = require('@system.volume')
 ```
 
 ## 接口定义
@@ -33,8 +37,16 @@ complete | Function | 否 | 执行结束后的回调
 value | Number | 系统媒体当前音量，0.0-1.0 之间  
   
 #### 示例
+
 ```javascript
-volume.getMediaValue({ success : function(data){ console.log(` handling success: ${ data.value } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+volume.getMediaValue({
+  success: function(data) {
+    console.log(`handling success: ${data.value}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### volume.setMediaValue (OBJECT)
@@ -55,8 +67,17 @@ complete | Function | 否 | 执行结束后的回调
 [支持通用错误码](</vela/quickapp/zh/features/grammar.html#通用错误码>)
 
 #### 示例
+
 ```javascript
-volume.setMediaValue({ value : 0.5 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+volume.setMediaValue({
+  value: 0.5,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## 事件
@@ -72,6 +93,9 @@ volume.setMediaValue({ value : 0.5 , success : function() { console.log('handlin
 value | Number | 是 | 系统媒体当前音量，范围：0.0-1.0 之间  
   
 #### 示例
+
 ```javascript
-volume.onMediaValueChanged = function(res){ console.log('volume media value changed:' , res.value)}
+volume.onMediaValueChanged = function(res) {
+  console.log('volume media value changed:', res.value)
+}
 ```

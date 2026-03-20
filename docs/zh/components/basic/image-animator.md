@@ -50,16 +50,84 @@ resume |:---:| 继续播放图片帧
 getState |:---:| 获取播放状态。- playing：播放中 - paused：已暂停 - stopped：已停止  
   
 ## 示例代码
+
 ```html
-< template > < div class = " container " > < image-animator class = " animator " id = " animator " images = " {{frames}} " duration = " 1s " /> < div class = " btn-box " > < input class = " btn " type = " button " value = " start " @click = " handleStart " /> < input class = " btn " type = " button " value = " stop " @click = " handleStop " /> < input class = " btn " type = " button " value = " pause " @click = " handlePause " /> < input class = " btn " type = " button " value = " resume " @click = " handleResume " /> </ div > </ div > </ template >
+<template>
+  <div class="container">
+  <image-animator class="animator" id="animator" images="{{frames}}" duration="1s" />
+  <div class="btn-box">
+    <input class="btn" type="button" value="start" @click="handleStart" />
+    <input class="btn" type="button" value="stop" @click="handleStop" />
+    <input class="btn" type="button" value="pause" @click="handlePause" />
+    <input class="btn" type="button" value="resume" @click="handleResume" />
+  </div>
+</div>
+</template>
 ```
 
 ```css
-.container { flex-direction : column ; justify-content : center ; align-items : center ; left : 0px ; top : 0px ; width : 454px ; height : 454px ; background-color : black ; } .animator { width : 70px ; height : 70px ; } .btn-box { width : 264px ; height : 120px ; flex-wrap : wrap ; justify-content : space-around ; align-items : center ; } .btn { border-radius : 8px ; width : 120px ; margin-top : 8px ; }
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 454px;
+  height: 454px;
+  background-color: black;
+}
+.animator {
+  width: 70px;
+  height: 70px;
+}
+.btn-box {
+  width: 264px;
+  height: 120px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn {
+  border-radius: 8px;
+  width: 120px;
+  margin-top: 8px;
+}
 ```
 
 ```js
-export default { data : { frames : [ { src : "/common/asserts/001.png" , } , { src : "/common/asserts/002.png" , } , { src : "/common/asserts/003.png" , } , { src : "/common/asserts/004.png" , } , { src : "/common/asserts/005.png" , } ] , } , handleStart () { this . $element ('animator') . start () ; } , handlePause () { this . $element ('animator') . pause () ; } , handleResume () { this . $element ('animator') . resume () ; } , handleStop () { this . $element ('animator') . stop () ; } , } ;
+export default {
+  data: {
+    frames: [
+      {
+        src: "/common/asserts/001.png",
+      },
+      {
+        src: "/common/asserts/002.png",
+      },
+      {
+        src: "/common/asserts/003.png",
+      },
+      {
+        src: "/common/asserts/004.png",
+      },
+      {
+        src: "/common/asserts/005.png",
+      }
+    ],
+  },
+  handleStart() {
+    this.$element('animator').start();
+  },
+  handlePause() {
+    this.$element('animator').pause();
+  },
+  handleResume() {
+    this.$element('animator').resume();
+  },
+  handleStop() {
+    this.$element('animator').stop();
+  },
+};
 ```
 
 ![](../../images/image_animator.gif)

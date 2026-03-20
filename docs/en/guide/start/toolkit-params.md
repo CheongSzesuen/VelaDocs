@@ -9,18 +9,24 @@ The build tool offers various build capabilities that developers can configure b
 There are typically two ways to set build parameters, taking the extraction of a separate source-map file as an example:
 
   * Include build parameters in the command line
-```shell
-aiot build \--devtool = source-map
-```
 
+```shell
+aiot build --devtool=source-map
+```
   * Create a configuration file named quickapp.config.js in the project root directory and configure the cli property;
+
 ```js
-module.exports = { cli : { devtool : "source-map" , } , } ;
+module.exports = {
+  cli: {
+    devtool: "source-map",
+  },
+};
 ```
 
 ## View All Supported Build Parameters
+
 ```shell
-npx aiot build -h
+ npx aiot build -h
 ```
 
 ## Common Build Parameters

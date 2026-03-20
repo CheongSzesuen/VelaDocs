@@ -3,13 +3,17 @@
 # 音频 audio
 
 ## 接口声明
+
 ```json
-{ "name" : "system.audio" }
+{ "name": "system.audio" }
 ```
 
 ## 导入模块
+
 ```javascript
-import audio from '@system.audio' // 或 const audio = require('@system.audio')
+import audio from '@system.audio' 
+// 或 
+const audio = require('@system.audio')
 ```
 
 ## 方法
@@ -23,6 +27,7 @@ import audio from '@system.audio' // 或 const audio = require('@system.audio')
 无
 
 #### 示例：
+
 ```javascript
 audio.play()
 ```
@@ -36,6 +41,7 @@ audio.play()
 无
 
 #### 示例：
+
 ```javascript
 audio.pause()
 ```
@@ -49,6 +55,7 @@ audio.pause()
 无
 
 #### 示例：
+
 ```javascript
 audio.stop()
 ```
@@ -80,8 +87,16 @@ muted | Boolen | 当前音频是否在静音播放
 duration | Number | 音频的播放时长，单位秒，未知返回 NaN  
   
 #### 示例：
+
 ```javascript
-audio.getPlayState({ success : function(data){ console.log(` handling success: state: ${ data.state } ,src: ${ data.src } ,currentTime: ${ data.currentTime } ,autoplay: ${ data.autoplay } ,loop: ${ data.loop } ,volume: ${ data.volume } ,muted: ${ data.muted } ,notificationVisible: ${ data.notificationVisible } `)} , fail : function(data , code){ console.log('handling fail, code=' \+ code)} })
+audio.getPlayState({
+  success: function(data) {
+    console.log(`handling success: state: ${data.state},src:${data.src},currentTime:${data.currentTime},autoplay:${data.autoplay},loop:${data.loop},volume: ${data.volume},muted:${data.muted},notificationVisible:${data.notificationVisible}`)
+  },
+  fail: function(data, code) {
+    console.log('handling fail, code=' + code)
+  }
+})
 ```
 
 ## 属性
@@ -99,8 +114,10 @@ streamType | String | 是 | 否 | 否 | 使用音频的类型，可能的值有 
 meta | Object<{title: string, artist: string, album: string}> | 否 | 是 | 否 | 音频元数据信息，包括歌名、歌手、专辑名  
   
 #### 示例：
+
 ```javascript
-// let currentTime = audio.currentTime audio.currentTime = 5
+// let currentTime = audio.currentTime
+audio.currentTime = 5
 ```
 
 ## 事件
@@ -116,6 +133,10 @@ durationchange | 播放时长变化时的回调事件
 error | 播放发生错误时的回调事件  
   
 #### 示例：
+
 ```javascript
-audio.onplay = function() { console.log(` audio starts to play `)} audio.onplay = null
+audio.onplay = function() {
+  console.log(`audio starts to play`)
+}
+audio.onplay = null
 ```

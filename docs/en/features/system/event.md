@@ -3,13 +3,17 @@
 # Event event4+
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.event" }
+{ "name": "system.event" }
 ```
 
 ## Import Module
+
 ```javascript
-import event from '@system.event' // or const event = require('@system.event')
+import event from '@system.event' 
+// or 
+const event = require('@system.event')
 ```
 
 ## Interface Definition
@@ -45,8 +49,15 @@ usual.event.CHARGING | None | Charging started
 None
 
 #### Example:
+
 ```javascript
-event.publish({ eventName : 'myEventName' , options : { params : { age : 10 , name : 'peter' } , permissions : [ 'com.example.demo' ] } })
+event.publish({
+  eventName: 'myEventName',
+  options: {
+    params: { age: 10, name: 'peter' },
+    permissions: ['com.example.demo']
+  }
+})
 ```
 
 ### event.subscribe(OBJECT)
@@ -74,8 +85,17 @@ Type | Required | Description
 Number | Yes | Event ID. Returns undefined if subscription fails.  
   
 #### Example:
+
 ```javascript
-const evtId = event.subscribe({ eventName : 'myEventName' , callback : function(res){ if(res.package === 'com.example.demo'){ console.log(res.params)} } })console.log(evtId)
+const evtId = event.subscribe({
+  eventName: 'myEventName',
+  callback: function(res) {
+    if (res.package === 'com.example.demo') {
+      console.log(res.params)
+    }
+  }
+})
+console.log(evtId)
 ```
 
 ### event.unsubscribe(OBJECT)
@@ -89,8 +109,18 @@ Parameter Name | Type | Required | Description
 id | Number | Yes | Subscription ID  
   
 #### Example:
+
 ```javascript
-const evtId = event.subscribe({ eventName : 'myEventName' , callback : function(res){ if(res.package === 'com.example.demo'){ console.log(res.params)} } })event.unsubscribe({ id : evtId })
+const evtId = event.subscribe({
+  eventName: 'myEventName',
+  callback: function(res) {
+    if (res.package === 'com.example.demo') {
+      console.log(res.params)
+    }
+  }
+})
+
+event.unsubscribe({ id: evtId })
 ```
 
 ## Support Details

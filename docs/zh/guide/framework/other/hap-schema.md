@@ -13,4 +13,3 @@ hap链接 指在router模块中支持的以hap://开头的uri，使用场景见[
   * package: 应用包名，必选
   * path: 应用内页面的 path，可选，默认为首页
   * key-value: 希望传给页面的参数，可选，可以有多个
-

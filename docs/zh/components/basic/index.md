@@ -14,4 +14,3 @@
   * [chart](</vela/quickapp/zh/components/basic/chart.html>)
   * [qrcode](</vela/quickapp/zh/components/basic/qrcode.html>)
   * [barcode](</vela/quickapp/zh/components/basic/barcode.html>)
-

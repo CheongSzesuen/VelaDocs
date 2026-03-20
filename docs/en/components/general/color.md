@@ -170,4 +170,3 @@ You can also use the following color configurations:
   * __whitesmoke (#f5f5f5)
   * __yellow (#ffff00)
   * __yellowgreen (#9acd32)
-

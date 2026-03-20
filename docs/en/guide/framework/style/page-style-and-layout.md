@@ -29,7 +29,9 @@ Developers only need to determine the px value in the framework style based on t
 First, define the `project configuration base width`, which is the value of `config.designWidth` in the project configuration file (`<ProjectName>/src/manifest.json`). The default value is 480 if not specified.
 
 Then, the conversion formula between `design draft 1px` and `framework style 1px` is as follows:
-``` Design draft 1px / Design draft base width = Framework style 1px / Project configuration base width
+
+```
+Design draft 1px / Design draft base width = Framework style 1px / Project configuration base width
 ```
 
 **Example** :
@@ -41,12 +43,18 @@ If the design draft width is 640px and element A has a width of 100px in the des
 Modify the `project configuration base width`: Set the `project configuration base width` to the `design draft base width`, then `framework style 1px` equals `design draft 1px`.
 
   * Set the `project configuration base width` in the project configuration file (`<ProjectName>/src/manifest.json`) by modifying `config.designWidth`:
-```json
-{ "config" : { "designWidth" : 640 } }
-```
 
+```json
+{
+  "config": {
+    "designWidth": 640
+  }
+}
+```
   * Set the framework style for element A:
-``` width: 100px;
+
+```
+width: 100px;
 ```
 
 **Scheme 2** :
@@ -54,7 +62,9 @@ Modify the `project configuration base width`: Set the `project configuration ba
 Do not modify the `project configuration base width`: If the current project's `project configuration base width` is 480, let the framework style of element A be x`px`. From the conversion formula: `100 / 640 = x / 480`.
 
   * Set the framework style for element A:
-``` width: 75px;
+
+```
+width: 75px;
 ```
 
 ### Percentage %
@@ -70,8 +80,16 @@ Calculation formula: dp value = physical resolution / device pixel ratio
 Example: A device with a resolution of 480*480 and a device pixel ratio of 2 has a screen width of 480 pixels = 240dp.
 
 Example code:
+
 ```css
-<style> .dp-box { width : 360dp ; height : 360dp ; background-color : green ; margin-bottom : 40px ; } </style>
+<style>
+  .dp-box{
+    width:360dp;
+    height:360dp;
+    background-color:green;
+    margin-bottom:40px;
+  }
+</style>
 ```
 
 ## Setting Positioning
@@ -87,8 +105,38 @@ You can also use `parallel selectors` to set styles. Descendant selectors are no
 Detailed documentation can be found [here](</vela/quickapp/en/guide/framework/style/>).
 
 **Example** :
+
 ```html
-< template > < div class = " page " > < text style = " color : #FF0000 ; " > Inline style </ text > < text id = " title " > ID selector </ text > < text class = " title " > Class selector </ text > < text > Tag selector </ text > </ div > </ template > < style > .page { flex-direction : column ; } /* Tag selector */ text { color : #0000FF ; } /* Class selector (recommended) */ .title { color : #00FF00 ; } /* ID selector */ #title { color : #00A000 ; } /* Parallel selector */ .title, #title { font-weight : bold ; } </ style >
+<template>
+  <div class="page">
+    <text style="color: #FF0000;">Inline style</text>
+    <text id="title">ID selector</text>
+    <text class="title">Class selector</text>
+    <text>Tag selector</text>
+  </div>
+</template>
+
+<style>
+  .page {
+    flex-direction: column;
+  }
+  /* Tag selector */
+  text {
+    color: #0000FF;
+  }
+  /* Class selector (recommended) */
+  .title {
+    color: #00FF00;
+  }
+  /* ID selector */
+  #title {
+    color: #00A000;
+  }
+  /* Parallel selector */
+  .title, #title {
+    font-weight: bold;
+  }
+</style>
 ```
 
 ## Common Styles
@@ -104,8 +152,39 @@ Support for `Flex layout` can also be found in the [Common Styles](</vela/quicka
 The div component is the most commonly used Flex container component with Flex layout characteristics. The text and span components are text container components. **Other components cannot directly contain text content.**
 
 **Example** :
+
 ```html
-< template > < div class = " page " > < div class = " item " > < text > item1 </ text > </ div > < div class = " item " > < text > item2 </ text > </ div > </ div > </ template > < style > .page { /* Cross-axis centering */ align-items : center ; /* Vertical arrangement */ flex-direction : column ; } .item { /* Allow stretching when there is remaining space */ /*flex-grow: 1;*/ /* Do not allow compression when space is insufficient */ flex-shrink : 0 ; /* Main axis centering */ justify-content : center ; width : 200px ; height : 100px ; margin : 10px ; background-color : #FF0000 ; } </ style >
+<template>
+  <div class="page">
+    <div class="item">
+      <text>item1</text>
+    </div>
+    <div class="item">
+      <text>item2</text>
+    </div>
+  </div>
+</template>
+
+<style>
+  .page {
+    /* Cross-axis centering */
+    align-items: center;
+    /* Vertical arrangement */
+    flex-direction: column;
+  }
+  .item {
+    /* Allow stretching when there is remaining space */
+    /*flex-grow: 1;*/
+    /* Do not allow compression when space is insufficient */
+    flex-shrink: 0;
+    /* Main axis centering */
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    background-color: #FF0000;
+  }
+</style>
 ```
 
 ## Dynamic Style Modification
@@ -117,8 +196,56 @@ There are multiple ways to dynamically modify styles, consistent with traditiona
   * **Modify bound object** : Control the element's style through a bound object. 
 
 **Example** :
+
 ```html
-< template > < div style = " flex-direction : column ; " > <!-- Modify class --> < text class = " normal-text {{ className }} " onclick = " changeClassName " > Click to change text color </ text > <!-- Modify inline style --> < text style = " color: { { textColor } } " onclick = " changeInlineStyle " > Click to change text color </ text > <!-- Modify bound object --> < text style = " { { styleObj } } " onclick = " changeStyleObj " > Click to change text color </ text > </ div > </ template > < style > .normal-text { font-weight : bold ; } .text-blue { color : #0faeff ; } .text-red { color : #f76160 ; } </ style > < script > export default { private : { className : 'text-blue' , textColor : '#0faeff' , styleObj : { color : 'red' } } , onInit () { console.info ('Dynamic style modification') } , changeClassName () { this.className = 'text-red' } , changeInlineStyle () { this.textColor = '#f76160' } , changeStyleObj () { this.styleObj = { color : 'yellow' } } } </ script >
+<template>
+  <div style="flex-direction: column;">
+    <!-- Modify class -->
+    <text class="normal-text {{ className }}" onclick="changeClassName">Click to change text color</text>
+    <!-- Modify inline style -->
+    <text style="color: {{ textColor }}" onclick="changeInlineStyle">Click to change text color</text>
+    <!-- Modify bound object -->
+    <text style="{{ styleObj }}" onclick="changeStyleObj">Click to change text color</text>
+  </div>
+</template>
+
+<style>
+  .normal-text {
+    font-weight: bold;
+  }
+  .text-blue {
+    color: #0faeff;
+  }
+  .text-red {
+    color: #f76160;
+  }
+</style>
+
+<script>
+  export default {
+    private: {
+      className: 'text-blue',
+      textColor: '#0faeff',
+      styleObj: {
+        color: 'red'
+      }
+    },
+    onInit () {
+      console.info('Dynamic style modification')
+    },
+    changeClassName () {
+      this.className = 'text-red'
+    },
+    changeInlineStyle () {
+      this.textColor = '#f76160'
+    },
+    changeStyleObj () {
+      this.styleObj = {
+        color: 'yellow'
+      }
+    }
+  }
+</script>
 ```
 
 ## Introducing Less/SCSS Precompilation
@@ -128,14 +255,26 @@ There are multiple ways to dynamically modify styles, consistent with traditiona
 For an introduction to less syntax, refer to the [less Chinese official website (opens new window)](<https://less.bootcss.com/>).
 
 To use less, first install the corresponding libraries: `less`, `less-loader`:
-``` npm i less less-loader
+
+```
+npm i less less-loader
 ```
 
 Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quickapp/en/guide/framework/style/#样式预编译>). Then add the attribute `lang="less"` to the `<style>` tag.
 
 **Example** :
+
 ```html
-< template > < div class = " page " > < text id = " title " > Less example! </ text > </ div > </ template > < style lang = " less " > /* Import external less file */ @import './style.less' ; /* Use less */ </ style >
+<template>
+  <div class="page">
+    <text id="title">Less example!</text>
+  </div>
+</template>
+<style lang="less">
+  /* Import external less file */
+  @import './style.less';
+  /* Use less */
+</style>
 ```
 
 ### SCSS Section
@@ -143,15 +282,26 @@ Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quicka
 For an introduction to scss syntax, refer to the [scss Chinese official website (opens new window)](<https://www.sasscss.com/>).
 
 To use scss, execute the following command under the JS application project to install the corresponding libraries: `node-sass`, `sass-loader`:
-``` npm i node-sass sass-loader
-```
+
+```json
+{
+  "config": {
+    "designWidth": 640
+  }
+}
+```0
 
 Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quickapp/en/guide/framework/style/#样式预编译>). Then add the attribute `lang="scss"` to the `<style>` tag.
 
 **Example** :
-```html
-< template > < div class = " page " > < text id = " title " > Less example! </ text > </ div > </ template > < style lang = " scss " > /* Import external scss file */ @import './style.scss' ; /* Use scss */ </ style >
-```
+
+```json
+{
+  "config": {
+    "designWidth": 640
+  }
+}
+```1
 
 ## Using PostCSS to Parse CSS
 
@@ -164,16 +314,26 @@ Using PostCSS to parse CSS involves three steps:
 > npm i postcss-loader precss@3.1.2 -D
 
   2. Create a postcss.config.js file in the project root directory and add the following content:
-```js
-module.exports = { plugins : [ require ('precss') ] }
-```
+
+```json
+{
+  "config": {
+    "designWidth": 640
+  }
+}
+```2
 
 Here, precss is a PostCSS plugin.
 
   3. Add lang="postcss" to the corresponding style tag on the page, as follows:
-```html
-< style lang = " postcss " > /* Use PostCSS */ .page { justify-content : center ; background-color : #00beaf ; } #title { color : #FF0000 ; } </ style >
-```
+
+```json
+{
+  "config": {
+    "designWidth": 640
+  }
+}
+```3
 
 Now you can write the corresponding code in CSS.
 

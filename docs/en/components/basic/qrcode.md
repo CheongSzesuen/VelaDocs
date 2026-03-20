@@ -32,8 +32,13 @@ background-color | `<color>` | #ffffff | No | QR code background color
 Supports [common events](</vela/quickapp/en/components/general/events.html>)
 
 ## Example Code
+
 ```html
-< template > < div > < qrcode value = " https://iot.mi.com " style = " color : #008cff ; " > </ qrcode > </ div > </ template >
+<template>
+  <div>
+    <qrcode value="https://iot.mi.com" style="color: #008cff;"></qrcode>
+  </div>
+</template>
 ```
 
 ![](../../images/qrcode.png)

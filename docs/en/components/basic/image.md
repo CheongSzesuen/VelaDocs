@@ -62,8 +62,13 @@ complete | {width: widthValue(px), height: heightValue(px)} | Triggered when the
 error |:---:| Triggered when the image fails to load.  
   
 ## Sample Code
+
 ```html
-< template > < div > < image src = " /common/logo.png " /> </ div > </ template >
+<template>
+  <div>
+    <image src="/common/logo.png" />
+  </div>
+</template>
 ```
 
 ![](../../images/image-example.png)

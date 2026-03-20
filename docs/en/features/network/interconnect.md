@@ -5,13 +5,17 @@
 Used for communication with the paired mobile app and for sending and receiving data from the mobile app. The communication connection will be automatically established. There is no need to manage the creation and destruction of connections within the app, but callback functions can be registered to receive notifications about connection status changes for appropriate handling, such as notifying the user.
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.interconnect" }
+{ "name": "system.interconnect" }
 ```
 
 ## Import Module
+
 ```javascript
-import interconnect from '@system.interconnect' // or const interconnect = require('@system.interconnect')
+import interconnect from '@system.interconnect'
+// or
+const interconnect = require('@system.interconnect')
 ```
 
 ## Interface Definition
@@ -29,6 +33,7 @@ None
 An interconnect connection instance, the connect object.
 
 #### Example:
+
 ```javascript
 const connect = interconnect.instance()
 ```
@@ -66,8 +71,20 @@ Error Code | Description
 1006 | Connection disconnected  
   
 #### Example:
+
 ```javascript
-connect.getReadyState({ success :(data)=> { if(data.status === 1){ console.log('Connected successfully')} else if(data.status === 2){ console.log('Connection failed')} } , fail :(data , code)=> { console.log(` handling fail, code = ${ code } `)} })
+connect.getReadyState({
+  success: (data) => {
+    if (data.status === 1) {
+      console.log('Connected successfully')
+    } else if (data.status === 2) {
+      console.log('Connection failed')
+    }
+  },
+  fail: (data, code) => {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### connect.diagnosis(OBJECT)
@@ -104,8 +121,16 @@ code | Number | Error code
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
 #### Example:
+
 ```javascript
-connect.diagnosis({ success : function(data){ console.log(` handling success, version = ${ data.status } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} , })
+connect.diagnosis({
+  success: function (data) {
+    console.log(`handling success, version = ${data.status}`)
+  },
+  fail: function (data, code) {
+    console.log(`handling fail, code = ${code}`)
+  },
+})
 ```
 
 ### connect.send(OBJECT)
@@ -141,8 +166,20 @@ Error Code | Description
 1006 | Connection disconnected  
   
 #### Example:
+
 ```javascript
-connect.send({ data : { str : 'test' , num : 123 } , success :() => { console.log(` handling success `)} , fail :(data , code)=> { console.log(` handling fail, errMsg = ${ data.data } , errCode = ${ data.code } `)} })
+connect.send({
+  data: {
+    str: 'test',
+    num: 123
+  },
+  success: ()=>{
+    console.log(`handling success`)
+  },
+  fail: (data, code)=> {
+    console.log(`handling fail, errMsg = ${data.data}, errCode = ${data.code}`)
+  }
+})
 ```
 
 ## Events
@@ -158,8 +195,11 @@ Parameter | Type | Description
 data | String | Received data  
   
 #### Example:
+
 ```javascript
-connect.onmessage =(data)=> { console.log(` received message: ${ data.data } `)}
+connect.onmessage = (data) => {
+  console.log(`received message: ${data.data}`)
+}
 ```
 
 ### connect.onopen
@@ -173,8 +213,11 @@ Parameter | Type | Description
 isReconnected | Boolean | Whether it is a reconnection  
   
 #### Example:
+
 ```javascript
-connect.onopen = function(data){ console.log('connection opened isReconnected: ' , data.isReconnected)}
+connect.onopen = function (data) {
+  console.log('connection opened isReconnected: ', data.isReconnected)
+}
 ```
 
 ### connect.onclose
@@ -189,8 +232,11 @@ code | Number | Connection closure status code
 data | String | Data returned upon connection closure  
   
 #### Example:
+
 ```javascript
-connect.onclose =(data)=> { console.log(` connection closed, reason = ${ data.data } , code = ${ data.code } `)}
+connect.onclose = (data) => {
+  console.log(`connection closed, reason = ${data.data}, code = ${data.code}`)
+}
 ```
 
 ### connect.onerror
@@ -215,8 +261,11 @@ Error Code | Description
 1006 | Connection disconnected  
   
 #### Example:
+
 ```javascript
-connect.onerror =(data)=> { console.log(` connection error, errMsg = ${ data.data } , errCode = ${ data.code } `)}
+connect.onerror = (data)=> {
+  console.log(`connection error, errMsg = ${data.data}, errCode = ${data.code}`)
+}
 ```
 
 ## Development Considerations
@@ -227,15 +276,19 @@ For interconnect communication, ensure that the package names and signatures of 
   * The Quick App signature must use the signature of the third-party Android app. The certificate and private key can be extracted from the .jks file as follows:
 
   1. Convert the jks to p12 by executing the following command. After entering the corresponding password, a p12 format file will be generated in the same directory.
-```shell
-keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.p12 -srcstoretype jks -deststoretype pkcs12
-```
 
+```javascript
+import interconnect from '@system.interconnect'
+// or
+const interconnect = require('@system.interconnect')
+```0
   2. Convert the p12 to pem by executing the following command. After entering the password set for the p12 file in the previous step, a pem format file will be generated in the same directory.
-```shell
-openssl pkcs12 -nodes -in keystore.p12 -out keystore.pem
-```
 
+```javascript
+import interconnect from '@system.interconnect'
+// or
+const interconnect = require('@system.interconnect')
+```1
   3. Copy the private key and certificate from the pem format file:  
 Copy the content from -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY----- into private.pem.  
 Copy the content from -----BEGIN CERTIFICATE----- to -----END CERTIFICATE----- into certificate.pem.
@@ -256,4 +309,3 @@ Reference Appendix
 
   1. Xiaomi Wear Third-Party App Capability Open Interface Documentation: [Click to Download (opens new window)](<https://vela-docs.cnbj1.mi-fds.com/vela-docs/files/%E5%B0%8F%E7%B1%B3%E7%A9%BF%E6%88%B4%E7%AC%AC%E4%B8%89%E6%96%B9APP%E8%83%BD%E5%8A%9B%E5%BC%80%E6%94%BE%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3_1.4.pdf> "Download")
   2. Interconnect Development and Testing Demo: [Click to Download (opens new window)](<https://cdn.cnbj3-fusion.fds.api.mi-img.com/quickapp-vela/interconnect_dev_test_demo.zip> "Download")
-

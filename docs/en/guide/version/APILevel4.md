@@ -5,4 +5,3 @@
 ## Components
 
   * New interface: [@system.event](</vela/quickapp/en/features/system/event.html>)
-

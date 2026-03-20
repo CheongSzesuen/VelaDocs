@@ -8,4 +8,3 @@ Provides the ability to communicate between remote data requests and locally Blu
   * [Device Communication](</vela/quickapp/en/features/network/interconnect.html>)
   * [Download](</vela/quickapp/en/features/network/request.html>)
   * [Upload](</vela/quickapp/en/features/network/uploadtask.html>)
-

@@ -9,8 +9,29 @@ These styles are consistent with the usage of CSS property styles. Developers ca
 For information on setting component styles, refer to this [document](</vela/quickapp/en/guide/framework/style/page-style-and-layout.html>).
 
 ## Sample Code
+
 ```html
-< template > < div class = " page " > < div class = " box-normal " style = " background-color : #f76160 " > </ div > < div class = " box-normal " > </ div > </ div > </ template > < style > .page { padding : 30px ; background-color : white ; } .box-normal { background-color : #09ba07 ; width : 100px ; height : 100px ; border-radius : 8px ; margin-right : 10px ; } </ style >
+<template>
+  <div class="page">
+    <div class="box-normal" style="background-color:#f76160"></div>
+    <div class="box-normal"></div>
+  </div>
+</template>
+
+<style>
+  .page {
+    padding: 30px;
+    background-color: white;
+  }
+
+  .box-normal {
+    background-color: #09ba07;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+</style>
 ```
 
 ![](../../images/general-style.png)

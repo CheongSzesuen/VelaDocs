@@ -15,8 +15,11 @@ aiot-toolkit最低版本：1.1.3
 有两种方法可以执行媒体查询：
 
 ### @media 方式引入媒体查询
+
 ```css
-@media [media type] [ and | not | only ] [ (media feature) ] { CSS-Code ; }
+@media [media type] [and|not|only] [(media feature)] {
+  CSS-Code;
+}
 ```
 
 ### 举例
@@ -27,8 +30,9 @@ aiot-toolkit最低版本：1.1.3
   * @media (400 <= width <= 700) { ... } // 多条件level4写法。
 
 ### @import 方式引入媒体查询3+
+
 ```css
-@import './css_file_name.css' [media type] [ and | not | only ] [ (media feature) ] ;
+@import './css_file_name.css' [media type] [and|not|only] [(media feature) ];
 ```
 
 ## 媒体类型
@@ -85,8 +89,28 @@ dp 数值 = 物理分辨率 / 设备像素比(device pixel ratio)
 手环 | 小米手环10 | 胶囊形 | 1.725英寸 | 212x520 | 326 | 2.0 | 106  
   
 示例代码：
+
 ```css
-//以下media query会在屏幕宽度为80dp ~ 160dp范围设备上生效 @media (min-width : 80) and (max-width : 160) { .box { background-color : green ; } } //以下media query会在屏幕宽度为160dp ~ 200dp范围设备上生效 @media (min-width : 160) and (max-width : 200) { .box { background-color : yellow ; } } //以下media query会在屏幕宽度为200dp ~ 300dp范围设备上生效 @media (min-width : 200) and (max-width : 300) { .box { background-color : red ; } }
+//以下media query会在屏幕宽度为80dp ~ 160dp范围设备上生效
+@media (min-width: 80) and (max-width: 160) {
+  .box {
+    background-color: green;
+  }
+}
+
+//以下media query会在屏幕宽度为160dp ~ 200dp范围设备上生效
+@media (min-width: 160) and (max-width: 200) {
+  .box {
+    background-color: yellow;
+  }
+}
+
+//以下media query会在屏幕宽度为200dp ~ 300dp范围设备上生效
+@media (min-width: 200) and (max-width: 300) {
+  .box {
+    background-color: red;
+  }
+}
 ```
 
 ## 逻辑操作符3+
@@ -108,13 +132,34 @@ or | or 运算符用于将多个媒体特性比较语句组合到一个媒体查
 ## 示例代码
 
   * 查询形状为圆形或胶囊形
-```css
-.box { width : 100px ; height : 100px ; background-color : black ; } @media (shape : circle) or (shape : pill-shaped) { .box { background-color : green ; } }
-```
 
-  * 同时查询设备类型为手表，屏幕形状为圆形
 ```css
-.box { width : 100px ; height : 100px ; background-color : black ; } @media (device-type : watch) and (shape : circle) { .box { background-color : green ; } }
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+
+  @media (shape: circle) or (shape: pill-shaped) {
+    .box {
+      background-color: green;
+    }
+  }
+```
+  * 同时查询设备类型为手表，屏幕形状为圆形
+
+```css
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+
+  @media (device-type: watch) and (shape: circle) {
+    .box {
+      background-color: green;
+    }
+  }
 ```
 
 ## 支持明细

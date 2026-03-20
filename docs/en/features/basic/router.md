@@ -7,8 +7,11 @@
 No declaration is required.
 
 ## Importing the Module
+
 ```javascript
-import router from '@system.router' // or const router = require('@system.router')
+import router from '@system.router' 
+// or 
+const router = require('@system.router')
 ```
 
 ## Interface Definitions
@@ -42,18 +45,35 @@ ___PARAM_LAUNCH_FLAG___ | String | No | JS application launch parameter. Current
   * Switching pages within the application
 
     * Switching by path
-```javascript
-router.push({ uri : '/about' , params : { testId : '1' } })
-```
 
+```javascript
+router.push({
+  uri: '/about',
+  params: {
+    testId: '1'
+  }
+})
+```
     * Switching by name
-```javascript
-// Open page by name router.push({ uri : 'About' , params : { testId : '1' } })
-```
 
-    * Switching pages and clearing others
 ```javascript
-router.push({ uri : '/about' , params : { ___PARAM_LAUNCH_FLAG___ : 'clearTask' } })
+// Open page by name
+router.push({
+  uri: 'About',
+  params: {
+    testId: '1'
+  }
+})
+```
+    * Switching pages and clearing others
+
+```javascript
+router.push({
+  uri: '/about',
+  params: {
+    ___PARAM_LAUNCH_FLAG___: 'clearTask'
+  }
+})
 ```
 
 ### router.replace(OBJECT)
@@ -74,8 +94,14 @@ uri | String | Yes | The URI to navigate to, which can be in the following forma
 params | Object | No | Data to be passed during navigation. Parameters can be used in the target page via `this.param1`, where param1 is the parameter name in the JSON. The value corresponding to param1 will be uniformly converted to the String type. When using the `this.param1` variable, you need to define a property with the same key name under `public` (for parameters passed outside the application) or `protected` (for parameters passed within the application) in the target page.  
   
 #### Example:
+
 ```javascript
-router.replace({ uri : '/test' , params : { testId : '1' } })
+router.replace({
+  uri: '/test',
+  params: {
+    testId: '1'
+  }
+})
 ```
 
 ### router.back(OBJECT)
@@ -100,8 +126,32 @@ Notes:
   
   
 #### Example:
+
 ```javascript
-// Page A, open page by name router.push({ uri : 'B' })// Page B, open page by name router.push({ uri : 'C' })// Page C, open page by name router.push({ uri : 'D' })// Page D, open page by name router.push({ uri : 'E' })// Page E does not pass a page path, returns to Page D router.back() // Page D does not pass a page name, returns to Page C router.back() // Page C passes a page path, returns to Page A router.back({ path : '/A' })
+// Page A, open page by name
+router.push({
+  uri: 'B'
+})
+// Page B, open page by name
+router.push({
+  uri: 'C'
+})
+// Page C, open page by name
+router.push({
+  uri: 'D'
+})
+// Page D, open page by name
+router.push({
+  uri: 'E'
+})
+// Page E does not pass a page path, returns to Page D
+router.back()
+// Page D does not pass a page name, returns to Page C
+router.back()
+// Page C passes a page path, returns to Page A
+router.back({
+  path: '/A'
+})
 ```
 
 ### router.clear()
@@ -113,6 +163,7 @@ Clears all historical page records, keeping only the current page.
 None
 
 #### Example:
+
 ```javascript
 router.clear()
 ```
@@ -128,8 +179,10 @@ Type | Description
 Number | Number of pages  
   
 #### Example:
+
 ```javascript
-var length = router.getLength() console.log(` page's length = ${ length } `)
+var length = router.getLength()
+console.log(`page's length = ${length}`)
 ```
 
 ### router.getState()
@@ -145,8 +198,12 @@ name | String | Name of the current page
 path | String | Path of the current page  
   
 #### Example:
+
 ```javascript
-var page = router.getState() console.log(` page index = ${ page.index } `)console.log(` page name = ${ page.name } `)console.log(` page path = ${ page.path } `)
+var page = router.getState()
+console.log(`page index = ${page.index}`)
+console.log(`page name = ${page.name}`)
+console.log(`page path = ${page.path}`)
 ```
 
 ### router.getPages()
@@ -167,6 +224,9 @@ name | String | Name of the page
 path | String | Path of the page  
   
 #### Example:
+
 ```javascript
-var stacks = router.getPages() console.log('Name of the bottom page in the stack:' , stacks [ 0 ] . name)// e.g., list, detail, etc. console.log('Path of the bottom page in the stack:' , stacks [ 0 ] . path)// e.g., /list, /detail, /home/preview
+var stacks = router.getPages()
+console.log('Name of the bottom page in the stack:', stacks[0].name) // e.g., list, detail, etc.
+console.log('Path of the bottom page in the stack:', stacks[0].path) // e.g., /list, /detail, /home/preview
 ```

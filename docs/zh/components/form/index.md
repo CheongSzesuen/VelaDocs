@@ -8,4 +8,3 @@
   * [picker](</vela/quickapp/zh/components/form/picker.html>)
   * [switch](</vela/quickapp/zh/components/form/switch.html>)
   * [slider](</vela/quickapp/zh/components/form/slider.html>)
-

@@ -19,8 +19,51 @@ TIP
 The `tid attribute` of the `for directive` is used to specify the unique ID of array elements. If not specified, the array index (`$idx`) is used as the unique ID by default. The purpose of the `tid attribute` is to enable element node reuse and optimize the redraw efficiency of the `for` loop.
 
 **Example** :
+
 ```html
-< template > < div class = " page " > <!-- Method 1: Default $item represents the array element, $idx represents the array index --> < div class = " row " for = " {{list}} " tid = " uniqueId " > < text > {{$idx}}.{{$item.name}} </ text > </ div > <!-- Method 2: Custom element variable name --> < div class = " row " for = " value in list " tid = " uniqueId " > < text > {{$idx}}.{{value.name}} </ text > </ div > <!-- Method 3: Custom element and index variable names --> < div class = " row " for = " (personIndex, personItem) in list " tid = " uniqueId " > < text > {{personIndex}}.{{personItem.name}} </ text > </ div > </ div > </ template > < style > .page { flex-direction : column ; } .row { width : 85% ; margin-top : 10px ; margin-bottom : 10px ; } </ style > < script > export default { private : { list : [ { name : 'aa' , uniqueId : 1 } , { name : 'bb' , uniqueId : 2 } , { name : 'cc' , uniqueId : 3 } ] } , onInit () { console.info ('Directive for') } } </ script >
+<template>
+  <div class="page">
+    <!-- Method 1: Default $item represents the array element, $idx represents the array index -->
+    <div class="row" for="{{list}}" tid="uniqueId">
+      <text>{{$idx}}.{{$item.name}}</text>
+    </div>
+    <!-- Method 2: Custom element variable name -->
+    <div class="row" for="value in list" tid="uniqueId">
+      <text>{{$idx}}.{{value.name}}</text>
+    </div>
+    <!-- Method 3: Custom element and index variable names -->
+    <div class="row" for="(personIndex, personItem) in list" tid="uniqueId">
+      <text>{{personIndex}}.{{personItem.name}}</text>
+    </div>
+  </div>
+</template>
+
+<style>
+  .page {
+    flex-direction: column;
+  }
+
+  .row {
+    width: 85%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  export default {
+    private: {
+      list: [
+        { name: 'aa', uniqueId: 1 },
+        { name: 'bb', uniqueId: 2 },
+        { name: 'cc', uniqueId: 3 }
+      ]
+    },
+    onInit() {
+      console.info('Directive for')
+    }
+  }
+</script>
 ```
 
 In the example code, the structure of `div.row` will be generated multiple times based on the definition of the `list` data in the script when rendering the page.
@@ -44,4 +87,3 @@ Note
      * The data property specified by the `tid attribute` must exist; otherwise, it may cause runtime exceptions.
      * The data property specified by the `tid attribute` must be unique; otherwise, it may cause performance issues.
      * The `tid attribute` currently does not support expressions.
-

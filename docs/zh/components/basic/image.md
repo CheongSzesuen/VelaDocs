@@ -62,8 +62,13 @@ complete | {width: widthValue(px), height: heightValue(px)} | 图片加载完成
 error |:---:| 图片加载失败时触发  
   
 ## 示例代码
+
 ```html
-< template > < div > < image src = " /common/logo.png " /> </ div > </ template >
+<template>
+  <div>
+    <image src="/common/logo.png" />
+  </div>
+</template>
 ```
 
 ![](../../images/image-example.png)

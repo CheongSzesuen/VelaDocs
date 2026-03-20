@@ -8,4 +8,3 @@
   * [设备信息](</vela/quickapp/zh/features/basic/device.html>)
   * [页面路由](</vela/quickapp/zh/features/basic/router.html>)
   * [应用配置](</vela/quickapp/zh/features/basic/configuration.html>)
-

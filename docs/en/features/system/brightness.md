@@ -3,13 +3,17 @@
 # Screen Brightness
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.brightness" }
+{ "name": "system.brightness" }
 ```
 
 ## Import Module
+
 ```javascript
-import brightness from '@system.brightness' // or const brightness = require('@system.brightness')
+import brightness from '@system.brightness' 
+// or 
+const brightness = require('@system.brightness')
 ```
 
 ## Interface Definition
@@ -33,8 +37,16 @@ Parameter | Type | Description
 value | Integer | Screen brightness (range: 0-255)  
   
 #### Example:
+
 ```javascript
-brightness.getValue({ success : function(data){ console.log(` handling success, value = ${ data.value } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.getValue({
+  success: function(data) {
+    console.log(`handling success, value = ${data.value}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setValue(OBJECT)
@@ -51,8 +63,17 @@ fail | Function | No | Failure callback
 complete | Function | No | Completion callback  
   
 #### Example:
+
 ```javascript
-brightness.setValue({ value : 100 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setValue({
+  value: 100,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.getMode(OBJECT)
@@ -74,8 +95,16 @@ Parameter | Type | Description
 mode | Integer | 0: manual brightness adjustment, 1: auto brightness adjustment  
   
 #### Example:
+
 ```javascript
-brightness.getMode({ success : function(data){ console.log(` handling success, mode = ${ data.mode } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.getMode({
+  success: function(data) {
+    console.log(`handling success, mode = ${data.mode}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setMode(OBJECT)
@@ -92,8 +121,17 @@ fail | Function | No | Failure callback
 complete | Function | No | Completion callback  
   
 #### Example:
+
 ```javascript
-brightness.setMode({ mode : 1 , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setMode({
+  mode: 1,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### brightness.setKeepScreenOn(OBJECT)
@@ -110,6 +148,15 @@ fail | Function | No | Failure callback
 complete | Function | No | Completion callback  
   
 #### Example:
+
 ```javascript
-brightness.setKeepScreenOn({ keepScreenOn : true , success : function() { console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+brightness.setKeepScreenOn({
+  keepScreenOn: true,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

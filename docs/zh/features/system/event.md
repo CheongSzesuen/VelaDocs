@@ -3,13 +3,17 @@
 # 事件 event4+
 
 ## 接口声明
+
 ```json
-{ "name" : "system.event" }
+{ "name": "system.event" }
 ```
 
 ## 导入模块
+
 ```javascript
-import event from '@system.event' // 或 const event = require('@system.event')
+import event from '@system.event' 
+// 或 
+const event = require('@system.event')
 ```
 
 ## 接口定义
@@ -45,8 +49,15 @@ usual.event.CHARGING | 无 | 开始充电
 无
 
 #### 示例：
+
 ```javascript
-event.publish({ eventName : 'myEventName' , options : { params : { age : 10 , name : 'peter' } , permissions : [ 'com.example.demo' ] } })
+event.publish({
+  eventName: 'myEventName',
+  options: {
+    params: { age: 10, name: 'peter' },
+    permissions: ['com.example.demo']
+  }
+})
 ```
 
 ### event.subscribe(OBJECT)
@@ -74,8 +85,17 @@ package | String | 否 | 事件推送者包名
 Number | 是 | 事件id，订阅失败返回undefined  
   
 #### 示例：
+
 ```javascript
-const evtId = event.subscribe({ eventName : 'myEventName' , callback : function(res){ if(res.package === 'com.example.demo'){ console.log(res.params)} } })console.log(evtId)
+const evtId = event.subscribe({
+  eventName: 'myEventName',
+  callback: function(res) {
+    if (res.package === 'com.example.demo') {
+      console.log(res.params)
+    }
+  }
+})
+console.log(evtId)
 ```
 
 ### event.unsubscribe(OBJECT)
@@ -89,8 +109,18 @@ const evtId = event.subscribe({ eventName : 'myEventName' , callback : function(
 id | Number | 是 | 订阅id  
   
 #### 示例：
+
 ```javascript
-const evtId = event.subscribe({ eventName : 'myEventName' , callback : function(res){ if(res.package === 'com.example.demo'){ console.log(res.params)} } })event.unsubscribe({ id : evtId })
+const evtId = event.subscribe({
+  eventName: 'myEventName',
+  callback: function(res) {
+    if (res.package === 'com.example.demo') {
+      console.log(res.params)
+    }
+  }
+})
+
+event.unsubscribe({ id: evtId })
 ```
 
 ## 支持明细

@@ -36,8 +36,43 @@ Name | Parameters | Description
 change | {checked:checkedValue} | Triggered when the checked state changes  
   
 ## Sample Code
+
 ```html
-< template > < div class = " page " > < text class = " title " > switch component </ text > < switch checked = " {{ switchValue }} " class = " switch " @change = " onSwitchChange " > </ switch > < text > Status: {{ switchValue }} </ text > </ div > </ template > < script > export default { private : { switchValue : true } , onSwitchChange (e) { this.switchValue = e.checked } } </ script > < style > .page { flex-direction : column ; padding : 30px ; background-color : #ffffff ; } .title { font-weight : bold ; } .switch { width : 100px ; margin-top : 10px ; } </ style >
+<template>
+  <div class="page">
+    <text class="title">switch component</text>
+    <switch checked="{{ switchValue }}" class="switch" @change="onSwitchChange"></switch>
+    <text>Status: {{ switchValue }}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    private: {
+      switchValue: true
+    },
+    onSwitchChange(e) {
+      this.switchValue = e.checked
+    }
+  }
+</script>
+
+<style>
+  .page {
+    flex-direction: column;
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .switch {
+    width: 100px;
+    margin-top: 10px;
+  }
+</style>
 ```
 
 ![](../../images/switch.gif)

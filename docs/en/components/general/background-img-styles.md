@@ -25,8 +25,37 @@ When there are two parameters, the first parameter is interpreted as the width a
 Invalid parameters are uniformly interpreted as the default value `auto`, which is the original image size.
 
 **Example**
+
 ```html
-< template > < div class = " page " > < text > Image size 128 * 128 </ text > < text > Background container 300 * 200 </ text > < image src = " ../../common/logo.png " > < div class = " imgBg " > </ div > </ div > </ template > < style > .page { flex-direction : column ; align-items : center ; background-color : #000 ; } text { color : #fff ; font-size : 24px ; } .imgBg { width : 300px ; height : 200px ; margin-top : 20px ; border : 2px solid yellowgreen ; background-color : yellowgreen ; background-image : url ('../../common/logo.png') ; background-size : 300px 200px ; background-repeat : no-repeat ; // Not yet supported , recommended to include in case support is added later to prevent style display anomalies } </ style >
+<template>
+  <div class="page">
+    <text>Image size 128 * 128</text>
+    <text>Background container 300 * 200</text>
+    <image src= "../../common/logo.png">
+    <div class="imgBg"></div>
+  </div>
+</template>
+<style>
+  .page {
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+  }
+  text {
+    color: #fff;
+    font-size: 24px;
+  }
+  .imgBg {
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    border: 2px solid yellowgreen;
+    background-color: yellowgreen;
+    background-image: url('../../common/logo.png');
+    background-size: 300px 200px;
+    background-repeat: no-repeat; // Not yet supported, recommended to include in case support is added later to prevent style display anomalies
+  }
+</style>
 ```
 
 **Effect**
@@ -51,12 +80,44 @@ Parameter | Description
 Invalid parameters are interpreted as the default value, which is `repeat`.
 
 **Example**
+
 ```html
-< div class = " container " > < div class = " img " > </ div > </ div > < style > .container { width : 365px ; height : 365px ; background-color : #c7c7c7 ; } .img { width : 100% ; height : 100% ; background-image : url ('../common/logo.png') ; /* Proportionally scales the background image to half the width of the component */ background-size : 50% ; /* Repeats the image along both the horizontal and vertical axes */ background-repeat : repeat ; /* Centers the background image within the component */ background-position : center ; } </ style >
+<div class="container">
+  <div class="img"></div>
+</div>
+
+<style>
+  .container {
+    width: 365px;
+    height: 365px;
+    background-color: #c7c7c7;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    background-image: url('../common/logo.png');
+    /* Proportionally scales the background image to half the width of the component */
+    background-size: 50%;
+    /* Repeats the image along both the horizontal and vertical axes */
+    background-repeat: repeat;
+    /* Centers the background image within the component */
+    background-position: center;
+  }
+</style>
 ```
 
 ```css
-.img { width : 100% ; height : 100% ; background-image : url ('../common/logo.png') ; /* Proportionally scales the background image to a width of 100px */ background-size : 100px ; /* Does not repeat the background image */ background-repeat : no-repeat ; /* Positions the background image 20px from the left edge of the component and at a ratio of 3:7 from the top and bottom edges */ background-position : left 20px top 30% ; }
+.img {
+  width: 100%;
+  height: 100%;
+  background-image: url('../common/logo.png');
+  /* Proportionally scales the background image to a width of 100px */
+  background-size: 100px;
+  /* Does not repeat the background image */
+  background-repeat: no-repeat;
+  /* Positions the background image 20px from the left edge of the component and at a ratio of 3:7 from the top and bottom edges */
+  background-position: left 20px top 30%;
+}
 ```
 
 ## background-position Property
@@ -104,8 +165,38 @@ The first and third values are keyword values defining X and Y. The second and f
 Invalid parameters are all interpreted as the default value (0px, 0px), meaning the image is displayed in the top-left corner of the component.
 
 **Example**
+
 ```html
-< template > < div class = " page " > < text > Image size 128 * 128 </ text > < text > Background container 300 * 200 </ text > < image src = " ../../common/logo.png " > < div class = " imgBg " > </ div > </ div > </ template > < style > .page { flex-direction : column ; align-items : center ; background-color : #000 ; } text { color : #fff ; font-size : 24px ; } .imgBg { width : 300px ; height : 200px ; margin-top : 20px ; border : 2px solid yellowgreen ; background-color : yellowgreen ; background-image : url ('../../common/logo.png') ; background-size : cover ; background-position : right bottom ; background-repeat : no-repeat ; // Not yet supported , recommended to include in case support is added later to prevent style display anomalies } </ style >
+<template>
+  <div class="page">
+    <text>Image size 128 * 128</text>
+    <text>Background container 300 * 200</text>
+    <image src= "../../common/logo.png">
+    <div class="imgBg"></div>
+  </div>
+</template>
+<style>
+  .page {
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+  }
+  text {
+    color: #fff;
+    font-size: 24px;
+  }
+  .imgBg {
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    border: 2px solid yellowgreen;
+    background-color: yellowgreen;
+    background-image: url('../../common/logo.png');
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat; // Not yet supported, recommended to include in case support is added later to prevent style display anomalies
+  }
+</style>
 ```
 
 **Effect**

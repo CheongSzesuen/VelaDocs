@@ -3,13 +3,17 @@
 # 解压缩 zip
 
 ## 接口声明
+
 ```json
-{ "name" : "system.zip" }
+{ "name": "system.zip" }
 ```
 
 ## 导入模块
+
 ```javascript
-import zip from '@system.zip' // 或 const zip = require('@system.zip')
+import zip from '@system.zip'
+// 或
+const zip = require('@system.zip')
 ```
 
 ## 接口定义
@@ -40,6 +44,16 @@ complete | Function | 否 | 执行结束后的回调
 300 | I/O 错误  
   
 #### 示例：
+
 ```javascript
-zip.decompress({ srcUri : 'internal://cache/test.zip' , dstUri : 'internal://files/unzip/' , success : function() { console.log(` handling success `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+zip.decompress({
+  srcUri: 'internal://cache/test.zip',
+  dstUri: 'internal://files/unzip/',
+  success: function() {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

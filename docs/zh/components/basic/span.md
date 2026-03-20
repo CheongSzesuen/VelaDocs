@@ -35,8 +35,17 @@ text-decoration | underline | line-through | none | none | 否 | -
 不支持
 
 ## 示例代码
+
 ```html
-< template > < div > < text > < span > I am span, </ span > < span style = " color : #f76160 " > I am span, </ span > < span style = " color : #f76160 ; text-decoration : underline ; " > I am span, </ span > </ text > </ div > </ template >
+<template>
+  <div>
+    <text>
+      <span>I am span,</span>
+      <span style="color: #f76160">I am span,</span>
+      <span style="color: #f76160;text-decoration: underline;">I am span,</span>
+    </text>
+  </div>
+</template>
 ```
 
 ![](../../images/span.png)

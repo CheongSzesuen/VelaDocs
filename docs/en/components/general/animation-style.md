@@ -70,8 +70,18 @@ Change the origin point of an element's deformation, currently supporting change
   * This property must be used with the transform property first.
 
 Example code:
+
 ```css
-/* Using % values */ div { transform : rotate (30deg) ; transform-origin : 20% 40% ; } /* Using px values */ div { transform : rotate (30deg) ; transform-origin : 100px 100px ; }
+/* Using % values */
+div {
+  transform: rotate(30deg); 
+  transform-origin: 20% 40%;
+}
+/* Using px values */
+div {
+  transform: rotate(30deg); 
+  transform-origin: 100px 100px;
+}
 ```
 
 ## Animation-Name Property
@@ -79,8 +89,16 @@ Example code:
 Specifies a series of animations to be adopted. Each property value name represents a keyframe sequence defined by the @keyframes property. This property supports applying single or multiple animations (`1070+`) in components. When applying multiple animations, they start simultaneously.
 
 Example code:
+
 ```js
-/* Single animation */ animation \- name : Color ; animation \- name : translate ; animation \- name : rotate ; /* Multiple animations 1070+ */ animation \- name : Color , Opacity ; animation \- name : Width , translate , rotate ;
+/* Single animation */
+animation-name: Color;
+animation-name: translate;
+animation-name: rotate;
+
+/* Multiple animations 1070+ */
+animation-name: Color, Opacity;
+animation-name: Width, translate, rotate;
 ```
 
 ## @keyframes Property
@@ -104,13 +122,54 @@ Transition animation is another way to implement animations. Transition animatio
 ### Transition Usage Example
 
 There are four style properties: transition-property, transition-duration, transition-timing-function, and transition-delay, written directly in the style. Example usage:
+
 ```html
-< template > < div class = " page " > < div class = " div {{otherClass}} " > </ div > </ div > </ template > < script > export default { data : { otherClass : "" } , onShow () { const that = this setTimeout (() => { that.otherClass = "new-width" } , 1000) ; } } ; </ script > < style > .page { padding : 60px ; align-items : center ; } .div { width : 100px ; height : 200px ; background-color : red ; transition-property : width ; transition-duration : 2000ms ; transition-timing-function : ease-in ; transition-delay : 500ms ; } .new-width { width : 300px ; } </ style >
+<template>
+  <div class="page">
+    <div class="div {{otherClass}}"></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: {
+      otherClass: ""
+    },
+    onShow() {
+      const that = this
+      setTimeout(() => {
+        that.otherClass = "new-width"
+      }, 1000);
+    }
+  };
+</script>
+
+<style>
+.page {
+  padding: 60px;
+  align-items: center;
+}
+.div {
+  width: 100px;
+  height: 200px;
+  background-color: red;
+  transition-property: width;
+  transition-duration: 2000ms;
+  transition-timing-function: ease-in;
+  transition-delay: 500ms;
+}
+.new-width {
+  width: 300px;
+}
+</style>
 ```
 
 The four style properties above can be abbreviated into one, indicating that after triggering a width change in the div, it will change to the new width value in an accelerated manner over 0.5s, with the transition animation lasting 2s:
+
 ```css
-.div { transition : width 2000ms ease-in 500ms ; }
+.div {
+  transition: width 2000ms ease-in 500ms;
+}
 ```
 
 ### Generic Style Properties Supported by transition-property

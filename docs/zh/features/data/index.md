@@ -6,4 +6,3 @@
 
   * [数据存储](</vela/quickapp/zh/features/data/storage.html>)
   * [文件存储](</vela/quickapp/zh/features/data/file.html>)
-

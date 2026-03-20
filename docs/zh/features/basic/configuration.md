@@ -7,8 +7,11 @@
 无需声明
 
 ## 导入模块
+
 ```javascript
-import configuration from '@system.configuration' // 或 const configuration = require('@system.configuration')
+import configuration from '@system.configuration' 
+// 或 
+const configuration = require('@system.configuration')
 ```
 
 ## 接口定义
@@ -29,6 +32,8 @@ language | String | 语言
 countryOrRegion | String | 国家或地区  
   
 #### 示例：
+
 ```javascript
-const locale = configuration.getLocale() console.log(locale.language)
+const locale = configuration.getLocale()
+console.log(locale.language)
 ```

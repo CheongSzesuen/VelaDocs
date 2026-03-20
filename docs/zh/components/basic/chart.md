@@ -77,15 +77,86 @@ margin | `<length>` | 1px | 否 | 擦除点的个数（最新绘制的点与最�
 ## 示例代码
 
 ### 线形图
+
 ```html
-< template > < chart type = " line " options = " {{lineOpts}} " datasets = " {{lineData}} " > </ chart > </ template > < script > export default { data : { lineData : [ { strokeColor : '#f07826' , data : [ 763 , 550 , 551 , 554 , 731 , 654 , 525 , 696 , 595 , 628 ] , } , { strokeColor : '#cce5ff' , fillColor : '#cce5ff' , data : [ 535 , 776 , 615 , 444 , 694 , 785 , 677 , 609 , 562 , 410 ] , } , { strokeColor : '#ff88bb' , data : [ 673 , 500 , 574 , 483 , 702 , 583 , 437 , 506 , 693 , 657 ] } , ] , lineOpts : { xAxis : { min : 0 , max : 10 , display : true , axisTick : 10 } , yAxis : { min : 400 , max : 900 , display : true , } } } } </ script >
+<template>
+  <chart type="line" options="{{lineOpts}}" datasets="{{lineData}}"></chart>
+</template>
+
+<script>
+  export default {
+    data: {
+      lineData: [
+        {
+          strokeColor: '#f07826',
+          data: [763, 550, 551, 554, 731, 654, 525, 696, 595, 628],
+        },
+        {
+          strokeColor: '#cce5ff',
+          fillColor: '#cce5ff', 
+          data: [535, 776, 615, 444, 694, 785, 677, 609, 562, 410],
+        },
+        {
+          strokeColor: '#ff88bb',
+          data: [673, 500, 574, 483, 702, 583, 437, 506, 693, 657]
+        },
+      ],
+      lineOpts: {
+        xAxis: {
+          min: 0,
+          max: 10,
+          display: true,
+          axisTick: 10
+        },
+        yAxis: {
+          min: 400,
+          max: 900,
+          display: true,
+        }
+      }
+    }
+  }
+</script>
 ```
 
 ![](../../images/line-chart.png)
 
 ### 柱状图
+
 ```html
-< template > < chart type = " bar " options = " {{barOpts}} " datasets = " {{barData}} " > </ chart > </ template > < script > export default { data : { barData : [ { fillColor : '#f07826' , data : [ 763 , 550 , 551 , 554 , 731 , 654 , 525 ] } , { fillColor : '#cce5ff' , data : [ 535 , 776 , 615 , 444 , 694 , 785 , 677 ] } ] , barOpts : { xAxis : { min : 0 , max : 7 , display : false , axisTick : 7 } , yAxis : { min : 0 , max : 800 , display : false , } } } } </ script >
+<template>
+  <chart type="bar" options="{{barOpts}}" datasets="{{barData}}"></chart>
+</template>
+
+<script>
+  export default {
+    data: {
+      barData: [
+        {
+          fillColor: '#f07826',
+          data: [763, 550, 551, 554, 731, 654, 525]
+        },
+        {
+          fillColor: '#cce5ff',
+          data: [535, 776, 615, 444, 694, 785, 677]
+        }
+      ],
+      barOpts: {
+        xAxis: {
+          min: 0,
+          max: 7,
+          display: false,
+          axisTick: 7
+        },
+        yAxis: {
+          min: 0,
+          max: 800,
+          display: false,
+        }
+      }
+    }
+  }
+</script>
 ```
 
 ![](../../images/bar-chart.png)

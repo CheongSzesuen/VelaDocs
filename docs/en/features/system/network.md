@@ -3,13 +3,17 @@
 # Network Information network
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.network" }
+{ "name": "system.network" }
 ```
 
 ## Import Module
+
 ```javascript
-import network from '@system.network' // or const network = require('@system.network')
+import network from '@system.network' 
+// or 
+const network = require('@system.network')
 ```
 
 ## Interface Definition
@@ -33,8 +37,13 @@ Parameter Name | Type | Description
 type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others  
   
 #### Example:
+
 ```javascript
-network.getType({ success : function(data){ console.log(` handling success: ${ data.type } `)} })
+network.getType({
+  success: function(data) {
+    console.log(`handling success: ${data.type}`)
+  }
+})
 ```
 
 ### network.subscribe(OBJECT)
@@ -55,8 +64,13 @@ Parameter Name | Type | Description
 type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others. Note: A network type other than none does not guarantee that the device can definitely access the target server; a request interface is required for judgment.  
   
 #### Example:
+
 ```javascript
-network.subscribe({ callback : function(data){ console.log(` handling callback ${ data.type } `)} })
+network.subscribe({
+  callback: function(data) {
+    console.log(`handling callback ${data.type}`)
+  }
+})
 ```
 
 ### network.unsubscribe()
@@ -68,6 +82,7 @@ Cancel listening for changes in network type.
 None
 
 #### Example:
+
 ```javascript
 network.unsubscribe()
 ```

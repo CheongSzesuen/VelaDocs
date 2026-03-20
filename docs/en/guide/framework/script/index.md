@@ -11,6 +11,7 @@ Supports ES5 / ES6 syntax
 ### Module Declaration
 
 You can import functional modules using `import` and call module methods in your code (refer to the interface documentation for details):
+
 ```javascript
 import fetch from '@system.fetch'
 ```
@@ -18,6 +19,7 @@ import fetch from '@system.fetch'
 ### Code Reference
 
 It is recommended to use `import` to import JS code, for example:
+
 ```javascript
 import utils from '../common/utils.js'
 ```
@@ -29,8 +31,22 @@ The JS application environment is not a Node.js environment, so do not import na
 ## Page Data Object
 
 You can define page-level data objects in the page file for binding in the template and manipulation in page methods. For example:
+
 ```html
-< template > < div > < text > {{a}} </ text > </ div > </ template > < script > export default { // Page data object, affects the override mechanism of incoming data: properties defined in private cannot be overridden private : { a : 1 } } </ script >
+<template>
+  <div>
+    <text>{{a}}</text>
+  </div>
+</template>
+
+<script>
+  export default {
+    // Page data object, affects the override mechanism of incoming data: properties defined in private cannot be overridden
+    private: {
+      a: 1
+    }
+  }
+</script>
 ```
 
 For more detailed information, refer to [Page Data Object](</vela/quickapp/en/guide/framework/script/page-data.html>).
@@ -38,8 +54,12 @@ For more detailed information, refer to [Page Data Object](</vela/quickapp/en/gu
 ## Lifecycle Interfaces
 
 Both applications and pages have a predefined series of lifecycles. You can declare lifecycle hook functions in the script, which will be called when the application/page reaches a specific lifecycle stage. For example:
+
 ```javascript
-// This function will be executed when the application/page is initialized onInit() { console.log('page initialized！')}
+// This function will be executed when the application/page is initialized
+onInit() {
+  console.log('page initialized！')
+}
 ```
 
 For more detailed information, refer to [Lifecycle](</vela/quickapp/en/guide/framework/script/lifecycle.html>).
@@ -47,8 +67,11 @@ For more detailed information, refer to [Lifecycle](</vela/quickapp/en/guide/fra
 ## Custom Methods
 
 Developers can declare custom methods as needed in the application/page ux file, including utility methods, event callback methods, etc. For example:
+
 ```javascript
-onBtnClick() { console.log('button clicked!')}
+onBtnClick(){
+  console.log('button clicked!')
+}
 ```
 
 ## Global Objects and Methods

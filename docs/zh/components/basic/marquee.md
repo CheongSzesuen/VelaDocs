@@ -48,8 +48,23 @@ start |:---:| 开始滚动 marquee
 stop |:---:| 停止滚动 marquee  
   
 ## 示例代码
+
 ```html
-< template > < div > < marquee id = " marquee " scrollamount = {{6}} loop = {{-1}} > scrollamount控制滚动速度，默认值为6（6像素/秒） </ marquee > </ div > </ template > < script > export default { onReady () { this . $element ('marquee') . start () } } </ script >
+<template>
+  <div>
+    <marquee id="marquee" scrollamount={{6}} loop={{-1}}>
+      scrollamount控制滚动速度，默认值为6（6像素/秒）
+    </marquee>
+  </div>
+</template>
+
+<script>
+  export default {
+    onReady() {
+      this.$element('marquee').start()
+    }
+  }
+</script>
 ```
 
 ![](../../images/marquee.gif)

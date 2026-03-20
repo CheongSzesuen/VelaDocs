@@ -18,4 +18,3 @@
 ## 接口
 
   * [@system.device](</vela/quickapp/zh/features/basic/device.html>) getInfo() 新增返回值：deviceType、APILevel
-

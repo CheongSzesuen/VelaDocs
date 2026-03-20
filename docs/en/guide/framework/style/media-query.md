@@ -15,8 +15,11 @@ Each media query statement consists of an optional media type and any number of 
 There are two ways to perform media queries:
 
 ### Introducing media queries using the @media approach
+
 ```css
-@media [media type] [ and | not | only ] [ (media feature) ] { CSS-Code ; }
+@media [media type] [and|not|only] [(media feature)] {
+  CSS-Code;
+}
 ```
 
 ### Examples
@@ -27,8 +30,9 @@ There are two ways to perform media queries:
   * @media (400 <= width <= 700) { ... } // Multi-condition level 4 syntax.
 
 ### Introducing media queries using the @import approach 3+
+
 ```css
-@import './css_file_name.css' [media type] [ and | not | only ] [ (media feature) ] ;
+@import './css_file_name.css' [media type] [and|not|only] [(media feature) ];
 ```
 
 ## Media Types
@@ -85,8 +89,28 @@ Band | Xiaomi Band 9 Pro | Rectangle | 1.74 inches | 336x480 | 336 | 2.1 | 168
 Band | Xiaomi Band 10 | Pill-shaped | 1.725 inches | 212x520 | 326 | 2.0 | 106  
   
 Example code:
+
 ```css
-// The following media query will take effect on devices with a screen width between 80dp and 160dp. @media (min-width : 80) and (max-width : 160) { .box { background-color : green ; } } // The following media query will take effect on devices with a screen width between 160dp and 200dp. @media (min-width : 160) and (max-width : 200) { .box { background-color : yellow ; } } // The following media query will take effect on devices with a screen width between 200dp and 300dp. @media (min-width : 200) and (max-width : 300) { .box { background-color : red ; } }
+// The following media query will take effect on devices with a screen width between 80dp and 160dp.
+@media (min-width: 80) and (max-width: 160) {
+  .box {
+    background-color: green;
+  }
+}
+
+// The following media query will take effect on devices with a screen width between 160dp and 200dp.
+@media (min-width: 160) and (max-width: 200) {
+  .box {
+    background-color: yellow;
+  }
+}
+
+// The following media query will take effect on devices with a screen width between 200dp and 300dp.
+@media (min-width: 200) and (max-width: 300) {
+  .box {
+    background-color: red;
+  }
+}
 ```
 
 ## Logical Operators 3+
@@ -108,13 +132,34 @@ or | The or operator combines multiple media feature comparison statements into 
 ## Example Code
 
   * Query for devices with a circular or pill-shaped screen:
-```css
-.box { width : 100px ; height : 100px ; background-color : black ; } @media (shape : circle) or (shape : pill-shaped) { .box { background-color : green ; } }
-```
 
-  * Query for devices that are watches and have a circular screen:
 ```css
-.box { width : 100px ; height : 100px ; background-color : black ; } @media (device-type : watch) and (shape : circle) { .box { background-color : green ; } }
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+
+  @media (shape: circle) or (shape: pill-shaped) {
+    .box {
+      background-color: green;
+    }
+  }
+```
+  * Query for devices that are watches and have a circular screen:
+
+```css
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+
+  @media (device-type: watch) and (shape: circle) {
+    .box {
+      background-color: green;
+    }
+  }
 ```
 
 ## Support Details

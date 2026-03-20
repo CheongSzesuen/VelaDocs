@@ -3,13 +3,17 @@
 # Data Request fetch
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.fetch" }
+{ "name": "system.fetch" }
 ```
 
 ## Import Module
+
 ```javascript
-import fetch from '@system.fetch' // or const fetch = require('@system.fetch')
+import fetch from '@system.fetch' 
+// or 
+const fetch = require('@system.fetch')
 ```
 
 ## Interface Definition
@@ -62,8 +66,43 @@ file | String | Returns the URI of a temporary file
 arraybuffer | ArrayBuffer | Returns an ArrayBuffer object  
   
 #### Example:
+
 ```javascript
-fetch.fetch({ url : 'http://www.example.com' , responseType : 'text' , success : function(response){ console.log(` the status code of the response: ${ response.code } `)console.log(` the data of the response: ${ response.data } `)console.log(` the headers of the response: ${ JSON.stringify(response.headers)} `)} , fail : function(data , code){ console.log(` handling fail, errMsg = ${ data } `)console.log(` handling fail, errCode = ${ code } `)} })// We can also handle callbacks using promises fetch.fetch({ url : 'http://www.example.com' , responseType : 'text' }). then(res => { const result = res.data console.log(` the status code of the response: ${ result.code } `)console.log(` the data of the response: ${ result.data } `)console.log(` the headers of the response: ${ JSON.stringify(result.headers)} `)}). catch(error => { console.log(` handling fail, errMsg = ${ error.data } `)console.log(` handling fail, errCode = ${ error.code } `)})
+fetch.fetch({
+  url: 'http://www.example.com',
+  responseType: 'text',
+  success: function(response) {
+    console.log(`the status code of the response: ${response.code}`)
+    console.log(`the data of the response: ${response.data}`)
+    console.log(
+      `the headers of the response: ${JSON.stringify(response.headers)}`
+    )
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, errMsg = ${data}`)
+    console.log(`handling fail, errCode = ${code}`)
+  }
+})
+
+// We can also handle callbacks using promises
+fetch
+  .fetch({
+    url: 'http://www.example.com',
+    responseType: 'text'
+  })
+  .then(res => {
+    const result = res.data
+
+    console.log(`the status code of the response: ${result.code}`)
+    console.log(`the data of the response: ${result.data}`)
+    console.log(
+      `the headers of the response: ${JSON.stringify(result.headers)}`
+    )
+  })
+  .catch(error => {
+    console.log(`handling fail, errMsg = ${error.data}`)
+    console.log(`handling fail, errCode = ${error.code}`)
+  })
 ```
 
 ## Support Details

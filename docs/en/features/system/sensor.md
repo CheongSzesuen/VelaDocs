@@ -3,13 +3,17 @@
 # Sensor
 
 ## Interface Declaration
+
 ```json
-{ "name" : "system.sensor" }
+{ "name": "system.sensor" }
 ```
 
 ## Import Module
+
 ```javascript
-import sensor from '@system.sensor' // or const sensor = require('@system.sensor')
+import sensor from '@system.sensor' 
+// or 
+const sensor = require('@system.sensor')
 ```
 
 ## Interface Definition
@@ -33,8 +37,13 @@ Parameter | Type | Description
 pressure | Number | Pressure, in hPa (hectopascals), floating-point number  
   
 #### Example:
+
 ```javascript
-sensor.subscribePressure({ callback : function(ret){ console.log(` handling callback, pressure = ${ ret.pressure } `)} })
+sensor.subscribePressure({
+  callback: function(ret) {
+    console.log(`handling callback, pressure = ${ret.pressure}`)
+  }
+})
 ```
 
 ### sensor.unsubscribePressure()
@@ -46,6 +55,7 @@ Cancels listening for pressure sensor data.
 None
 
 #### Example:
+
 ```javascript
 sensor.unsubscribePressure()
 ```
@@ -79,8 +89,16 @@ y | Number | Y-axis coordinate
 z | Number | Z-axis coordinate  
   
 #### Example:
+
 ```javascript
-sensor.subscribeAccelerometer({ callback : function(ret){ console.log(` handling callback, x = ${ ret.x } , y = ${ ret.y } , z = ${ ret.z } `)} , fail : function(msg , code){ console.log(` handling callback, fail: ` , msg , code)} })
+sensor.subscribeAccelerometer({
+  callback: function(ret) {
+    console.log(`handling callback, x = ${ret.x}, y = ${ret.y}, z = ${ret.z}`)
+  },
+  fail: function(msg, code) {
+    console.log(`handling callback, fail:`, msg, code)
+  }
+})
 ```
 
 ### sensor.unsubscribeAccelerometer()
@@ -92,6 +110,7 @@ Cancels listening for accelerometer data.
 None
 
 #### Example:
+
 ```javascript
 sensor.unsubscribeAccelerometer()
 ```
@@ -121,8 +140,16 @@ Error Code | Description
 1000 | Current device does not support compass sensor  
   
 #### Example:
+
 ```javascript
-sensor.subscribeCompass({ callback : function(res){ console.log(` handling subscribeCompass callback, direction = ${ res.direction } , accuracy = ${ res.accuracy } `)} , fail : function(data , code){ console.log(` handling subscribeCompass fail, code = ${ code } `)} })
+sensor.subscribeCompass({
+  callback: function (res) {
+    console.log(`handling subscribeCompass callback, direction = ${res.direction}, accuracy = ${res.accuracy}`)
+  },
+  fail: function (data, code) {
+    console.log(`handling subscribeCompass fail, code = ${code}`)
+  }
+})
 ```
 
 ### sensor.unsubscribeCompass()
@@ -134,6 +161,7 @@ Cancels listening for compass data.
 None
 
 #### Example:
+
 ```javascript
 sensor.unsubscribeCompass()
 ```

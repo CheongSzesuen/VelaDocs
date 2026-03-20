@@ -68,8 +68,18 @@ rotate | `<deg>`
   * 使用此属性必须先使用 transform 属性。
 
 示例代码：
+
 ```css
-/* 使用 % 值 */ div { transform : rotate (30deg) ; transform-origin : 20% 40% ; } /* 使用 px 值 */ div { transform : rotate (30deg) ; transform-origin : 100px 100px ; }
+/* 使用 % 值 */
+div {
+  transform: rotate(30deg); 
+  transform-origin: 20% 40%;
+}
+/* 使用 px 值 */
+div {
+  transform: rotate(30deg); 
+  transform-origin: 100px 100px;
+}
 ```
 
 ## animation-name 属性
@@ -77,8 +87,16 @@ rotate | `<deg>`
 指定所采用的一系列动画，属性值的每个名称代表一个由 @keyframes 属性定义的关键帧序列。该属性支持在组件中应用单个动画或多个动画 `1070+` ，应用多个动画时动画同时开始执行。
 
 示例代码：
+
 ```js
-/* 单个动画 */ animation \- name : Color ; animation \- name : translate ; animation \- name : rotate ; /* 多个动画 1070+ */ animation \- name : Color , Opacity ; animation \- name : Width , translate , rotate ;
+/* 单个动画 */
+animation-name: Color;
+animation-name: translate;
+animation-name: rotate;
+
+/* 多个动画 1070+ */
+animation-name: Color, Opacity;
+animation-name: Width, translate, rotate;
 ```
 
 ## @keyframes 属性
@@ -102,13 +120,54 @@ transition 过渡动画是实现动画的另一种方式。过渡动画可以为
 ### transition 使用示例
 
 共 4 个样式属性：transition-property、transition-duration、transition-timing-function、transition-delay，直接写在样式当中，使用示例如下：
+
 ```html
-< template > < div class = " page " > < div class = " div {{otherClass}} " > </ div > </ div > </ template > < script > export default { data : { otherClass : "" } , onShow () { const that = this setTimeout (() => { that.otherClass = "new-width" } , 1000) ; } } ; </ script > < style > .page { padding : 60px ; align-items : center ; } .div { width : 100px ; height : 200px ; background-color : red ; transition-property : width ; transition-duration : 2000ms ; transition-timing-function : ease-in ; transition-delay : 500ms ; } .new-width { width : 300px ; } </ style >
+<template>
+  <div class="page">
+    <div class="div {{otherClass}}"></div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: {
+      otherClass: ""
+    },
+    onShow() {
+      const that = this
+      setTimeout(() => {
+        that.otherClass = "new-width"
+      }, 1000);
+    }
+  };
+</script>
+
+<style>
+.page {
+  padding: 60px;
+  align-items: center;
+}
+.div {
+  width: 100px;
+  height: 200px;
+  background-color: red;
+  transition-property: width;
+  transition-duration: 2000ms;
+  transition-timing-function: ease-in;
+  transition-delay: 500ms;
+}
+.new-width {
+  width: 300px;
+}
+</style>
 ```
 
 上述 4 个样式属性可简写到一个中，表示当触发 div 的 width 变化后 0.5s，以加速的方式变化至新的 width 值，过渡动画持续 2s：
+
 ```css
-.div { transition : width 2000ms ease-in 500ms ; }
+.div {
+  transition: width 2000ms ease-in 500ms;
+}
 ```
 
 ### transition-property 支持的通用样式属性

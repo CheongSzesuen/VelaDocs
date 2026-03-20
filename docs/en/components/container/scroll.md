@@ -40,15 +40,116 @@ Minimum aiot-toolkit version: 1.1.4
 ### Example Code
 
   * scroll-snap-type & scroll-snap-align
+
 ```html
-< template > < div class = " page " > < div class = " scroll-container " > < scroll class = " box " scroll-x = " true " style = " scroll-snap-type : x proximity ; " > < text class = " scroll-item color-1 " > A </ text > < text class = " scroll-item color-2 " > B </ text > < text class = " scroll-item color-1 " style = " scroll-snap-align : start ; " > C </ text > < text class = " scroll-item color-2 " > D </ text > < text class = " scroll-item color-1 " style = " scroll-snap-align : center ; " > E </ text > < text class = " scroll-item color-2 " > F </ text > < text class = " scroll-item color-1 " style = " scroll-snap-align : end ; " > G </ text > < text class = " scroll-item color-2 " > H </ text > </ scroll > </ div > </ div > </ template > < script > export default { } </ script > < style > .page { padding : 60px ; flex-direction : column ; } .scroll-container { width : 100% ; } .box { margin-bottom : 30px ; height : 100px ; width : 200px ; } .scroll-item { width : 80% ; height : 100px ; text-align : center ; } .color-1 { background-color : cadetblue ; } .color-2 { background-color : orangered ; } </ style >
+<template>
+  <div class="page">
+    <div class="scroll-container">
+      <scroll class="box" scroll-x="true" style="scroll-snap-type: x proximity;">
+        <text class="scroll-item color-1">A</text>
+        <text class="scroll-item color-2">B</text>
+        <text class="scroll-item color-1" style="scroll-snap-align: start;">C</text>
+        <text class="scroll-item color-2">D</text>
+        <text class="scroll-item color-1" style="scroll-snap-align: center;">E</text>
+        <text class="scroll-item color-2">F</text>
+        <text class="scroll-item color-1" style="scroll-snap-align: end;">G</text>
+        <text class="scroll-item color-2">H</text>
+      </scroll>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {}
+</script>
+
+<style>
+  .page {
+    padding: 60px;
+    flex-direction: column;
+  }
+
+  .scroll-container {
+    width: 100%;
+  }
+
+  .box {
+    margin-bottom: 30px;
+    height: 100px;
+    width: 200px;
+  }
+
+  .scroll-item {
+    width: 80%;
+    height: 100px;
+    text-align: center;
+  }
+
+  .color-1 {
+    background-color: cadetblue;
+  }
+
+  .color-2 {
+    background-color: orangered;
+  }
+</style>
 ```
 
 ![](../../images/scroll.gif)
 
   * scroll-snap-stop
+
 ```html
-< template > < div class = " page " > < div class = " scroll-container " > < scroll class = " box " scroll-x = " true " style = " scroll-snap-type : x cross ; scroll-snap-stop : always ; " > < text class = " scroll-item color-1 " > A </ text > < text class = " scroll-item color-2 " style = " scroll-snap-align : center ; " > B </ text > < text class = " scroll-item color-1 " style = " scroll-snap-align : center ; " > C </ text > < text class = " scroll-item color-2 " style = " scroll-snap-align : center ; " > D </ text > < text class = " scroll-item color-1 " style = " scroll-snap-align : center ; " > E </ text > < text class = " scroll-item color-2 " style = " scroll-snap-align : center ; " > F </ text > < text class = " scroll-item color-1 " > G </ text > </ scroll > </ div > </ div > </ template > < script > export default { } </ script > < style > .page { padding : 60px ; flex-direction : column ; } .scroll-container { width : 100% ; } .box { margin-bottom : 30px ; height : 100px ; width : 200px ; } .scroll-item { width : 80% ; height : 100px ; text-align : center ; } .color-1 { background-color : cadetblue ; } .color-2 { background-color : orangered ; } </ style >
+<template>
+  <div class="page">
+    <div class="scroll-container">
+      <scroll class="box" scroll-x="true" style="scroll-snap-type: x cross;scroll-snap-stop:always;">
+        <text class="scroll-item color-1">A</text>
+        <text class="scroll-item color-2" style="scroll-snap-align: center;">B</text>
+        <text class="scroll-item color-1" style="scroll-snap-align: center;">C</text>
+        <text class="scroll-item color-2" style="scroll-snap-align: center;">D</text>
+        <text class="scroll-item color-1" style="scroll-snap-align: center;">E</text>
+        <text class="scroll-item color-2" style="scroll-snap-align: center;">F</text>
+        <text class="scroll-item color-1">G</text>
+      </scroll>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {}
+</script>
+
+<style>
+  .page {
+    padding: 60px;
+    flex-direction: column;
+  }
+
+  .scroll-container {
+    width: 100%;
+  }
+
+  .box {
+    margin-bottom: 30px;
+    height: 100px;
+    width: 200px;
+  }
+
+  .scroll-item {
+    width: 80%;
+    height: 100px;
+    text-align: center;
+  }
+
+  .color-1 {
+    background-color: cadetblue;
+  }
+
+  .color-2 {
+    background-color: orangered;
+  }
+</style>
 ```
 
 ![](../../images/scroll-snap-stop.gif)
@@ -93,6 +194,76 @@ width | `<number>` | The width of the scrollable content, including border and p
 height | `<number>` | The height of the scrollable content, including border and padding  
   
 ## Example Code
+
 ```html
-< template > < div class = " page " > < scroll id = " scrollId " scroll-y = " true " onscrolltop = " handleScrollTop " > < div class = " item " > < text > Beijing </ text > </ div > < div class = " item " > < text > Shanghai </ text > </ div > < div class = " item " > < text > Guangzhou </ text > </ div > < div class = " item " > < text > Shenzhen </ text > </ div > </ scroll > </ div > </ template > < script > export default { onShow () { this . $element ('scrollId') . getScrollRect ({ success ({ width , height }) { console.log ('Width' , width) ; console.log ('Height' , height) ; } }) // this.scrollTo() // this.scrollBy() } , handleScrollTop () { console.info ('Scrolled to top.') } , scrollTo () { this . $element ('scrollId') . scrollTo ({ top : 1000 , left : 0 , behavior : 'smooth' }) } , scrollBy () { this . $element ('scrollId') . scrollBy ({ top : 1000 , left : 0 , behavior : 'smooth' }) } } </ script > < style > .page { justify-content : center ; align-items : center ; } #scrollId { width : 50% ; height : 100px ; flex-direction : column ; background-color : yellowgreen ; } .item { width : 100% ; height : 50px ; justify-content : center ; } </ style >
+<template>
+  <div class="page">
+      <scroll id="scrollId" scroll-y="true" onscrolltop="handleScrollTop">
+          <div class="item">
+             <text>Beijing</text>
+          </div>
+          <div class="item">
+             <text>Shanghai</text>
+          </div>
+          <div class="item">
+             <text>Guangzhou</text>
+          </div>
+          <div class="item">
+             <text>Shenzhen</text>
+          </div>
+       </scroll>
+  </div>
+</template>
+
+<script>
+  export default {
+    onShow() {
+      this.$element('scrollId').getScrollRect({
+        success({ width, height }) {
+          console.log('Width', width);
+          console.log('Height', height);  
+        }
+      })
+
+      // this.scrollTo()
+      // this.scrollBy()
+    },
+    handleScrollTop() {
+      console.info('Scrolled to top.')
+    },
+    scrollTo() {
+      this.$element('scrollId').scrollTo({
+        top: 1000,
+        left: 0,
+        behavior: 'smooth'
+      })
+    },
+    scrollBy() {
+      this.$element('scrollId').scrollBy({
+        top: 1000,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
+</script>
+<style>
+  .page {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #scrollId {
+    width: 50%;
+    height: 100px;
+    flex-direction: column;
+    background-color: yellowgreen;
+  }
+
+  .item {
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+  }
+</style>
 ```

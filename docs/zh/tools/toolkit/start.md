@@ -33,23 +33,35 @@
 
 对比**AIoT-toolkit1.0** ，**AIoT-toolkit2.0** 有以下重大改进：  
 1.模板语法中可以直接写复杂函数
+
 ```html
-< div id = " {{(x=> x+ y)(1)}} " onclick = " (evt) => { const x = 10 ; return sum (x , evt , y) } " > </ div >
+<div 
+    id="{{(x=> x+ y)(1)}}" 
+    onclick="(evt)=>{
+       const x = 10;
+       return sum(x, evt, y)
+    }">
+</div>
 ```
 
 2.class的变量可以包含多个类名(之前每个变量只能包含1个类名)
+
 ```html
-class="a {{x}}" // x="a1 a2 a3"
+class="a {{x}}"  // x="a1 a2 a3"
 ```
 
 3.style可以是string，也可以是object(之前只是object)
+
 ```html
-< div style = " a { { b } } c " > </ div >
+ <div style="a{{b}}c">
+
+ </div>
 ```
 
 4.样式顺序可以随意写(之前必须按固定顺序)
+
 ```html
-border: solid red 10px;
+ border: solid red 10px; 
 ```
 
 5.错误提示定位到行列 ![alt text](../../images/ide-toolkit-3.png)

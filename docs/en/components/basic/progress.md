@@ -46,8 +46,27 @@ radius | `<length>` | Half of the smaller value of the component width and heigh
 Supports [general events](</vela/quickapp/en/components/general/events.html>)
 
 ## Example Code
+
 ```html
-< template > < div style = " flex-direction : column " > < progress class = " p1 " percent = " 40 " > </ progress > < progress class = " p2 " percent = " 80 " type = " arc " > </ progress > </ div > </ template > < style > .p1 { margin-bottom : 10px ; stroke-width : 12px ; } .p2 { margin-bottom : 10px ; stroke-width : 12px ; start-angle : 0 ; total-angle : 360deg ; } </ style >
+<template>
+  <div style="flex-direction: column">
+    <progress class="p1" percent="40"></progress> 
+    <progress class="p2" percent="80" type="arc"></progress>
+  </div>
+</template>
+<style>
+  .p1 {
+    margin-bottom: 10px;
+    stroke-width: 12px;
+  }
+
+  .p2 {
+    margin-bottom: 10px;
+    stroke-width: 12px;
+    start-angle: 0;
+    total-angle: 360deg;
+  }
+</style>
 ```
 
 ![](../../images/progress.png)

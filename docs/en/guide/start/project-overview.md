@@ -9,8 +9,23 @@ This chapter explains the role of each part in a Vela JS application project bas
 A Vela JS application project consists of configuration files (manifest.json), template code (ux files), style code (css files), logic code (js files), and resource files (images, audio, etc.).
 
 A typical project directory structure is as follows:
+
 ```bash
-├── manifest.json ├── app.ux ├── pages │ ├── index | | └── index.ux │ └── detail | └── detail.ux ├── i18n | ├── defaults.json | ├── zh-CN.json | └── en-US.json └── common ├── style.css ├── utils.js └── logo.png
+├── manifest.json
+├── app.ux
+├── pages
+│   ├── index
+|   |   └── index.ux
+│   └── detail
+|       └── detail.ux
+├── i18n
+|   ├── defaults.json
+|   ├── zh-CN.json
+|   └── en-US.json
+└── common
+    ├── style.css
+    ├── utils.js
+    └── logo.png
 ```
 
 ## Configuration File
@@ -26,13 +41,53 @@ A page usually consists of three parts: page structure, style, and logic interac
 If placed in a single ux file, the ux file needs to include three tags: `template`, `style`, and `script`.
 
 Example:
+
 ```html
-< template > < div class = " page " > < text class = " title " > Welcome to {{title}} </ text > < input class = " btn " type = " button " value = " Jump to detail page " onclick = " routeDetail " > </ div > </ template > < style > .btn { width : 400px ; height : 60px ; background-color : #09ba07 ; color : #ffffff ; } </ style > < script > import router from '@system.router' export default { // Page data object private : { title : 'Example Page' } , // Callback after button click routeDetail () { router.push ({ uri : '/pages/detail' }) } } </ script >
+<template>
+  <div class="page">
+    <text class="title">Welcome to {{title}}</text>
+    <input class="btn" type="button" value="Jump to detail page" onclick="routeDetail">
+  </div>
+</template>
+
+<style>
+  .btn {
+    width: 400px;
+    height: 60px;
+    background-color: #09ba07;
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  import router from '@system.router'
+
+  export default {
+    // Page data object
+    private: {
+      title: 'Example Page'
+    },
+    // Callback after button click
+    routeDetail() {
+      router.push({
+        uri: '/pages/detail'
+      })
+    }
+  }
+</script>
 ```
 
 If the page structure, style, and logic interaction are separated into independent files, the following directory structure can be used:
+
 ```bash
-├── .. . ├── pages │ ├── .. . │ └── detail | ├── detail.ux | ├── detail.css | └── detail.js ├── .. .
+├── ...
+├── pages
+│   ├── ...
+│   └── detail
+|       ├── detail.ux
+|       ├── detail.css
+|       └── detail.js
+├── ...
 ```
 
 Note

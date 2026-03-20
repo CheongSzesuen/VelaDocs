@@ -32,8 +32,13 @@ background-color | `<color>` | #ffffff | 否 | 二维码背景颜色
 支持[通用事件](</vela/quickapp/zh/components/general/events.html>)
 
 ## 示例代码
+
 ```html
-< template > < div > < qrcode value = " https://iot.mi.com " style = " color : #008cff ; " > </ qrcode > </ div > </ template >
+<template>
+  <div>
+    <qrcode value="https://iot.mi.com" style="color: #008cff;"></qrcode>
+  </div>
+</template>
 ```
 
 ![](../../images/qrcode.png)

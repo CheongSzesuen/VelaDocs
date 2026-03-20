@@ -3,13 +3,17 @@
 # 电量信息 battery
 
 ## 接口声明
+
 ```json
-{ "name" : "system.battery" }
+{ "name": "system.battery" }
 ```
 
 ## 导入模块
+
 ```javascript
-import battery from '@system.battery' // 或 const battery = require('@system.battery')
+import battery from '@system.battery' 
+// 或 
+const battery = require('@system.battery')
 ```
 
 ## 接口定义
@@ -34,8 +38,16 @@ charging | Boolean | 是否正在充电
 level | Number | 当前电量，0.0 - 1.0 之间  
   
 #### 示例
+
 ```javascript
-battery.getStatus({ success : function(data){ console.log(` handling success: ${ data.level } `)} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+battery.getStatus({
+  success: function(data) {
+      console.log(`handling success: ${data.level}`)
+  },
+  fail: function(data, code) {
+      console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ## 支持明细

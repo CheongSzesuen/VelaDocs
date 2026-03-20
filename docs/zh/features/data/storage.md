@@ -3,13 +3,17 @@
 # 数据存储 storage
 
 ## 接口声明
+
 ```json
-{ "name" : "system.storage" }
+{ "name": "system.storage" }
 ```
 
 ## 导入模块
+
 ```javascript
-import storage from '@system.storage' // 或 const storage = require('@system.storage')
+import storage from '@system.storage' 
+// 或 
+const storage = require('@system.storage')
 ```
 
 ## 方法
@@ -33,8 +37,17 @@ complete | Function | 否 | 执行结束后的回调
 key 对应的存储内容
 
 #### 示例：
+
 ```javascript
-storage.get({ key : 'A1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.get({
+  key: 'A1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.set(OBJECT)
@@ -52,8 +65,18 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-storage.set({ key : 'A1' , value : 'V1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.set({
+  key: 'A1',
+  value: 'V1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.clear(OBJECT)
@@ -69,8 +92,16 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-storage.clear({ success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.clear({
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### storage.delete(OBJECT)
@@ -87,6 +118,15 @@ fail | Function | 否 | 失败回调
 complete | Function | 否 | 执行结束后的回调  
   
 #### 示例：
+
 ```javascript
-storage.delete({ key : 'A1' , success : function(data){ console.log('handling success')} , fail : function(data , code){ console.log(` handling fail, code = ${ code } `)} })
+storage.delete({
+  key: 'A1',
+  success: function(data) {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

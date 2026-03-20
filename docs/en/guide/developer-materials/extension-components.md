@@ -33,4 +33,3 @@ An input method component that adapts to different screen shapes and supports tw
 ### Project Address
 
   * [Github (opens new window)](<https://github.com/NEORUAA/Vela_input_method>)
-

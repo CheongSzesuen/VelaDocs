@@ -21,4 +21,3 @@
 
   * Expanded [media query](</vela/quickapp/en/guide/framework/style/media-query.html>) to support new features and logical operations
   * Added [dp unit](</vela/quickapp/en/guide/framework/style/page-style-and-layout.html>)
-

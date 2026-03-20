@@ -9,8 +9,14 @@ Developers can register callback events on component tags using `on{eventName}` 
 For more detailed explanations, refer to the [Event Binding](</vela/quickapp/en/guide/framework/template/event.html>) documentation.
 
 ## Example Code
+
 ```html
-< template > < div > < text onclick = " clickFunction1 " > line 1 </ text > < text @click = " clickFunction2 " > line 2 </ text > </ div > </ template >
+<template>
+  <div>
+      <text onclick="clickFunction1">line 1</text>
+      <text @click="clickFunction2">line 2</text>
+  </div>
+</template>
 ```
 
 ## List of Common Events
@@ -68,18 +74,73 @@ offsetY | number | The distance from the top edge of the event trigger object al
 ## Example
 
 Below, click and touchmove events are bound to a div, and the events are printed when triggered.
+
 ```html
-< template > < div class = " root-page " > < div class = " touch-region " onclick = " click " ontouchmove = " move " > </ div > </ div > </ template > < style > .root-page { flex-direction : column ; align-items : center ; } .touch-region { width : 80% ; height : 20% ; background-color : #444444 ; } </ style > < script > export default { private : { } , click (event) { console.log ("click event fired") } , move (event) { console.log ("move event touches:" \+ JSON.stringify (event.touches)) console.log ("move event changedTouches:" \+ JSON.stringify (event.changedTouches)) } } </ script >
+<template>
+  <div class="root-page">
+    <div class="touch-region" onclick="click" ontouchmove="move"></div>
+  </div>
+</template>
+
+<style>
+  .root-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .touch-region {
+    width: 80%;
+    height: 20%;
+    background-color: #444444;
+  }
+
+</style>
+
+<script>
+  export default {
+    private: {},
+    click(event) {
+      console.log("click event fired")
+    },
+    move(event) {
+      console.log("move event touches:" + JSON.stringify(event.touches))
+      console.log("move event changedTouches:" + JSON.stringify(event.changedTouches))
+    }
+  }
+
+</script>
 ```
 
 **The printed results are as follows, for the click event** :
+
 ```js
-move event touches : [ { "offsetX" : 296 , "identifier" : 0 , "offsetY" : 113.48148345947266 , "clientY" : 113.48148345947266 , "clientX" : 360 , "pageY" : 113.48148345947266 , "pageX" : 360 } ]
+move event touches:[
+  {
+    "offsetX": 296,
+    "identifier": 0,
+    "offsetY": 113.48148345947266,
+    "clientY": 113.48148345947266,
+    "clientX": 360,
+    "pageY": 113.48148345947266,
+    "pageX": 360
+  }
+]
 ```
 
 ```js
-move event changedTouches : [ { "offsetX" : 296 , "identifier" : 0 , "offsetY" : 113.48148345947266 , "clientY" : 113.48148345947266 , "clientX" : 360 , "pageY" : 113.48148345947266 , "pageX" : 360 } ]
+move event changedTouches:[
+  {
+    "offsetX": 296,
+    "identifier": 0,
+    "offsetY": 113.48148345947266,
+    "clientY": 113.48148345947266,
+    "clientX": 360,
+    "pageY": 113.48148345947266,
+    "pageX": 360
+  }
+]
 ```
 
-``` click event fired
+```
+click event fired
 ```

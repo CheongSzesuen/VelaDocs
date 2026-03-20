@@ -43,8 +43,22 @@
 ### 实时天气
 
 实时天气页面，从整体上可以划分为上中下三部分： `header`、`body`和`footer`，代码如下。
+
 ```html
-< template > < div class = " page " > <!-- 头部城市信息 --> < div class = " header " > </ div > < div class = " body " > <!-- 主要天气信息 --> < div class = " info " > </ div > <!-- 体感温度等其他信息 --> < div class = " more-info " > </ div > </ div > <!-- 底部更新时间 --> < div class = " footer " > </ div > </ div > </ template >
+<template>
+  <div class="page">
+    <!-- 头部城市信息 -->
+    <div class="header"></div>
+    <div class="body">
+      <!-- 主要天气信息 -->
+      <div class="info"></div>
+      <!-- 体感温度等其他信息 -->
+      <div class="more-info"></div>
+    </div>
+    <!-- 底部更新时间 -->
+    <div class="footer"></div>
+  </div>
+</template>
 ```
 
 温馨提示
@@ -52,8 +66,13 @@
 template只能有一个根节点。
 
 头部信息，包含城市、省份和国家信息，结构相对简单，代码如下：
+
 ```html
-<!-- 头部城市信息 --> < div class = " header " > < text class = " city " > 武汉市 </ text > < text class = " province " > 湖北省/中国 </ text > </ div >
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
 ```
 
 温馨提示
@@ -61,18 +80,46 @@ template只能有一个根节点。
 文本必须放在text组件中，否则文本将无法展示在界面中。
 
 天气信息部分，相比头部要稍微复杂一点，总体可以分为左右两列，右侧部分又分为上下两行。代码如下：
+
 ```html
-<!-- 主要天气信息 --> < div class = " info " > < image class = " icon " src = " /common/icons/101.png " > </ image > < div class = " column center " > < text class = " temp " > 6° </ text > < text class = " weather " > 晴转多云 </ text > </ div > </ div >
+<!-- 主要天气信息 -->
+<div class="info">
+  <image class="icon" src="/common/icons/101.png"></image>
+  <div class="column center">
+    <text class="temp">6°</text>
+    <text class="weather">晴转多云</text>
+  </div>
+</div>
 ```
 
 接下来实现体感温度等其他信息模块，整体上可以分为三列，每一列又分成两行，代码如下：
+
 ```html
-<!-- 体感温度等其他信息 --> < div class = " more-info row " > < div class = " item column center " > < text class = " value " > 10° </ text > < text class = " label " > 体感温度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > 67 </ text > < text class = " sub " > % </ text > </ div > < text class = " label " > 湿度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > 5 </ text > < text class = " sub " > km </ text > </ div > < text class = " label " > 能见度 </ text > </ div > </ div > </ div >
+<!-- 体感温度等其他信息 -->
+<div class="more-info row">
+  <div class="item column center">
+    <text class="value">10°</text>
+    <text class="label">体感温度</text>
+  </div>
+  <div class="item column center">
+    <div><text class="value">67</text><text class="sub">%</text></div>
+    <text class="label">湿度</text>
+  </div>
+  <div class="item column center">
+    <div><text class="value">5</text><text class="sub">km</text></div>
+    <text class="label">能见度</text>
+  </div>
+</div>
+</div>
 ```
 
 最后是底部更新时间模块，这个模块结构相对比较简单，代码如下：
+
 ```html
-<!-- 底部更新时间 --> < div class = " footer center " > < text class = " update-time " > 数据更新于12-20 09:15 </ text > </ div >
+<!-- 底部更新时间 -->
+<div class="footer center">
+  <text class="update-time">数据更新于12-20 09:15</text>
+</div>
 ```
 
 ### 未来3天天气
@@ -82,13 +129,36 @@ template只能有一个根节点。
 接下来主要看中间部分的实现，主要包括**未来3天天气概况** 以及**天气列表** 。
 
 天气概况分为上下两行，代码如下：
+
 ```html
-<!-- 天气概况 --> < div class = " info " > < text class = " title " > 未来3天预报 </ text > < text class = " summary " > 最高温8° 最低温-6° </ text > </ div >
+<!-- 天气概况 -->
+<div class="info">
+  <text class="title">未来3天预报</text>
+  <text class="summary">最高温8° 最低温-6°</text>
+</div>
 ```
 
 天气列表相对复杂一点，首先整体可以分为三列，每一列又可分成三行，代码如下：
+
 ```html
-<!-- 未来3天天气 --> < div class = " list " > < div class = " item " > < text class = " date " > 周日 </ text > < image class = " icon " src = " /common/icons/301.png " > </ image > < text class = " temp " > -6°~8° </ text > </ div > < div class = " item " > < text class = " date " > 周一 </ text > < image class = " icon " src = " /common/icons/311.png " > </ image > < text class = " temp " > -9°~4° </ text > </ div > < div class = " item " > < text class = " date " > 周二 </ text > < image class = " icon " src = " /common/icons/100.png " > </ image > < text class = " temp " > -3°~6° </ text > </ div > </ div >
+<!-- 未来3天天气 -->
+<div class="list">
+  <div class="item">
+    <text class="date">周日</text>
+    <image class="icon" src="/common/icons/301.png"></image>
+    <text class="temp">-6°~8°</text>
+  </div>
+  <div class="item">
+    <text class="date">周一</text>
+    <image class="icon" src="/common/icons/311.png"></image>
+    <text class="temp">-9°~4°</text>
+  </div>
+  <div class="item">
+    <text class="date">周二</text>
+    <image class="icon" src="/common/icons/100.png"></image>
+    <text class="temp">-3°~6°</text>
+  </div>
+</div>
 ```
 
 ## 页面样式
@@ -108,8 +178,25 @@ Vela JS 应用采用`flex`布局，可以方便实现常用的布局样式，关
 在我们这个项目中，主要使用到了水平排列和垂直排列，居中等。 颜色方面，主要是白色，我们可以将text的颜色默认设置为白色。
 
 提取出的基础样式为：
+
 ```css
-/* 公共样式 */ text { color : #ffffff ; } .column { flex-direction : column ; } .row { flex-direction : row ; } .center { align-items : center ; justify-content : center ; }
+/* 公共样式 */
+text {
+  color: #ffffff;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
 ```
 
 ### page
@@ -117,37 +204,62 @@ Vela JS 应用采用`flex`布局，可以方便实现常用的布局样式，关
 为了解决屏幕适配问题，所有与大小相关的样式（例如`width`、`font-size`）均以基准宽度（默认`480px`）为基础，根据实际屏幕宽度进行缩放，例如`width:100px`在`960px`宽度屏幕上，实际上为`200px`。
 
 我们设计稿按照`480px`宽度进行设计，所以设计稿中的尺寸，可以直接在样式中使用。比如下图中，整体宽度为480，体感温度等信息模块的尺寸为`335*100`，那么CSS代码为：
+
 ```css
-.info { width : 335px ; height : 100px ; }
+.info {
+  width: 335px;
+  height: 100px; 
+}
 ```
 
 ![设计稿尺寸](../../images/ui-figma-size.png)
 
 对于整体页面，我们先将页面背景设置为黑色，形状设置为圆形，并设置页面宽度。
+
 ```css
-.page { padding : 40px ; background-color : #000000 ; width : 480px ; border-radius : 240px ; }
+.page {
+  padding: 40px;
+  background-color: #000000;
+  width: 480px;
+  border-radius: 240px;
+}
 ```
 
 说明
 
 如果设计稿基准宽度不是480，可以在`manifest.json`文件中通过`config.designWidth`字段配置：
-```js
-{ // ... "config" : { "designWidth" : 360 } }
-```
+
+```html
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```0
 
 ### 头部信息
 
 头部信息竖向排列，并且居中，可以使用前面抽取的公共样式：`column`和`center`。然后给文本分别添加样式，控制字体大小和颜色。
 
 修改后的模板代码如下：
+
 ```html
-<!-- 头部城市信息 --> < div class = " header column center " > < text class = " city " > 武汉市 </ text > < text class = " province " > 湖北省/中国 </ text > </ div >
-```
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```1
 
 CSS代码如下：
-```css
-/* 头部样式 */ .city { font-size : 40px ; } .province { font-size : 18px ; color : #757575 ; }
-```
+
+```html
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```2
 
 实际运行结果：  
 ![头部信息运行结果](../../images/ui-header.png)
@@ -157,18 +269,28 @@ CSS代码如下：
 跟头部信息类似，首先添加基础样式`column`、`row`和`center`来实现基本的布局，然后对各个文本组件，针对性的编写CSS代码来实现文字颜色，尺寸等样式。
 
 添加完成后的模板代码如下：
+
 ```html
-< div class = " body column center " > <!-- 主要天气信息 --> < div class = " info " > < image class = " icon " src = " /common/icons/101.png " > </ image > < div class = " column center " > < text class = " temp " > 6° </ text > < text class = " weather " > 晴转多云 </ text > </ div > </ div > <!-- 体感温度等其他信息 --> < div class = " more-info row " > < div class = " item column center " > < text class = " value " > 10° </ text > < text class = " label " > 体感温度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > 67 </ text > < text class = " sub " > % </ text > </ div > < text class = " label " > 湿度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > 5 </ text > < text class = " sub " > km </ text > </ div > < text class = " label " > 能见度 </ text > </ div > </ div > </ div >
-```
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```3
 
 体感温度等信息模块，首先水平方向排列(`flex-direction: row`)，然后各个item设置`flex: 1`，这样就实现了各个item宽度相等的效果。
 
 具体到每个item里面，只需要分别设置各个文本字段的颜色和大小即可。
 
 CSS代码如下：
-```css
-/* 天气数据样式 */ .body { flex : 1 ; } .temp { font-size : 70px ; } .icon { width : 170px ; height : 170px ; margin-right : 20px ; } .weather { font-size : 24px ; } /* 更多信息样式 */ .more-info { width : 335px ; height : 100px ; background-color : rgba (255 , 255 , 255 , 0.21) ; border-radius : 15px ; } .item { flex : 1 ; } .value { font-size : 30px ; } .sub { font-size : 14px ; margin-top : 10px ; } .label { color : #757575 ; margin-top : 5px ; }
-```
+
+```html
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```4
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-now-main.png)
@@ -180,14 +302,24 @@ CSS代码如下：
 跟体感温度等信息模块类似，未来三天天气列表也使用水平方向排列。不同的地方在于，各个item有背景颜色并且之间有间距，所以给各个item设置了固定的尺寸，然后根据剩下的空间 给各个item之间分配间距(`justify-content: space-between`)。
 
 修改完成后的模板代码为：
+
 ```html
-<!-- 未来3天天气 --> < div class = " list row " > < div class = " item column center " > < text class = " date " > 周日 </ text > < image class = " icon " src = " /common/icons/301.png " > </ image > < text class = " temp " > -6°~8° </ text > </ div > < div class = " item column center " > < text class = " date " > 周一 </ text > < image class = " icon " src = " /common/icons/311.png " > </ image > < text class = " temp " > -9°~4° </ text > </ div > < div class = " item column center " > < text class = " date " > 周二 </ text > < image class = " icon " src = " /common/icons/100.png " > </ image > < text class = " temp " > -3°~6° </ text > </ div > </ div >
-```
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```5
 
 CSS代码为：
-```css
-/* 天气数据样式 */ .body { flex : 1 ; } .info { margin-bottom : 20px ; } .title { font-size : 30px ; } .summary { font-size : 24px ; color : #757575 ; } /* 未来3天天气 */ .list { width : 380px ; justify-content : space-between ; } .item { width : 120px ; height : 175px ; background-color : rgba (255 , 255 , 255 , 0.2) ; border-radius : 15px ; } .date { font-size : 28px ; } .icon { width : 90px ; height : 90px ; } .temp { font-size : 24px ; }
-```
+
+```html
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```6
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-3d-list.png)
@@ -195,14 +327,24 @@ CSS代码为：
 ### 底部信息
 
 底部信息最终的模板代码如下：
+
 ```html
-<!-- 底部更新时间 --> < div class = " footer center " > < text class = " update-time " > 数据更新于 12-20 09:15 </ text > </ div >
-```
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```7
 
 CSS代码如下：
-```css
-/* 底部样式 */ .footer { margin-top : 20px ; } .update-time { color : #757575 ; }
-```
+
+```html
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```8
 
 实际运行结果：  
 ![实时天气运行结果](../../images/ui-footer.png)
@@ -220,28 +362,57 @@ CSS代码如下：
 如果需要在程序中动态修改界面上展示的数据，需要将数据存储到[页面数据对象](</vela/quickapp/zh/guide/framework/script/page-data.html>)中，然后使用双大括号语法来引用数据，比如`{{ name }}`，详细使用方法可以参考[模板语法](</vela/quickapp/zh/guide/framework/template/>)。
 
 数据定义，需要通过JavaScript脚本来实现。跟HTML一样，JavaScript代码需要放在`script`标签中：
+
 ```html
-< script > export default { private : { city : '武汉市' , province : '湖北省' , country : '中国' , weather : { // 数据观测时间 obsTime : "12-21 09:05" , // 温度 temp : "13" , // 体感温度 feelsLike : "10" , // 天气icon图标编号 icon : "101" , // 天气描述文本 text : "多云" , // 相对湿度 humidity : "72" , // 能见度，单位：公里 vis : "16" } } } </ script >
-```
+<!-- 头部城市信息 -->
+<div class="header">
+  <text class="city">武汉市</text>
+  <text class="province">湖北省/中国</text>
+</div>
+```9
 
 定义好数据之后，替换之前的模板代码，替换后为：
+
 ```html
-< template > < div class = " page column " > <!-- 头部城市信息 --> < div class = " header column center " > < text class = " city " > {{city}} </ text > < text class = " province " > {{province}}/{{country}} </ text > </ div > < div class = " body column center " > <!-- 主要天气信息 --> < div class = " info " > < image class = " icon " src = " /common/icons/{{weather.icon}}.png " > </ image > < div class = " column center " > < text class = " temp " > {{weather.temp}}° </ text > < text class = " weather " > {{weather.text}} </ text > </ div > </ div > <!-- 体感温度等其他信息 --> < div class = " more-info row " > < div class = " item column center " > < text class = " value " > {{weather.feelsLike}}° </ text > < text class = " label " > 体感温度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > {{weather.humidity}} </ text > < text class = " sub " > % </ text > </ div > < text class = " label " > 湿度 </ text > </ div > < div class = " item column center " > < div > < text class = " value " > {{weather.vis}} </ text > < text class = " sub " > km </ text > </ div > < text class = " label " > 能见度 </ text > </ div > </ div > </ div > <!-- 底部更新时间 --> < div class = " footer center " > < text class = " update-time " > 数据更新于 {{weather.obsTime}} </ text > </ div > </ div > </ template >
-```
+<!-- 主要天气信息 -->
+<div class="info">
+  <image class="icon" src="/common/icons/101.png"></image>
+  <div class="column center">
+    <text class="temp">6°</text>
+    <text class="weather">晴转多云</text>
+  </div>
+</div>
+```0
 
 ## 列表渲染
 
 在未来3天天气预报页面中，使用到了数组存储未来3天的天气数据。可以使用`for`指令来渲染（详细的`for`指令用法，请参考[列表渲染](</vela/quickapp/zh/guide/framework/template/for.html>)）。
 
 数据定义为：
-```javascript
-{ list : [ { "fxDate" : "周日" , "tempMax" : "12" , "tempMin" : "-1" , "iconDay" : "101" , "textDay" : "多云" , } , { "fxDate" : "周一" , "tempMax" : "13" , "tempMin" : "0" , "iconDay" : "100" , "textDay" : "晴" } , { "fxDate" : "周二" , "tempMax" : "13" , "tempMin" : "0" , "iconDay" : "302" , "textDay" : "晴" , "iconNight" : "150" , "textNight" : "晴" } ] }
-```
+
+```html
+<!-- 主要天气信息 -->
+<div class="info">
+  <image class="icon" src="/common/icons/101.png"></image>
+  <div class="column center">
+    <text class="temp">6°</text>
+    <text class="weather">晴转多云</text>
+  </div>
+</div>
+```1
 
 模板代码：
+
 ```html
-<!-- 未来3天天气 --> < div class = " list row " > < div class = " item column center " for = " {{list}} " > < text class = " date " > {{$item.fxDate}} </ text > < image class = " icon " src = " /common/icons/{{$item.iconDay}}.png " > </ image > < text class = " temp " > {{$item.tempMin}}°~{{$item.tempMax}}° </ text > </ div > </ div >
-```
+<!-- 主要天气信息 -->
+<div class="info">
+  <image class="icon" src="/common/icons/101.png"></image>
+  <div class="column center">
+    <text class="temp">6°</text>
+    <text class="weather">晴转多云</text>
+  </div>
+</div>
+```2
 
 运行结果：  
 ![列表渲染结果](../../images/ui-for-list-result.png)
