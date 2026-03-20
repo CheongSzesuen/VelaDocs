@@ -11,13 +11,18 @@ VelaDocs抓取 [Xiaomi Vela JS](https://iot.mi.com/vela/quickapp/) 文档，并�
 Linux / macOS：
 
 ```bash
-curl -L 'https://cdn.jsdelivr.net/gh/CheongSzesuen/VelaDocs@main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh || curl -L 'https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh && chmod +x './run_scraper-linux&mac.sh' && ./run_scraper-linux\&mac.sh
+curl -L 'https://cdn.jsdelivr.net/gh/CheongSzesuen/VelaDocs@main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh || curl -L 'https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh || curl -L 'https://cdn.statically.io/gh/CheongSzesuen/VelaDocs@main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh || curl -L 'https://raw.githack.com/CheongSzesuen/VelaDocs/main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh || curl -L 'https://ghproxy.net/https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-linux%26mac.sh' -o run_scraper-linux\&mac.sh && chmod +x './run_scraper-linux&mac.sh' && ./run_scraper-linux\&mac.sh
 ```
 
 Windows PowerShell：
 
 ```powershell
-try { Invoke-WebRequest 'https://cdn.jsdelivr.net/gh/CheongSzesuen/VelaDocs@main/run_scraper-win.cmd' -OutFile 'run_scraper-win.cmd' -UseBasicParsing } catch { Invoke-WebRequest 'https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-win.cmd' -OutFile 'run_scraper-win.cmd' -UseBasicParsing }; .\run_scraper-win.cmd
+Write-Host 'Downloading launcher...'; $content = $null; foreach ($url in @('https://cdn.jsdelivr.net/gh/CheongSzesuen/VelaDocs@main/run_scraper-win.cmd','https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-win.cmd','https://cdn.statically.io/gh/CheongSzesuen/VelaDocs@main/run_scraper-win.cmd','https://raw.githack.com/CheongSzesuen/VelaDocs/main/run_scraper-win.cmd','https://ghproxy.net/https://raw.githubusercontent.com/CheongSzesuen/VelaDocs/main/run_scraper-win.cmd')) { try { Write-Host "Trying $url"; $content = (Invoke-WebRequest $url -UseBasicParsing -TimeoutSec 15).Content; if ($content) { break } } catch {} }
+if (-not $content) { throw 'Failed to download launcher from all sources.' }
+Write-Host 'Writing launcher to local file...'
+[System.IO.File]::WriteAllText((Join-Path (Get-Location) 'run_scraper-win.cmd'), ($content -replace "`r?`n", "`r`n"), [System.Text.UTF8Encoding]::new($false))
+Write-Host 'Starting launcher...'
+.\run_scraper-win.cmd
 ```
 
 ## 许可证
