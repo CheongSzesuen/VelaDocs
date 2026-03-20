@@ -138,10 +138,50 @@ class MarkdownScraper:
             markdown
         )
 
+        # 某些页面在列表中的代码块会把行号或编号粘到闭合围栏后面，形成 ```0 / ```1，
+        # 这会导致后续内容被错误地吞进代码块。这里将这类尾缀剥离掉。
+        markdown = re.sub(
+            r'^([ \t]*)```[0-9]+([ \t]*)$',
+            r'\1```\2',
+            markdown,
+            flags=re.MULTILINE
+        )
+
         # 统一清理围栏行尾多余空格
         markdown = re.sub(r'^```([\w+-]*)[ \t]+$', r'```\1', markdown, flags=re.MULTILINE)
         markdown = re.sub(r'^```[ \t]+$', r'```', markdown, flags=re.MULTILINE)
         return markdown
+
+    def _normalize_table_continuations(self, markdown):
+        lines = markdown.split('\n')
+        normalized = []
+        i = 0
+
+        def is_table_row(line):
+            stripped = line.strip()
+            return stripped.count('|') >= 3 and not stripped.startswith('```')
+
+        def is_table_separator(line):
+            stripped = line.strip().replace(' ', '')
+            return bool(re.match(r'^[-:|]+$', stripped))
+
+        while i < len(lines):
+            line = lines[i]
+            if (
+                normalized
+                and is_table_row(normalized[-1])
+                and not is_table_separator(normalized[-1])
+            ):
+                stripped = line.strip()
+                if stripped and '|' not in stripped and not stripped.startswith('```'):
+                    normalized[-1] = f"{normalized[-1]}<br>{stripped}"
+                    i += 1
+                    continue
+
+            normalized.append(line)
+            i += 1
+
+        return '\n'.join(normalized)
 
     def _get_relative_path(self, url):
         # 计算相对于 base_url 的路径，但不包含 base_url 中的语言部分
@@ -446,6 +486,7 @@ class MarkdownScraper:
         markdown = self._clean_markdown(markdown)
         markdown = self._restore_code_blocks(markdown, code_blocks)
         markdown = self._normalize_code_block_spacing(markdown)
+        markdown = self._normalize_table_continuations(markdown)
         markdown = re.sub(r'\n{3,}', '\n\n', markdown)
         return markdown
 
