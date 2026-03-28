@@ -6,7 +6,7 @@ It supports real-device debugging when developing **Xiaomi Vela JS** application
 
 ## Device Upgrade
 
-Currently, real-device debugging only supports O62 devices. Please contact Xiaomi staff to obtain the document "Xiaomi-Vela-Device-Real-Device-Debugging-Full-Process-Guide" and follow the instructions in the document to obtain the corresponding OTA package and upgrade the device to the specified version that supports real-device debugging.
+Currently, real-device debugging only supports `Xiaomi Watch S4` devices. Please contact Xiaomi staff to obtain the document "Xiaomi-Vela-Device-Real-Device-Debugging-Full-Process-Guide" and follow the instructions in the document to obtain the corresponding OTA package and upgrade the device to the specified version that supports real-device debugging. Note: Upgrading the firmware carries certain risks, and real-device debugging is currently only open to specific partners.
 
 ## Environment Preparation
 

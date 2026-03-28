@@ -17,7 +17,8 @@ Smartwatch | REDMI Watch 5 | Rectangular | 2.07 inches | 432x514 | 324 | 216 | 0
 Smart Band | Xiaomi Smart Band 8 Pro | Rectangular | 1.74 inches | 336x480 | 336 | 168 | 0.7
 Smart Band | Xiaomi Smart Band 9 | Capsule-shaped | 1.62 inches | 192x490 | 325 | 96 | 0.4
 Smart Band | Xiaomi Smart Band 9 Pro | Rectangular | 1.74 inches | 336x480 | 336 | 168 | 0.7
-Smart Band | Xiaomi Smart Band 10 | Capsule-shaped | 1.725 inches | 212x520 | 326 | 106 | 0.4 
+Smart Band | Xiaomi Smart Band 10 | Capsule-shaped | 1.725 inches | 212x520 | 326 | 106 | 0.4
+Smartwatch | Xiaomi Watch S5 | Round | 1.485 inches | 480x480 | 323 | 240 | 1 
 
 ## How to Perform Multi-screen Adaptation?
 

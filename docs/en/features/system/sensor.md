@@ -180,8 +180,8 @@ Value | Description
 
 Interface | Supported Device Products | Unsupported Device Products
 ---|---|---
-subscribePressure | Xiaomi Watch S3, Xiaomi Band 9 Pro, Xiaomi Band 10, Xiaomi Watch S4 | Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9, Redmi Watch 4, Xiaomi Watch H1, REDMI Watch 5, REDMI Watch 6
-unsubscribePressure | Xiaomi Watch S3, Xiaomi Band 9 Pro, Xiaomi Band 10, Xiaomi Watch S4 | Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9, Redmi Watch 4, Xiaomi Watch H1, REDMI Watch 5, REDMI Watch 6
-subscribeAccelerometer | Xiaomi Band 9 / 9 Pro, Xiaomi Band 10 | Xiaomi Watch S3, Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6
-unsubscribeAccelerometer | Xiaomi Band 9 / 9 Pro, Xiaomi Band 10 | Xiaomi Watch S3, Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6
-subscribeCompass / unsubscribeCompass | Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6 | Other Xiaomi band and watch devices
+subscribePressure | Xiaomi Watch S3, Xiaomi Band 9 Pro, Xiaomi Band 10, Xiaomi Watch S4, Xiaomi Watch S5 | Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9, Redmi Watch 4, Xiaomi Watch H1, REDMI Watch 5, REDMI Watch 6
+unsubscribePressure | Xiaomi Watch S3, Xiaomi Band 9 Pro, Xiaomi Band 10, Xiaomi Watch S4, Xiaomi Watch S5 | Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9, Redmi Watch 4, Xiaomi Watch H1, REDMI Watch 5, REDMI Watch 6
+subscribeAccelerometer | Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Xiaomi Watch S5 | Xiaomi Watch S3, Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6
+unsubscribeAccelerometer | Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Xiaomi Watch S5 | Xiaomi Watch S3, Xiaomi S1 Pro Sports Health Watch, Xiaomi Band 8 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6
+subscribeCompass / unsubscribeCompass | Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi Watch S5 | Other Xiaomi band and watch devices

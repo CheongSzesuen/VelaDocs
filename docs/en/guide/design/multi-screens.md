@@ -19,7 +19,8 @@ Watch | REDMI Watch 5 | Rectangular | 2.07 inches | 432x514 | 324 | 2.0
 Wristband | Xiaomi Band 8 Pro | Rectangular | 1.74 inches | 336x480 | 336 | 2.1
 Wristband | Xiaomi Band 9 | Capsule-shaped track screen | 1.62 inches | 192x490 | 325 | 2.0
 Wristband | Xiaomi Band 9 Pro | Rectangular | 1.74 inches | 336x480 | 336 | 2.1
-Wristband | Xiaomi Band 10 | Capsule-shaped | 1.725 inches | 212x520 | 326 | 2.0 
+Wristband | Xiaomi Band 10 | Capsule-shaped | 1.725 inches | 212x520 | 326 | 2.0
+Watch | Xiaomi Watch S5 | Circular | 1.485 inches | 480x480 | 323 | 2.0 
 
 ## Design Recommendations
 

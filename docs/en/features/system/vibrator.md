@@ -129,7 +129,7 @@ vibrator.getSystemDefaultMode()
 
 Interface | Supported Device Products | Unsupported Device Products
 ---|---|---
-vibrate | Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S3, Xiaomi Band 10, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6 | -
-start | - | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1
-stop | - | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1
-getSystemDefaultMode | - | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1
+vibrate | Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Redmi Watch 4, Xiaomi Watch H1, Xiaomi Watch S3, Xiaomi Band 10, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi Watch S5 | -
+start | Xiaomi Watch S5 | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1
+stop | Xiaomi Watch S5 | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1
+getSystemDefaultMode | Xiaomi Watch S5 | Xiaomi Watch S3, Xiaomi Watch S4, REDMI Watch 5, REDMI Watch 6, Xiaomi S1 Pro Sports & Health Watch, Xiaomi Band 8 Pro, Xiaomi Band 9 / 9 Pro, Xiaomi Band 10, Redmi Watch 4, Xiaomi Watch H1

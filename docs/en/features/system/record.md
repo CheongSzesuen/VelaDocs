@@ -97,3 +97,4 @@ Xiaomi Smart Band 10 | Not supported
 Xiaomi Watch S4 | Not supported
 REDMI Watch 5 | Not supported
 REDMI Watch 6 | Not supported
+Xiaomi Watch S5 | Supported

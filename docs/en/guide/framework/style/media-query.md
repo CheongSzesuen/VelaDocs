@@ -86,7 +86,8 @@ Watch | REDMI Watch 5 | Rectangle | 2.07 inches | 432x514 | 324 | 2.0 | 216
 Band | Xiaomi Band 8 Pro | Rectangle | 1.74 inches | 336x480 | 336 | 2.1 | 168
 Band | Xiaomi Band 9 | Pill-shaped | 1.62 inches | 192x490 | 325 | 2.0 | 96
 Band | Xiaomi Band 9 Pro | Rectangle | 1.74 inches | 336x480 | 336 | 2.1 | 168
-Band | Xiaomi Band 10 | Pill-shaped | 1.725 inches | 212x520 | 326 | 2.0 | 106 
+Band | Xiaomi Band 10 | Pill-shaped | 1.725 inches | 212x520 | 326 | 2.0 | 106
+Watch | Xiaomi Watch S5 | Circle | 1.485 inches | 480x480 | 323 | 2.0 | 240 
 
 Example code:
 
@@ -176,3 +177,4 @@ Xiaomi Band 10 | Supported
 Xiaomi Watch S4 | Supported
 REDMI Watch 5 | Supported
 REDMI Watch 6 | Supported
+Xiaomi Watch S5 | Supported

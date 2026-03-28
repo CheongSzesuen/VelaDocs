@@ -97,3 +97,4 @@ Redmi Watch 4 | 不支持
 Xiaomi Watch S4 | 不支持
 REDMI Watch 5 | 不支持
 REDMI Watch 6 | 不支持
+Xiaomi Watch S5 | 支持

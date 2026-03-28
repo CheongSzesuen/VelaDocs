@@ -180,8 +180,8 @@ sensor.unsubscribeCompass()
 
 接口 | 已支持设备产品 | 不支持设备产品
 ---|---|---
-subscribePressure | Xiaomi Watch S3、小米手环 9 Pro、小米手环 10、Xiaomi Watch S4 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5、REDMI Watch 6
-unsubscribePressure | Xiaomi Watch S3、小米手环 9 Pro、小米手环 10、Xiaomi Watch S4 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5、REDMI Watch 6
-subscribeAccelerometer | 小米手环 9 / 9 Pro、小米手环 10 | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5、REDMI Watch 6
-unsubscribeAccelerometer | 小米手环 9 / 9 Pro、小米手环 10 | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5、REDMI Watch 6
-subscribeCompass / unsubscribeCompass | Xiaomi Watch S4、REDMI Watch 5 、REDMI Watch 6 | 其余小米环表设备
+subscribePressure | Xiaomi Watch S3、小米手环 9 Pro、小米手环 10、Xiaomi Watch S4、Xiaomi Watch S5 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5、REDMI Watch 6
+unsubscribePressure | Xiaomi Watch S3、小米手环 9 Pro、小米手环 10、Xiaomi Watch S4、Xiaomi Watch S5 | 小米 S1 Pro 运动健康手表、小米手环 8 Pro、小米手环 9、Redmi Watch 4、Xiaomi Watch H1、REDMI Watch 5、REDMI Watch 6
+subscribeAccelerometer | 小米手环 9 / 9 Pro、小米手环 10、Xiaomi Watch S5 | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5、REDMI Watch 6
+unsubscribeAccelerometer | 小米手环 9 / 9 Pro、小米手环 10、Xiaomi Watch S5 | Xiaomi Watch S3、小米 S1 Pro 运动健康手表、小米手环 8 Pro、Redmi Watch 4、Xiaomi Watch H1、Xiaomi Watch S4、REDMI Watch 5、REDMI Watch 6
+subscribeCompass / unsubscribeCompass | Xiaomi Watch S4、REDMI Watch 5 、REDMI Watch 6、Xiaomi Watch S5 | 其余小米环表设备

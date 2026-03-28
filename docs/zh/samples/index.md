@@ -47,3 +47,9 @@
 订阅发布 这款 Demo 基于经典的订阅 - 发布（Pub/Sub）设计模式，提供轻量、灵活的跨模块通信方案，无需模块间直接依赖即可实现消息传递。核心功能包括事件订阅（$on）、消息发布（$emit）、订阅取消（$off）及事件存在判断（$judge），支持多场景下的异步通信需求。无论是前端组件间协作、插件模块联动，都能通过简单调用实现高效消息传递，帮助简化代码依赖关系、提升项目可维护性。代码可直接集成到Vela快应用项目中，是学习设计模式、解决跨模块通信问题的实用参考。
 
 [![](../images/github.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/eventBus>) [![](../images/gitee.svg)](<https://gitee.com/open-vela/packages_apps/tree/dev/wearable/eventBus>)
+
+![封面](../images/parent-child_component_communication.png)
+
+父子组件通信 该示例聚焦 Vela 快应用父子组件通信场景，核心实现三大功能：① 父组件通过 props 向子组件传递数据，遵循单向数据流原则；② 子组件通过 $emit 触发自定义事件，父组件监听并接收子组件传递的参数；③ 子组件通过 $dispatch 实现事件向上冒泡传递。示例代码结构清晰、可直接运行，能帮助开发者快速掌握 Vela 快应用父子组件的通信逻辑与最佳实践。
+
+[![](../images/github.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/parentChildComp>) [![](../images/gitee.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/parentChildComp>)
