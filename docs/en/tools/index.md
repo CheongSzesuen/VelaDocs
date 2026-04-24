@@ -16,24 +16,25 @@ This chapter primarily introduces the core functionalities of `AIoT-IDE`. For do
 
 The enhanced features for application development are only available when `AIoT-IDE` opens a `Xiaomi Vela JS application`.
 
-A basic `Xiaomi Vela JS application` consists of a configuration file `manifest.json` that describes project information, an `app.ux` file that contains the project's public resources, and UX files that describe different pages.
+A basic `Xiaomi Vela JS application` consists of a configuration file `manifest.json` that describes project information, an `app.ux` file that contains the project's public resources, and UX files that describe different pages. All source code is placed under the `src/` directory:
 
 ```bash
-├── manifest.json
-├── app.ux
-├── pages
-│   ├── index
-|   |   └── index.ux
-│   └── detail
-|       └── detail.ux
-├── i18n
-|   ├── defaults.json
-|   ├── zh-CN.json
-|   └── en-US.json
-└── common
-    ├── style.css
-    ├── utils.js
-    └── logo.png
+└── src/                 # Source code directory
+    ├── manifest.json
+    ├── app.ux
+    ├── pages
+    │   ├── index
+    |   |   └── index.ux
+    │   └── detail
+    |       └── detail.ux
+    ├── i18n
+    |   ├── defaults.json
+    |   ├── zh-CN.json
+    |   └── en-US.json
+    └── common
+        ├── style.css
+        ├── utils.js
+        └── logo.png
 ```
 
-When `AIoT-IDE` opens a project, it checks whether there is a `manifest.json` file in the **root directory** or **src directory** of the current project. If found, it reads the **deviceTypeList** from `manifest.json` and determines the type of `Xiaomi Vela JS application` based on the content of the **deviceTypeList** field.
+When `AIoT-IDE` opens a project, it checks whether there is a `manifest.json` file in the **src directory** of the current project. If found, it reads the **deviceTypeList** from `manifest.json` and determines the type of `Xiaomi Vela JS application` based on the content of the **deviceTypeList** field.

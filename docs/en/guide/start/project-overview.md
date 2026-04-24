@@ -1,109 +1,74 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/guide/start/project-overview.html -->
 
-# Project Structure
+# Project Overview
 
-This chapter explains the role of each part in a Vela JS application project based on the project initialized in [Environment Setup](</vela/quickapp/en/guide/start/use-ide.html>).
+This chapter introduces the role of each part in a Vela JS application project, based on the project initialized in [Environment Setup](</vela/quickapp/en/guide/start/use-ide.html>).
 
 ## Directory Structure
-
-A Vela JS application project consists of configuration files (manifest.json), template code (ux files), style code (css files), logic code (js files), and resource files (images, audio, etc.).
 
 A typical project directory structure is as follows:
 
 ```bash
-├── manifest.json
-├── app.ux
-├── pages
-│   ├── index
-|   |   └── index.ux
-│   └── detail
-|       └── detail.ux
-├── i18n
-|   ├── defaults.json
-|   ├── zh-CN.json
-|   └── en-US.json
-└── common
-    ├── style.css
-    ├── utils.js
-    └── logo.png
+├── README.md            # Project description file
+├── package.json         # Project configuration file
+├── build/               # Build intermediates
+├── dist/                # Final build output
+├── sign/                # Signing files
+│   ├── certificate.pem
+│   └── private.pem
+└── src/                 # Source code directory
+    ├── app.ux           # Application entry file
+    ├── manifest.json    # Project configuration file
+    ├── common/          # Public resources directory
+    │   ├── components/  # Components directory
+    │   │   └── button.ux
+    │   ├── images/      # Images directory
+    │   │   └── logo.png
+    │   └── scripts/     # Scripts directory
+    │       └── index.js
+    ├── i18n/            # Multilingual configuration directory
+    │   ├── defaults.json
+    │   ├── en.json
+    │   └── zh-CN.json
+    └── pages/           # Pages directory
+        ├── detail/detail.ux
+        └── index/index.ux
 ```
 
-## Configuration File
+## Directory Details
 
-The `manifest.json` file in the project root directory is the configuration file for the project. Information such as application information, system interfaces used, and page routes need to be declared in this configuration file.
+### src/
 
-For detailed configuration field descriptions, refer to [Project Configuration](</vela/quickapp/zh/guide/framework/manifest.html>).
+The source code directory. All application code resides here. `src/` is a fixed directory name and cannot be changed.
 
-## ux Template
+### src/manifest.json
 
-A page usually consists of three parts: page structure, style, and logic interaction. These three parts can be placed in a single ux file or as separate files.
+The project configuration file, used to declare basic application information (package name, version, etc.), system interface permissions, and page routing. For detailed field descriptions, refer to [Project Configuration](</vela/quickapp/en/guide/framework/manifest.html>).
 
-If placed in a single ux file, the ux file needs to include three tags: `template`, `style`, and `script`.
+### src/app.ux
 
-Example:
+The application entry file, used to define application-level lifecycle callbacks, global data, and global methods. For detailed usage, refer to [app.ux](</vela/quickapp/en/guide/framework/ux.html#appux>).
 
-```html
-<template>
-  <div class="page">
-    <text class="title">Welcome to {{title}}</text>
-    <input class="btn" type="button" value="Jump to detail page" onclick="routeDetail">
-  </div>
-</template>
+### src/pages/
 
-<style>
-  .btn {
-    width: 400px;
-    height: 60px;
-    background-color: #09ba07;
-    color: #ffffff;
-  }
-</style>
+The pages directory, with each page in its own subdirectory. Pages are described by ux files, and styles and logic can optionally be split into separate css/js files. For details, refer to [Project Structure](</vela/quickapp/en/guide/framework/project-structure.html>).
 
-<script>
-  import router from '@system.router'
+### src/common/
 
-  export default {
-    // Page data object
-    private: {
-      title: 'Example Page'
-    },
-    // Callback after button click
-    routeDetail() {
-      router.push({
-        uri: '/pages/detail'
-      })
-    }
-  }
-</script>
-```
+The public resources directory, used to store shared components, images, scripts, and styles across pages.
 
-If the page structure, style, and logic interaction are separated into independent files, the following directory structure can be used:
+### src/i18n/
 
-```bash
-├── ...
-├── pages
-│   ├── ...
-│   └── detail
-|       ├── detail.ux
-|       ├── detail.css
-|       └── detail.js
-├── ...
-```
+The multilingual configuration directory, containing JSON files for each language to support application internationalization. For detailed usage, refer to [Internationalization](</vela/quickapp/en/guide/framework/other/i18n.html>).
 
-Note
+### build/ and dist/
 
-If separated into independent files (ux/css/js), the ux file cannot contain the `template` tag.
+`build/` stores intermediate build artifacts, and `dist/` stores the final build output (rpk packages). Both directories are automatically generated by the build tools and do not require manual maintenance.
 
-## app.ux
+### sign/
 
-`app.ux` is used to define the App's lifecycle, global data, or global methods.
+The signing files directory, containing `certificate.pem` (certificate) and `private.pem` (private key), used to sign the application package.
 
-For detailed usage methods, refer to [app.ux](</vela/quickapp/zh/guide/framework/ux.html#appux>).
+### package.json
 
-## common
-
-The `common` folder is mainly used to store public resources such as images, audio, and public styles.
-
-## i18n
-
-The `i18n` folder is used to store multilingual configuration files.
+The npm configuration file for the project, defining project dependencies and build scripts.

@@ -16,24 +16,25 @@
 
 只有当`AIoT-IDE`打开`Xiaomi Vela JS 应用`，才能使用应用开发的增强功能。
 
-一个最基本的`Xiaomi Vela JS 应用`由描述项目信息配置文件`mainfest.json`和放置项目公交资源的`app.ux`文件，不同描述页面的ux文件。
+一个最基本的`Xiaomi Vela JS 应用`由描述项目信息配置文件`manifest.json`和放置项目公共资源的`app.ux`文件，以及不同描述页面的ux文件组成。应用源码统一放在 `src/` 目录下：
 
 ```bash
-├── manifest.json
-├── app.ux
-├── pages
-│   ├── index
-|   |   └── index.ux
-│   └── detail
-|       └── detail.ux
-├── i18n
-|   ├── defaults.json
-|   ├── zh-CN.json
-|   └── en-US.json
-└── common
-    ├── style.css
-    ├── utils.js
-    └── logo.png
+└── src/                 # 源码目录
+    ├── manifest.json
+    ├── app.ux
+    ├── pages
+    │   ├── index
+    |   |   └── index.ux
+    │   └── detail
+    |       └── detail.ux
+    ├── i18n
+    |   ├── defaults.json
+    |   ├── zh-CN.json
+    |   └── en-US.json
+    └── common
+        ├── style.css
+        ├── utils.js
+        └── logo.png
 ```
 
-当`AIoT-IDE`打开一个项目时会判断当前项目的**根目录** 或者**src目录** 下是否有`mainfest.json`文件，如果有则会读取`mainfest.json`中的**deviceTypeList** ，通过**deviceTypeList** 字段的内容判断当前项目是什么类型的`Xiaomi Vela JS应用`。
+当`AIoT-IDE`打开一个项目时会判断当前项目的**src目录** 下是否有`manifest.json`文件，如果有则会读取`manifest.json`中的**deviceTypeList** ，通过**deviceTypeList** 字段的内容判断当前项目是什么类型的`Xiaomi Vela JS应用`。

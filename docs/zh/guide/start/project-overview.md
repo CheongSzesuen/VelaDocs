@@ -1,109 +1,74 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/start/project-overview.html -->
 
-# 项目结构
+# 项目概览
 
-这个章节将基于[安装环境](</vela/quickapp/zh/guide/start/use-ide.html>)中初始化的项目， 来讲解 Vela JS 应用项目中的各部分的作用。
+本章节基于[安装环境](</vela/quickapp/zh/guide/start/use-ide.html>)中初始化的项目，介绍 Vela JS 应用项目各部分的作用。
 
 ## 目录结构
-
-Vela JS 应用项目由配置文件（manifest.json）、模板代码（ux文件）、 样式代码（css文件）、逻辑代码（js文件）以及资源文件（图片、音频等）组成。
 
 典型的项目目录结构如下：
 
 ```bash
-├── manifest.json
-├── app.ux
-├── pages
-│   ├── index
-|   |   └── index.ux
-│   └── detail
-|       └── detail.ux
-├── i18n
-|   ├── defaults.json
-|   ├── zh-CN.json
-|   └── en-US.json
-└── common
-    ├── style.css
-    ├── utils.js
-    └── logo.png
+├── README.md            # 项目说明文件
+├── package.json         # 项目配置文件
+├── build/               # 构建中间产物
+├── dist/                # 最终构建产物
+├── sign/                # 签名文件
+│   ├── certificate.pem
+│   └── private.pem
+└── src/                 # 源码目录
+    ├── app.ux           # 应用入口文件
+    ├── manifest.json    # 项目配置文件
+    ├── common/          # 公共资源目录
+    │   ├── components/  # 组件目录
+    │   │   └── button.ux
+    │   ├── images/      # 图片目录
+    │   │   └── logo.png
+    │   └── scripts/     # 脚本目录
+    │       └── index.js
+    ├── i18n/            # 多语言配置目录
+    │   ├── defaults.json
+    │   ├── en.json
+    │   └── zh-CN.json
+    └── pages/           # 页面目录
+        ├── detail/detail.ux
+        └── index/index.ux
 ```
 
-## 配置文件
+## 各目录说明
 
-项目根目录中的`manifest.json`文件为项目的配置文件，应用信息、使用到的系统接口以及页面路由等信息需要在这个配置文件中声明。
+### src/
 
-详细配置字段说明可以参考[项目配置](</vela/quickapp/zh/guide/framework/manifest.html>)。
+源码目录，所有应用代码都放在这里。`src/` 是固定的目录名称，不可更改。
 
-## ux模板
+### src/manifest.json
 
-一个页面通常都由三部分组成：页面结构、样式和逻辑交互。这三部分，可以放在一个ux文件中，也可以作为独立的文件。
+项目配置文件，用于声明应用基本信息（包名、版本等）、系统接口权限以及页面路由。详细字段说明参考[项目配置](</vela/quickapp/zh/guide/framework/manifest.html>)。
 
-如果放在一个ux文件中，则ux文件需要包含三标签：`template`、`style`和`script`。
+### src/app.ux
 
-示例：
+应用入口文件，用于定义应用级别的生命周期回调、全局数据和全局方法。详细用法参考 [app.ux](</vela/quickapp/zh/guide/framework/ux.html#appux>)。
 
-```html
-<template>
-  <div class="page">
-    <text class="title">欢迎打开{{title}}</text>
-    <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail">
-  </div>
-</template>
+### src/pages/
 
-<style>
-  .btn {
-    width: 400px;
-    height: 60px;
-    background-color: #09ba07;
-    color: #ffffff;
-  }
-</style>
+页面目录，每个页面对应一个子目录。页面由 ux 文件描述，也可以将样式和逻辑拆分为独立的 css/js 文件。详细说明参考[项目结构](</vela/quickapp/zh/guide/framework/project-structure.html>)。
 
-<script>
-  import router from '@system.router'
+### src/common/
 
-  export default {
-    // 页面数据对象
-    private: {
-      title: '示例页面'
-    },
-    // 按钮点击后的回调
-    routeDetail() {
-      router.push({
-        uri: '/pages/detail'
-      })
-    }
-  }
-</script>
-```
+公共资源目录，用于存放跨页面共享的组件、图片、脚本和样式等资源。
 
-如果将页面结构、样式和逻辑交互分开作为独立的文件，可以使用如下目录结构：
+### src/i18n/
 
-```bash
-├── ...
-├── pages
-│   ├── ...
-│   └── detail
-|       ├── detail.ux
-|       ├── detail.css
-|       └── detail.js
-├── ...
-```
+多语言配置目录，存放各语言对应的 JSON 文件，用于实现应用的国际化。详细用法参考[多语言](</vela/quickapp/zh/guide/framework/other/i18n.html>)。
 
-说明
+### build/ 和 dist/
 
-如果作为独立的文件，将ux/css/js文件分开后，ux文件中不能包含`template`标签。
+`build/` 存放构建过程中的中间产物，`dist/` 存放最终的构建输出文件（rpk 包）。这两个目录由构建工具自动生成，无需手动维护。
 
-## app.ux
+### sign/
 
-`app.ux`用于定义App的生命周期、全局数据或者全局方法。
+签名文件目录，包含 `certificate.pem`（证书）和 `private.pem`（私钥），用于对应用包进行签名。
 
-详细使用方法可以参考[app.ux](</vela/quickapp/zh/guide/framework/ux.html#appux>)。
+### package.json
 
-## common
-
-`common`文件夹主要用来存放公共的资源，比如图片、音频和公共样式等。
-
-## i18n
-
-`i18n`文件夹用来存放多语言配置文件。
+项目的 npm 配置文件，定义项目依赖和构建脚本。
