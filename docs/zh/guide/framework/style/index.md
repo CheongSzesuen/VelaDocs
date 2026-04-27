@@ -61,6 +61,17 @@ tag | div | 选择所有 div 组件
 </style>
 ```
 
+注意：以下选择器均不支持：
+
+  * 后代选择器（`.a .b`）
+  * 子选择器（`.a > .b`）
+  * 兄弟选择器（`.a + .b`、`.a ~ .b`）
+  * 伪类选择器（`:hover`、`:focus`、`:active`、`:first-child`、`:nth-child()` 等）
+  * 伪元素选择器（`::before`、`::after`、`::placeholder`）
+  * 属性选择器（`[attr=value]`）
+  * 通配选择器（`*`）
+  * 多类名交集选择（`.a.b`）
+
 ## 选择器优先级
 
 当前样式的选择器的优先级计算保持与浏览器一致，是浏览器 CSS 渲染的一个子集（仅支持：inline, id, class, tag）。

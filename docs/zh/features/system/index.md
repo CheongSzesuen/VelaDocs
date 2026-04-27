@@ -14,3 +14,4 @@
   * [电量信息](</vela/quickapp/zh/features/system/battery.html>)
   * [系统音量](</vela/quickapp/zh/features/system/volume.html>)
   * [解压缩](</vela/quickapp/zh/features/system/zip.html>)
+  * [蓝牙](</vela/quickapp/zh/features/system/bluetooth.html>)

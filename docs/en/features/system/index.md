@@ -14,3 +14,4 @@ Provide some system capabilities.
   * [Battery Information](</vela/quickapp/en/features/system/battery.html>)
   * [System Volume](</vela/quickapp/en/features/system/volume.html>)
   * [Decompression](</vela/quickapp/en/features/system/zip.html>)
+  * [Bluetooth](</vela/quickapp/en/features/system/bluetooth.html>)

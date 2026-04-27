@@ -61,6 +61,17 @@ tag | div | Select all div components
 </style>
 ```
 
+Note: The following selectors are not supported:
+
+  * Descendant selectors (`.a .b`)
+  * Child selectors (`.a > .b`)
+  * Sibling selectors (`.a + .b`, `.a ~ .b`)
+  * Pseudo-class selectors (`:hover`, `:focus`, `:active`, `:first-child`, `:nth-child()`, etc.)
+  * Pseudo-element selectors (`::before`, `::after`, `::placeholder`)
+  * Attribute selectors (`[attr=value]`)
+  * Universal selectors (`*`)
+  * Intersection of multiple class names (`.a.b`)
+
 ## Selector Priority
 
 The priority calculation of the current style selector is consistent with the browser, which is a subset of browser CSS rendering (only supports: inline, id, class, tag).
