@@ -39,8 +39,21 @@ jobs:
       - name: Refresh docs
         run: |
           set -euo pipefail
-          rm -rf docs
           python docs.py
+
+      - name: Mark updated files with date
+        run: |
+          set -euo pipefail
+          today="$(date '+%Y-%m-%d')"
+          while IFS= read -r file; do
+            [ -f "$file" ] || continue
+            echo "标记更新: $file"
+            if grep -q '<!-- 最近更新日期:' "$file"; then
+              sed -i "s/<!-- 最近更新日期: .* -->/<!-- 最近更新日期: $today -->/" "$file"
+            else
+              sed -i "/<!-- 源地址:/a <!-- 最近更新日期: $today -->" "$file"
+            fi
+          done < <(git diff --name-only HEAD -- '*.md' || true)
 
       - name: Commit and push docs
         run: |
