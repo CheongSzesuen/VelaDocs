@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # Bluetooth bluetooth
 
@@ -38,14 +39,14 @@ const scanner = bluetoothBLE.createScanner();
 
 ### bluetoothBLE.createGattClientDevice(deviceId, addressType)
 
-Creates a GattClientDevice (Generic Attribute Profile client) instance.
+Creates a GattClientDevice (Generic Attribute Profile Client) instance.
 
 #### Parameters:
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
-deviceId | String | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
-addressType | String | No | Indicates the device address type. Optional values are: 'PUBLIC', 'RANDOM', 'ANONYMOUS', 'UNKNOWN'. Default value: UNKNOWN. 
+deviceId | String | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
+addressType | String | No | Indicates the device address type. Optional values: 'PUBLIC', 'RANDOM', 'ANONYMOUS', 'UNKNOWN'. Default value: UNKNOWN. 
 
 #### Return Value:
 
@@ -65,15 +66,15 @@ const gattClientDevice = bluetoothBLE.createGattClientDevice("XX:XX:XX:XX:XX:XX"
 
 Initiates a BLE scanning process.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion. 
+complete | Function | No | Callback after execution is complete. 
 
 #### ScanFilter
 
@@ -81,9 +82,9 @@ Scanning filter parameters.
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb. 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb. 
 
 #### ScanOptions
 
@@ -99,9 +100,9 @@ Enumeration of scanning modes.
 
 Name | Default Value | Description
 ---|---|---
-SCAN_MODE_LOW_POWER | 0 | Indicates the low-power mode. Default value.
+SCAN_MODE_LOW_POWER | 0 | Indicates the low power consumption mode. This is the default value.
 SCAN_MODE_BALANCED | 1 | Indicates the balanced mode.
-SCAN_MODE_LOW_LATENCY | 2 | Indicates the low-latency mode. 
+SCAN_MODE_LOW_LATENCY | 2 | Indicates the low latency mode. 
 
 #### Example:
 
@@ -152,15 +153,15 @@ scanner.stopBLEScan();
 
 Obtains the current scanning state of the Scanner.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion. 
+complete | Function | No | Callback after execution is complete. 
 
-#### Properties of the success callback object:
+#### Properties of the success Callback Object:
 
 Property Name | Type | Description
 ---|---|---
@@ -193,9 +194,9 @@ scanner.getScanState({
 
 ### Scanner.subscribeBLEDeviceFind(OBJECT)
 
-Subscribes to BLE device discovery reporting events.
+Subscribes to the BLE device discovery reporting event.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
@@ -208,15 +209,15 @@ Type | Description
 ---|---
 Number | Subscription ID. 
 
-#### Parameters of the callback:
+#### Parameters of the callback Callback:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.0 
+complete | Function | No | Callback after execution is complete.0 
 
 #### ScanResult
 
@@ -224,11 +225,11 @@ Scanning result reporting data.
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.1 
+complete | Function | No | Callback after execution is complete.1 
 
 #### Example:
 
@@ -248,17 +249,17 @@ const subscribeId = scanner.subscribeBLEDeviceFind({
 
 ### Scanner.unsubscribeBLEDeviceFind(subscribeId)
 
-Cancels the subscription to BLE device discovery reporting events.
+Cancels the subscription to the BLE device discovery reporting event.
 
 #### Parameters:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.2 
+complete | Function | No | Callback after execution is complete.2 
 
 #### Return Value:
 
@@ -294,13 +295,13 @@ scanner.close();
 
 ### GattClientDevice.connect(OBJECT)
 
-The client initiates a connection to a remote Bluetooth Low Energy device.
+The client initiates a connection to a remote Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
-| Property Name | Type | Description | | | | -------- | -------- | ---- | ---------------- | | success | Function | No | Callback upon successful instruction sending by the client (not upon successful connection). | | fail | Function | No | Failure callback. | | complete | Function | No | Callback after execution completion. |
+| Property Name | Type | Description | | | | -------- | -------- | ---- | ---------------- | | success | Function | No | Callback after the client sends the command successfully (not indicating a successful connection). | | fail | Function | No | Failure callback. | | complete | Function | No | Callback after execution is complete. |
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -314,13 +315,13 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.disconnect(OBJECT)
 
-The client disconnects from a remote Bluetooth Low Energy device.
+The client disconnects from a remote Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
-| Property Name | Type | Description | | | | -------- | -------- | ---- | ---------------- | | success | Function | No | Callback upon successful instruction sending by the client. | | fail | Function | No | Failure callback. | | complete | Function | No | Callback after execution completion. |
+| Property Name | Type | Description | | | | -------- | -------- | ---- | ---------------- | | success | Function | No | Callback after the client sends the command successfully. | | fail | Function | No | Failure callback. | | complete | Function | No | Callback after execution is complete. |
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -334,17 +335,17 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.close()
 
-Closes the client function, deregisters the client from the protocol stack. After this interface is called, the GattClientDevice instance can no longer be used.
+Closes the client function, deregisters the client from the protocol stack, and makes the GattClientDevice instance no longer usable after this interface is called.
 
 #### Return Value:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.3
+complete | Function | No | Callback after execution is complete.3
 
 ```javascript
 import bluetoothBLE from '@system.bluetooth.ble'
@@ -354,27 +355,27 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.getServices(OBJECT)
 
-The client obtains all services of a Bluetooth Low Energy device, that is, service discovery.
+The client obtains all services of a Bluetooth low-energy device, that is, service discovery.
 
-#### Properties of the OBJECT:
-
-Property Name | Type | Required | Description
----|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
-options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
-success | Function | No | Success callback.
-fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.4 
-
-#### Parameters of the success callback:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.5 
+complete | Function | No | Callback after execution is complete.4 
+
+#### Parameters of the success Callback:
+
+Property Name | Type | Required | Description
+---|---|---|---
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
+options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
+success | Function | No | Success callback.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution is complete.5 
 
 #### Example:
 
@@ -386,27 +387,27 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.readCharacteristicValue(OBJECT)
 
-The client reads the characteristic value of a specific service from a Bluetooth Low Energy device.
+The client reads the characteristic value of a specific service of a Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
-
-Property Name | Type | Required | Description
----|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
-options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
-success | Function | No | Success callback.
-fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.6 
-
-#### Parameters of the success callback:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.7 
+complete | Function | No | Callback after execution is complete.6 
+
+#### Parameters of the success Callback:
+
+Property Name | Type | Required | Description
+---|---|---|---
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
+options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
+success | Function | No | Success callback.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution is complete.7 
 
 #### Example:
 
@@ -418,27 +419,27 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.readDescriptorValue(OBJECT)
 
-The client reads the descriptor contained in a specific characteristic from a Bluetooth Low Energy device.
+The client reads the descriptor contained in a specific characteristic of a Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
-
-Property Name | Type | Required | Description
----|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
-options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
-success | Function | No | Success callback.
-fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.8 
-
-#### Parameters of the success callback:
+#### Properties of the OBJECT Object:
 
 Property Name | Type | Required | Description
 ---|---|---|---
-filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Peer device address, for example: "XX:XX:XX:XX:XX:XX".
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
 options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
 success | Function | No | Success callback.
 fail | Function | No | Failure callback.
-complete | Function | No | Callback after execution completion.9 
+complete | Function | No | Callback after execution is complete.8 
+
+#### Parameters of the success Callback:
+
+Property Name | Type | Required | Description
+---|---|---|---
+filters | Array<[ScanFilter](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanFilter)> | Yes | Address of the peer device, for example: "XX:XX:XX:XX:XX:XX".
+options | [ScanOptions](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanOptions) | No | Indicates the scanning parameter configuration. Optional parameters.
+success | Function | No | Success callback.
+fail | Function | No | Failure callback.
+complete | Function | No | Callback after execution is complete.9 
 
 #### Example:
 
@@ -450,17 +451,17 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.writeCharacteristicValue(OBJECT)
 
-The client writes a specific characteristic value to a Bluetooth Low Energy device.
+The client writes a specific characteristic value to a Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.0 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.0 
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -474,17 +475,17 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.writeDescriptorValue(OBJECT)
 
-The client writes binary data to a specific descriptor of a Bluetooth Low Energy device.
+The client writes binary data to a specific descriptor of a Bluetooth low-energy device.
 
-#### Properties of the OEJBCT:
+#### Properties of the OEJBCT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.1 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.1 
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -498,17 +499,17 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.setBLEMtuSize(OBJECT)
 
-The client negotiates the Maximum Transmission Unit (MTU) size with a remote Bluetooth Low Energy device. Note: This can only be used after a successful connection is established using the connect interface.
+The client negotiates the Maximum Transmission Unit (MTU) of a remote Bluetooth low-energy device. Note: This interface can be used only after a successful connection is established by calling the connect interface.
 
-#### Properties of the OEJECT:
+#### Properties of the OEJECT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.2 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.2 
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -522,17 +523,17 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.setNotifyCharacteristicChanged(OBJECT)
 
-Sends a request to the server to set notifications for this characteristic value.
+Sends a request to the server to set a notification for this characteristic value.
 
-#### Properties of the OBJECT:
+#### Properties of the OBJECT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.3 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.3 
 
-#### Parameters of the success callback:
+#### Parameters of the success Callback:
 
 None
 
@@ -546,15 +547,15 @@ const bluetoothBLE = require("@system.bluetooth.ble")
 
 ### GattClientDevice.onBLECharacteristicChange
 
-Subscribes to characteristic value change events of a Bluetooth Low Energy device. The setNotifyCharacteristicChanged interface must be called first to receive notifications from the server.
+Subscribes to the event of characteristic value changes of a Bluetooth low-energy device. You need to call the setNotifyCharacteristicChanged interface first to receive notifications from the server.
 
-#### Event callback parameters:
+#### Parameters of the Event Callback:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.4 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.4 
 
 #### Example:
 
@@ -564,15 +565,15 @@ const scanner = bluetoothBLE.createScanner();
 
 ### GattClientDevice.onBLEConnectionStateChange
 
-The client subscribes to connection state change events of a Bluetooth Low Energy device.
+The client subscribes to the event of connection state changes of a Bluetooth low-energy device.
 
-#### Event callback parameters:
+#### Parameters of the Event Callback:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.5 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.5 
 
 #### Example:
 
@@ -582,23 +583,23 @@ const scanner = bluetoothBLE.createScanner();
 
 ### GattClientDevice.getDeviceName(OBJECT)
 
-The client obtains the name of a remote Bluetooth Low Energy device.
+The client obtains the name of a remote Bluetooth low-energy device.
 
-#### Properties of the OBJECT:
-
-Parameter Name | Type | Readable | Writable | Description
----|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.6 
-
-#### Properties of the success callback object parameters:
+#### Properties of the OBJECT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.7 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.6 
+
+#### Properties of the success Callback Object Parameter:
+
+Parameter Name | Type | Readable | Writable | Description
+---|---|---|---|---
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.7 
 
 #### Example:
 
@@ -608,23 +609,23 @@ const scanner = bluetoothBLE.createScanner();
 
 ### GattClientDevice.getRssiValue(OBJECT)
 
-The client obtains the Received Signal Strength Indication (RSSI) of a remote Bluetooth Low Energy device. This can only be used after a successful connection is established using the connect interface.
+The client obtains the Received Signal Strength Indication (RSSI) of a remote Bluetooth low-energy device. This interface can be used only after a successful connection is established by calling the connect interface.
 
-#### Properties of the OBJECT:
-
-Parameter Name | Type | Readable | Writable | Description
----|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.8 
-
-#### Properties of the success callback object parameters:
+#### Properties of the OBJECT Object:
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
-deviceId | String | Yes | Yes | Indicates the filtered BLE device address, for example: "XX:XX:XX:XX:XX:XX".
-name | String | Yes | Yes | Indicates the filtered BLE device name.
-serviceUuid | String | Yes | Yes | Indicates the filtered devices that contain the service with this UUID, for example: 00001888-0000-1000-8000-00805f9b34fb.9 
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.8 
+
+#### Properties of the success Callback Object Parameter:
+
+Parameter Name | Type | Readable | Writable | Description
+---|---|---|---|---
+deviceId | String | Yes | Yes | Indicates the BLE device address to be filtered, for example: "XX:XX:XX:XX:XX:XX".
+name | String | Yes | Yes | Indicates the BLE device name to be filtered.
+serviceUuid | String | Yes | Yes | Indicates the device with the service containing this UUID to be filtered, for example: 00001888-0000-1000-8000-00805f9b34fb.9 
 
 #### Example:
 
@@ -634,7 +635,7 @@ const scanner = bluetoothBLE.createScanner();
 
 ## GattService
 
-Describes the object attribute definitions of GattService.
+Describes the object attribute definition of GattService.
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
@@ -642,7 +643,7 @@ dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/en/features/system/blueto
 
 ## BLECharacteristic
 
-Describes the object attribute definitions of characteristic.
+Describes the object attribute definition of characteristic.
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
@@ -650,7 +651,7 @@ dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/en/features/system/blueto
 
 ## BLEDescriptor
 
-Describes the object attribute definitions of descriptor.
+Describes the object attribute definition of descriptor.
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
@@ -658,7 +659,7 @@ dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/en/features/system/blueto
 
 ## GattProperties
 
-Property description definitions for specific characteristics.
+Defines the property description of a specific characteristic.
 
 Parameter Name | Type | Readable | Writable | Description
 ---|---|---|---|---
@@ -681,3 +682,9 @@ dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/en/features/system/blueto
 ## Background Running Restrictions
 
 Prohibited.
+
+## Support Details
+
+Parameter Name | Type | Readable | Writable | Description
+---|---|---|---|---
+dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/en/features/system/bluetooth.html#ScanDuty) | Yes | Yes | Indicates the scanning mode. The default value is SCAN_MODE_LOW_POWER.6

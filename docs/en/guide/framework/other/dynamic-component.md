@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/guide/framework/other/dynamic-component.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # Dynamic Component
 
@@ -24,10 +25,8 @@ When multiple components are introduced on a page and need to be dynamically swi
 
 <script>
   export default {
-    data() {
-      return {
-        status: 1
-      }
+    data: {
+      status: 1
     }
   }
 </script>
@@ -53,10 +52,8 @@ However, when there are many components, the amount of template code will become
 
 <script>
   export default {
-    data() {
-      return {
-        status: 1
-      }
+    data: {
+      status: 1
     }
   }
 </script>

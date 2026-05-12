@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/template/component.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # 组件
 
@@ -214,10 +215,8 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
 <script>
   export default {
     props: ['count'],
-    data(){
-      return{
-        compCount:this.count
-      }
+    data: {
+      compCount:this.count
     },
     addHandler(){
       this.compCount ++
@@ -240,10 +239,8 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
 <script>
   export default {
     props: ['num'],
-    data(){
-      return{
-        compNum:this.num
-      }
+    data: {
+      compNum:this.num
     },
     delHandler(){
       this.compNum --
@@ -265,10 +262,8 @@ vela中是通过`<import>`标签引入组件，如下面代码所示：
 <script>
   export default {
     props:[],
-    data(){
-      return{
-        compAge:null
-      }
+    data: {
+      compAge: null
     },
     onInit(){
       this.$on('broadevt',this.broadevt)

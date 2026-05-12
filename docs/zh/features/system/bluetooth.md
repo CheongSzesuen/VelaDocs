@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/system/bluetooth.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # 蓝牙 bluetooth
 
@@ -685,3 +686,9 @@ dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/zh/features/system/blueto
 ## 后台运行限制
 
 禁止使用。
+
+## 支持明细
+
+参数名 | 类型 | 可读 | 可写 | 描述
+---|---|---|---|---
+dutyMode | [ScanDuty](https://iot.mi.com/vela/quickapp/zh/features/system/bluetooth.html#ScanDuty) | 是 | 是 | 表示扫描模式，默认值为 SCAN_MODE_LOW_POWER。8

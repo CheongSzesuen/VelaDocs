@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/guide/framework/template/component.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # Components
 
@@ -212,10 +213,8 @@ The parent component passes data to the child component by declaring exposed pro
 <script>
   export default {
     props: ['count'],
-    data() {
-      return {
-        compCount: this.count
-      }
+    data: {
+      compCount: this.count
     },
     addHandler() {
       this.compCount++
@@ -238,10 +237,8 @@ The parent component passes data to the child component by declaring exposed pro
 <script>
   export default {
     props: ['num'],
-    data() {
-      return {
-        compNum: this.num
-      }
+    data: {
+      compNum: this.num
     },
     delHandler() {
       this.compNum--
@@ -263,10 +260,8 @@ The parent component passes data to the child component by declaring exposed pro
 <script>
   export default {
     props: [],
-    data() {
-      return {
-        compAge: null
-      }
+    data: {
+      compAge: null
     },
     onInit() {
       this.$on('broadevt', this.broadevt)

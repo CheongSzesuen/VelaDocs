@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/guide/framework/other/dynamic-component.html -->
+<!-- 最近更新日期: 2026-05-12 -->
 
 # 动态组件
 
@@ -24,10 +25,8 @@
 
 <script>
   export default {
-    data() {
-      return {
-        status: 1
-      }
+    data: {
+      status: 1
     }
   }
 </script>
@@ -53,10 +52,8 @@
 
 <script>
   export default {
-    data() {
-      return {
-        status: 1
-      }
+    data: {
+      status: 1
     }
   }
 </script>
