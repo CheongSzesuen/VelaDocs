@@ -562,7 +562,14 @@ class MarkdownScraper:
         md_path = (self.output_dir / rel_path).with_suffix('.md')
         md_path.parent.mkdir(parents=True, exist_ok=True)
 
-        final_content = f"<!-- 源地址: {url} -->\n\n{content}"
+        date_comment = ""
+        if md_path.exists():
+            existing_content = md_path.read_text(encoding='utf-8')
+            m = re.search(r'<!-- 最近更新日期: .*? -->', existing_content)
+            if m:
+                date_comment = m.group(0) + "\n"
+
+        final_content = f"<!-- 源地址: {url} -->\n{date_comment}\n{content}"
 
         def adjust_img(match):
             alt_text = match.group(1)
