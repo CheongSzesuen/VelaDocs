@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/dev/official-site-tutorial.html -->
+<!-- 最近更新日期: 2026-05-26 -->
 
 # AI 自动化生成
 
@@ -47,7 +48,7 @@ AI 引擎 | GitHub Copilot（GPT-4o 等） | Kiro AI（Claude）
 断点恢复 | — | ✅ Session 机制
 自动校验 | Agent 内置检查 | Hooks 事件驱动
 适合 | 已有 Copilot 订阅的团队 | 追求深度自动化的团队
-调试方式 | 内置插件、支持[velajs-mcp (opens new window)](https://www.npmjs.com/package/velajs-mcp) | 支持[velajs-mcp (opens new window)](https://www.npmjs.com/package/velajs-mcp) 
+调试方式 | AIOT-IDE内置插件 | AIOT-IDE内置插件 
 
 * * *
 
@@ -280,7 +281,7 @@ API 声明 | import 的 API 自动在 features 中声明
 
 * * *
 
-## 支持的设备
+## 设备尺寸参考
 
 设备 | 像素尺寸 | 屏幕形状 | designWidth
 ---|---|---|---
@@ -289,7 +290,7 @@ Xiaomi Watch S3/S4/H1 | 466×466 | 圆屏 | 466
 REDMI Watch 5 | 432×514 | 方屏 | 432
 小米手环 9 | 192×490 | 跑道屏 | 192 
 
-工作流启动时可指定目标设备屏幕规格，AI 会自动适配布局和安全区域。
+工作流启动时可指定任意目标设备屏幕规格，AI 会自动适配布局和安全区域。
 
 * * *
 
@@ -346,16 +347,7 @@ npx create-vela-workflow . --mode copilot
 
 **Q: 生成的代码需要调试怎么办？**
 
-可以使用AIoT IDE自己调试，也可以安装 [velajs-mcp (opens new window)](<https://www.npmjs.com/package/velajs-mcp>)，让 AI 对比 Figma 设计稿自动调试：
-
-```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
-
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
-```
+使用AIoT IDE运行模拟器，可以让 AI 对比 Figma 设计稿自动调试
 
 **Q: 可以自定义 AI 的编码规则吗？**
 
@@ -390,5 +382,4 @@ Figma 设计稿 | ✅（需 Figma MCP） | ✅（需 Figma Desktop）
   * [AIoT IDE 下载 (opens new window)](<https://iot.mi.com/vela/quickapp/zh/tools/aiot-ide.html>)
   * [Kiro IDE 下载 (opens new window)](<https://kiro.dev/>)
   * [GitHub Copilot (opens new window)](<https://github.com/features/copilot>)
-  * [velajs-mcp 调试工具 (opens new window)](<https://www.npmjs.com/package/velajs-mcp>)
   * npm 包：`npx create-vela-workflow --help`

@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/basic/app.html -->
+<!-- 最近更新日期: 2026-05-26 -->
 
 # 应用上下文 app
 
@@ -90,6 +91,31 @@ console.log(JSON.stringify(app.getInfo()))
 
 ```javascript
 app.terminate()
+```
+
+### app.loadLibrary(name)
+
+加载动态库，需要与厂商合作。
+
+#### 参数：
+
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+name | String | 是 | lib 库名称 
+
+#### 返回值：
+
+动态库加载结果
+
+#### 示例：
+
+```javascript
+import app from '@system.app'
+const testApp = app.loadLibrary('test_app')
+
+testApp.on('js_task_callback', () => {
+  // callback action
+})
 ```
 
 ### app.canIUse()3+

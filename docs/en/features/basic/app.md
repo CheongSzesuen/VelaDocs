@@ -1,10 +1,11 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/features/basic/app.html -->
+<!-- 最近更新日期: 2026-05-26 -->
 
-# Application Context
+# Application Context app
 
 ## Interface Declaration
 
-No declaration is required.
+No declaration required.
 
 ## Import Module
 
@@ -18,11 +19,11 @@ const app = require('@system.app')
 
 ### app.getInfo()
 
-Get current application information.
+Obtain current application information.
 
 #### Parameters:
 
-None.
+None
 
 #### Return Value:
 
@@ -41,7 +42,7 @@ source | Object | Application source
 Parameter Name | Type | Description
 ---|---|---
 packageName | String | Package name of the source app, primary source
-type | String | Source type, secondary source, values include shortcut, push, url, barcode, nfc, bluetooth, other 
+type | String | Source type, secondary source. Values can be shortcut, push, url, barcode, nfc, bluetooth, other. 
 
 #### Example:
 
@@ -50,7 +51,7 @@ console.log(JSON.stringify(app.getInfo()))
 ```
 
 ```json
-// console output
+// Console output
 {
   // Application package name
   "packageName": "com.example.demo",
@@ -60,7 +61,7 @@ console.log(JSON.stringify(app.getInfo()))
   "versionName": "1.0.0",
   // Application version number
   "versionCode": 1,
-  // Application icon
+  // Application image
   "icon": "/common/logo.png",
   // Log level
   "logLevel": "debug",
@@ -80,16 +81,41 @@ Exit the current application.
 
 #### Parameters:
 
-None.
+None
 
 #### Return Value:
 
-None.
+None
 
 #### Example:
 
 ```javascript
 app.terminate()
+```
+
+### app.loadLibrary(name)
+
+Load a dynamic library, requires collaboration with the manufacturer.
+
+#### Parameters:
+
+Parameter Name | Type | Required | Description
+---|---|---|---
+name | String | Yes | Name of the lib library 
+
+#### Return Value:
+
+Result of dynamic library loading.
+
+#### Example:
+
+```javascript
+import app from '@system.app'
+const testApp = app.loadLibrary('test_app')
+
+testApp.on('js_task_callback', () => {
+  // Callback action
+})
 ```
 
 ### app.canIUse()3+
@@ -98,7 +124,7 @@ app.terminate()
 
 Type | Description
 ---|---
-String | The capability to query, format as below 
+String | The capability to query, format specified below 
 
 #### Return Value:
 
@@ -111,9 +137,9 @@ Boolean | Whether the queried capability is supported
 #### Query Interface
 
 ```javascript
-// Query if a method under a feature is supported
+// Query whether a method under a feature is supported
 '@${featureName}.${method}'
-// Query if a feature is supported
+// Query whether a feature is supported
 '@${featureName}'
 ```
 
@@ -123,21 +149,21 @@ Boolean | Whether the queried capability is supported
 import app from '@system.app';
 
 if (app.canIUse('@system.router.push')) {
-  // Can use method @system.router.push
+  // The method @system.router.push can be used
 }
 if (app.canIUse('@system.router')) {
-  // Can use @system.router interface
+  // The @system.router interface can be used
 }
 ```
 
 #### Query Component
 
-The value of type can be `'attr'`, `'style'`, `'method'`, corresponding to component's attributes, styles, and methods respectively.
+The value of `type` can be `'attr'`, `'style'`, or `'method'`, corresponding to the component's attributes, styles, and methods, respectively.
 
 ```javascript
-// Query if an attribute, style, or method under a component is supported
+// Query whether attributes, styles, or methods under a component are supported
 `${componentName}.${type}.${name}`
-// Query if a component is supported
+// Query whether a component is supported
 `${componentName}`
 ```
 
@@ -147,9 +173,9 @@ The value of type can be `'attr'`, `'style'`, `'method'`, corresponding to compo
 import app from '@system.app';
 
 if (app.canIUse('scroll')) {
-  // Can use scroll component
+  // The scroll component can be used
 }
 if (app.canIUse('scroll.attr.scroll-x')) {
-  // Can use scroll-x attribute of scroll component
+  // The scroll-x attribute of the scroll component can be used
 }
 ```
