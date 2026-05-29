@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/samples/ -->
+<!-- 最近更新日期: 2026-05-29 -->
 
 ![封面](../images/calendar.png)
 
@@ -53,3 +54,9 @@
 父子组件通信 该示例聚焦 Vela 快应用父子组件通信场景，核心实现三大功能：① 父组件通过 props 向子组件传递数据，遵循单向数据流原则；② 子组件通过 $emit 触发自定义事件，父组件监听并接收子组件传递的参数；③ 子组件通过 $dispatch 实现事件向上冒泡传递。示例代码结构清晰、可直接运行，能帮助开发者快速掌握 Vela 快应用父子组件的通信逻辑与最佳实践。
 
 [![](../images/github.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/parentChildComp>) [![](../images/gitee.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/parentChildComp>)
+
+![封面](../images/interconnect_image_demo.png)
+
+跨设备图片传输 该示例聚焦 Vela 快应用跨设备互联通信场景，基于 system.interconnect API 实现手表与 Android 手机之间的图片传输功能，核心实现三大功能：① 通过 interconnect 建立手表与手机的双向通信通道，支持连接状态实时监听（onopen/onclose/onerror）；② 手表端主动发送图片请求，手机端响应后将图片进行 Base64 分片传输（header→data→end 三阶段协议）；③ 手表端逐片接收并组装还原为完整图片，通过 system.file API 写入本地缓存并渲染展示，全程显示传输进度。示例代码涵盖连接管理、分片协议解析、ArrayBuffer 转换及文件存储等完整链路，可直接运行，能帮助开发者快速掌握 Vela 快应用跨设备数据传输的通信架构与工程实践。
+
+[![](../images/github.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/interconnect_image_demo>) [![](../images/gitee.svg)](<https://github.com/open-vela/packages_apps/tree/dev/wearable/interconnect_image_demo>)
