@@ -48,7 +48,7 @@ Startup Method | Select Agent in Copilot Chat | Reference workflow_starter.md in
 Breakpoint Resumption | — | ✅ Session mechanism
 Automatic Validation | Built-in checks in Agent | Hooks event-driven
 Suitable For | Teams with existing Copilot subscriptions | Teams pursuing deep automation
-Debugging Method | AIoT-IDE built-in plugin | AIoT-IDE built-in plugin 
+Debugging Method | AIoT-IDE built-in plugin | AIoT-IDE built-in plugin
 
 * * *
 
@@ -200,13 +200,8 @@ After installation, the following `.kiro/` and `.workflow/` directories will be 
   1. Open project in Kiro
   2. Enter in dialog box:
 
-```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
-
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+```
+@.workflow/workflow_starter.md
 ```
   3. Enter requirement content as prompted (supports multiple sources):
 
@@ -241,24 +236,59 @@ npx create-vela-workflow . --mode copilot
 
 ### Full Process Example
 
-```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
+```
+User: Develop an accounting app supporting addition of income/expense records and monthly statistics viewing
 
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+AI:   📝 Requirement received
+      📐 Screen specification: 480×480 round screen (default)
+
+      ❓ Please select workflow mode:
+        [1] Full process  [2] Direct code generation
+
+User: 1
+
+AI:   🚀 S1 - PRD generation...
+      ━━━━━━━━━━━━━━━━━━━━
+      📄 Feature list:
+        • Home: Income/expense overview + quick accounting button
+        • Accounting page: Amount input + category selection
+        • Statistics page: Monthly income/expense chart
+      ❓ [y] Confirm  [e] Modify  [n] Redo
+
+User: y
+
+AI:   🚀 S2 - Technical solution...
+      ━━━━━━━━━━━━━━━━━━━━
+      📄 Page routes: 3 pages
+      📄 Data storage: @system.storage
+      📄 Chart: Built-in chart component
+      ❓ [y] Confirm  [e] Modify  [n] Redo
+
+User: y
+
+AI:   🚀 S3 - Code generation...
+      ━━━━━━━━━━━━━━━━━━━━
+      📂 npx create-aiot ux --name accounting-app
+      📄 Generate 3 pages + manifest configuration
+      ✅ Quality validation passed
+
+      🎉 Project creation completed!
 ```
 
 ### Quick Mode Example (with design draft)
 
-```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
+```
+User: Help me make a music player
+      Design draft: https://www.figma.com/design/xxxxx
 
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+AI:   🎨 Parsing design draft...
+      ✅ Detected 2 pages, 8 icons
+      🖼️ Exporting PNG assets to src/common/images/
+
+      📂 npx create-aiot ux --name music-player
+      📄 Generate player home + playlist page
+      🎨 Strict design reproduction (colors, font sizes, spacing)
+      ✅ Code generation completed!
 ```
 
 * * *
@@ -277,7 +307,7 @@ Round Screen Adaptation | Automatically add safe area padding (50px top/bottom, 
 Asset Format | Images only in PNG format, no SVG allowed
 Route Consistency | manifest.json routes automatically align with actual page files
 API Declarations | Imported APIs automatically declared in features
-Memory Optimization | Clean timers in onDestroy, mark static nodes as static 
+Memory Optimization | Clean timers in onDestroy, mark static nodes as static
 
 * * *
 
@@ -288,7 +318,7 @@ Device | Pixel Dimensions | Screen Shape | designWidth
 Xiaomi Watch S5 | 480×480 | Round | 480
 Xiaomi Watch S3/S4/H1 | 466×466 | Round | 466
 REDMI Watch 5 | 432×514 | Square | 432
-Xiaomi Band 9 | 192×490 | Track | 192 
+Xiaomi Band 9 | 192×490 | Track | 192
 
 The workflow can specify any target device screen specifications at startup, and AI will automatically adapt the layout and safe areas.
 
@@ -299,12 +329,7 @@ The workflow can specify any target device screen specifications at startup, and
 When a new version of the toolkit is released, update with a single command:
 
 ```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
-
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+npx create-vela-workflow@latest . --mode all
 ```
 
 * * *
@@ -316,12 +341,11 @@ npx create-vela-workflow . --mode copilot
 **Q:`npx create-vela-workflow` execution fails?**
 
 ```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
+# Check Node.js version (needs >= 16)
+node --version
 
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+# If npm registry has issues, switch to official registry
+npm config set registry https://registry.npmjs.org/
 ```
 
 **Q: Can both methods be installed simultaneously?**
@@ -335,12 +359,9 @@ Yes. `.github/` and `.kiro/` \+ `.workflow/` don't conflict, allowing team membe
 Yes. The generated project includes complete `package.json` and build configuration:
 
 ```bash
-# Create new project and install
-npx create-vela-workflow my-app --mode copilot
-
-# Or install in existing project
-cd your-project
-npx create-vela-workflow . --mode copilot
+cd my-app
+npm install
+npm run build    # Build rpk package
 ```
 
 You can open the project in [AIoT IDE (opens new window)](<https://iot.mi.com/vela/quickapp/en/tools/aiot-ide.html>) and click the debug button to launch the simulator.
@@ -372,7 +393,7 @@ Markdown file | ✅ | ✅
 Feishu document link | — | ✅ (requires Feishu MCP)
 Web page link | ✅ | ✅
 Figma design draft | ✅ (requires Figma MCP) | ✅ (requires Figma Desktop)
-Design screenshot | ✅ | ✅ 
+Design screenshot | ✅ | ✅
 
 * * *
 

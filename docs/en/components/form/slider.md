@@ -19,7 +19,7 @@ Name | Type | Default Value | Required | Description
 min | `<number>` | 0 | No | -
 max | `<number>` | 100 | No | -
 step | `<number>` | 1 | No | -
-value | `<number>` | 0 | No | - 
+value | `<number>` | 0 | No | -
 
 ## Styles
 
@@ -30,7 +30,7 @@ Name | Type | Default Value | Required | Description
 color | `<color>` | #f0f0f0 or rgb(240, 240, 240) | No | Background bar color
 selected-color | `<color>` | #009688 or rgb(0, 150, 136) | No | Selected color
 block-color | `<color>` | - | No | Slider block color
-padding-[left\|right] | `<length>` | 32px | No | Left and right padding 
+padding-[left\|right] | `<length>` | 32px | No | Left and right padding
 
 ## Events
 
@@ -38,7 +38,7 @@ Supports [general events](</vela/quickapp/en/components/general/events.html>).
 
 Name | Parameters | Description
 ---|---|---
-change | {progress:progressValue, isFromUser:isFromUserValue} | Triggered after a drag is completed<br>isFromUser description:<br>Indicates whether the event was triggered by user dragging 
+change | {progress:progressValue, isFromUser:isFromUserValue} | Triggered after a drag is completed<br>isFromUser description:<br>Indicates whether the event was triggered by user dragging
 
 ## Example Code
 

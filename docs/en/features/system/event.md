@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import event from '@system.event' 
-// or 
+import event from '@system.event'
+// or
 const event = require('@system.event')
 ```
 
@@ -27,14 +27,14 @@ Publish a public event.
 Parameter Name | Type | Required | Description
 ---|---|---|---
 eventName | String | Yes | Event name. Reserved names for public events are occupied by the system and should not be used.
-options | Object | No | Event parameters 
+options | Object | No | Event parameters
 
 #### options Parameters:
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
 params | Object | No | Event parameters
-permissions | Array<String> | No | Subscriber permissions. Only packages with these permissions can receive the sent event. 
+permissions | Array<String> | No | Subscriber permissions. Only packages with these permissions can receive the sent event.
 
 #### Public Events Supported by the System:
 
@@ -42,7 +42,7 @@ System Internal Event Name | Required Permissions for Subscribers | Description
 ---|---|---
 usual.event.BATTERY_CHANGED | None | Battery level change. Parameter: level: between 0.0 and 1.0
 usual.event.DISCHARGING | None | Charging stopped
-usual.event.CHARGING | None | Charging started 
+usual.event.CHARGING | None | Charging started
 
 #### Return Value:
 
@@ -69,20 +69,20 @@ Subscribe to a public event.
 Parameter Name | Type | Required | Description
 ---|---|---|---
 eventName | String | Yes | Event name
-callback | Function | Yes | Callback function 
+callback | Function | Yes | Callback function
 
 #### Callback Parameters:
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
 params | Object | No | Event parameters
-package | String | No | Package name of the event sender 
+package | String | No | Package name of the event sender
 
 #### Return Value:
 
 Type | Required | Description
 ---|---|---
-Number | Yes | Event ID. Returns undefined if subscription fails. 
+Number | Yes | Event ID. Returns undefined if subscription fails.
 
 #### Example:
 
@@ -106,7 +106,7 @@ Unsubscribe from a public event.
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
-id | Number | Yes | Subscription ID 
+id | Number | Yes | Subscription ID
 
 #### Example:
 

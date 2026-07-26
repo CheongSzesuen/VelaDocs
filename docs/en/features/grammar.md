@@ -47,7 +47,7 @@ Name | Method Parameter | Parameter Type | Parameter Value | Description
 success | data | any | The return value of the API execution. For details, see the interface usage documentation. | Triggered upon successful API execution.
 fail | data | any | The error information content of the API execution, generally a string, but may also be of other types. For details, see the interface usage documentation. | Triggered upon failed API execution.
 - | code | number | The error code of the API execution. For details, see [Universal Error Codes](https://iot.mi.com/vela/quickapp/en/features/grammar.html#universal-error-codes). | -
-complete | - | - | - | Triggered upon completion of the API execution. 
+complete | - | - | - | Triggered upon completion of the API execution.
 
 Code example:
 
@@ -71,7 +71,7 @@ Name | Method Parameter | Parameter Type | Parameter Value | Description
 ---|---|---|---|---
 success | data | any | The return value of the API execution. For details, see the interface usage documentation. | Triggered when the API call is successful or when an event changes. May be triggered multiple times.
 fail | data | any | The error information content, generally a string, but may also be of other types. For details, see the interface usage documentation. | Triggered upon failed API execution. Once this callback function is triggered, success will not be called again, and the interface call ends.
-- | code | number | The error code of the API execution. For details, see [Universal Error Codes](https://iot.mi.com/vela/quickapp/en/features/grammar.html#universal-error-codes). | - 
+- | code | number | The error code of the API execution. For details, see [Universal Error Codes](https://iot.mi.com/vela/quickapp/en/features/grammar.html#universal-error-codes). | -
 
 Code example:
 

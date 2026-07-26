@@ -10,7 +10,7 @@ Attribute | Type | Description
 ---|---|---
 $app | Object | Application object
 $page | Object | Page object
-$valid | Boolean | Whether the page object is valid 
+$valid | Boolean | Whether the page object is valid
 
 #### Application Object
 
@@ -46,7 +46,7 @@ The following built-in methods can be accessed via `$app`:
 
 Attribute | Type | Description
 ---|---|---
-exit | Function | Exit the JS application and end the application lifecycle. Usage: `this.$app.exit()` 
+exit | Function | Exit the JS application and end the application lifecycle. Usage: `this.$app.exit()`
 
 #### Page Object
 
@@ -56,7 +56,7 @@ Attribute | Type | Description
 ---|---|---
 name | String | Get the name of the current page route, consistent with the corresponding property name in `router.pages` in the manifest file
 path | String | Get the path of the current page route, consistent with the corresponding path in `router.pages` in the manifest file
-component | String | Get the component of the current page route, consistent with the corresponding component in `router.pages` in the manifest file 
+component | String | Get the component of the current page route, consistent with the corresponding component in `router.pages` in the manifest file
 
 ## Methods
 
@@ -68,13 +68,13 @@ In a page, you can use `this.$canIUse` to query available capabilities, includin
 
 Type | Description
 ---|---
-String | The capability to query, see the format below 
+String | The capability to query, see the format below
 
 #### Return Value:
 
 Type | Description
 ---|---
-Boolean | Whether the queried capability is supported 
+Boolean | Whether the queried capability is supported
 
 #### Parameter Format
 
@@ -122,7 +122,7 @@ if (this.$canIUse('scroll.attr.scroll-x')) {
 
 ### this.$watch
 
-Monitor data changes. Dynamically add properties/event bindings. The property must be defined in `data`, and the handler function must be defined in `<script>`. The event is triggered when the property value changes.  
+Monitor data changes. Dynamically add properties/event bindings. The property must be defined in `data`, and the handler function must be defined in `<script>`. The event is triggered when the property value changes.
 If monitoring a property in an object, use dots to separate parameters, e.g., `$watch(xxx.xxx.xxx, methodName)`.
 
 #### Parameters
@@ -130,7 +130,7 @@ If monitoring a property in an object, use dots to separate parameters, e.g., `$
 Attribute | Type | Description
 ---|---|---
 data | String | Property name, supports 'a.b.c' format, does not support array indices
-handler | String | Event handler function name. The first parameter is the new property value, the second is the old property value 
+handler | String | Event handler function name. The first parameter is the new property value, the second is the old property value
 
 #### Code Example
 
@@ -171,7 +171,7 @@ Get the DOM object of a component with the specified ID. If no ID is specified, 
 
 Type | Description
 ---|---
-String | `this.$element('idName')` to get the DOM node 
+String | `this.$element('idName')` to get the DOM node
 
 #### Code Example
 
@@ -204,7 +204,7 @@ Execute a delayed callback after the next DOM update cycle. Using this method im
 
 Type | Description
 ---|---
-Function | The callback function that performs operations on the DOM 
+Function | The callback function that performs operations on the DOM
 
 #### Code Example
 
@@ -271,6 +271,6 @@ this.$on | type: String Event name<br>handler: Function Event handler function |
 this.$off | type: String Event name<br>handler: Function Event handler function | Remove an event handler. Usage: `this.$off('xxxx', this.fn)` or `this.$off('xxx')` to remove all handlers for the specified event
 this.$dispatch | type: String Event name | Send an event notification to the parent component. Usage: `this.$dispatch('xxx')`. Normally, the event will bubble up. To stop bubbling, call `evt.stop()` in the event handler function
 this.$broadcast | type: String Event name | Send an event notification to child components. Usage: `this.$broadcast('xxx')`. Normally, the event will propagate down. To stop propagation, call `evt.stop()` in the event handler function
-this.$emit | type: String Event name<br>data: Object Event parameters | Trigger an event, and the corresponding handler function will be called. Usage: `this.$emit('xxx')` or `this.$emit('xxx', {a:1})`. The passed event parameters can be accessed in the event callback function via `evt.detail`, e.g., `evt.detail.a` 
+this.$emit | type: String Event name<br>data: Object Event parameters | Trigger an event, and the corresponding handler function will be called. Usage: `this.$emit('xxx')` or `this.$emit('xxx', {a:1})`. The passed event parameters can be accessed in the event callback function via `evt.detail`, e.g., `evt.detail.a`
 
 For examples of using event methods, refer to the [documentation](</vela/quickapp/en/guide/framework/template/component.html#parent-child-component-communication>).

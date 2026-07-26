@@ -9,8 +9,8 @@
 ## 导入模块
 
 ```javascript
-import configuration from '@system.configuration' 
-// 或 
+import configuration from '@system.configuration'
+// 或
 const configuration = require('@system.configuration')
 ```
 
@@ -29,7 +29,7 @@ const configuration = require('@system.configuration')
 参数名 | 类型 | 说明
 ---|---|---
 language | String | 语言
-countryOrRegion | String | 国家或地区 
+countryOrRegion | String | 国家或地区
 
 #### 示例：
 

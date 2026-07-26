@@ -47,20 +47,20 @@ Obtains the connection status of the app.
 Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
-fail | Function | No | Failure callback 
+fail | Function | No | Failure callback
 
 #### success Return Value:
 
 Property Value | Type | Description
 ---|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected 
+status | Number | 1: Connected successfully, 2: Connection disconnected
 
 #### fail Return Value:
 
 Parameter Value | Type | Description
 ---|---|---
 data | String | Error message
-code | Number | Error code 
+code | Number | Error code
 
 #### Error Code Descriptions:
 
@@ -68,7 +68,7 @@ code | Number | Error code
 
 Error Code | Description
 ---|---
-1006 | Connection disconnected 
+1006 | Connection disconnected
 
 #### Example:
 
@@ -97,20 +97,20 @@ Property | Type | Required | Description
 ---|---|---|---
 timeout | Number | No | Timeout duration for waiting for diagnosis, in milliseconds<br>Default value: 10000ms
 success | Function | No | Success callback
-fail | Function | No | Failure callback 
+fail | Function | No | Failure callback
 
 #### success Return Value:
 
 Property Value | Type | Description
 ---|---|---
-status | Number | 0: OK, connection successful<br>204: CONNECT_TIMEOUT, connection timeout<br>1001: APP_UNINSTALLED, counterpart app not installed<br>1000: OTHERS, other connection errors 
+status | Number | 0: OK, connection successful<br>204: CONNECT_TIMEOUT, connection timeout<br>1001: APP_UNINSTALLED, counterpart app not installed<br>1000: OTHERS, other connection errors
 
 #### fail Return Value:
 
 Parameter Value | Type | Description
 ---|---|---
 data | String | Error message
-code | Number | Error code 
+code | Number | Error code
 
 #### Error Code Descriptions:
 
@@ -139,7 +139,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 data | Object | Yes | Data to be sent
 success | Function | No | Success callback
-fail | Function | No | Failure callback 
+fail | Function | No | Failure callback
 
 #### success Return Value:
 
@@ -150,7 +150,7 @@ None
 Parameter Value | Type | Description
 ---|---|---
 data | String | Error message
-code | Number | Error code 
+code | Number | Error code
 
 #### Error Code Descriptions:
 
@@ -159,7 +159,7 @@ code | Number | Error code
 Error Code | Description
 ---|---
 204 | Connection timeout
-1006 | Connection disconnected 
+1006 | Connection disconnected
 
 #### Example:
 
@@ -186,9 +186,9 @@ Receives data from the mobile app.
 
 #### Callback Parameters:
 
-Property Value | Type | Description
+Parameter | Type | Description
 ---|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected0 
+data | String | Received data
 
 #### Example:
 
@@ -204,9 +204,9 @@ Callback function when the connection is opened.
 
 #### Callback Parameters:
 
-Property Value | Type | Description
+Parameter | Type | Description
 ---|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected1 
+isReconnected | Boolean | Whether it is a reconnection
 
 #### Example:
 
@@ -222,9 +222,10 @@ Callback function when the connection is closed.
 
 #### Callback Parameters:
 
-Property Value | Type | Description
+Parameter | Type | Description
 ---|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected2 
+code | Number | Connection closure status code
+data | String | Data returned upon connection closure
 
 #### Example:
 
@@ -240,17 +241,20 @@ Callback function when a connection error occurs.
 
 #### Callback Parameters:
 
-Property Value | Type | Description
+Parameter | Type | Description
 ---|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected3 
+code | Number | Error code, see error code descriptions
+data | String | Error message
 
 #### Error Code Descriptions:
 
 [Supports common error codes](</vela/quickapp/en/features/grammar.html#common-error-codes>)
 
-Property Value | Type | Description
----|---|---
-status | Number | 1: Connected successfully, 2: Connection disconnected4 
+Error Code | Description
+---|---
+1000 | Unknown error
+1001 | Mobile app not installed
+1006 | Connection disconnected
 
 #### Example:
 
@@ -269,20 +273,16 @@ For interconnect communication, ensure that the package names and signatures of 
 
   1. Convert the jks to p12 by executing the following command. After entering the corresponding password, a p12 format file will be generated in the same directory.
 
-```javascript
-import interconnect from '@system.interconnect'
-// or
-const interconnect = require('@system.interconnect')
+```shell
+keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.p12 -srcstoretype jks -deststoretype pkcs12
 ```
   2. Convert the p12 to pem by executing the following command. After entering the password set for the p12 file in the previous step, a pem format file will be generated in the same directory.
 
-```javascript
-import interconnect from '@system.interconnect'
-// or
-const interconnect = require('@system.interconnect')
+```shell
+openssl pkcs12 -nodes -in keystore.p12 -out keystore.pem
 ```
-  3. Copy the private key and certificate from the pem format file:  
-Copy the content from -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY----- into private.pem.  
+  3. Copy the private key and certificate from the pem format file:
+Copy the content from -----BEGIN PRIVATE KEY----- to -----END PRIVATE KEY----- into private.pem.
 Copy the content from -----BEGIN CERTIFICATE----- to -----END CERTIFICATE----- into certificate.pem.
 
   * If OpenSSL is not installed locally or a simpler operation process is desired, we provide an [online signature generation tool (opens new window)](<https://cdn.hybrid.xiaomi.com/aiot-ide/signature-generate-tool/v2/index.html>). This tool is a web application written in WebAssembly that can directly generate pem format private keys and certificates in the browser environment without uploading signature files and passwords to a remote server, fully ensuring user privacy and security. The steps for using the online signature generation tool are as follows:

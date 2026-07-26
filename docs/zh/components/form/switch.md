@@ -16,7 +16,7 @@
 
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
-checked | `<boolean>` | false | 否 | 可触发 checked 伪类（checked 伪类样式还未支持） 
+checked | `<boolean>` | false | 否 | 可触发 checked 伪类（checked 伪类样式还未支持）
 
 ## 样式
 
@@ -25,7 +25,7 @@ checked | `<boolean>` | false | 否 | 可触发 checked 伪类（checked 伪类�
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
 thumb-color | `<color>` | #ffffff 或者 rgb(255, 255, 255) | 否 | 滑块颜色
-track-color | `<color>` | #0d84ff 或者 rgb(13, 132, 255) | 否 | 滑轨颜色 
+track-color | `<color>` | #0d84ff 或者 rgb(13, 132, 255) | 否 | 滑轨颜色
 
 ## 事件
 
@@ -33,7 +33,7 @@ track-color | `<color>` | #0d84ff 或者 rgb(13, 132, 255) | 否 | 滑轨颜色
 
 名称 | 参数 | 描述
 ---|---|---
-change | {checked:checkedValue} | checked 状态改变时触发 
+change | {checked:checkedValue} | checked 状态改变时触发
 
 ## 示例代码
 

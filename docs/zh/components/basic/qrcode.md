@@ -16,7 +16,7 @@
 
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
-value | `string` | - | 是 | 用来生成二维码的内容 
+value | `string` | - | 是 | 用来生成二维码的内容
 
 ## 样式
 
@@ -25,7 +25,7 @@ value | `string` | - | 是 | 用来生成二维码的内容
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
 color | `<color>` | #000000 | 否 | 二维码颜色
-background-color | `<color>` | #ffffff | 否 | 二维码背景颜色 
+background-color | `<color>` | #ffffff | 否 | 二维码背景颜色
 
 ## 事件
 

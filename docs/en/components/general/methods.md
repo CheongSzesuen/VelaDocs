@@ -18,7 +18,7 @@ Property | Type | Default Value | Required | Description
 ---|---|---|---|---
 success | function | - | No | Callback function for successful API calls
 fail | function | - | No | Callback function for failed API calls
-complete | function | - | No | Callback function for completed API calls (executed for both success and failure) 
+complete | function | - | No | Callback function for completed API calls (executed for both success and failure)
 
 #### Description of object.success callback function parameters
 
@@ -31,7 +31,7 @@ right | number | Right boundary coordinate of the element
 top | number | Top boundary coordinate of the element
 bottom | number | Bottom boundary coordinate of the element
 width | number | Width of the element
-height | number | Height of the element 
+height | number | Height of the element
 
 #### Code Example
 
@@ -70,7 +70,7 @@ A method to make a component gain or lose focus.
 
 Property | Type | Default Value | Required | Description
 ---|---|---|---|---
-focus | boolean | true | No | Makes the component gain or lose focus. Focusing can trigger the `focus` pseudo-class effect (the `focus` pseudo-class style is not yet supported) 
+focus | boolean | true | No | Makes the component gain or lose focus. Focusing can trigger the `focus` pseudo-class effect (the `focus` pseudo-class style is not yet supported)
 
 #### Code Example
 

@@ -33,9 +33,9 @@ In this case, the template is no longer simple declarative logic. If we use such
       },
       onReady() {
         console.log(this.reversedMessage) // olleH
-    
+
         this.message = 'Goodbye'
-    
+
         console.log(this.reversedMessage) // eybdooG
       }
     }

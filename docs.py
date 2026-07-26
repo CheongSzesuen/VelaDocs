@@ -16,6 +16,7 @@ from urllib.parse import urljoin, urlparse, unquote
 from pathlib import Path
 import time
 import hashlib
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import argparse
 import urllib3
@@ -69,13 +70,20 @@ class MarkdownScraper:
             self.output_dir = self.output_dir / self.subdir
 
         self.visited = set()
+        self.visited_lock = threading.Lock()
         self.asset_map = {}
+        self.asset_lock = threading.Lock()
         self.total_pages = 0
         self.processed_pages = 0
 
-        self.session = requests.Session()
-        self.session.trust_env = False
-        self.session.headers.update({
+        self._thread_local = threading.local()
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.console = Console() if RICH_AVAILABLE else None
+
+    def _new_session(self):
+        session = requests.Session()
+        session.trust_env = False
+        session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
             'Accept-Language': 'en-US,en;q=0.9',
             'Cache-Control': 'no-cache'
@@ -88,23 +96,33 @@ class MarkdownScraper:
             status_forcelist=[429, 500, 502, 503, 504],
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
-        self.session.mount("http://", adapter)
-        self.session.mount("https://", adapter)
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+        return session
 
-        # 确保最终的输出目录存在
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-
-        # 初始化rich控制台
-        if RICH_AVAILABLE:
-            self.console = Console()
-        else:
-            self.console = None
+    @property
+    def session(self):
+        if not hasattr(self._thread_local, 'session'):
+            self._thread_local.session = self._new_session()
+        return self._thread_local.session
 
     def _missing_image_text(self, img_url):
         filename = os.path.basename(urlparse(img_url).path) or "unknown-image"
         if self.subdir == 'en':
             return f"Image missing: {filename} <{img_url}>"
         return f"图片缺失: {filename} <{img_url}>"
+
+    def _get_page(self, url):
+        try:
+            response = self.session.get(url, timeout=500, verify=True)
+        except requests.exceptions.SSLError:
+            response = self.session.get(url, timeout=500, verify=False)
+
+        response.raise_for_status()
+        if urlparse(response.url).path != urlparse(url).path:
+            raise ValueError(f"重定向至其他页面: {response.url}")
+        response.encoding = response.apparent_encoding
+        return response
 
     def _build_code_block(self, language, code):
         language = (language or '').strip()
@@ -394,8 +412,9 @@ class MarkdownScraper:
                     f.write(chunk)
 
     def download_asset(self, url, asset_type='images', page_url=None):
-        if url in self.asset_map:
-            return self.asset_map[url]
+        with self.asset_lock:
+            if url in self.asset_map:
+                return self.asset_map[url]
 
         try:
             original_url = url
@@ -442,8 +461,9 @@ class MarkdownScraper:
                     raise last_error or ValueError("没有可用的资源地址")
 
             relative_path = f"{asset_type}/{filename}"
-            self.asset_map[original_url] = relative_path
-            self.asset_map[url] = relative_path
+            with self.asset_lock:
+                self.asset_map[original_url] = relative_path
+                self.asset_map[url] = relative_path
             return relative_path
 
         except Exception as e:
@@ -477,6 +497,12 @@ class MarkdownScraper:
 
     def convert_html_to_markdown(self, html, page_url):
         soup = BeautifulSoup(html, 'html.parser')
+        content = soup.select_one('.theme-default-content')
+        if not content or not content.get_text(strip=True):
+            content = soup.select_one('main') or soup.body
+        if not content:
+            return ''
+        soup = BeautifulSoup(str(content), 'html.parser')
         code_blocks = []
         tables = []
 
@@ -513,7 +539,7 @@ class MarkdownScraper:
 
             # 提取原始代码（保留换行和缩进）
             code = pre.get_text()
-            placeholder = f"CODE_BLOCK_PLACEHOLDER_{len(code_blocks)}"
+            placeholder = f"CODE_BLOCK_PLACEHOLDER_{len(code_blocks)}_END"
             code_blocks.append((placeholder, self._build_code_block(language, code)))
 
             # 用占位符替换，避免 html2text 压平 fenced code block
@@ -522,7 +548,7 @@ class MarkdownScraper:
 
         # 处理表格，避免 html2text 在默认值、续行和单元格中的 | 上发生错位
         for table in soup.find_all('table'):
-            placeholder = f"TABLE_PLACEHOLDER_{len(tables)}"
+            placeholder = f"TABLE_PLACEHOLDER_{len(tables)}_END"
             tables.append((placeholder, self._convert_table_to_markdown(table, page_url)))
             table.replace_with(NavigableString(f"\n\n{placeholder}\n\n"))
 
@@ -551,6 +577,7 @@ class MarkdownScraper:
         markdown = self._restore_code_blocks(markdown, tables)
         markdown = self._normalize_code_block_spacing(markdown)
         markdown = self._normalize_table_continuations(markdown)
+        markdown = '\n'.join(line.rstrip() for line in markdown.split('\n'))
         markdown = re.sub(r'\n{3,}', '\n\n', markdown)
         return markdown
 
@@ -592,39 +619,26 @@ class MarkdownScraper:
         return md_path
 
     def process_page(self, url, progress_task=None):
-        if url in self.visited:
-            return set()
+        with self.visited_lock:
+            if url in self.visited:
+                return set()
+            self.visited.add(url)
 
         if RICH_AVAILABLE:
             self.console.print(f"[blue]请求页面:[/blue] {url}")
         else:
             print(f"请求页面: {url}")
         
-        self.visited.add(url)
-
         try:
-            # 尝试正常请求
-            try:
-                response = self.session.get(url, timeout=500, verify=True)
-            except requests.exceptions.SSLError:
-                # 如果SSL验证失败，尝试禁用SSL验证（不推荐用于生产环境，但适用于文档爬取）
-                if RICH_AVAILABLE:
-                    self.console.print(f"[yellow]SSL验证失败，尝试不验证SSL:[/yellow] {url}")
-                else:
-                    print(f"SSL验证失败，尝试不验证SSL: {url}")
-                response = self.session.get(url, timeout=500, verify=False)
-                
-            response.encoding = response.apparent_encoding
-
-            if response.history:
-                url = response.url
+            response = self._get_page(url)
+            page_url = response.url
 
             if RICH_AVAILABLE:
                 self.console.print(f"[cyan]转换内容:[/cyan] {url}")
             else:
                 print(f"转换内容: {url}")
                 
-            md_content = self.convert_html_to_markdown(response.text, url)
+            md_content = self.convert_html_to_markdown(response.text, page_url)
             self.save_markdown_file(md_content, url)
 
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -636,7 +650,7 @@ class MarkdownScraper:
 
             for a in soup.find_all('a', href=True):
                 href = a['href']
-                full_url = urljoin(url, href)
+                full_url = urljoin(page_url, href)
 
                 parsed_full = urlparse(full_url)
                 parsed_base = urlparse(self.base_url)
@@ -695,17 +709,7 @@ class MarkdownScraper:
                     
             all_urls.add(current_url)
             try:
-                # 尝试正常请求
-                try:
-                    response = self.session.get(current_url, timeout=500, verify=True)
-                except requests.exceptions.SSLError:
-                    # SSL错误时尝试不验证SSL
-                    if RICH_AVAILABLE:
-                        self.console.print(f"[yellow]预扫描SSL错误，尝试不验证SSL:[/yellow] {current_url}")
-                    else:
-                        print(f"预扫描SSL错误，尝试不验证SSL: {current_url}")
-                    response = self.session.get(current_url, timeout=500, verify=False)
-                    
+                response = self._get_page(current_url)
                 soup = BeautifulSoup(response.text, 'html.parser')
                 
                 expected_base_path = urlparse(self.base_url).path
@@ -809,7 +813,7 @@ if __name__ == "__main__":
     base_url = DEFAULT_URL
     output_dir = "docs"
     delay = 0.2
-    workers = 32 # 使用合理的并发数
+    workers = 8
 
     languages = ['zh', 'en'] # 要爬取的语言版本
 

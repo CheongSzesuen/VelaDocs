@@ -4,7 +4,7 @@
 
 ## Overview
 
-A scroll picker that currently supports two types of pickers: a normal picker and a time picker. The normal picker is used by default. 
+A scroll picker that currently supports two types of pickers: a normal picker and a time picker. The normal picker is used by default.
 
 ## Child Components
 
@@ -20,14 +20,14 @@ Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 type | text | - | Yes | Dynamic modification is not supported.
 range | `Array<string>` | - | No | Value range of the picker
-selected | `<number>` | 0 | No | Default value of the picker. The value is the index of range. 
+selected | `<number>` | 0 | No | Default value of the picker. The value is the index of range.
 
 **Time picker**
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 type | time | - | Yes | Dynamic modification is not supported.
-selected | `<string>` | Current time | No | Default value of the picker. The format is hh:mm. 
+selected | `<string>` | Current time | No | Default value of the picker. The format is hh:mm.
 
 ## Styles
 
@@ -39,7 +39,7 @@ color | `<color>` | Theme color | No | Font color of the candidate options
 font-size | `<length>` | 30px | No | Font size of the candidate options, in px
 selected-color | `<length>` | #ffffff | No | Font color of the selected option
 selected-font-size | `<length>` | 20px | No | Font size of the selected option, in px
-selected-background-color | `<color>` | - | No | Background color of the selected option 
+selected-background-color | `<color>` | - | No | Background color of the selected option
 
 ## Events
 
@@ -47,13 +47,13 @@ selected-background-color | `<color>` | - | No | Background color of the selecte
 
 Name | Parameters | Description
 ---|---|---
-change | {newValue:newValue, newSelected:newSelected} | Triggered when the scroll picker value is confirmed after selection. (newSelected is the index.) 
+change | {newValue:newValue, newSelected:newSelected} | Triggered when the scroll picker value is confirmed after selection. (newSelected is the index.)
 
 **Time picker**
 
 Name | Parameters | Description
 ---|---|---
-change | {hour:hour, minute:minute} | Triggered when the scroll picker value is confirmed after selection. 
+change | {hour:hour, minute:minute} | Triggered when the scroll picker value is confirmed after selection.
 
 ## Sample Code
 
@@ -61,20 +61,20 @@ change | {hour:hour, minute:minute} | Triggered when the scroll picker value is 
 <template>
   <div class="page">
     <text class="title">Normal picker</text>
-    <picker 
-      class="picker" 
-      type="text" 
-      range="{{pickerList}}" 
-      selected="1" 
+    <picker
+      class="picker"
+      type="text"
+      range="{{pickerList}}"
+      selected="1"
       onchange="onPickerChange">
     </picker>
     <text class="value">Selected value: {{v1}}</text>
 
     <text class="title">Time picker</text>
-    <picker 
-      class="picker" 
+    <picker
+      class="picker"
       type="time"
-      selected="12:00" 
+      selected="12:00"
       onchange="onTimePickerChange">
     </picker>
     <text class="value">Selected value: {{v2}}</text>

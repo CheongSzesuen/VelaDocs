@@ -193,7 +193,7 @@ There are multiple ways to dynamically modify styles, consistent with traditiona
 
   * **Modify class** : Update the value of the variable used in the component's class attribute.
   * **Modify inline style** : Update a CSS value in the component's style attribute.
-  * **Modify bound object** : Control the element's style through a bound object. 
+  * **Modify bound object** : Control the element's style through a bound object.
 
 **Example** :
 
@@ -283,24 +283,26 @@ For an introduction to scss syntax, refer to the [scss Chinese official website 
 
 To use scss, execute the following command under the JS application project to install the corresponding libraries: `node-sass`, `sass-loader`:
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
-}
+```
+npm i node-sass sass-loader
 ```
 
 Refer to the documentation [Style Syntax --> Style Precompilation](</vela/quickapp/en/guide/framework/style/#样式预编译>). Then add the attribute `lang="scss"` to the `<style>` tag.
 
 **Example** :
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
-}
+```html
+<template>
+  <div class="page">
+    <text id="title">Less example!</text>
+  </div>
+</template>
+
+<style lang="scss">
+  /* Import external scss file */
+  @import './style.scss';
+  /* Use scss */
+</style>
 ```
 
 ## Using PostCSS to Parse CSS
@@ -315,11 +317,9 @@ Using PostCSS to parse CSS involves three steps:
 
   2. Create a postcss.config.js file in the project root directory and add the following content:
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
+```js
+module.exports = {
+  plugins: [require('precss')]
 }
 ```
 
@@ -327,12 +327,18 @@ Here, precss is a PostCSS plugin.
 
   3. Add lang="postcss" to the corresponding style tag on the page, as follows:
 
-```json
-{
-  "config": {
-    "designWidth": 640
+```html
+<style lang="postcss">
+  /* Use PostCSS */
+  .page {
+    justify-content: center;
+    background-color: #00beaf;
   }
-}
+
+  #title {
+    color: #FF0000;
+  }
+</style>
 ```
 
 Now you can write the corresponding code in CSS.

@@ -2,9 +2,9 @@
 
 ![hero](images/xiaomi_vela.png)
 
-#  JS Application Development Documentation 
+#  JS Application Development Documentation
 
-A developer-friendly, high-performance IoT cross-platform application framework 
+A developer-friendly, high-performance IoT cross-platform application framework
 
 [ Get Started ](</vela/quickapp/en/guide/>)
 

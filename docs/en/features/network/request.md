@@ -11,8 +11,8 @@
 ## Import module
 
 ```javascript
-import request from '@system.request' 
-// or 
+import request from '@system.request'
+// or
 const request = require('@system.request')
 ```
 
@@ -31,13 +31,13 @@ header | String | No | Request header. All properties will be set in the request
 filename | String | No | Download file name. Default is obtained from the network request or URL.
 success | Function | No | Callback for successful response
 fail | Function | No | Callback for failed response
-complete | Function | No | Callback for completion (called on both success and failure) 
+complete | Function | No | Callback for completion (called on both success and failure)
 
 #### success return value:
 
 Parameter | Type | Description
 ---|---|---
-token | String | Download token, used to get the download status 
+token | String | Download token, used to get the download status
 
 #### Example:
 
@@ -64,20 +64,20 @@ Parameter | Type | Required | Description
 token | String | Yes | Token returned by the download interface
 success | Function | No | Callback for successful response
 fail | Function | No | Callback for failed response
-complete | Function | No | Callback for completion (called on both success and failure) 
+complete | Function | No | Callback for completion (called on both success and failure)
 
 #### success return value:
 
 Parameter | Type | Description
 ---|---|---
-uri | String | URI of the downloaded file (by default, this file is in the app's cache directory. If the file type is an image or video and needs to be viewed in the gallery or other apps, it should be moved to a public directory using methods from the media interface) 
+uri | String | URI of the downloaded file (by default, this file is in the app's cache directory. If the file type is an image or video and needs to be viewed in the gallery or other apps, it should be moved to a public directory using methods from the media interface)
 
 #### fail error codes:
 
 Error code | Description
 ---|---
 1000 | Download failed
-1001 | Download task does not exist 
+1001 | Download task does not exist
 
 #### Example:
 

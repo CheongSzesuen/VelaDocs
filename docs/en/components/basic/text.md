@@ -29,7 +29,7 @@ text-decoration | underline \| line-through \| none | none | No | -
 text-align | left \| center \| right | left | No | -
 text-indent | `<length>` \| `<percentage>` | - | No | Specifies the indentation of the first line of the text block.
 line-height | `<length>` | - | No | Text line height.
-text-overflow | clip \| ellipsis | clip | No | Takes effect when the number of lines is set. 
+text-overflow | clip \| ellipsis | clip | No | Takes effect when the number of lines is set.
 
 **Examples**
 

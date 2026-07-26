@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import device from '@system.device' 
-// 或 
+import device from '@system.device'
+// 或
 const device = require('@system.device')
 ```
 
@@ -28,7 +28,7 @@ const device = require('@system.device')
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -50,7 +50,7 @@ screenWidth | number | 屏幕宽
 screenHeight | number | 屏幕高
 screenDensity[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | number | 屏幕密度，即：设备像素比（device pixel ratio），是设备物理像素和逻辑像素（DP）的比值，其计算公式为：DPR = 设备 PPI / 160，PPI（pixels per inch）表示每英寸的像素数
 screenShape | string | 屏幕形状，可取值：rect 表示方形屏，circle 表示圆形屏，pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) 表示胶囊形屏
-deviceType[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | string | 设备类型，可取值：watch、band、smartspeaker 
+deviceType[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | string | 设备类型，可取值：watch、band、smartspeaker
 
 #### 示例：
 
@@ -86,13 +86,13 @@ device.getInfo({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数值 | 类型 | 说明
 ---|---|---
-deviceId | String | 设备唯一标识 
+deviceId | String | 设备唯一标识
 
 #### 示例：
 
@@ -131,7 +131,7 @@ device.getDeviceId({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -160,7 +160,7 @@ device.getSerial({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -189,7 +189,7 @@ device.getTotalStorage({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 

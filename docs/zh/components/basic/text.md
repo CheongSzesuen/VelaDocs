@@ -29,7 +29,7 @@ text-decoration | underline \| line-through \| none | none | 否 | -
 text-align | left \| center \| right | left | 否 | -
 text-indent | `<length>` \| `<percentage>` | - | 否 | 规定文本块首行的缩进
 line-height | `<length>` | - | 否 | 文本行高
-text-overflow | clip \| ellipsis | clip | 否 | 在设置了行数的情况下生效 
+text-overflow | clip \| ellipsis | clip | 否 | 在设置了行数的情况下生效
 
 **示例**
 

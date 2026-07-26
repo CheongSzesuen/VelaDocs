@@ -18,7 +18,7 @@ Parameter | Description
 `cover` | Scales the background image proportionally to cover the entire container, potentially making some parts of the background image invisible (only as a single parameter).
 `auto` | Indicates that the original image size remains unchanged. Note that the original image size is in physical resolution, consistent with the resolution unit of a mobile phone screen, not the `1px` length in JS applications.
 `<length>` | Describes the specific dimensions of the image in units of px or dp. Floating-point calculations are not supported; setting a floating-point value will be rounded down.
-`<percent>` | Describes the size of the image as a percentage of the corresponding dimension of the container. Floating-point calculations are not supported; setting a floating-point value will be rounded down. 
+`<percent>` | Describes the size of the image as a percentage of the corresponding dimension of the container. Floating-point calculations are not supported; setting a floating-point value will be rounded down.
 
 When there are two parameters, the first parameter is interpreted as the width along the horizontal axis, and the second parameter is interpreted as the height along the vertical axis. If there is only one parameter, `auto` is supplemented as the second parameter, and then parsed according to the rules for two parameters.
 
@@ -75,7 +75,7 @@ Parameter | Description
 `repeat` | Repeats the image along both the horizontal and vertical axes.
 `repeat-x` | Repeats the image only along the horizontal axis.
 `repeat-y` | Repeats the image only along the vertical axis.
-`no-repeat` | Does not repeat the image. 
+`no-repeat` | Does not repeat the image.
 
 Invalid parameters are interpreted as the default value, which is `repeat`.
 

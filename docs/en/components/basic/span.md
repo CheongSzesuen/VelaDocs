@@ -18,7 +18,7 @@ id | `<string>` | - | No | Unique identifier
 style | `<string>` | - | No | Style declaration
 class | `<string>` | - | No | Reference stylesheet
 for | `<array>` | - | No | Loop through the current tag based on the data list
-if | `<boolean>` | - | No | Add or remove the current tag based on the data boolean value 
+if | `<boolean>` | - | No | Add or remove the current tag based on the data boolean value
 
 ## Styles
 
@@ -28,7 +28,7 @@ color | `<color>` | rgba(0, 0, 0, 0.54) | No | Text color
 font-size | `<length>` | 30px | No | Text size
 font-style | normal \| italic | normal | No | -
 font-weight | normal \| bold \| `<number>` | normal | No | The current platform only supports `normal` and `bold` effects. When the value is a number, values below `550` are considered as the former, otherwise as the latter.
-text-decoration | underline \| line-through \| none | none | No | - 
+text-decoration | underline \| line-through \| none | none | No | -
 
 ## Events
 

@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import battery from '@system.battery' 
-// 或 
+import battery from '@system.battery'
+// 或
 const battery = require('@system.battery')
 ```
 
@@ -28,14 +28,14 @@ const battery = require('@system.battery')
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
 charging | Boolean | 是否正在充电
-level | Number | 当前电量，0.0 - 1.0 之间 
+level | Number | 当前电量，0.0 - 1.0 之间
 
 #### 示例
 

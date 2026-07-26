@@ -23,7 +23,7 @@
 ---|---|---|---
 id | `<string>` | - | 唯一标识
 style | `<string>` | - | 样式声明
-class | `<string>` | - | 引用样式表 
+class | `<string>` | - | 引用样式表
 
 ## 渲染属性
 
@@ -31,7 +31,7 @@ class | `<string>` | - | 引用样式表
 ---|---|---|---
 for | `<array>` | - | 根据数据列表，循环展开当前标签
 if | `<boolean>` | - | 根据数据 boolean 值，添加或移除当前标签
-show | `<boolean>` | - | 根据数据 boolean 值，显示或隐藏当前标签，相当于控制{ display: flex \| none } 
+show | `<boolean>` | - | 根据数据 boolean 值，显示或隐藏当前标签，相当于控制{ display: flex \| none }
 
 渲染属性工作方式详见[template 模板](</vela/quickapp/zh/guide/framework/template/>)。
 

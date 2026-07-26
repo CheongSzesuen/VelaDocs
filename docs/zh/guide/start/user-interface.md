@@ -208,7 +208,7 @@ text {
 ```css
 .info {
   width: 335px;
-  height: 100px; 
+  height: 100px;
 }
 ```
 
@@ -229,12 +229,13 @@ text {
 
 如果设计稿基准宽度不是480，可以在`manifest.json`文件中通过`config.designWidth`字段配置：
 
-```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+```js
+{
+  // ...
+  "config": {
+    "designWidth": 360
+  }
+}
 ```
 
 ### 头部信息
@@ -245,7 +246,7 @@ text {
 
 ```html
 <!-- 头部城市信息 -->
-<div class="header">
+<div class="header column center">
   <text class="city">武汉市</text>
   <text class="province">湖北省/中国</text>
 </div>
@@ -253,15 +254,19 @@ text {
 
 CSS代码如下：
 
-```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+```css
+/* 头部样式 */
+.city {
+  font-size: 40px;
+}
+
+.province {
+  font-size: 18px;
+  color: #757575;
+}
 ```
 
-实际运行结果：  
+实际运行结果：
 ![头部信息运行结果](../../images/ui-header.png)
 
 ### 实时天气
@@ -271,10 +276,30 @@ CSS代码如下：
 添加完成后的模板代码如下：
 
 ```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
+<div class="body column center">
+  <!-- 主要天气信息 -->
+  <div class="info">
+    <image class="icon" src="/common/icons/101.png"></image>
+    <div class="column center">
+      <text class="temp">6°</text>
+      <text class="weather">晴转多云</text>
+    </div>
+  </div>
+  <!-- 体感温度等其他信息 -->
+  <div class="more-info row">
+    <div class="item column center">
+      <text class="value">10°</text>
+      <text class="label">体感温度</text>
+    </div>
+    <div class="item column center">
+      <div><text class="value">67</text><text class="sub">%</text></div>
+      <text class="label">湿度</text>
+    </div>
+    <div class="item column center">
+      <div><text class="value">5</text><text class="sub">km</text></div>
+      <text class="label">能见度</text>
+    </div>
+  </div>
 </div>
 ```
 
@@ -284,15 +309,54 @@ CSS代码如下：
 
 CSS代码如下：
 
-```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+```css
+/* 天气数据样式 */
+.body {
+  flex: 1;
+}
+
+.temp {
+  font-size: 70px;
+}
+
+.icon {
+  width: 170px;
+  height: 170px;
+  margin-right: 20px;
+}
+
+.weather {
+  font-size: 24px;
+}
+
+/* 更多信息样式 */
+.more-info {
+  width: 335px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.21);
+  border-radius: 15px;
+}
+
+.item {
+  flex: 1;
+}
+
+.value {
+  font-size: 30px;
+}
+
+.sub {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.label {
+  color: #757575;
+  margin-top: 5px;
+}
 ```
 
-实际运行结果：  
+实际运行结果：
 ![实时天气运行结果](../../images/ui-now-main.png)
 
 ### 未来3天天气
@@ -304,24 +368,75 @@ CSS代码如下：
 修改完成后的模板代码为：
 
 ```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
+<!-- 未来3天天气 -->
+<div class="list row">
+  <div class="item column center">
+    <text class="date">周日</text>
+    <image class="icon" src="/common/icons/301.png"></image>
+    <text class="temp">-6°~8°</text>
+  </div>
+  <div class="item column center">
+    <text class="date">周一</text>
+    <image class="icon" src="/common/icons/311.png"></image>
+    <text class="temp">-9°~4°</text>
+  </div>
+  <div class="item column center">
+    <text class="date">周二</text>
+    <image class="icon" src="/common/icons/100.png"></image>
+    <text class="temp">-3°~6°</text>
+  </div>
 </div>
 ```
 
 CSS代码为：
 
-```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+```css
+/* 天气数据样式 */
+.body {
+  flex: 1;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.summary {
+  font-size: 24px;
+  color: #757575;
+}
+
+/* 未来3天天气 */
+.list {
+  width: 380px;
+  justify-content: space-between;
+}
+
+.item {
+  width: 120px;
+  height: 175px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.date {
+  font-size: 28px;
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+}
+
+.temp {
+  font-size: 24px;
+}
 ```
 
-实际运行结果：  
+实际运行结果：
 ![实时天气运行结果](../../images/ui-3d-list.png)
 
 ### 底部信息
@@ -329,24 +444,26 @@ CSS代码为：
 底部信息最终的模板代码如下：
 
 ```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
+<!-- 底部更新时间 -->
+<div class="footer center">
+  <text class="update-time">数据更新于 12-20 09:15</text>
 </div>
 ```
 
 CSS代码如下：
 
-```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+```css
+/* 底部样式 */
+.footer {
+  margin-top: 20px;
+}
+
+.update-time {
+  color: #757575;
+}
 ```
 
-实际运行结果：  
+实际运行结果：
 ![实时天气运行结果](../../images/ui-footer.png)
 
 ## 页面效果
@@ -364,24 +481,74 @@ CSS代码如下：
 数据定义，需要通过JavaScript脚本来实现。跟HTML一样，JavaScript代码需要放在`script`标签中：
 
 ```html
-<!-- 头部城市信息 -->
-<div class="header">
-  <text class="city">武汉市</text>
-  <text class="province">湖北省/中国</text>
-</div>
+<script>
+  export default {
+    private: {
+      city: '武汉市',
+      province: '湖北省',
+      country: '中国',
+      weather: {
+        // 数据观测时间
+        obsTime: "12-21 09:05",
+        // 温度
+        temp: "13",
+        // 体感温度
+        feelsLike: "10",
+        // 天气icon图标编号
+        icon: "101",
+        // 天气描述文本
+        text: "多云",
+        // 相对湿度
+        humidity: "72",
+        // 能见度，单位：公里
+        vis: "16"
+      }
+    }
+  }
+</script>
 ```
 
 定义好数据之后，替换之前的模板代码，替换后为：
 
 ```html
-<!-- 主要天气信息 -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">晴转多云</text>
+<template>
+  <div class="page column">
+    <!-- 头部城市信息 -->
+    <div class="header column center">
+      <text class="city">{{city}}</text>
+      <text class="province">{{province}}/{{country}}</text>
+    </div>
+    <div class="body column center">
+      <!-- 主要天气信息 -->
+      <div class="info">
+        <image class="icon" src="/common/icons/{{weather.icon}}.png"></image>
+        <div class="column center">
+          <text class="temp">{{weather.temp}}°</text>
+          <text class="weather">{{weather.text}}</text>
+        </div>
+      </div>
+      <!-- 体感温度等其他信息 -->
+      <div class="more-info row">
+        <div class="item column center">
+          <text class="value">{{weather.feelsLike}}°</text>
+          <text class="label">体感温度</text>
+        </div>
+        <div class="item column center">
+          <div><text class="value">{{weather.humidity}}</text><text class="sub">%</text></div>
+          <text class="label">湿度</text>
+        </div>
+        <div class="item column center">
+          <div><text class="value">{{weather.vis}}</text><text class="sub">km</text></div>
+          <text class="label">能见度</text>
+        </div>
+      </div>
+    </div>
+    <!-- 底部更新时间 -->
+    <div class="footer center">
+      <text class="update-time">数据更新于 {{weather.obsTime}}</text>
+    </div>
   </div>
-</div>
+</template>
 ```
 
 ## 列表渲染
@@ -390,31 +557,50 @@ CSS代码如下：
 
 数据定义为：
 
-```html
-<!-- 主要天气信息 -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">晴转多云</text>
-  </div>
-</div>
+```javascript
+{
+  list: [
+    {
+      "fxDate": "周日",
+      "tempMax": "12",
+      "tempMin": "-1",
+      "iconDay": "101",
+      "textDay": "多云",
+    },
+    {
+      "fxDate": "周一",
+      "tempMax": "13",
+      "tempMin": "0",
+      "iconDay": "100",
+      "textDay": "晴"
+    },
+    {
+      "fxDate": "周二",
+      "tempMax": "13",
+      "tempMin": "0",
+      "iconDay": "302",
+      "textDay": "晴",
+      "iconNight": "150",
+      "textNight": "晴"
+    }
+  ]
+}
 ```
 
 模板代码：
 
 ```html
-<!-- 主要天气信息 -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">晴转多云</text>
+<!-- 未来3天天气 -->
+<div class="list row">
+  <div class="item column center" for="{{list}}">
+    <text class="date">{{$item.fxDate}}</text>
+    <image class="icon" src="/common/icons/{{$item.iconDay}}.png"></image>
+    <text class="temp">{{$item.tempMin}}°~{{$item.tempMax}}°</text>
   </div>
 </div>
 ```
 
-运行结果：  
+运行结果：
 ![列表渲染结果](../../images/ui-for-list-result.png)
 
 ### 条件渲染

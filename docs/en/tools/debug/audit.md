@@ -24,7 +24,7 @@ The optimization report provides multi-dimensional performance metrics along wit
 
 ## Optimization Detection Items
 
-  * A unified, aggregated detection entry currently includes a total of 9 inspection items: 
+  * A unified, aggregated detection entry currently includes a total of 9 inspection items:
     * Multiple-reference code detection
     * Large dependency replacement detection
     * Unused dependency detection

@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import battery from '@system.battery' 
-// or 
+import battery from '@system.battery'
+// or
 const battery = require('@system.battery')
 ```
 
@@ -28,14 +28,14 @@ Parameter Name | Type | Required | Description
 ---|---|---|---
 success | Function | No | Callback for success
 fail | Function | No | Callback for failure
-complete | Function | No | Callback after execution completion 
+complete | Function | No | Callback after execution completion
 
 #### Return Values for success:
 
 Parameter Name | Type | Description
 ---|---|---
 charging | Boolean | Whether it is currently charging
-level | Number | Current power level, ranging from 0.0 to 1.0 
+level | Number | Current power level, ranging from 0.0 to 1.0
 
 #### Example
 

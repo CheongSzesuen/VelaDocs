@@ -17,7 +17,7 @@ Supports [general attributes](</vela/quickapp/en/components/general/properties.h
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 percent | `<number>` | 0 | No | -
-type | horizontal \| arc | horizontal | No | Progress bar type. Dynamic modification is not supported. 
+type | horizontal \| arc | horizontal | No | Progress bar type. Dynamic modification is not supported.
 
 ## Styles
 
@@ -29,7 +29,7 @@ Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 color | `<color>` | #33b4ff or rgb(51, 180, 255) | No | Progress bar color
 stroke-width | `<length>` | 32px | No | Progress bar width
-layer-color | `<color>` | #f0f0f0 or rgb(240, 240, 240) | No | Progress bar background color 
+layer-color | `<color>` | #f0f0f0 or rgb(240, 240, 240) | No | Progress bar background color
 
 Effective when type=arc:
 
@@ -39,7 +39,7 @@ start-angle | `<deg>` | 240 | No | Starting angle of the arc progress bar, with 
 total-angle | `<deg>` | 240 | No | Total length of the arc progress bar, ranging from -360 to 360. A negative number indicates a counterclockwise direction from the start point to the end point.
 center-x | `<length>` | Half of the component width | No | Center position of the arc progress bar (the origin is the top-left vertex of the component). This style must be used together with center-y and radius.
 center-y | `<length>` | Half of the component height | No | Center position of the arc progress bar (the origin is the top-left vertex of the component). This style must be used together with center-x and radius.
-radius | `<length>` | Half of the smaller value of the component width and height | No | Radius of the arc progress bar. This style must be used together with center-x and center-y. 
+radius | `<length>` | Half of the smaller value of the component width and height | No | Radius of the arc progress bar. This style must be used together with center-x and center-y.
 
 ## Events
 
@@ -50,7 +50,7 @@ Supports [general events](</vela/quickapp/en/components/general/events.html>)
 ```html
 <template>
   <div style="flex-direction: column">
-    <progress class="p1" percent="40"></progress> 
+    <progress class="p1" percent="40"></progress>
     <progress class="p2" percent="80" type="arc"></progress>
   </div>
 </template>

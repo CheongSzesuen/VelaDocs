@@ -17,7 +17,7 @@ onInit(){
   },1000)
 }
 checkifHome(){
-  const that = this 
+  const that = this
   storage.get({
     key: 'ifHome',
     success: function(data) {
@@ -60,7 +60,7 @@ checkifHome(){
     storage.get({
       key: 'ifHome',
       success: function(data) {
-        resolve(data) 
+        resolve(data)
       },
       fail: function(data, code) {
         console.log(`handling fail, code = ${code}`)
@@ -213,7 +213,7 @@ const formUrl = 'http://XXX.cdn.homeBg.png'
 downloadFile(formUrl).then(url => {
   global.homeBgUrl = url; //url => 'internal://files/homeBg.png'
 })
- 
+
 //home.ux
 <image class="w-466 h-466" src="{{bgImage}}" alt="../../common/images/homeBg.png"></image>
 //....
@@ -224,10 +224,10 @@ downloadFile(formUrl).then(url => {
     }
   }
 //....
- 
+
  //logo页
  global.homeBgUrl = await storage.getItem('homeBgUrl')
- 
+
  //根据条件变化，及时进行图片清理
  logoOut(){
    file.delete({
@@ -257,7 +257,7 @@ data: {
 onInit() {
    this.conn = interconnect.instance();
    this.connectStatus();
-}, 
+},
 ```
 
 ```js
@@ -289,7 +289,7 @@ connectStatus() {
       // do something
     }
   })
-}  
+}
 ```
 
 ## 使用interconnect传输多条数据
@@ -299,31 +299,27 @@ connectStatus() {
 ```js
 // ❌不推荐写法
 sendMsg(list) {
-  for (let x in list) { 
+  for (let x in list) {
     setTimeout(() => {
       this.conn.send({
         data: list[x],
         success: ()=>{ },
         fail: (data: {data, code})=> { }
       })
-    },x*500) 
+    },x*500)
   }
 }
 ```
 
 ```js
-// ✅推荐写法一
-onInit(){
-  storage.get({
-    key: 'ifHome',
-    success: function(data) {
-      if(!data){
-        router.push({uri:'pages/home'})
-      }
-    },
-    fail: function(data, code) {
-      console.log(`handling fail, code = ${code}`)
-    }
-  })
+// ✅推荐写法
+sendMsg(list) {
+  for (let x in list) {
+    this.conn.send({
+      data: list[x],
+      success: ()=>{ },
+      fail: (data: {data, code})=> { }
+    })
+  }
 }
 ```

@@ -19,7 +19,7 @@ config | Object | - | 是 | 系统配置信息，详见下面说明
 router | Object | - | 是 | 路由信息，详见下面说明
 display | Object | - | 否 | UI 显示相关配置，详见下面说明
 deviceTypeList | Array<String> | watch | 否 | 可选值有：watch、tv、car、phone，现只支持watch
-permissions | Array | - | 否 | 权限申请，示例：[{ "name": "hapjs.permission.LOCATION" }] 
+permissions | Array | - | 否 | 权限申请，示例：[{ "name": "hapjs.permission.LOCATION" }]
 
 ### config
 
@@ -29,7 +29,7 @@ permissions | Array | - | 否 | 权限申请，示例：[{ "name": "hapjs.permis
 ---|---|---|---
 logLevel | String | log | 打印日志等级，分为 off、error、warn、info、log、debug
 designWidth | Integer | - | 页面设计基准宽度，根据实际设备宽度来缩放元素大小
-background | Object | - | 后台运行配置信息，可使用 features 字段申请需要在后台使用的接口（同时仍需在最外层的 features 字段中声明）。可申请的接口为：<br>system.audio<br>system.geolocation<br>system.request 等<br>详细用法参见 [后台运行](https://iot.mi.com/vela/quickapp/zh/guide/framework/other/background-running.html) 脚本 
+background | Object | - | 后台运行配置信息，可使用 features 字段申请需要在后台使用的接口（同时仍需在最外层的 features 字段中声明）。可申请的接口为：<br>system.audio<br>system.geolocation<br>system.request 等<br>详细用法参见 [后台运行](https://iot.mi.com/vela/quickapp/zh/guide/framework/other/background-running.html) 脚本
 
 ### minAPILevel
 
@@ -50,7 +50,7 @@ background | Object | - | 后台运行配置信息，可使用 features 字段�
 属性 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
 entry | String | - | 是 | 首页名称，使用分包功能时，建议将首页定义在基础包
-pages | Object | - | 是 | 页面配置列表，key 值为页面名称（对应页面目录名，例如 Hello 对应'Hello'目录），value 为页面详细配置 page，详见下面说明 
+pages | Object | - | 是 | 页面配置列表，key 值为页面名称（对应页面目录名，例如 Hello 对应'Hello'目录），value 为页面详细配置 page，详见下面说明
 
 示例代码：
 
@@ -73,7 +73,7 @@ pages | Object | - | 是 | 页面配置列表，key 值为页面名称（对应�
 ---|---|---|---|---
 component | String | - | 是 | 页面对应的组件名，与 ux 文件名保持一致，例如"hello" 对应 "hello.ux"
 path | String | /<页面名称> | 否 | 页面路径，例如"/user",不填则默认为/<页面名称><br>path 必须唯一，不能和其他 page 的 path 相同<br>下面 page 的 path 因为缺失，会被设置为"/Index"：<br>`"Index": {"component": "index"}`
-launchMode | String | standard | 否 | 声明页面的启动模式，支持"singleTask"，"standard"两种页面启动模式<br>标识为"singleTask"模式时每次打开目标页面都会打开已有的目标页面并回调 onRefresh 生命周期函数，清除该页面上打开的其他页面，没有打开过此页面时会创建新的目标页面实例<br>标识为"standard"模式时会每次打开新的目标页面（多次打开目标页面地址时会存在多个相同页面） 
+launchMode | String | standard | 否 | 声明页面的启动模式，支持"singleTask"，"standard"两种页面启动模式<br>标识为"singleTask"模式时每次打开目标页面都会打开已有的目标页面并回调 onRefresh 生命周期函数，清除该页面上打开的其他页面，没有打开过此页面时会创建新的目标页面实例<br>标识为"standard"模式时会每次打开新的目标页面（多次打开目标页面地址时会存在多个相同页面）
 
 ### 示例代码
 
@@ -106,7 +106,7 @@ launchMode | String | standard | 否 | 声明页面的启动模式，支持"sing
 
 属性 | 类型 | 默认值 | 描述
 ---|---|---|---
-backgroundColor | String | #ffffff | 窗口背景颜色 
+backgroundColor | String | #ffffff | 窗口背景颜色
 
 ### 权限说明
 

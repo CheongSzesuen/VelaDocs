@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import geolocation from '@system.geolocation' 
-// 或 
+import geolocation from '@system.geolocation'
+// 或
 const geolocation = require('@system.geolocation')
 ```
 
@@ -43,7 +43,7 @@ const geolocation = require('@system.geolocation')
 timeout | Number | 否 | 设置超时时间，单位是 ms，默认值为 30000
 success | Function | 是 | 成功回调
 fail | Function | 否 | 失败回调，可能是因为缺乏权限
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -54,14 +54,14 @@ latitude | Number | 纬度，浮点数
 altitude | Number | 海拔、高度，单位m，浮点数
 speed | Number | 速度值，单位m/s，浮点数
 accuracy | Number | 精确度，值为正整数
-accuracyInfo | { horizontal: Number, vertical: Number } | 精确度信息，包含水平和垂直方向精准度 
+accuracyInfo | { horizontal: Number, vertical: Number } | 精确度信息，包含水平和垂直方向精准度
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 203 | 该功能不支持
-204 | 超时返回 
+204 | 超时返回
 
 #### 示例：
 
@@ -103,7 +103,7 @@ geolocation.getLocation({
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 callback | Function | 是 | 每次位置信息发生变化，都会被回调
-fail | Function | 否 | 失败回调 
+fail | Function | 否 | 失败回调
 
 #### callback 返回值：
 
@@ -113,13 +113,13 @@ longitude | Number | 经度，浮点数
 latitude | Number | 纬度，浮点数
 altitude | Number | 海拔、高度，单位m，浮点数
 speed | Number | 速度值，单位m/s，浮点数
-accuracy | Number | 精确度，值为正整数 
+accuracy | Number | 精确度，值为正整数
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
-203 | 该功能不支持 
+203 | 该功能不支持
 
 #### 示例：
 

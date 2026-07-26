@@ -16,7 +16,7 @@
 
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
-bounces | `<boolean>` | false | 否 | 是否边界回弹 
+bounces | `<boolean>` | false | 否 | 是否边界回弹
 
 ## 样式
 
@@ -34,16 +34,16 @@ scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`}
 scrollbottom | - | 列表滑动到底部
 scrolltop | - | 列表滑动到顶部
 scrollend | - | 列表滑动结束
-scrolltouchup | - | 列表滑动过程中手指抬起 
+scrolltouchup | - | 列表滑动过程中手指抬起
 
 ## 示例代码
 
 ```html
 <template>
   <div class="page">
-    <list class="list" bounces="true" 
-      onscroll="onScroll" 
-      onscrolltop="onScrollTop" 
+    <list class="list" bounces="true"
+      onscroll="onScroll"
+      onscrolltop="onScrollTop"
       onscrollbottom="onScrollBottom"
       onscrolltouchup="onScrollTouchup">
       <list-item for="{{productList}}" class="item" type="item">
@@ -116,14 +116,14 @@ scrolltouchup | - | 列表滑动过程中手指抬起
 名称 | 参数 | 描述
 ---|---|---
 scrollTo | Object | list 滚动到指定 item 位置
-scrollBy | Object | 使 list 的内容滑动一定距离 
+scrollBy | Object | 使 list 的内容滑动一定距离
 
 **scrollTo 的参数说明：**
 
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
 index | number | 0 | 否 | list 滚动的目标 item 位置
-behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant 
+behavior | smooth / instant / auto | auto | 否 | 是否平滑滑动，支持参数 smooth (平滑滚动)，instant (瞬间滚动)，默认值 auto，效果等同于 instant
 
 **scrollBy 的参数说明：**
 

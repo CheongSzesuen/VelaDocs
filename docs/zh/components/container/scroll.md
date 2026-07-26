@@ -22,7 +22,7 @@ scroll-top | `<number>` \| `<string>` | - | 否 | 设置竖向滚动条位置，
 scroll-bottom | `<number>` \| `<string>` | - | 否 | 设置竖向滚动条位置，内容底部到 scroll 底部的距离，如果有滚动吸附效果则先滚动再吸附。同时设置 scroll-top 和scroll-bottom 以scroll-top为准
 scroll-left | `<number>` \| `<string>` | - | 否 | 设置横向滚动条位置，内容左侧到 scroll 左侧的距离，如果有滚动吸附效果则先滚动再吸附
 scroll-right | `<number>` \| `<string>` | - | 否 | 设设置横向滚动条位置，内容右侧到 scroll 右侧的距离，如果有滚动吸附效果则先滚动再吸附。同时设置 scroll-left 和scroll-right 以scroll-left为准
-bounces | `<boolean>` | false | 否 | 是否边界回弹 
+bounces | `<boolean>` | false | 否 | 是否边界回弹
 
 ## 样式
 
@@ -32,7 +32,7 @@ bounces | `<boolean>` | false | 否 | 是否边界回弹
 ---|---|---|---
 scroll-snap-type[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | - | none | 与scroll-snap-align配合使用，作用在scroll组件上，表示scroll的滚动吸附类型。第一个参数为x或y，表示水平方向上滚动或竖直方向上滚动；第二个参数为 mandatory、proximity、 cross。mandatory：表示选择距离最近的锚点吸附；proximity：表示距离吸附锚点不到容器高度的 30% 时才会吸附；cross：表示子组件能够被吸附的边界出现在 scroll 视口内才会吸附。默认为 proximity<br>aiot-toolkit最低版本：1.1.4
 scroll-snap-align[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | none \| start \| center \| end \| edge | none | 与scroll-snap-type配合使用，作用在scroll子组件上，表示子组件和scroll的对⻬形式。none：表示无需对⻬，默认值；start：表示组件和scroll起始边对⻬；center：表示组件和scroll中心对⻬；end：表示组件和scroll终止边对⻬；edge：在滚动方向上，组件和 scroll 起始边或者结束边对齐<br>aiot-toolkit最低版本：1.1.4
-scroll-snap-stop[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | normal \| always | normal | 值为 always 时不能跨越元素进行吸附<br>aiot-toolkit最低版本：1.1.4 
+scroll-snap-stop[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | normal \| always | normal | 值为 always 时不能跨越元素进行吸附<br>aiot-toolkit最低版本：1.1.4
 
 ### 示例代码
 
@@ -157,7 +157,7 @@ scroll-snap-stop[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3
 ---|---|---
 scrolltop | - | 滚动到顶部触发
 scrollbottom | - | 滚动到底部触发
-scroll | { scrollX, scrollY } | 滚动触发，scrollX 表示滚动的水平距离；scrollY 表示滚动的垂直距离 
+scroll | { scrollX, scrollY } | 滚动触发，scrollX 表示滚动的水平距离；scrollY 表示滚动的垂直距离
 
 ## 方法
 
@@ -165,7 +165,7 @@ scroll | { scrollX, scrollY } | 滚动触发，scrollX 表示滚动的水平距�
 ---|---|---|---
 getScrollRect | 无 | `<object>` | 获取滚动内容的尺寸
 scrollTo | Object | 无 | 让滚动组件窗口滚动到某个坐标位置
-scrollBy | Object | 无 | 使滚动组件窗口滚动一定距离 
+scrollBy | Object | 无 | 使滚动组件窗口滚动一定距离
 
 ### scrollTo方法Object参数
 
@@ -173,7 +173,7 @@ scrollBy | Object | 无 | 使滚动组件窗口滚动一定距离
 ---|---|---|---|---
 left | number | - | 否 | 滚动组件的横轴坐标值，不传表示横轴不滚动，负数按0处理，超出滚动范围按滚动边界处理
 top | number | - | 否 | 滚动组件的纵轴坐标值，不传表示纵轴不滚动，负数按0处理，超出滚动范围按滚动边界处理
-behavior | smooth / instant / auto | auto | 否 | 滚动行为，smooth-平滑滚动，instant-瞬间滚动，auto-等同于instant 
+behavior | smooth / instant / auto | auto | 否 | 滚动行为，smooth-平滑滚动，instant-瞬间滚动，auto-等同于instant
 
 ### scrollBy方法Object参数
 
@@ -181,14 +181,14 @@ behavior | smooth / instant / auto | auto | 否 | 滚动行为，smooth-平滑�
 ---|---|---|---|---
 left | number | - | 否 | 滚动组件的横轴偏移量，可以是负数，超出滚动范围按滚动边界处理
 top | number | - | 否 | 滚动组件的纵轴偏移量，可以是负数，超出滚动范围按滚动边界处理
-behavior | smooth / instant / auto | auto | 否 | 滚动行为，smooth-平滑滚动，instant-瞬间滚动，auto-等同于instant 
+behavior | smooth / instant / auto | auto | 否 | 滚动行为，smooth-平滑滚动，instant-瞬间滚动，auto-等同于instant
 
 ### 返回值（异步）
 
 属性 | 类型 | 描述
 ---|---|---
 width | `<number>` | 滚动内容的宽度，包含border和padding
-height | `<number>` | 滚动内容的高度，包含border和padding 
+height | `<number>` | 滚动内容的高度，包含border和padding
 
 ## 示例代码
 
@@ -218,7 +218,7 @@ height | `<number>` | 滚动内容的高度，包含border和padding
       this.$element('scrollId').getScrollRect({
         success({ width, height }) {
           console.log('宽度', width);
-          console.log('高度', height);  
+          console.log('高度', height);
         }
       })
 

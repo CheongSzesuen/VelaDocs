@@ -11,7 +11,7 @@ Due to the limited memory of sports watches, third-party applications are requir
 ```html
 <template>
   <div>
-    <text>{{name}}</text>     
+    <text>{{name}}</text>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
       age: 22
     }]
   },
-  
+
   onClick() {
     // Not recommended
     this.list = [{
@@ -62,11 +62,11 @@ export default {
       age: 22
     }]
   },
-  
+
   onShow() {
     this.$app.$def.somearray.push(this.foo) // Not recommended
   }，
-  
+
   foo() {
     this.list.push({
       name: 'bb',
@@ -83,11 +83,11 @@ export default {
   protected: {
     timer: null
   }
-  
+
   onShow() {
     this.timer = setTimeout(()=>{}, 1000000)
   }
-  
+
   onDestroy() {
     if(this.timer){
       clearTimeout(this.timer)
@@ -142,7 +142,7 @@ The `template` supports the `static` property. If the bound variable will not ch
 <template>
   <div>
     <text static >{{name}}</text>
-    <image static src="/assets/icon/a.png"/>   
+    <image static src="/assets/icon/a.png"/>
   </div>
 </template>
 
@@ -266,7 +266,7 @@ Taking QQ Music as an example, the following is a comparison of optimization eff
 - | Before Optimization | Replace with Lightweight Dependencies | Use Global Methods
 ---|---|---|---
 Lines of Code | 21965 | 13156 | 6807
-Maximum Memory | 4842844 | 3295928 | 1872528 
+Maximum Memory | 4842844 | 3295928 | 1872528
 
   3. Use low-resolution images while ensuring image quality.
 

@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import record from '@system.record' 
-// 或 
+import record from '@system.record'
+// 或
 const record = require('@system.record')
 ```
 
@@ -34,7 +34,7 @@ frameSize | Number | 否 | - | PCM音频数据帧大小，单位 Byte。传入 f
 format | String | 否 | pcm | 音频格式，有效值 pcm/opus/wav。缺省为 pcm
 success | Function | 否 | - | 录音完成成功回调
 fail | Function | 否 | - | 录音过程中失败回调
-complete | Function | 否 | - | 录音结束后的回调 
+complete | Function | 否 | - | 录音结束后的回调
 
 #### PCM / WAV 比特率参考
 
@@ -51,7 +51,7 @@ complete | Function | 否 | - | 录音结束后的回调
 44100 | 1 | 705600
 44100 | 2 | 1411200
 48000 | 1 | 768000
-48000 | 2 | 1536000 
+48000 | 2 | 1536000
 
 #### Opus 比特率参考
 
@@ -68,13 +68,13 @@ complete | Function | 否 | - | 录音结束后的回调
 24000 | 1 | 24892 ~ 34000
 24000 | 2 | 47685 ~ 64800
 48000 | 1 | 50077 ~ 67200
-48000 | 2 | 98554 ~ 103600 
+48000 | 2 | 98554 ~ 103600
 
 #### success 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
-uri | String | 录音文件的存储路径，在应用的缓存目录中 
+uri | String | 录音文件的存储路径，在应用的缓存目录中
 
 #### fail 返回错误码：
 
@@ -82,7 +82,7 @@ uri | String | 录音文件的存储路径，在应用的缓存目录中
 ---|---
 200 | 系统空间不足
 205 | 录音已在进行中
-202 | 参数错误 
+202 | 参数错误
 
 #### 示例：
 
@@ -130,7 +130,7 @@ record.stop()
 参数名 | 类型 | 说明
 ---|---|---
 frameBuffer | Uint8Array | 录制的音频数据帧。通常音频数据帧大小为指定的 bufferSize，但是如果指定的 bufferSize 太小则会自动调整为一个合适的大小。
-isLastFrame | boolean | 是否是最后一帧数据。 
+isLastFrame | boolean | 是否是最后一帧数据。
 
 #### 示例：
 

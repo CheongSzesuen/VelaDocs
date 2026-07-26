@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import uploadtask from '@system.uploadtask' 
-// or 
+import uploadtask from '@system.uploadtask'
+// or
 const uploadtask = require('@system.uploadtask')
 ```
 
@@ -36,7 +36,7 @@ formData | Object | No | Additional form data in the HTTP request
 timeout | Number | No | Timeout duration in milliseconds
 success | Function | No | Callback function for successful return
 fail | Function | No | Callback function for failure
-complete | Function | No | Callback function for completion (executed on both success and failure) 
+complete | Function | No | Callback function for completion (executed on both success and failure)
 
 #### success Return Values:
 
@@ -44,7 +44,7 @@ Parameter Name | Type | Description
 ---|---|---
 statusCode | Integer | Server status code
 data | String | Data returned by the developer server
-headers | Object | All headers from the server response 
+headers | Object | All headers from the server response
 
 # UploadTask
 
@@ -62,7 +62,7 @@ Listens for upload progress change events.
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
-callback | Function | Yes | Callback function for upload progress change events 
+callback | Function | Yes | Callback function for upload progress change events
 
 #### callback Return Values:
 
@@ -70,7 +70,7 @@ Parameter Name | Type | Description
 ---|---|---
 progress | Number | Upload progress percentage
 totalBytesSent | Number | Length of data already uploaded, in Bytes
-totalBytesExpectedToSend | Number | Expected total length of data to upload, in Bytes 
+totalBytesExpectedToSend | Number | Expected total length of data to upload, in Bytes
 
 ### UploadTask.offProgressUpdate(function callback)
 

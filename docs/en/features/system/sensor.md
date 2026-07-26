@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import sensor from '@system.sensor' 
-// or 
+import sensor from '@system.sensor'
+// or
 const sensor = require('@system.sensor')
 ```
 
@@ -28,13 +28,13 @@ Listens for pressure sensor data. If called multiple times, only the last call t
 
 Parameter | Type | Required | Description
 ---|---|---|---
-callback | Function | Yes | Called back each time the positional information changes 
+callback | Function | Yes | Called back each time the positional information changes
 
 #### Callback Return Value:
 
 Parameter | Type | Description
 ---|---|---
-pressure | Number | Pressure, in hPa (hectopascals), floating-point number 
+pressure | Number | Pressure, in hPa (hectopascals), floating-point number
 
 #### Example:
 
@@ -70,7 +70,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 interval | String | No | Frequency at which the accelerometer data callback function is executed. Default is "normal".
 callback | Function | Yes | Called back when gravity sensor data changes
-fail | Function | No | Callback for subscription errors 
+fail | Function | No | Callback for subscription errors
 
 #### Valid Values for interval:
 
@@ -78,7 +78,7 @@ Value | Description
 ---|---
 game | Suitable for game update callback frequency, approximately 20ms per call
 ui | Suitable for UI update callback frequency, approximately 60ms per call
-normal | Normal callback frequency, approximately 200ms per call 
+normal | Normal callback frequency, approximately 200ms per call
 
 #### Callback Return Value:
 
@@ -86,7 +86,7 @@ Parameter | Type | Description
 ---|---|---
 x | Number | X-axis coordinate
 y | Number | Y-axis coordinate
-z | Number | Z-axis coordinate 
+z | Number | Z-axis coordinate
 
 #### Example:
 
@@ -124,20 +124,20 @@ Listens for compass data. If called multiple times, only the last call takes eff
 Parameter | Type | Required | Description
 ---|---|---|---
 callback | Function | Yes | Called back when compass data changes
-fail | Function | No | Callback for subscription failure 
+fail | Function | No | Callback for subscription failure
 
 #### Callback Return Value:
 
 Parameter | Type | Description
 ---|---|---
 direction | Number | Angle between the device's y-axis and magnetic north. When facing north, the angle is 0; when facing south, it is π; when facing east, it is π/2; when facing west, it is -π/2
-accuracy | Number | Accuracy, see compass accuracy description for details 
+accuracy | Number | Accuracy, see compass accuracy description for details
 
 #### Error Codes Returned by fail:
 
 Error Code | Description
 ---|---
-1000 | Current device does not support compass sensor 
+1000 | Current device does not support compass sensor
 
 #### Example:
 
@@ -174,7 +174,7 @@ Value | Description
 2 | Medium accuracy
 1 | Low accuracy
 -1 | Unreliable, sensor disconnected
-0 | Unreliable, reason unknown 
+0 | Unreliable, reason unknown
 
 ## Support Details
 

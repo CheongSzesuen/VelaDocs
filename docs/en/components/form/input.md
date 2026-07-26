@@ -19,7 +19,7 @@ Name | Type | Default Value | Required | Description
 type | button \| checkbox \| radio \| | button | No | Dynamic modification is supported.
 checked | `<boolean>` | false | No | The checked status of the current component, which takes effect when the type is checkbox. It can trigger the checked pseudo-class (checked pseudo-class style is not supported yet).
 name | `<string>` | - | No | The name of the input component.
-value | `<string>` | - | No | The value of the input component. 
+value | `<string>` | - | No | The value of the input component.
 
 ## Styles
 
@@ -30,7 +30,7 @@ Name | Type | Default Value | Required | Description
 color | `<color>` | rgba(0, 0, 0, 0.87) | No | Text color
 font-size | `<length>` | 37.5px | No | Text size
 width | `<length>` \| `<percentage>` | - | No | When the type is button, the default value is 128px.
-height | `<length>` \| `<percentage>` | - | No | When the type is button, the default value is 70px. 
+height | `<length>` \| `<percentage>` | - | No | When the type is button, the default value is 70px.
 
 ## Events
 
@@ -38,7 +38,7 @@ height | `<length>` \| `<percentage>` | - | No | When the type is button, the de
 
 Name | Parameters | Description
 ---|---|---
-change | Different types have different parameters. For details, see the parameters of the change event below. | Triggered when the value or status of the input component changes. When the type is button, there is no change event. 
+change | Different types have different parameters. For details, see the parameters of the change event below. | Triggered when the value or status of the input component changes. When the type is button, there is no change event.
 
 ### Parameters of the change Event
 
@@ -46,13 +46,13 @@ Parameter | checkbox | radio | Remarks
 ---|---|---|---
 name | √ | √ | -
 value | √ | √ | -
-checked | √ | - | - 
+checked | √ | - | -
 
 ## Methods
 
 Name | Parameters | Description
 ---|---|---
-focus | {focus:true\|false}, if focus is not passed, the default value is true | Enable or disable the focus of the component. It can trigger the focus pseudo-class (focus pseudo-class style is not supported yet). 
+focus | {focus:true\|false}, if focus is not passed, the default value is true | Enable or disable the focus of the component. It can trigger the focus pseudo-class (focus pseudo-class style is not supported yet).
 
 ## Example Code
 

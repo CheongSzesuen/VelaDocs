@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import uploadtask from '@system.uploadtask' 
-// 或 
+import uploadtask from '@system.uploadtask'
+// 或
 const uploadtask = require('@system.uploadtask')
 ```
 
@@ -36,7 +36,7 @@ formData | Object | 否 | HTTP 请求中其他额外的 form data
 timeout | Number | 否 | 超时时间，单位为毫秒
 success | Function | 否 | 成功返回的回调函数
 fail | Function | 否 | 失败的回调函数
-complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行） 
+complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行）
 
 #### success 返回值：
 
@@ -44,7 +44,7 @@ complete | Function | 否 | 结束的回调函数（调用成功、失败都会�
 ---|---|---
 statusCode | Integer | 服务器状态 code
 data | String | 开发者服务器返回的数据
-headers | Object | 服务器 response 的所有 header 
+headers | Object | 服务器 response 的所有 header
 
 # UploadTask
 
@@ -62,7 +62,7 @@ headers | Object | 服务器 response 的所有 header
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-callback | Function | 是 | 上传进度变化事件的回调函数 
+callback | Function | 是 | 上传进度变化事件的回调函数
 
 #### callback 返回值：
 
@@ -70,7 +70,7 @@ callback | Function | 是 | 上传进度变化事件的回调函数
 ---|---|---
 progress | Number | 上传进度百分比
 totalBytesSent | Number | 已经上传的数据长度，单位 Bytes
-totalBytesExpectedToSend | Number | 预期需要上传的数据总长度，单位 Bytes 
+totalBytesExpectedToSend | Number | 预期需要上传的数据总长度，单位 Bytes
 
 ### UploadTask.offProgressUpdate(function callback)
 

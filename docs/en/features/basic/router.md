@@ -9,8 +9,8 @@ No declaration is required.
 ## Importing the Module
 
 ```javascript
-import router from '@system.router' 
-// or 
+import router from '@system.router'
+// or
 const router = require('@system.router')
 ```
 
@@ -25,13 +25,13 @@ Navigates to a page within the application.
 Parameter | Type | Required | Description
 ---|---|---|---
 uri | String | Yes | The URI to navigate to, which can be in the following formats:<br>1. A complete URI containing the schema;<br>2. A path to a page within the application starting with '/'; for example, /about<br>3. The name of a page within the application not starting with '/'; for example, About<br>4. If the URI value is "/", it navigates to the page with the path "/", or to the home page if no such page exists.<br><br>Complete URIs containing the schema are supported. For URIs with a schema, the processing flow is as follows:<br>If the schema is hap (refer to [hap Links](https://iot.mi.com/vela/quickapp/en/guide/framework/other/hap-schema.html)), it navigates to the type supported by the hap link.
-params | Object | No | Data to be passed during navigation. Parameters can be used in the target page via `this.param1`, where param1 is the parameter name in the JSON. The value corresponding to param1 will be uniformly converted to the String type. When using the `this.param1` variable, you need to define a property with the same key name under `public` (for parameters passed outside the application) or `protected` (for parameters passed within the application) in the target page. 
+params | Object | No | Data to be passed during navigation. Parameters can be used in the target page via `this.param1`, where param1 is the parameter name in the JSON. The value corresponding to param1 will be uniformly converted to the String type. When using the `this.param1` variable, you need to define a property with the same key name under `public` (for parameters passed outside the application) or `protected` (for parameters passed within the application) in the target page.
 
 #### params Parameters:
 
 Parameter | Type | Required | Description
 ---|---|---|---
-___PARAM_LAUNCH_FLAG___ | String | No | JS application launch parameter. Currently only "clearTask" is supported. When launching the target page, it clears all other pages except this one. For details, see [Page Launch Modes](https://iot.mi.com/vela/quickapp/en/guide/framework/other/launch-mode.html). 
+___PARAM_LAUNCH_FLAG___ | String | No | JS application launch parameter. Currently only "clearTask" is supported. When launching the target page, it clears all other pages except this one. For details, see [Page Launch Modes](https://iot.mi.com/vela/quickapp/en/guide/framework/other/launch-mode.html).
 
 #### Examples:
 
@@ -78,7 +78,7 @@ Replaces the current page with a page within the application and destroys the re
 Parameter | Type | Required | Description
 ---|---|---|---
 uri | String | Yes | The URI to navigate to, which can be in the following formats:A path to a page within the application starting with '/'; for example, /aboutThe name of a page within the application not starting with '/'; for example, AboutIf the URI value is "/", it navigates to the page with the path "/", or to the home page if no such page exists.
-params | Object | No | Data to be passed during navigation. Parameters can be used in the target page via `this.param1`, where param1 is the parameter name in the JSON. The value corresponding to param1 will be uniformly converted to the String type. When using the `this.param1` variable, you need to define a property with the same key name under `public` (for parameters passed outside the application) or `protected` (for parameters passed within the application) in the target page. 
+params | Object | No | Data to be passed during navigation. Parameters can be used in the target page via `this.param1`, where param1 is the parameter name in the JSON. The value corresponding to param1 will be uniformly converted to the String type. When using the `this.param1` variable, you need to define a property with the same key name under `public` (for parameters passed outside the application) or `protected` (for parameters passed within the application) in the target page.
 
 #### Example:
 
@@ -99,7 +99,7 @@ Returns to a specified page.
 
 Parameter | Type | Required | Description
 ---|---|---|---
-path | String | No | The path of the target page to return to, which can be one of the following:If not provided, returns to the previous pageA path to an already opened page within the application starting with '/'; for example, /aboutIf the path value is "/", it navigates to the page with the name "/", or to the home page if no such page exists.Notes:The path must be a path to an already opened page within the current application starting with '/', otherwise it is considered an invalid parameter and returns to the previous page.If no page matching the path is found, returns to the previous page.If multiple pages match the path parameter, returns to the most recently opened page. 
+path | String | No | The path of the target page to return to, which can be one of the following:If not provided, returns to the previous pageA path to an already opened page within the application starting with '/'; for example, /aboutIf the path value is "/", it navigates to the page with the name "/", or to the home page if no such page exists.Notes:The path must be a path to an already opened page within the current application starting with '/', otherwise it is considered an invalid parameter and returns to the previous page.If no page matching the path is found, returns to the previous page.If multiple pages match the path parameter, returns to the most recently opened page.
 
 #### Example:
 
@@ -152,7 +152,7 @@ Gets the number of pages in the current page stack.
 
 Type | Description
 ---|---
-Number | Number of pages 
+Number | Number of pages
 
 #### Example:
 
@@ -171,7 +171,7 @@ Parameter | Type | Description
 ---|---|---
 index | Number | Position of the current page in the page stack
 name | String | Name of the current page
-path | String | Path of the current page 
+path | String | Path of the current page
 
 #### Example:
 
@@ -190,14 +190,14 @@ Gets the current page stack list.
 
 Type | Description
 ---|---
-Array | Page stack list. Each item in the array is of type Object. 
+Array | Page stack list. Each item in the array is of type Object.
 
 Each item in the array consists of:
 
 Field | Type | Description
 ---|---|---
 name | String | Name of the page
-path | String | Path of the page 
+path | String | Path of the page
 
 #### Example:
 

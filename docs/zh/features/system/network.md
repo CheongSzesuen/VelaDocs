@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import network from '@system.network' 
-// 或 
+import network from '@system.network'
+// 或
 const network = require('@system.network')
 ```
 
@@ -28,13 +28,13 @@ const network = require('@system.network')
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调，可能是因为缺乏权限
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回Object值：
 
 参数名 | 类型 | 说明
 ---|---|---
-type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others 
+type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others
 
 #### 示例：
 
@@ -55,13 +55,13 @@ network.getType({
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 callback | Function | 否 | 每次网络发生变化，都会被回调
-fail | Function | 否 | 失败回调，可能是因为缺乏权限 
+fail | Function | 否 | 失败回调，可能是因为缺乏权限
 
 #### callback 返回Object值：
 
 参数名 | 类型 | 说明
 ---|---|---
-type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others。注：网络类型为 none 以外的值并不保证设备一定能访问到目标服务器，需要请求接口进行判断 
+type | String | 网络类型，可能的值为 2g，3g，4g，wifi，none，5g，bluetooth，others。注：网络类型为 none 以外的值并不保证设备一定能访问到目标服务器，需要请求接口进行判断
 
 #### 示例：
 

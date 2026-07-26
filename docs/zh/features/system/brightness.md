@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import brightness from '@system.brightness' 
-// 或 
+import brightness from '@system.brightness'
+// 或
 const brightness = require('@system.brightness')
 ```
 
@@ -28,13 +28,13 @@ const brightness = require('@system.brightness')
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数值 | 类型 | 说明
 ---|---|---
-value | Integer | 屏幕亮度，取值范围 0-255 
+value | Integer | 屏幕亮度，取值范围 0-255
 
 #### 示例：
 
@@ -60,7 +60,7 @@ brightness.getValue({
 value | Integer | 是 | 屏幕亮度，取值范围 0-255
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 
@@ -86,13 +86,13 @@ brightness.setValue({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数值 | 类型 | 说明
 ---|---|---
-mode | Integer | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度 
+mode | Integer | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度
 
 #### 示例：
 
@@ -118,7 +118,7 @@ brightness.getMode({
 mode | Integer | 是 | 0 为手动调节屏幕亮度，1 为自动调节屏幕亮度
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 
@@ -145,7 +145,7 @@ brightness.setMode({
 keepScreenOn | Boolean | 是 | 是否保持屏幕常亮
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 

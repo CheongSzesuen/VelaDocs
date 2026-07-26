@@ -10,8 +10,8 @@
 ## 导入模块
 
 ```javascript
-import app from '@system.app' 
-// 或 
+import app from '@system.app'
+// 或
 const app = require('@system.app')
 ```
 
@@ -35,14 +35,14 @@ name | String | 应用名称
 versionName | String | 应用版本名称
 versionCode | Integer | 应用版本号
 logLevel | String | log 级别
-source | Object | 应用来源 
+source | Object | 应用来源
 
 #### source
 
 参数名 | 类型 | 说明
 ---|---|---
 packageName | String | 来源 app 的包名，一级来源
-type | String | 来源类型，二级来源，值为 shortcut、push、url、barcode、nfc、bluetooth、other 
+type | String | 来源类型，二级来源，值为 shortcut、push、url、barcode、nfc、bluetooth、other
 
 #### 示例：
 
@@ -101,7 +101,7 @@ app.terminate()
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-name | String | 是 | lib 库名称 
+name | String | 是 | lib 库名称
 
 #### 返回值：
 
@@ -124,13 +124,13 @@ testApp.on('js_task_callback', () => {
 
 类型 | 描述
 ---|---
-String | 要查询的能力，格式见下方 
+String | 要查询的能力，格式见下方
 
 #### 返回值：
 
 类型 | 描述
 ---|---
-Boolean | 查询的能力是否支持 
+Boolean | 查询的能力是否支持
 
 ### 入参格式
 

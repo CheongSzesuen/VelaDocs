@@ -26,7 +26,7 @@ animation-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out
 transition-property | `<string>` | all | Specifies the generic style property name for executing the transition effect, see [details](https://iot.mi.com/vela/quickapp/en/components/general/animation-style.html#transition-property-supported-generic-style-properties)
 transition-duration | `<time>` | 0s | Specifies the execution time of the transition
 transition-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out \| cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) \| step-start \| step-end \| steps(number_of_steps[, step-direction]?) | ease | Specifies the timing function for transition execution. The parameter interpretation is the same as for animation
-transition-delay | `<time>` | 0s | Specifies the time when the transition starts executing, i.e., how long after changing the element's property value the transition effect begins 
+transition-delay | `<time>` | 0s | Specifies the time when the transition starts executing, i.e., how long after changing the element's property value the transition effect begins
 
 **Note** :
 
@@ -39,7 +39,7 @@ steps(number_of_steps, step-direction)
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 number_of_steps | `<integer>` | - | Yes | Positive integer representing equal interval steps
-step-direction | jump-start \| jump-end \| jump-none \| jump-both \| start \| end | end | No | Keyword indicating left-continuous or right-continuous function 
+step-direction | jump-start \| jump-end \| jump-none \| jump-both \| start \| end | end | No | Keyword indicating left-continuous or right-continuous function
 
   * cubic-bezier(x1, y1, x2, y2):
 
@@ -59,7 +59,7 @@ translateY | `<length>` \| `<percent>`
 scale | `<number>`
 scaleX | `<number>`
 scaleY | `<number>`
-rotate | `<deg>` 
+rotate | `<deg>`
 
 ## Transform-Origin Operations
 
@@ -74,12 +74,12 @@ Example code:
 ```css
 /* Using % values */
 div {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
   transform-origin: 20% 40%;
 }
 /* Using px values */
 div {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
   transform-origin: 100px 100px;
 }
 ```
@@ -109,7 +109,7 @@ background-color | `<color>` | - | -
 background-position | `<length>` \|`<percentage>`\| left \| right \| top \| bottom \| center | 0px 0px | Describes the position where the background image is drawn in the container, supports 1-4 parameters, see [Background Image Styles](https://iot.mi.com/vela/quickapp/en/components/general/background-img-styles.html) for details
 opacity | `<number>` | - | -
 width/height | `<length>` | - | Percentage not currently supported
-transform | `<string>` | - | Allows rotating, scaling, and moving elements 
+transform | `<string>` | - | Allows rotating, scaling, and moving elements
 
 **Note** :
 

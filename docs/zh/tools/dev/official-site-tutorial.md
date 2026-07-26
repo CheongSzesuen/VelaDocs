@@ -48,7 +48,7 @@ AI 引擎 | GitHub Copilot（GPT-4o 等） | Kiro AI（Claude）
 断点恢复 | — | ✅ Session 机制
 自动校验 | Agent 内置检查 | Hooks 事件驱动
 适合 | 已有 Copilot 订阅的团队 | 追求深度自动化的团队
-调试方式 | AIOT-IDE内置插件 | AIOT-IDE内置插件 
+调试方式 | AIOT-IDE内置插件 | AIOT-IDE内置插件
 
 * * *
 
@@ -200,13 +200,8 @@ npx create-vela-workflow . --mode kiro
   1. 在 Kiro 中打开项目
   2. 在对话框中输入：
 
-```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
-
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+```
+@.workflow/workflow_starter.md
 ```
   3. 按提示输入需求内容（支持多种来源）：
 
@@ -241,24 +236,59 @@ npx create-vela-workflow . --mode copilot
 
 ### 完整流程示例
 
-```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
+```
+用户: 开发一个记账应用，支持添加收支记录和查看月度统计
 
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+AI:   📝 需求已收到
+      📐 屏幕规格: 480×480 圆屏（默认）
+
+      ❓ 请选择工作流模式:
+        [1] 完整流程  [2] 直接生成代码
+
+用户: 1
+
+AI:   🚀 S1 - PRD 生成...
+      ━━━━━━━━━━━━━━━━━━━━
+      📄 功能清单:
+        • 首页: 收支概览 + 快捷记账按钮
+        • 记账页: 金额输入 + 分类选择
+        • 统计页: 月度收支图表
+      ❓ [y] 确认  [e] 修改  [n] 重做
+
+用户: y
+
+AI:   🚀 S2 - 技术方案...
+      ━━━━━━━━━━━━━━━━━━━━
+      📄 页面路由: 3 个页面
+      📄 数据存储: @system.storage
+      📄 图表: 内置 chart 组件
+      ❓ [y] 确认  [e] 修改  [n] 重做
+
+用户: y
+
+AI:   🚀 S3 - 代码生成...
+      ━━━━━━━━━━━━━━━━━━━━
+      📂 npx create-aiot ux --name accounting-app
+      📄 生成 3 个页面 + manifest 配置
+      ✅ 质量校验通过
+
+      🎉 项目已创建完成！
 ```
 
 ### 快速模式示例（带设计稿）
 
-```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
+```
+用户: 帮我做一个音乐播放器
+      设计稿: https://www.figma.com/design/xxxxx
 
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+AI:   🎨 解析设计稿...
+      ✅ 检测到 2 个页面、8 个图标
+      🖼️ 导出 PNG 资源到 src/common/images/
+
+      📂 npx create-aiot ux --name music-player
+      📄 生成播放器主页 + 歌单列表页
+      🎨 样式严格还原设计稿（颜色、字号、间距）
+      ✅ 代码生成完成！
 ```
 
 * * *
@@ -277,7 +307,7 @@ Flexbox 布局 | 默认 flex-direction: column
 资源格式 | 图片仅 PNG，禁止 SVG
 路由一致性 | manifest.json 路由与实际页面文件自动对齐
 API 声明 | import 的 API 自动在 features 中声明
-内存优化 | onDestroy 清理定时器，static 标记静态节点 
+内存优化 | onDestroy 清理定时器，static 标记静态节点
 
 * * *
 
@@ -288,7 +318,7 @@ API 声明 | import 的 API 自动在 features 中声明
 Xiaomi Watch S5 | 480×480 | 圆屏 | 480
 Xiaomi Watch S3/S4/H1 | 466×466 | 圆屏 | 466
 REDMI Watch 5 | 432×514 | 方屏 | 432
-小米手环 9 | 192×490 | 跑道屏 | 192 
+小米手环 9 | 192×490 | 跑道屏 | 192
 
 工作流启动时可指定任意目标设备屏幕规格，AI 会自动适配布局和安全区域。
 
@@ -299,12 +329,7 @@ REDMI Watch 5 | 432×514 | 方屏 | 432
 当工具包发布新版本时，一行命令即可更新：
 
 ```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
-
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+npx create-vela-workflow@latest . --mode all
 ```
 
 * * *
@@ -316,12 +341,11 @@ npx create-vela-workflow . --mode copilot
 **Q:`npx create-vela-workflow` 执行失败？**
 
 ```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
+# 检查 Node.js 版本（需要 >= 16）
+node --version
 
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+# 如果 npm 源有问题，切换为官方源
+npm config set registry https://registry.npmjs.org/
 ```
 
 **Q: 两种方式可以同时安装吗？**
@@ -335,12 +359,9 @@ npx create-vela-workflow . --mode copilot
 可以。生成的项目包含完整的 `package.json` 和构建配置：
 
 ```bash
-# 新建项目并安装
-npx create-vela-workflow my-app --mode copilot
-
-# 或在已有项目中安装
-cd your-project
-npx create-vela-workflow . --mode copilot
+cd my-app
+npm install
+npm run build    # 构建 rpk 包
 ```
 
 可以使用 [AIoT IDE (opens new window)](<https://iot.mi.com/vela/quickapp/zh/tools/aiot-ide.html>) 打开项目，直接点击调试按钮启动模拟器。
@@ -372,7 +393,7 @@ Markdown 文件 | ✅ | ✅
 飞书文档链接 | — | ✅（需飞书 MCP）
 网页链接 | ✅ | ✅
 Figma 设计稿 | ✅（需 Figma MCP） | ✅（需 Figma Desktop）
-设计截图 | ✅ | ✅ 
+设计截图 | ✅ | ✅
 
 * * *
 

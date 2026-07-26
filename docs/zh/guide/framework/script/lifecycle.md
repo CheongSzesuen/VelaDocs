@@ -115,7 +115,7 @@ onBackPress () {
 
 监听页面重新打开。
 
-1.当页面在 manifest 中 launchMode 标识为'singleTask'时，仅会存在一个目标页面实例，用户多次打开目标页面时触发此函数。  
+1.当页面在 manifest 中 launchMode 标识为'singleTask'时，仅会存在一个目标页面实例，用户多次打开目标页面时触发此函数。
 2.打开目标页面时在 push 参数中携带 flag 'clearTask'，且页面实例已经存在时触发。该回调中参数为重新打开该页面时携带的参数，详见[页面启动模式](</vela/quickapp/zh/guide/framework/other/launch-mode.html>)。
 
 **示例如下：**
@@ -136,19 +136,19 @@ onRefresh(query) {
 
 参数名 | 类型 | 描述
 ---|---|---
-event | Object | 应用配置发生变化的事件 
+event | Object | 应用配置发生变化的事件
 
 **event参数**
 
 参数名 | 类型 | 描述
 ---|---|---
-type | String | 应用配置发生变化的原因类型，支持的 type 值如下所示 
+type | String | 应用配置发生变化的原因类型，支持的 type 值如下所示
 
 **event 中 type 现在支持的参数值如下**
 
 参数名 | 描述
 ---|---
-locale | 应用配置因为语言、地区变化而发生改变 
+locale | 应用配置因为语言、地区变化而发生改变
 
 **示例如下：**
 
@@ -167,19 +167,19 @@ onConfigurationChanged(evt) {
 ```javascript
 export default {
   // 监听应用创建,应用创建时调用
-  onCreate() { 
+  onCreate() {
     console.info('Application onCreate')
   },
   // 监听应用返回前台,应用返回前台时调用
-  onShow() { 
+  onShow() {
     console.info('Application onShow')
   },
   // 监听应用退到后台,应用退到后台时调用
-  onHide() { 
+  onHide() {
     console.info('Application onHide')
   },
   // 监听应用销毁,应用销毁时调用
-  onDestroy() { 
+  onDestroy() {
     console.info('Application onDesteroy')
   },
   // 监听应用报错,应用捕获异常时调用,参数为Error对象。

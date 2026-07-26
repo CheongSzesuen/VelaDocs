@@ -105,7 +105,7 @@ xiaomiSoundMini
   parts {
     device {
       display {
-        # 模拟器尺寸 
+        # 模拟器尺寸
         width 466
         # 模拟器尺寸
         height 466
@@ -130,7 +130,7 @@ xiaomiSoundMini
       // 整个皮肤的大小，一般使用背景图片的像素尺寸
       width 572
       height 938
-      event EV_SW:0:1 
+      event EV_SW:0:1
       part1 {
         name portrait
         x 0

@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import brightness from '@system.brightness' 
-// or 
+import brightness from '@system.brightness'
+// or
 const brightness = require('@system.brightness')
 ```
 
@@ -28,13 +28,13 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### Success Return Value:
 
 Parameter | Type | Description
 ---|---|---
-value | Integer | Screen brightness (range: 0-255) 
+value | Integer | Screen brightness (range: 0-255)
 
 #### Example:
 
@@ -60,7 +60,7 @@ Parameter | Type | Required | Description
 value | Integer | Yes | Screen brightness (range: 0-255)
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### Example:
 
@@ -86,13 +86,13 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### Success Return Value:
 
 Parameter | Type | Description
 ---|---|---
-mode | Integer | 0: manual brightness adjustment, 1: auto brightness adjustment 
+mode | Integer | 0: manual brightness adjustment, 1: auto brightness adjustment
 
 #### Example:
 
@@ -118,7 +118,7 @@ Parameter | Type | Required | Description
 mode | Integer | Yes | 0: manual brightness adjustment, 1: auto brightness adjustment
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### Example:
 
@@ -145,7 +145,7 @@ Parameter | Type | Required | Description
 keepScreenOn | Boolean | Yes | Whether to keep the screen on
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### Example:
 

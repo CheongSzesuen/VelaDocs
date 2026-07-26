@@ -10,7 +10,7 @@
 ---|---|---
 $app | Object | 应用对象
 $page | Object | 页面对象
-$valid | Boolean | 页面对象是否有效 
+$valid | Boolean | 页面对象是否有效
 
 #### 应用对象
 
@@ -46,7 +46,7 @@ this.$app.$def.func()
 
 属性 | 类型 | 描述
 ---|---|---
-exit | Function | 退出 JS 应用，结束应用生命周期。调用方法：this.$app.exit() 
+exit | Function | 退出 JS 应用，结束应用生命周期。调用方法：this.$app.exit()
 
 #### 页面对象
 
@@ -56,7 +56,7 @@ exit | Function | 退出 JS 应用，结束应用生命周期。调用方法：t
 ---|---|---
 name | String | 获取当前页面路由的名称，与manifest 文件中router.pages 中对应的属性名一致
 path | String | 获取当前页面路由的 path，与manifest 文件中router.pages 中对应的 path 一致
-component | String | 获取当前页面路由的 component，与manifest 文件中router.pages 中对应的 component 一致 
+component | String | 获取当前页面路由的 component，与manifest 文件中router.pages 中对应的 component 一致
 
 ## 方法
 
@@ -68,13 +68,13 @@ component | String | 获取当前页面路由的 component，与manifest 文件�
 
 类型 | 描述
 ---|---
-String | 要查询的能力，格式见下方 
+String | 要查询的能力，格式见下方
 
 #### 返回值：
 
 类型 | 描述
 ---|---
-Boolean | 查询的能力是否支持 
+Boolean | 查询的能力是否支持
 
 #### 入参格式
 
@@ -122,7 +122,7 @@ if (this.$canIUse('scroll.attr.scroll-x')) {
 
 ### this.$watch
 
-监控数据改变。动态添加属性/事件绑定，属性必须在 data 中定义，handler 函数必须在`<script>`定义，当属性值发生变化时事件被触发。  
+监控数据改变。动态添加属性/事件绑定，属性必须在 data 中定义，handler 函数必须在`<script>`定义，当属性值发生变化时事件被触发。
 如果是监听对象中的属性，参数请使用.分割，如：$watch(xxx.xxx.xxx, methodName)。
 
 #### 参数
@@ -130,7 +130,7 @@ if (this.$canIUse('scroll.attr.scroll-x')) {
 属性 | 类型 | 描述
 ---|---|---
 data | String | 属性名，支持'a.b.c'格式，不支持数组索引
-handler | String | 事件句柄函数名，函数的第一个参数为新属性值，第二个参数为旧的属性值 
+handler | String | 事件句柄函数名，函数的第一个参数为新属性值，第二个参数为旧的属性值
 
 #### 代码示例
 
@@ -171,7 +171,7 @@ handler | String | 事件句柄函数名，函数的第一个参数为新属性�
 
 类型 | 描述
 ---|---
-String | this.$element('idName')获取 dom 节点 
+String | this.$element('idName')获取 dom 节点
 
 #### 代码示例
 
@@ -204,7 +204,7 @@ this.$element('xxx') 获取 id 为 xxx 的 div 组件实例对象， this.$eleme
 
 类型 | 描述
 ---|---
-Function | 回调函数中执行的是会对DOM进行操作的处理 
+Function | 回调函数中执行的是会对DOM进行操作的处理
 
 #### 代码示例
 
@@ -271,6 +271,6 @@ this.$on | type: String 事件名<br>handler: Function 事件句柄函数 | 添�
 this.$off | type: String 事件名<br>handler: Function 事件句柄函数 | 删除事件处理句柄用法：this.$off('xxxx', this.fn) this.$off('xxx') 删除指定事件的所有处理句柄
 this.$dispatch | type: String 事件名 | 向上层组件发送事件通知用法：this.$dispatch('xxx')正常情况下，会一直向上传递事件（冒泡）如果要停止冒泡，在事件句柄函数中调用evt.stop()即可
 this.$broadcast | type: String 事件名 | 向子组件发送事件通知用法：this.$broadcast('xxx')正常情况下，会一直向下传递事件如果要停止传递，在事件句柄函数中调用evt.stop()即可
-this.$emit | type: String 事件名<br>data: Object 事件参数 | 触发事件，对应的句柄函数被调用用法：this.$emit('xxx') this.$emit('xxx', {a:1})传递的事件参数可在事件回调函数中，通过evt.detail来访问，例如evt.detail.a 
+this.$emit | type: String 事件名<br>data: Object 事件参数 | 触发事件，对应的句柄函数被调用用法：this.$emit('xxx') this.$emit('xxx', {a:1})传递的事件参数可在事件回调函数中，通过evt.detail来访问，例如evt.detail.a
 
 事件方法使用示例可参考[文档](</vela/quickapp/zh/guide/framework/template/component.html#父子组件通信>)。

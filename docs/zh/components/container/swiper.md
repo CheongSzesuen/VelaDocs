@@ -25,7 +25,7 @@ duration | `<number>` | - | 否 | 滑动动画时长（duration默认根据手�
 vertical | `<boolean>` | false | 否 | 滑动方向是否为纵向，纵向时indicator 也为纵向
 previousmargin | `<string>` | 0px | 否 | 前边距，可用于露出前一项的一小部分，支持单位：px和%
 nextmargin | `<string>` | 0px | 否 | 后边距，可用于露出后一项的一小部分，支持单位：px和%
-enableswipe | `<boolean>` | true | 否 | 是否支持手势滑动swiper 
+enableswipe | `<boolean>` | true | 否 | 是否支持手势滑动swiper
 
 **备注** ：`previousmargin`和`nextmargin`的总和不应该超过整个swiper大小的1/2，超过部分将会被截取。
 
@@ -38,7 +38,7 @@ enableswipe | `<boolean>` | true | 否 | 是否支持手势滑动swiper
 indicator-color | `<color>` | rgba(0, 0, 0, 0.5) | 否 | indicator 填充颜色
 indicator-selected-color | `<color>` | #33b4ff 或者 rgb(51, 180, 255) | 否 | indicator 选中时的颜色
 indicator-size | `<length>` | 20px | 否 | indicator 组件的直径大小
-indicator-[top\|left\|right\|bottom] | `<length>` \| `<percentage>` | - | 否 | indicator相对于swiper的位置 
+indicator-[top\|left\|right\|bottom] | `<length>` \| `<percentage>` | - | 否 | indicator相对于swiper的位置
 
 ## 事件
 
@@ -48,13 +48,13 @@ indicator-[top\|left\|right\|bottom] | `<length>` \| `<percentage>` | - | 否 | 
 ---|---|---
 change | {index:currentIndex} | 当前显示的组件索引变化时触发
 swipestart[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | 子组件切换动画开始时触发（如果是手指拖动导致的切换，指的是手指按压开始拖动的时间点）
-swipeend[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | 子组件切换动画结束时触发 
+swipeend[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | 子组件切换动画结束时触发
 
 ## 方法
 
 名称 | 参数 | 描述
 ---|---|---
-swipeTo | {index: number(指定位置)} | swiper 滚动到 index 位置 
+swipeTo | {index: number(指定位置)} | swiper 滚动到 index 位置
 
 ## 示例代码
 
@@ -67,7 +67,7 @@ swipeTo | {index: number(指定位置)} | swiper 滚动到 index 位置
       <text class="item item-3">C</text>
       <text class="item item-4">D</text>
     </swiper>
-    
+
   </div>
 </template>
 

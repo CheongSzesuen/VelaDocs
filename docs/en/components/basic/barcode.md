@@ -16,7 +16,7 @@ Supports [universal attributes](</vela/quickapp/en/components/general/properties
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
-value | `string` | - | Yes | Barcode content, using Code128 encoding, with a length of up to 20 bytes 
+value | `string` | - | Yes | Barcode content, using Code128 encoding, with a length of up to 20 bytes
 
 ## Styles
 
@@ -25,7 +25,7 @@ Supports [universal styles](</vela/quickapp/en/components/general/style.html>)
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 color | `<color>` | #000000 | No | Barcode color
-background-color | `<color>` | #ffffff | No | Barcode background color 
+background-color | `<color>` | #ffffff | No | Barcode background color
 
 Note
 

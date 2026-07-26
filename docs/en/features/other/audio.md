@@ -11,8 +11,8 @@
 ## Importing the Module
 
 ```javascript
-import audio from '@system.audio' 
-// or 
+import audio from '@system.audio'
+// or
 const audio = require('@system.audio')
 ```
 
@@ -70,7 +70,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Completion callback 
+complete | Function | No | Completion callback
 
 #### success Return Value:
 
@@ -84,7 +84,7 @@ autoplay | Boolen | Whether the audio is autoplaying
 loop | Boolen | Whether the audio is looping
 volume | Number | Audio volume (default: system media volume; range: [0.0,1.0])
 muted | Boolen | Whether the audio is muted
-duration | Number | Duration of the audio in seconds; NaN if unknown 
+duration | Number | Duration of the audio in seconds; NaN if unknown
 
 #### Example:
 
@@ -111,7 +111,7 @@ loop | Boolean | Yes | Yes | No | Whether the audio loops (default: false)
 volume | Number | Yes | Yes | No | Audio volume (default: system media volume; range: [0.0,1.0])
 muted | Boolean | Yes | Yes | No | Whether the audio is muted (default: false)
 streamType | String | Yes | No | No | Audio stream type: 'music' (speaker) or 'voicecall' (earpiece; not supported on watches/bands); default: 'music'
-meta | Object<{title: string, artist: string, album: string}> | No | Yes | No | Audio metadata including title, artist, and album 
+meta | Object<{title: string, artist: string, album: string}> | No | Yes | No | Audio metadata including title, artist, and album
 
 #### Example:
 
@@ -130,7 +130,7 @@ stop | Triggered after stop() is called. Passive trigger example: 1. Playing aud
 loadeddata | Triggered when audio data is first loaded
 ended | Triggered when playback ends
 durationchange | Triggered when the duration changes
-error | Triggered when a playback error occurs 
+error | Triggered when a playback error occurs
 
 #### Example:
 

@@ -15,7 +15,7 @@ Operating System | Minimum Version Required
 ---|---
 macOS | 14 (Sonoma) or later
 Windows | 10 or later
-Ubuntu | 20.04 LTS or later 
+Ubuntu | 20.04 LTS or later
 
 ## Installing AIoT-IDE
 
@@ -39,7 +39,7 @@ Example 2
 
 ## Historical Versions
 
-Historical versions can be found [here (opens new window)](<https://kpan.mioffice.cn/webfolder/ext/j6SfQsarf8I%40?n=0.18700074913007825>)  
+Historical versions can be found [here (opens new window)](<https://kpan.mioffice.cn/webfolder/ext/j6SfQsarf8I%40?n=0.18700074913007825>)
 Password: 99E6
 
 ## Using AIoT-IDE
@@ -57,8 +57,8 @@ Password: 99E6
 
 ### 2\. Project Development
 
-Supports dependency installation, debugging, simulator management, and project packaging.  
-After opening a Vela Quick App project, AIoT-IDE will display a top banner with operation buttons and a development guide on the right. Follow the guide to install the necessary dependencies.  
+Supports dependency installation, debugging, simulator management, and project packaging.
+After opening a Vela Quick App project, AIoT-IDE will display a top banner with operation buttons and a development guide on the right. Follow the guide to install the necessary dependencies.
 Once the dependencies are installed, click the operation buttons in the banner to perform corresponding functions.
 
 ![](../../images/ide-warning.png)
@@ -102,12 +102,12 @@ If the simulator environment and instances are missing, the development guide wi
 
 **Simulator Operation Description**
 
-  * View Created Simulators  
+  * View Created Simulators
 Click the "Simulator" button in the banner to enter the simulator list page, where you can see detailed information about the created simulators.
 
 ![](../../images/ide-emulator-2.png)
 
-  * Create a New Simulator 
+  * Create a New Simulator
     * Click the "New" button in the top-left corner of **Device Management** to enter the simulator form page.
     * On the simulator form page, fill in the information for the simulator to be created and click the "Create" button. The plugin will first download the Vela image and complete the creation.
 
@@ -125,8 +125,8 @@ After the Quick App starts successfully, a debug panel will pop up at the bottom
 
 ### 6\. Packaging the Project
 
-**Development Mode Packaging**  
-After development is complete, you can click the "Package" button in the banner to package the application. By default, two new directories will be generated: `dist` and `build`.  
+**Development Mode Packaging**
+After development is complete, you can click the "Package" button in the banner to package the application. By default, two new directories will be generated: `dist` and `build`.
 The `dist` folder will contain a `.debug.rpk` file, and the `build` folder will contain the compiled JS files.
 
 **Production Mode Packaging**
@@ -143,5 +143,5 @@ The `dist` folder will contain a `.debug.rpk` file, and the `build` folder will 
 
 ![](../../images/ide-openssl.png)
 
-    * Manual generation: Also requires OpenSSL to be installed in the system environment. Then open the terminal and run the following command to generate the signature files. Create a new `sign` directory in the project and place the generated files `private.pem` and `certificate.pem` in this directory:  
+    * Manual generation: Also requires OpenSSL to be installed in the system environment. Then open the terminal and run the following command to generate the signature files. Create a new `sign` directory in the project and place the generated files `private.pem` and `certificate.pem` in this directory:
 `openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem`

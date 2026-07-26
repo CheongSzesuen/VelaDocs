@@ -136,19 +136,19 @@ Listens for changes in application configuration. Triggered when the application
 
 Parameter | Type | Description
 ---|---|---
-event | Object | Event indicating a change in application configuration 
+event | Object | Event indicating a change in application configuration
 
 **event Parameters**
 
 Parameter | Type | Description
 ---|---|---
-type | String | Reason type for the application configuration change. Supported type values are as follows: 
+type | String | Reason type for the application configuration change. Supported type values are as follows:
 
 **Supported type values in event**
 
 Parameter | Description
 ---|---
-locale | Application configuration changed due to language or region changes 
+locale | Application configuration changed due to language or region changes
 
 **Example** :
 
@@ -167,19 +167,19 @@ Five callback functions are provided for the APP lifecycle: onCreate(), onShow()
 ```javascript
 export default {
   // Listen for application creation. Called when the application is created.
-  onCreate() { 
+  onCreate() {
     console.info('Application onCreate')
   },
   // Listen for application returning to the foreground. Called when the application returns to the foreground.
-  onShow() { 
+  onShow() {
     console.info('Application onShow')
   },
   // Listen for application moving to the background. Called when the application moves to the background.
-  onHide() { 
+  onHide() {
     console.info('Application onHide')
   },
   // Listen for application destruction. Called when the application is destroyed.
-  onDestroy() { 
+  onDestroy() {
     console.info('Application onDestroy')
   },
   // Listen for application errors. Called when the application catches an exception. The parameter is an Error object.

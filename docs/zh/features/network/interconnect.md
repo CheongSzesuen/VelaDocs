@@ -47,20 +47,20 @@ const connect = interconnect.instance()
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 success | Function | 否 | 成功回调
-fail | Function | 否 | 失败回调 
+fail | Function | 否 | 失败回调
 
 #### success 返回值：
 
 属性值 | 类型 | 说明
 ---|---|---
-status | Number | 1：连接成功，2：连接断开 
+status | Number | 1：连接成功，2：连接断开
 
 #### fail 返回值：
 
 参数值 | 类型 | 说明
 ---|---|---
 data | String | 错误信息
-code | Number | 错误码 
+code | Number | 错误码
 
 #### 错误码说明：
 
@@ -68,7 +68,7 @@ code | Number | 错误码
 
 错误码 | 说明
 ---|---
-1006 | 连接断开 
+1006 | 连接断开
 
 #### 示例：
 
@@ -97,20 +97,20 @@ connect.getReadyState({
 ---|---|---|---
 timeout | Number | 否 | 等待诊断的超时时间，单位毫秒<br>默认值：10000ms
 success | Function | 否 | 成功回调
-fail | Function | 否 | 失败回调 
+fail | Function | 否 | 失败回调
 
 #### success 返回值：
 
 属性值 | 类型 | 说明
 ---|---|---
-status | Number | 0: OK 链接成功<br>204：CONNECT_TIMEOUT 连接超时<br>1001：APP_UNINSTALLED 对端应用未安装<br>1000：OTHERS 其他链接错误 
+status | Number | 0: OK 链接成功<br>204：CONNECT_TIMEOUT 连接超时<br>1001：APP_UNINSTALLED 对端应用未安装<br>1000：OTHERS 其他链接错误
 
 #### fail 返回值：
 
 参数值 | 类型 | 说明
 ---|---|---
 data | String | 错误信息
-code | Number | 错误码 
+code | Number | 错误码
 
 #### 错误码说明：
 
@@ -139,7 +139,7 @@ connect.diagnosis({
 ---|---|---|---
 data | Object | 是 | 发送的数据
 success | Function | 否 | 成功回调
-fail | Function | 否 | 失败回调 
+fail | Function | 否 | 失败回调
 
 #### success 返回值：
 
@@ -150,7 +150,7 @@ fail | Function | 否 | 失败回调
 参数值 | 类型 | 说明
 ---|---|---
 data | String | 错误信息
-code | Number | 错误码 
+code | Number | 错误码
 
 #### 错误码说明：
 
@@ -159,7 +159,7 @@ code | Number | 错误码
 错误码 | 说明
 ---|---
 204 | 链接超时
-1006 | 连接断开 
+1006 | 连接断开
 
 #### 示例：
 
@@ -186,9 +186,9 @@ connect.send({
 
 #### 回调参数：
 
-属性值 | 类型 | 说明
+参数名 | 类型 | 说明
 ---|---|---
-status | Number | 1：连接成功，2：连接断开0 
+data | String | 接收的数据
 
 #### 示例：
 
@@ -204,9 +204,9 @@ connect.onmessage = (data) => {
 
 #### 回调参数：
 
-属性值 | 类型 | 说明
+参数名 | 类型 | 说明
 ---|---|---
-status | Number | 1：连接成功，2：连接断开1 
+isReconnected | Boolean | 是否是重新连接
 
 #### 示例：
 
@@ -222,9 +222,10 @@ connect.onopen = function (data) {
 
 #### 回调参数：
 
-属性值 | 类型 | 说明
+参数名 | 类型 | 说明
 ---|---|---
-status | Number | 1：连接成功，2：连接断开2 
+code | Number | 链接关闭状态码
+data | String | 连接关闭返回的数据
 
 #### 示例：
 
@@ -240,17 +241,20 @@ connect.onclose = (data) => {
 
 #### 回调参数：
 
-属性值 | 类型 | 说明
+参数名 | 类型 | 说明
 ---|---|---
-status | Number | 1：连接成功，2：连接断开3 
+code | Number | 错误码，见错误码说明
+data | String | 错误信息
 
 #### 错误码说明：
 
 [支持通用错误码](</vela/quickapp/zh/features/grammar.html#通用错误码>)
 
-属性值 | 类型 | 说明
----|---|---
-status | Number | 1：连接成功，2：连接断开4 
+错误码 | 说明
+---|---
+1000 | 未知错误
+1001 | 手机 APP 未安装
+1006 | 连接断开
 
 #### 示例：
 
@@ -269,20 +273,16 @@ interconnect 通信前提要保证快应用和三方应用安卓端两者的包�
 
   1. 先将 jks 转换成 p12，执行以下命令，输入相应密码后，在同级目录下生成对应的 p12 格式文件。
 
-```javascript
-import interconnect from '@system.interconnect'
-// 或
-const interconnect = require('@system.interconnect')
+```shell
+keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.p12 -srcstoretype jks -deststoretype pkcs12
 ```
   2. 再将 p12 转 pem，执行以下命令，输入上一步设置的 p12 文件密码后，在同级目录下生成对应的 pem 格式文件。
 
-```javascript
-import interconnect from '@system.interconnect'
-// 或
-const interconnect = require('@system.interconnect')
+```shell
+openssl pkcs12 -nodes -in keystore.p12 -out keystore.pem
 ```
-  3. 从 pem 格式文件中复制出私钥和证书：  
-把-----BEGIN PRIVATE KEY-----到-----END PRIVATE KEY-----的内容复制到private.pem中。  
+  3. 从 pem 格式文件中复制出私钥和证书：
+把-----BEGIN PRIVATE KEY-----到-----END PRIVATE KEY-----的内容复制到private.pem中。
 把-----BEGIN CERTIFICATE-----到-----END CERTIFICATE-----的内容复制到certificate.pem中。
 
   * 如果本地没有安装Openssl或想要更简便的操作流程，我们提供了[在线签名生成工具 (opens new window)](<https://cdn.hybrid.xiaomi.com/aiot-ide/signature-generate-tool/v2/index.html>)。该工具是一个基于WebAssembly编写的Web应用，它可以在浏览器环境中直接生成 pem 格式的私钥和证书，无需将签名文件和密码上传到远程服务器，充分保证了用户的隐私安全。使用在线签名生成工具的步骤如下：

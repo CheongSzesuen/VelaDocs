@@ -194,7 +194,7 @@ div 组件为最常用的 Flex 容器组件，具有 Flex 布局的特性；text
 
   * **修改 class** ：更新组件的 class 属性中使用的变量的值
   * **修改内联 style** ：更新组件的 style 属性中的某个 CSS 的值
-  * **修改绑定的对象** ：通过绑定的对象控制元素的样式 
+  * **修改绑定的对象** ：通过绑定的对象控制元素的样式
 
 **示例如下：**
 
@@ -282,22 +282,24 @@ scss 语法入门请参考[scss 中文官网 (opens new window)](<https://www.sa
 
 使用 scss 请在JS 应用项目下执行以下命令安装相应的类库：`node-sass`、`sass-loader`：
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
-}
+```
+npm i node-sass sass-loader
 ```
 
 详见文档[style 样式 --> 样式预编译](</vela/quickapp/zh/guide/framework/style/#样式预编译>)；然后在`<style>`标签上添加属性`lang="scss"`。 **示例如下：**
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
-}
+```html
+<template>
+  <div class="page">
+    <text id="title">less示例!</text>
+  </div>
+</template>
+
+<style lang="scss">
+  /* 引入外部scss文件 */
+  @import './style.scss';
+  /* 使用scss */
+</style>
 ```
 
 ## 使用 postcss 解析 css
@@ -312,11 +314,9 @@ JS 应用支持 postcss 来解析 css，postcss 可以采用类似 less，sass �
 
 2.在项目的根目录新建一个 postcss.config.js，增加如下内容：
 
-```json
-{
-  "config": {
-    "designWidth": 640
-  }
+```js
+module.exports = {
+  plugins: [require('precss')]
 }
 ```
 
@@ -324,12 +324,18 @@ JS 应用支持 postcss 来解析 css，postcss 可以采用类似 less，sass �
 
 3.在页面对应的 style 标签上增加 lang="postcss"，如下：
 
-```json
-{
-  "config": {
-    "designWidth": 640
+```html
+<style lang="postcss">
+  /* 使用postcss */
+  .page {
+    justify-content: center;
+    background-color: #00beaf;
   }
-}
+
+  #title {
+    color: #FF0000;
+  }
+</style>
 ```
 
 这样就可以在 css 里面书写对应的代码了。

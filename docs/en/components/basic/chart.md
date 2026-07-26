@@ -18,7 +18,7 @@ Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 type | `<string>` | line | No | Sets the chart type (dynamic modification not supported). Options: bar (bar chart) \ line (line chart)
 options | [ChartOptions](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartoptions-description) | - | Yes | Chart parameter settings. Parameters must be set for bar charts and line charts. You can set the minimum and maximum values, the number of ticks, visibility, line width, and smoothness for the x-axis and y-axis. (Dynamic modification not supported)
-datasets | Array<[ChartDataset](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartdataset-description)> | - | Yes | Data collection. Must be set for bar charts and line charts. Multiple datasets and their background colors can be set. 
+datasets | Array<[ChartDataset](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartdataset-description)> | - | Yes | Data collection. Must be set for bar charts and line charts. Multiple datasets and their background colors can be set.
 
 ### ChartOptions Description
 
@@ -26,7 +26,7 @@ Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 xAxis | [ChartAxis](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartaxis-description) | line | Yes | x-axis parameter settings. You can set the minimum and maximum values, the number of ticks, and visibility for the x-axis.
 yAxis | [ChartAxis](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartaxis-description) | - | Yes | y-axis parameter settings. You can set the minimum and maximum values, the number of ticks, and visibility for the y-axis.
-series | [ChartSeries](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartseries-description) | - | No | Data sequence parameter settings. You can set: 1) line styles, such as line width and smoothness; 2) the style and size of the white dot at the end of the line (only supported for line charts). 
+series | [ChartSeries](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartseries-description) | - | No | Data sequence parameter settings. You can set: 1) line styles, such as line width and smoothness; 2) the style and size of the white dot at the end of the line (only supported for line charts).
 
 ### ChartDataset Description
 
@@ -35,7 +35,7 @@ Name | Type | Default Value | Required | Description
 strokeColor | `<color>` | #ff6384 | No | Line color. (Only supported for line charts)
 fillColor | `<color>` | #ff6384 | No | Fill color. For line charts, it represents the gradient fill color.
 data | Array<`<number>` | - | Yes | Sets the points for drawing lines or bars.
-gradient | `<boolean>` | false | No | Sets whether to display a gradient fill color. (Only supported for line charts) 
+gradient | `<boolean>` | false | No | Sets whether to display a gradient fill color. (Only supported for line charts)
 
 ### ChartAxis Description
 
@@ -45,26 +45,26 @@ min | `<number>` | 0 | No | Minimum value of the axis. (Negative numbers not sup
 max | `<number>` | dataset data count-1 | No | Maximum value of the axis. (Negative numbers not supported. Only supported for line charts)
 axisTick | `<number>` | 10 | No | Number of ticks displayed on the axis. (Only supports values from 1 to 20, and the actual display depends on the calculated value (width of the chart in pixels / (max-min)). Due to integer operations in lightweight smart wearables, errors may occur when the division is not exact, resulting in a blank space at the end of the x-axis. For bar charts, the number of bars displayed per group matches the number of ticks, and the bars are displayed at the tick positions.)
 display | `<boolean>` | false | No | Whether to display the axis.
-color | `<color>` | #c0c0c0 | No | Axis color. 
+color | `<color>` | #c0c0c0 | No | Axis color.
 
 ### ChartSeries Description
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 lineStyle | [ChartLineStyle](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartlinestyle-description) | - | No | Line style settings, such as line width and smoothness.
-loop | [ChartLoop](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartloop-description) | - | No | Sets whether to restart drawing when the screen is full. 
+loop | [ChartLoop](https://iot.mi.com/vela/quickapp/en/components/basic/chart.html#chartloop-description) | - | No | Sets whether to restart drawing when the screen is full.
 
 ### ChartLineStyle Description
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
-width | `<length>` | 2px | No | Line width setting. 
+width | `<length>` | 2px | No | Line width setting.
 
 ### ChartLoop Description
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
-margin | `<length>` | 1px | No | Number of points to erase (horizontal distance between the most recently drawn point and the oldest point). Note: On lightweight devices, when margin is used simultaneously with topPoint/bottomPoint/headPoint, there is a chance that a point may fall exactly within the erased area, making it invisible. Therefore, simultaneous use is not recommended. 
+margin | `<length>` | 1px | No | Number of points to erase (horizontal distance between the most recently drawn point and the oldest point). Note: On lightweight devices, when margin is used simultaneously with topPoint/bottomPoint/headPoint, there is a chance that a point may fall exactly within the erased area, making it invisible. Therefore, simultaneous use is not recommended.
 
 ## Styles
 
@@ -93,7 +93,7 @@ Supports [Common Events](</vela/quickapp/en/components/general/events.html>)
         },
         {
           strokeColor: '#cce5ff',
-          fillColor: '#cce5ff', 
+          fillColor: '#cce5ff',
           data: [535, 776, 615, 444, 694, 785, 677, 609, 562, 410],
         },
         {

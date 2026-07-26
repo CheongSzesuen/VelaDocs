@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import file from '@system.file' 
-// 或 
+import file from '@system.file'
+// 或
 const file = require('@system.file')
 ```
 
@@ -30,14 +30,14 @@ srcUri | String | 是 | 源文件的 uri，不能是应用资源路径和 tmp �
 dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
 success | Function | 否 | 成功回调，返回目标文件的 uri
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误 
+300 | I/O 错误
 
 #### 示例：
 
@@ -66,14 +66,14 @@ srcUri | String | 是 | 源文件的 uri
 dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
 success | Function | 否 | 成功回调，返回目标文件的 uri
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误 
+300 | I/O 错误
 
 #### 示例：
 
@@ -101,13 +101,13 @@ file.copy({
 uri | String | 是 | 目录 uri
 success | Function | 否 | 成功回调，返回{fileList:[{uri:'file1', lastModifiedTime:1234456, length:123456} ...]}
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
-fileList | Array | 文件列表，每个文件的格式为{uri:'file1', lastModifiedTime:1234456, length:123456} 
+fileList | Array | 文件列表，每个文件的格式为{uri:'file1', lastModifiedTime:1234456, length:123456}
 
 #### 每个文件的元信息：
 
@@ -115,14 +115,14 @@ fileList | Array | 文件列表，每个文件的格式为{uri:'file1', lastModi
 ---|---|---
 uri | String | 文件的 uri，该 uri 可以被其他组件或 Feature 访问
 length | Number | 文件大小，单位 B
-lastModifiedTime | Number | 文件的保存是的时间戳，从 1970/01/01 00:00:00 GMT 到当前时间的毫秒数 
+lastModifiedTime | Number | 文件的保存是的时间戳，从 1970/01/01 00:00:00 GMT 到当前时间的毫秒数
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误 
+300 | I/O 错误
 
 #### 示例：
 
@@ -150,7 +150,7 @@ uri | String | 是 | 文件的 uri，不能是应用资源路径和 tmp 类型�
 recursive | Boolean | 否 | 是否递归获取子目录文件列表。默认 false
 success | Function | 否 | 成功回调，返回{uri:'file1', length:123456, lastModifiedTime:1233456}
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -160,14 +160,14 @@ uri | String | 文件的 uri，该 uri 可以被其他组件或 Feature 访问
 length | Number | 文件大小，单位 B。当 type = dir 时，返回0
 lastModifiedTime | Number | 文件的保存时的时间戳，从 1970/01/01 08:00:00 到当前时间的毫秒数
 type | String | 文件类型，dir：目录；file：文件
-subFiles | Array | 当 type = dir 时，返回目录中的文件列表，recursive 为 true 时，同时返回其子目录中的文件信息 
+subFiles | Array | 当 type = dir 时，返回目录中的文件列表，recursive 为 true 时，同时返回其子目录中的文件信息
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误0 
+300 | I/O 错误
 
 #### 示例：
 
@@ -191,17 +191,19 @@ file.get({
 
 #### 参数：
 
-错误码 | 说明
----|---
-202 | 参数错误
-300 | I/O 错误1 
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 需要删除的文件 uri，不能是应用资源路径和 tmp 类型的 uri
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误2 
+300 | I/O 错误
 
 #### 示例：
 
@@ -227,17 +229,22 @@ file.delete({
 
 #### 参数：
 
-错误码 | 说明
----|---
-202 | 参数错误
-300 | I/O 错误3 
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 本地文件路径，不支持资源文件路径和 tmp 分区，如果文件不存在会创建文件
+text | String | 是 | 需要写入的字符串
+encoding | String | 否 | 编码格式，默认 UTF-8
+append | Boolean | 否 | 是否追加模式，默认 false
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误4 
+300 | I/O 错误
 
 #### 示例：
 
@@ -264,17 +271,22 @@ file.writeText({
 
 #### 参数：
 
-错误码 | 说明
----|---
-202 | 参数错误
-300 | I/O 错误5 
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 本地文件路径，不支持资源文件路径和 tmp 分区，如果文件不存在会创建文件
+buffer | Uint8Array | 是 | 需要写入的 Buffer
+position | Number | 否 | 指向文件开始写入数据的位置的偏移量，默认 0
+append | Boolean | 否 | 是否追加模式，默认 false。当为 true 时，position 参数无效
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误6 
+300 | I/O 错误
 
 #### 示例：
 
@@ -297,24 +309,27 @@ file.writeArrayBuffer({
 
 #### 参数：
 
-错误码 | 说明
----|---
-202 | 参数错误
-300 | I/O 错误7 
+参数名 | 类型 | 必填 | 说明
+---|---|---|---
+uri | String | 是 | 本地文件路径，支持应用资源路径，例如：'/Common/demo.txt'
+encoding | String | 否 | 编码格式，默认 UTF-8
+success | Function | 否 | 成功回调
+fail | Function | 否 | 失败回调
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
-错误码 | 说明
----|---
-202 | 参数错误
-300 | I/O 错误8 
+参数名 | 类型 | 说明
+---|---|---
+text | String | 读取的文本
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误9 
+300 | I/O 错误
+301 | 文件不存在
 
 #### 示例：
 
@@ -338,38 +353,41 @@ file.readText({
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
+uri | String | 是 | 本地文件路径，支持应用资源路径，例如：'/Common/demo.txt'
+position | Number | 否 | 读取的起始位置，默认值为文件的起始位置
+length | Number | 否 | 读取的长度，不填写则读取到文件结尾
+success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调0 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
-参数名 | 类型 | 必填 | 说明
----|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
-fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调1 
+参数名 | 类型 | 说明
+---|---|---
+buffer | Uint8Array | 读取的文件内容
 
 #### fail 返回错误代码：
 
-参数名 | 类型 | 必填 | 说明
----|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
-fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调2 
+错误码 | 说明
+---|---
+202 | 参数错误
+300 | I/O 错误
+301 | 文件不存在
 
 #### 示例：
 
 ```javascript
-import file from '@system.file' 
-// 或 
-const file = require('@system.file')
+file.readArrayBuffer({
+  uri: 'internal://files/work/demo',
+  position: 100,
+  length: 100,
+  success: function(data) {
+    console.log('buffer.length: ' + data.buffer.length)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.access(OBJECT)
@@ -380,28 +398,30 @@ const file = require('@system.file')
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
+uri | String | 是 | 目录或文件 uri
+success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调3 
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
-参数名 | 类型 | 必填 | 说明
----|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
-fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调4 
+错误码 | 说明
+---|---
+202 | 参数错误
+300 | I/O 错误
 
 #### 示例：
 
 ```javascript
-import file from '@system.file' 
-// 或 
-const file = require('@system.file')
+file.access({
+  uri: 'internal://files/test',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.mkdir(OBJECT)
@@ -412,28 +432,31 @@ const file = require('@system.file')
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
+uri | String | 是 | 目录的 uri，不能是应用资源路径和 tmp 类型的 uri
+recursive | Boolean | 否 | 是否递归创建该目录的上级目录后再创建该目录。默认 false
+success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调5 
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
-参数名 | 类型 | 必填 | 说明
----|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
-fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调6 
+错误码 | 说明
+---|---
+202 | 参数错误
+300 | I/O 错误
 
 #### 示例：
 
 ```javascript
-import file from '@system.file' 
-// 或 
-const file = require('@system.file')
+file.mkdir({
+  uri: 'internal://files/dir/',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```
 
 ### file.rmdir(OBJECT)
@@ -444,26 +467,29 @@ const file = require('@system.file')
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
+uri | String | 是 | 目录的 uri，不能是应用资源路径和 tmp 类型的 uri
+recursive | Boolean | 否 | 是否递归删除子文件和子目录。默认 false
+success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调7 
+complete | Function | 否 | 执行结束后的回调
 
 #### fail 返回错误代码：
 
-参数名 | 类型 | 必填 | 说明
----|---|---|---
-srcUri | String | 是 | 源文件的 uri
-dstUri | String | 是 | 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
-success | Function | 否 | 成功回调，返回目标文件的 uri
-fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调8 
+错误码 | 说明
+---|---
+202 | 参数错误
+300 | I/O 错误
 
 #### 示例：
 
 ```javascript
-import file from '@system.file' 
-// 或 
-const file = require('@system.file')
+file.rmdir({
+  uri: 'internal://files/dir/',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
 ```

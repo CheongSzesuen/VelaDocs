@@ -21,7 +21,7 @@ iteration | `<number>`\|`<string>` | `infinite` | 否 | 设置帧动画播放次
 reverse | `<boolean>` | `false` | 否 | 设置播放顺序。false表示从第1张图片播放到最后1张图片； true表示从最后1张图片播放到第1张图片
 fixedsize | `<boolean>` | `true` | 否 | 设置图片大小是否固定为组件大小。 true表示图片大小与组件大小一致，此时设置图片的width 、height 、top 和left属性是无效的。false表示每一张图片的 width 、height 、top和left属性都要单独设置
 duration | `<string>` | - | 否 | 设置单次播放时长。单位支持[s(秒)\|ms(毫秒)]，默认单位为ms
-fillmode | `<string>` | `forwards` | 否 | 指定帧动画执行结束后的状态。可选项有：none：恢复初始状态。forwards：保持帧动画结束时的状态（在最后一个关键帧中定义） 
+fillmode | `<string>` | `forwards` | 否 | 指定帧动画执行结束后的状态。可选项有：none：恢复初始状态。forwards：保持帧动画结束时的状态（在最后一个关键帧中定义）
 
 ImageFrame说明
 
@@ -31,7 +31,7 @@ src | `<uri>` | - | 是 | 图片路径
 width | `<length>` | 0 | 否 | 图片宽度
 height | `<length>` | 0 | 否 | 图片高度
 top | `<length>` | 0 | 否 | 图片相对于组件左上角的纵向坐标
-left | `<length>` | 0 | 否 | 图片相对于组件左上角的横向坐标 
+left | `<length>` | 0 | 否 | 图片相对于组件左上角的横向坐标
 
 ## 样式
 
@@ -47,7 +47,7 @@ start | - | 开始播放图片帧动画。再次调用，重新从第1帧开始�
 pause | - | 暂停播放图片帧动画
 stop | - | 停止播放图片帧动画
 resume | - | 继续播放图片帧
-getState | - | 获取播放状态。- playing：播放中 - paused：已暂停 - stopped：已停止 
+getState | - | 获取播放状态。- playing：播放中 - paused：已暂停 - stopped：已停止
 
 ## 示例代码
 

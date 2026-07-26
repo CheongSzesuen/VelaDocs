@@ -30,7 +30,7 @@ srcUri | String | 是 | 源文件的 uri，不能是 tmp 类型的 uri
 dstUri | String | 是 | 目标目录的 uri，不能是应用资源路径和 tmp 类型的 uri
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -41,7 +41,7 @@ complete | Function | 否 | 执行结束后的回调
 错误码 | 说明
 ---|---
 202 | 参数错误
-300 | I/O 错误 
+300 | I/O 错误
 
 #### 示例：
 

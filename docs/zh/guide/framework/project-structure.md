@@ -103,7 +103,7 @@ URI 用于标识应用资源和文件，[组件](</vela/quickapp/zh/components/>
 Cache | internal://cache/path | 否 | internal://cache/fetch-123456.png | -
 Files | internal://files/path | 否 | internal://files/image/demo.png | -
 Mass | internal://mass/path | 否 | internal://mass/video/demo.mp4 | -
-Temp | internal://tmp/path | 是 | internal://tmp/xxxxx | 由系统动态生成 
+Temp | internal://tmp/path | 是 | internal://tmp/xxxxx | 由系统动态生成
 
 URI 允许的字符是 `0-9a-zA-Z_-./%:`（不包含引号），URI 中不能出现 `..`，目录由斜线 `/` 分隔。
 

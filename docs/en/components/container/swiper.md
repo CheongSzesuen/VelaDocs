@@ -25,7 +25,7 @@ duration | `<number>` | - | No | Slide animation duration (duration is dynamical
 vertical | `<boolean>` | false | No | Whether the slide direction is vertical, and the indicator is also vertical when it is
 previousmargin | `<string>` | 0px | No | Front margin, can be used to expose a small part of the previous item, supports units: px and %
 nextmargin | `<string>` | 0px | No | Rear margin, can be used to expose a small part of the next item, supports units: px and %
-enableswipe | `<boolean>` | true | No | Whether to support gesture swiping on the swiper 
+enableswipe | `<boolean>` | true | No | Whether to support gesture swiping on the swiper
 
 **Note** : The sum of `previousmargin` and `nextmargin` should not exceed 1/2 of the entire swiper size, and any excess will be truncated.
 
@@ -38,7 +38,7 @@ Name | Type | Default | Required | Description
 indicator-color | `<color>` | rgba(0, 0, 0, 0.5) | No | Indicator fill color
 indicator-selected-color | `<color>` | #33b4ff or rgb(51, 180, 255) | No | Indicator color when selected
 indicator-size | `<length>` | 20px | No | Diameter size of the indicator component
-indicator-[top\|left\|right\|bottom] | `<length>` \| `<percentage>` | - | No | Position of the indicator relative to the swiper 
+indicator-[top\|left\|right\|bottom] | `<length>` \| `<percentage>` | - | No | Position of the indicator relative to the swiper
 
 ## Events
 
@@ -48,13 +48,13 @@ Name | Parameters | Description
 ---|---|---
 change | {index:currentIndex} | Triggered when the index of the currently displayed component changes
 swipestart[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | Triggered when the child component switching animation starts (if the switching is caused by finger dragging, it refers to the time point when the finger starts pressing and dragging)
-swipeend[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | Triggered when the child component switching animation ends 
+swipeend[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | {index:currentIndex} | Triggered when the child component switching animation ends
 
 ## Methods
 
 Name | Parameters | Description
 ---|---|---
-swipeTo | {index: number(specified position)} | Scroll the swiper to the specified index position 
+swipeTo | {index: number(specified position)} | Scroll the swiper to the specified index position
 
 ## Example Code
 
@@ -67,7 +67,7 @@ swipeTo | {index: number(specified position)} | Scroll the swiper to the specifi
       <text class="item item-3">C</text>
       <text class="item item-4">D</text>
     </swiper>
-    
+
   </div>
 </template>
 

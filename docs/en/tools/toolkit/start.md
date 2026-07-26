@@ -36,8 +36,8 @@ Compared to **AIoT-toolkit1.0** , **AIoT-toolkit2.0** offers the following signi
   1. Complex functions can be directly written in template syntax.
 
 ```html
-<div 
-    id="{{(x=> x+ y)(1)}}" 
+<div
+    id="{{(x=> x+ y)(1)}}"
     onclick="(evt)=>{
        const x = 10;
        return sum(x, evt, y)
@@ -59,6 +59,6 @@ class="a {{x}}"  // x="a1 a2 a3"
   4. The order of styles can be written arbitrarily (previously, a fixed order was required).
 
 ```html
- border: solid red 10px; 
+ border: solid red 10px;
 ```
   5. Error prompts are located by row and column. ![alt text](../../images/ide-toolkit-3.png)

@@ -11,7 +11,7 @@ Developers upgrading from **AIoT-toolkit1.0** to **AIoT-toolkit2.0** should pay 
 Description | Solution
 ---|---
 Some syntax corrections<br>1. No need to nest `{{}}` inside `{{}}`, change `onclick="{{fun({{x}}，{{y}})}}`" to `onclick="fun(x, y)"`<br><br>2. Unsupported style selectors will report errors, such as pseudo-classes | Modify the source code
-Dynamic paths are not converted to full paths:<br>1.0 syntax: ../../common<br>2.0 syntax: /common/**** | Modify the source code 
+Dynamic paths are not converted to full paths:<br>1.0 syntax: ../../common<br>2.0 syntax: /common/**** | Modify the source code
 
 There are also some special dynamic CSS values that need to use new syntax when upgrading from **AIoT-toolkit1.0** to **AIoT-toolkit2.0** :
 

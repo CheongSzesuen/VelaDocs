@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import audio from '@system.audio' 
-// 或 
+import audio from '@system.audio'
+// 或
 const audio = require('@system.audio')
 ```
 
@@ -70,7 +70,7 @@ audio.stop()
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -84,7 +84,7 @@ autoplay | Boolen | 当前音频是否在自动播放
 loop | Boolen | 当前音频是否在循环播放
 volume | Number | 当前音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]
 muted | Boolen | 当前音频是否在静音播放
-duration | Number | 音频的播放时长，单位秒，未知返回 NaN 
+duration | Number | 音频的播放时长，单位秒，未知返回 NaN
 
 #### 示例：
 
@@ -111,7 +111,7 @@ loop | Boolean | 是 | 是 | 否 | 音频是否循环播放，默认 false
 volume | Number | 是 | 是 | 否 | 音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]
 muted | Boolean | 是 | 是 | 否 | 音频是否静音，默认 false
 streamType | String | 是 | 否 | 否 | 使用音频的类型，可能的值有 music、voicecall，值为 music 时使用扬声器播放，voicecall 时使用听筒播放（手表、手环设备不支持此配置），默认为 music
-meta | Object<{title: string, artist: string, album: string}> | 否 | 是 | 否 | 音频元数据信息，包括歌名、歌手、专辑名 
+meta | Object<{title: string, artist: string, album: string}> | 否 | 是 | 否 | 音频元数据信息，包括歌名、歌手、专辑名
 
 #### 示例：
 
@@ -130,7 +130,7 @@ stop | 在调用 stop 方法后的回调事件。被动触发场景举例：1. �
 loadeddata | 第一次获取到音频数据的回调事件
 ended | 播放结束时的回调事件
 durationchange | 播放时长变化时的回调事件
-error | 播放发生错误时的回调事件 
+error | 播放发生错误时的回调事件
 
 #### 示例：
 

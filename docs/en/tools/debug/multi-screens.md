@@ -105,7 +105,7 @@ Copy the following code and modify the information according to the comments, ke
   parts {
     device {
       display {
-        # Emulator size 
+        # Emulator size
         width 466
         # Emulator size
         height 466
@@ -130,7 +130,7 @@ Copy the following code and modify the information according to the comments, ke
       // The size of the entire skin, usually using the pixel size of the background image
       width 572
       height 938
-      event EV_SW:0:1 
+      event EV_SW:0:1
       part1 {
         name portrait
         x 0

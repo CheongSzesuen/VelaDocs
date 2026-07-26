@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import volume from '@system.volume' 
-// or 
+import volume from '@system.volume'
+// or
 const volume = require('@system.volume')
 ```
 
@@ -28,13 +28,13 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback after execution ends 
+complete | Function | No | Callback after execution ends
 
 #### success Return Value:
 
 Parameter | Type | Description
 ---|---|---
-value | Number | Current system media volume, between 0.0 and 1.0 
+value | Number | Current system media volume, between 0.0 and 1.0
 
 #### Example
 
@@ -60,7 +60,7 @@ Parameter | Type | Required | Description
 value | Number | Yes | Volume to set, between 0.0 and 1.0
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback after execution ends 
+complete | Function | No | Callback after execution ends
 
 #### fail Return Value:
 
@@ -90,7 +90,7 @@ Triggered when the media volume changes.
 
 Parameter | Type | Required | Description
 ---|---|---|---
-value | Number | Yes | Current system media volume, range: between 0.0 and 1.0 
+value | Number | Yes | Current system media volume, range: between 0.0 and 1.0
 
 #### Example
 

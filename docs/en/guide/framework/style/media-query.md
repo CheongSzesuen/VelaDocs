@@ -41,7 +41,7 @@ Media types describe the general category of the device. Except when using the n
 
 Media Type | Description
 ---|---
-screen | Primarily used for screens. 
+screen | Primarily used for screens.
 
 ## Media Features
 
@@ -63,7 +63,7 @@ aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 
 min-aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | Defines the minimum aspect ratio of the visible area of the page on the output device. Parameter requirements are the same as above. | No | None
 max-aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | Defines the maximum aspect ratio of the visible area of the page on the output device. Parameter requirements are the same as above. | No | None
 device-type[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | Optional values for device-type are: watch, band, smartspeaker. Default value: watch | No | None
-shape[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | Screen shape. Optional values: circle, rect, pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | No | None 
+shape[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | Screen shape. Optional values: circle, rect, pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | No | None
 
 ### Notes
 
@@ -87,7 +87,7 @@ Band | Xiaomi Band 8 Pro | Rectangle | 1.74 inches | 336x480 | 336 | 2.1 | 168
 Band | Xiaomi Band 9 | Pill-shaped | 1.62 inches | 192x490 | 325 | 2.0 | 96
 Band | Xiaomi Band 9 Pro | Rectangle | 1.74 inches | 336x480 | 336 | 2.1 | 168
 Band | Xiaomi Band 10 | Pill-shaped | 1.725 inches | 212x520 | 326 | 2.0 | 106
-Watch | Xiaomi Watch S5 | Circle | 1.485 inches | 480x480 | 323 | 2.0 | 240 
+Watch | Xiaomi Watch S5 | Circle | 1.485 inches | 480x480 | 323 | 2.0 | 240
 
 Example code:
 
@@ -128,7 +128,7 @@ or | The or operator combines multiple media feature comparison statements into 
 <= | Less than or equal to. Example: (400 <= width).
 >= | Greater than or equal to. Example: (500 >= height).
 < | Less than. Example: (400 < width).
-> | Greater than. Example: (500 > height). 
+> | Greater than. Example: (500 > height).
 
 ## Example Code
 

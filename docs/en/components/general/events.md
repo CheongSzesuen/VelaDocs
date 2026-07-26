@@ -28,7 +28,7 @@ touchmove | TouchEvent | Triggered when a finger moves after touching the compon
 touchend | TouchEvent | Triggered when a finger ends the touch action | Supported
 click | MouseEvent | Triggered when the component is clicked | Supported
 longpress | MouseEvent | Triggered when the component is long-pressed | Supported
-swipe | { direction: <`"left"` \| `"right"` \| `"up"` \| `"down"`> } | Triggered after a quick swipe on the component (not triggered when there is a scrollbar in the swipe direction)<br>Parameter description:<br>left: swipe left;<br>right: swipe right;<br>up: swipe up;<br>down: swipe down; | Not Supported 
+swipe | { direction: <`"left"` \| `"right"` \| `"up"` \| `"down"`> } | Triggered after a quick swipe on the component (not triggered when there is a scrollbar in the swipe direction)<br>Parameter description:<br>left: swipe left;<br>right: swipe right;<br>up: swipe up;<br>down: swipe down; | Not Supported
 
 ## Event Objects
 
@@ -37,7 +37,7 @@ swipe | { direction: <`"left"` \| `"right"` \| `"up"` \| `"down"`> } | Triggered
 Property | Type | Description
 ---|---|---
 touches | TouchList | Touch event, an array of touch point information currently on the screen
-changedTouches | TouchList | Touch event, an array of changed touch point information. The data format of changedTouches is the same as touches, representing the changed touch points, such as from none to present (touchstart), position change (touchmove), from present to none (touchend),<br>For example, when the user's finger leaves the screen, there is no data in the touches array, while changedtouches will save the data before leaving 
+changedTouches | TouchList | Touch event, an array of changed touch point information. The data format of changedTouches is the same as touches, representing the changed touch points, such as from none to present (touchstart), position change (touchmove), from present to none (touchend),<br>For example, when the user's finger leaves the screen, there is no data in the touches array, while changedtouches will save the data before leaving
 
 **Where, TouchList is a collection of Touch objects.**
 
@@ -51,7 +51,7 @@ clientY | number | The Y-axis coordinate from the top edge of the visible area, 
 pageX | number | The X-axis coordinate from the left edge of the visible area, including any scroll offset
 pageY | number | The Y-axis coordinate from the top edge of the visible area, including any scroll offset. (Excluding the height of the status bar and titlebar)
 offsetX | number | The distance from the left edge of the event trigger object along the X-axis
-offsetY | number | The distance from the top edge of the event trigger object along the Y-axis 
+offsetY | number | The distance from the top edge of the event trigger object along the Y-axis
 
 ### 3\. MouseEvent Type Description
 
@@ -62,7 +62,7 @@ clientY | number | The Y-axis coordinate from the top edge of the visible area, 
 pageX | number | The X-axis coordinate from the left edge of the visible area, including any scroll offset
 pageY | number | The Y-axis coordinate from the top edge of the visible area, including any scroll offset. (Excluding the height of the status bar and titlebar)
 offsetX | number | The distance from the left edge of the event trigger object along the X-axis
-offsetY | number | The distance from the top edge of the event trigger object along the Y-axis 
+offsetY | number | The distance from the top edge of the event trigger object along the Y-axis
 
 ## Example
 

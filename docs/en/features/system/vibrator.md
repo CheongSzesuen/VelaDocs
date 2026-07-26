@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import vibrator from '@system.vibrator' 
-// or 
+import vibrator from '@system.vibrator'
+// or
 const vibrator = require('@system.vibrator')
 ```
 
@@ -26,7 +26,7 @@ Trigger vibration.
 
 Parameter | Type | Required | Description
 ---|---|---|---
-mode | String | No | Vibration mode, "long" for long vibration, "short" for short vibration. Defaults to long. 
+mode | String | No | Vibration mode, "long" for long vibration, "short" for short vibration. Defaults to long.
 
 #### Example:
 
@@ -49,20 +49,20 @@ interval | Number | Yes | Interval between vibrations (in ms), must be a positiv
 count | Number | Yes | Number of vibrations, must be a positive integer.
 success | Function | No | Callback for success.
 fail | Function | No | Callback for failure.
-complete | Function | No | Callback executed after completion. 
+complete | Function | No | Callback executed after completion.
 
 #### success Return Value:
 
 Parameter Name | Type | Description
 ---|---|---
-id | Number | Unique ID identifying the vibration task. 
+id | Number | Unique ID identifying the vibration task.
 
 #### fail Return Value:
 
 Error Code | Description
 ---|---
 205 | Task already exists.
-202 | Parameter error. 
+202 | Parameter error.
 
 #### Example:
 
@@ -91,13 +91,13 @@ Stop vibration.
 
 Type | Required | Description
 ---|---|---
-Number | Yes | ID of the vibration task. 
+Number | Yes | ID of the vibration task.
 
 #### Return Value:
 
 Type | Description
 ---|---
-Boolean | true: Success; false: Failure. 
+Boolean | true: Success; false: Failure.
 
 #### Example:
 
@@ -117,7 +117,7 @@ None
 
 Type | Description
 ---|---
-Number | 0: Vibration off; 1: Standard vibration; 2: Enhanced vibration. 
+Number | 0: Vibration off; 1: Standard vibration; 2: Enhanced vibration.
 
 #### Example:
 

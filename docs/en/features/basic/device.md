@@ -11,8 +11,8 @@
 ## Importing the Module
 
 ```javascript
-import device from '@system.device' 
-// or 
+import device from '@system.device'
+// or
 const device = require('@system.device')
 ```
 
@@ -28,7 +28,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback invoked when the execution is complete 
+complete | Function | No | Callback invoked when the execution is complete
 
 #### Return Value of success:
 
@@ -50,7 +50,7 @@ screenWidth | number | Screen width
 screenHeight | number | Screen height
 screenDensity[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | number | Screen density, that is, the device pixel ratio (DPR), which is the ratio of the device's physical pixels to logical pixels (DP). The calculation formula is: DPR = device PPI / 160, where PPI (pixels per inch) indicates the number of pixels per inch.
 screenShape | string | Screen shape. The value can be: rect (rectangular screen), circle (circular screen), or pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) (capsule-shaped screen).
-deviceType[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | string | Device type. The value can be: watch, band, or smartspeaker. 
+deviceType[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | string | Device type. The value can be: watch, band, or smartspeaker.
 
 #### Example:
 
@@ -86,13 +86,13 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback invoked when the execution is complete 
+complete | Function | No | Callback invoked when the execution is complete
 
 #### Return Value of success:
 
 Parameter | Type | Description
 ---|---|---
-deviceId | String | Unique device identifier 
+deviceId | String | Unique device identifier
 
 #### Example:
 
@@ -131,7 +131,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback invoked when the execution is complete 
+complete | Function | No | Callback invoked when the execution is complete
 
 #### Return Value of success:
 
@@ -160,7 +160,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback invoked when the execution is complete 
+complete | Function | No | Callback invoked when the execution is complete
 
 #### Return Value of success:
 
@@ -189,7 +189,7 @@ Parameter | Type | Required | Description
 ---|---|---|---
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback invoked when the execution is complete 
+complete | Function | No | Callback invoked when the execution is complete
 
 #### Return Value of success:
 

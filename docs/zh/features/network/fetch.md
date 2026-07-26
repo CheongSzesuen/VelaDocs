@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import fetch from '@system.fetch' 
-// 或 
+import fetch from '@system.fetch'
+// 或
 const fetch = require('@system.fetch')
 ```
 
@@ -33,7 +33,7 @@ method | String | 否 | 默认为 GET，可以是：OPTIONS，GET，HEAD，POST�
 responseType | String | 否 | 支持返回类型是 text，json，file，arraybuffer，默认会根据服务器返回 header 中的 Content-Type 确定返回类型，详见 `success返回值`
 success | Function | 否 | 成功返回的回调函数
 fail | Function | 否 | 失败的回调函数，可能会因为权限失败
-complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行） 
+complete | Function | 否 | 结束的回调函数（调用成功、失败都会执行）
 
 #### data 与 Content-Type 关系
 
@@ -45,7 +45,7 @@ Object | 不设置 | Content-Type 默认为 application/x-www-form-urlencoded，
 Object | application/x-www-form-urlencoded | data 按照 url 规则进行 encode 拼接作为请求的 body
 Object | application/x-www-form-urlencoded 之外的任意 type | -
 ArrayBuffer | 不设置 | Content-Type 默认为 application/octet-stream，data 值作为请求的 body
-ArrayBuffer | 任意 Type | data 值作为请求的 body 
+ArrayBuffer | 任意 Type | data 值作为请求的 body
 
 #### success 返回值：
 
@@ -53,7 +53,7 @@ ArrayBuffer | 任意 Type | data 值作为请求的 body
 ---|---|---
 code | Integer | 服务器状态 code
 data | String/Object /ArrayBuffer | 参考 `responseType与success中data关系` 部分
-headers | Object | 服务器 response 的所有 header 
+headers | Object | 服务器 response 的所有 header
 
 #### responseType 与 success 中 data 关系：
 
@@ -63,7 +63,7 @@ responseType | data | 说明
 text | String | 返回普通文本
 json | Object | 返回 js 对象
 file | String | 返回存储的临时文件的 uri
-arraybuffer | ArrayBuffer | 返回 ArrayBuffer 对象 
+arraybuffer | ArrayBuffer | 返回 ArrayBuffer 对象
 
 #### 示例：
 

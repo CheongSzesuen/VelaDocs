@@ -19,7 +19,7 @@
 type | button \| checkbox \| radio \| | button | 否 | 支持动态修改
 checked | `<boolean>` | false | 否 | 当前组件的 checked 状态，type 为 checkbox 时生效，可触发 checked 伪类（checked 伪类样式还未支持）
 name | `<string>` | - | 否 | input 组件名称
-value | `<string>` | - | 否 | input 组件的值 
+value | `<string>` | - | 否 | input 组件的值
 
 ## 样式
 
@@ -30,7 +30,7 @@ value | `<string>` | - | 否 | input 组件的值
 color | `<color>` | rgba(0, 0, 0, 0.87) | 否 | 文本颜色
 font-size | `<length>` | 37.5px | 否 | 文本尺寸
 width | `<length>` \| `<percentage>` | - | 否 | type 为 button 时，默认值为 128px
-height | `<length>` \| `<percentage>` | - | 否 | type 为 button 时，默认值为 70px 
+height | `<length>` \| `<percentage>` | - | 否 | type 为 button 时，默认值为 70px
 
 ## 事件
 
@@ -38,7 +38,7 @@ height | `<length>` \| `<percentage>` | - | 否 | type 为 button 时，默认�
 
 名称 | 参数 | 描述
 ---|---|---
-change | 不同 type 参数不同，具体见下方 change 事件参数 | input 组件的值、状态发生改变时触发，type 为 button 时无 change 事件 
+change | 不同 type 参数不同，具体见下方 change 事件参数 | input 组件的值、状态发生改变时触发，type 为 button 时无 change 事件
 
 ### change 事件参数
 
@@ -46,13 +46,13 @@ change | 不同 type 参数不同，具体见下方 change 事件参数 | input 
 ---|---|---|---
 name | √ | √ | -
 value | √ | √ | -
-checked | √ | - | - 
+checked | √ | - | -
 
 ## 方法
 
 名称 | 参数 | 描述
 ---|---|---
-focus | {focus:true\|false}，focus 不传默认为 true | 使组件获得或者失去焦点，可触发 focus 伪类（focus 伪类样式还未支持） 
+focus | {focus:true\|false}，focus 不传默认为 true | 使组件获得或者失去焦点，可触发 focus 伪类（focus 伪类样式还未支持）
 
 ## 示例代码
 

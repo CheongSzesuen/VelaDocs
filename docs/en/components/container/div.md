@@ -47,15 +47,15 @@ Supports [general events](</vela/quickapp/en/components/general/events.html>)
     text-align: center;
     margin-right: 10px;
   }
-  
+
   .color-1 {
     background-color: #09ba07;
   }
-  
+
   .color-2 {
     background-color: #f76160;
   }
-  
+
   .color-3 {
     background-color: #0faeff;
   }

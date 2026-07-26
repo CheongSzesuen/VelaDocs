@@ -21,7 +21,7 @@ iteration | `<number>`\|`<string>` | `infinite` | No | Sets the number of frame 
 reverse | `<boolean>` | `false` | No | Sets the playback sequence. false indicates that the playback starts from the first image to the last image; true indicates that the playback starts from the last image to the first image.
 fixedsize | `<boolean>` | `true` | No | Sets whether the image size is fixed to the component size. true indicates that the image size is the same as the component size. In this case, the width, height, top, and left attributes of the image are invalid. false indicates that the width, height, top, and left attributes of each image must be set separately.
 duration | `<string>` | - | No | Sets the duration of a single playback. The unit supports [s(second)\|ms(millisecond)], and the default unit is ms.
-fillmode | `<string>` | `forwards` | No | Specifies the state of the frame animation after the execution is complete. The options are as follows:<br>none: restores to the initial state.<br>forwards: maintains the state of the frame animation at the end (defined in the last keyframe). 
+fillmode | `<string>` | `forwards` | No | Specifies the state of the frame animation after the execution is complete. The options are as follows:<br>none: restores to the initial state.<br>forwards: maintains the state of the frame animation at the end (defined in the last keyframe).
 
 Description of **ImageFrame**
 
@@ -31,7 +31,7 @@ src | `<uri>` | - | Yes | Image path
 width | `<length>` | 0 | No | Image width
 height | `<length>` | 0 | No | Image height
 top | `<length>` | 0 | No | Vertical coordinate of the image relative to the upper left corner of the component
-left | `<length>` | 0 | No | Horizontal coordinate of the image relative to the upper left corner of the component 
+left | `<length>` | 0 | No | Horizontal coordinate of the image relative to the upper left corner of the component
 
 ## Styles
 
@@ -47,7 +47,7 @@ start | - | Starts playing the image frame animation. If this method is called a
 pause | - | Pauses the image frame animation.
 stop | - | Stops the image frame animation.
 resume | - | Continues to play the image frame.
-getState | - | Obtains the playback status. The options are as follows:<br>- playing: being played<br>- paused: paused<br>- stopped: stopped 
+getState | - | Obtains the playback status. The options are as follows:<br>- playing: being played<br>- paused: paused<br>- stopped: stopped
 
 ## Example Code
 

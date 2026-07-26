@@ -6,7 +6,7 @@
 
 ## Auto-completion for ux Files
 
-  * Completion in the template area 
+  * Completion in the template area
     * Tag completion: Start auto-completion after entering < (tag start)
     * Tag attribute completion: Auto-completion of common attributes and component-specific attributes
     * Tag attribute value completion: Auto-completion of attribute values if enumerated values exist

@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import vibrator from '@system.vibrator' 
-// 或 
+import vibrator from '@system.vibrator'
+// 或
 const vibrator = require('@system.vibrator')
 ```
 
@@ -26,7 +26,7 @@ const vibrator = require('@system.vibrator')
 
 参数 | 类型 | 必填 | 说明
 ---|---|---|---
-mode | String | 否 | 振动模式，"long"表示长振动，"short"表示短振动。默认为 long 
+mode | String | 否 | 振动模式，"long"表示长振动，"short"表示短振动。默认为 long
 
 #### 示例：
 
@@ -49,20 +49,20 @@ interval | Number | 是 | 振动间隔时间(单位 ms)，必须为正整数
 count | Number | 是 | 振动次数，必须为正整数
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
-id | Number | 唯一的 ID，标识振动任务 
+id | Number | 唯一的 ID，标识振动任务
 
 #### fail 返回值：
 
 错误码 | 说明
 ---|---
 205 | 任务已存在
-202 | 参数错误 
+202 | 参数错误
 
 #### 示例：
 
@@ -91,13 +91,13 @@ vibrator.start({
 
 类型 | 必填 | 说明
 ---|---|---
-Number | 是 | 振动任务 ID 
+Number | 是 | 振动任务 ID
 
 #### 返回值：
 
 类型 | 说明
 ---|---
-Boolean | true：成功；false：失败 
+Boolean | true：成功；false：失败
 
 #### 示例：
 
@@ -117,7 +117,7 @@ vibrator.stop(1)
 
 类型 | 说明
 ---|---
-Number | 0：关闭振动；1：标准振动；2：加强振动 
+Number | 0：关闭振动；1：标准振动；2：加强振动
 
 #### 示例：
 

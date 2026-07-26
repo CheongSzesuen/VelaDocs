@@ -11,7 +11,7 @@
 ```html
 <template>
   <div>
-    <text>{{name}}</text>     
+    <text>{{name}}</text>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
       age: 22
     }]
   },
-  
+
   onClick() {
     // 不推荐写法
     this.list = [{
@@ -62,11 +62,11 @@ export default {
       age: 22
     }]
   },
-  
+
   onShow() {
     this.$app.$def.somearray.push(this.foo) // 不推荐写法
   }，
-  
+
   foo() {
     this.list.push({
       name: 'bb',
@@ -83,11 +83,11 @@ export default {
   protected: {
     timer: null
   }
-  
+
   onShow() {
     this.timer = setTimeout(()=>{}, 1000000)
   }
-  
+
   onDestroy() {
     if(this.timer){
       clearTimeout(this.timer)
@@ -142,7 +142,7 @@ global.runGC()
 <template>
   <div>
     <text static >{{name}}</text>
-    <image static src="/assets/icon/a.png"/>   
+    <image static src="/assets/icon/a.png"/>
   </div>
 </template>
 
@@ -266,13 +266,13 @@ export default {
 - | 优化前 | 替换轻量级依赖 | 使用全局方法
 ---|---|---|---
 代码行数 | 21965 | 13156 | 6807
-最大内存 | 4842844 | 3295928 | 1872528 
+最大内存 | 4842844 | 3295928 | 1872528
 
-  3. 在保证图片质量的前提下，尽量用低分辨率图片  
+  3. 在保证图片质量的前提下，尽量用低分辨率图片
 大尺寸图片在加载时会占用较多内存，可以先将大尺寸图片缩放成小尺寸图片，再进行压缩(<https://tinypng.com>[ (opens new window)](<https://tinypng.com>))，减少图片的体积。
 
-  4. 去除没有用到的css和js  
+  4. 去除没有用到的css和js
 对于css中没有用到的样式，js中没有用到的变量和函数，可以删除或者注释，精简代码。
 
-  5. 尽可能减少页面数量  
+  5. 尽可能减少页面数量
 在不影响业务需求的前提下，用最少的页面去实现，减少代码体积，简化应用逻辑。

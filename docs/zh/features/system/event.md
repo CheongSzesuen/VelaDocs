@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import event from '@system.event' 
-// 或 
+import event from '@system.event'
+// 或
 const event = require('@system.event')
 ```
 
@@ -27,14 +27,14 @@ const event = require('@system.event')
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 eventName | String | 是 | 事件名称，公共事件保留名称被系统占用，请勿使用
-options | Object | 否 | 事件参数 
+options | Object | 否 | 事件参数
 
 #### options 参数：
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 params | Object | 否 | 事件参数
-permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件 
+permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件
 
 #### 系统支持的公共事件：
 
@@ -42,7 +42,7 @@ permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才�
 ---|---|---
 usual.event.BATTERY_CHANGED | 无 | 电量改变，参数：level:0.0 - 1.0 之间
 usual.event.DISCHARGING | 无 | 停止充电
-usual.event.CHARGING | 无 | 开始充电 
+usual.event.CHARGING | 无 | 开始充电
 
 #### 返回值：
 
@@ -69,20 +69,20 @@ event.publish({
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 eventName | String | 是 | 事件名称
-callback | Function | 是 | 回调函数 
+callback | Function | 是 | 回调函数
 
 #### 回调参数：
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 params | Object | 否 | 事件参数
-package | String | 否 | 事件推送者包名 
+package | String | 否 | 事件推送者包名
 
 #### 返回值：
 
 类型 | 必填 | 说明
 ---|---|---
-Number | 是 | 事件id，订阅失败返回undefined 
+Number | 是 | 事件id，订阅失败返回undefined
 
 #### 示例：
 
@@ -106,7 +106,7 @@ console.log(evtId)
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-id | Number | 是 | 订阅id 
+id | Number | 是 | 订阅id
 
 #### 示例：
 

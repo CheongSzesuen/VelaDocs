@@ -41,7 +41,7 @@ aiot-toolkit最低版本：1.1.3
 
 媒体类型 | 简介
 ---|---
-screen | 主要用于屏幕。 
+screen | 主要用于屏幕。
 
 ## 媒体特性
 
@@ -63,7 +63,7 @@ aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 
 min-aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 定义输出设备中的页面可见区域最小宽高比，参数要求同上 | 否 | 无
 max-aspect-ratio[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 定义输出设备中的页面可见区域最大宽高比，参数要求同上 | 否 | 无
 device-type[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | device-type 的可选值为：watch、band、smartspeaker，默认值：watch | 否 | 无
-shape[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | 屏幕形状，可选值：circle、rect、pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 否 | 无 
+shape[2+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel2) | 屏幕形状，可选值：circle、rect、pill-shaped[3+](https://iot.mi.com/vela/quickapp/zh/guide/version/APILevel3) | 否 | 无
 
 ### 注意
 
@@ -87,7 +87,7 @@ dp 数值 = 物理分辨率 / 设备像素比(device pixel ratio)
 手环 | 小米手环9 | 胶囊形 | 1.62英寸 | 192x490 | 325 | 2.0 | 96
 手环 | 小米手环9 Pro | 矩形 | 1.74英寸 | 336x480 | 336 | 2.1 | 168
 手环 | 小米手环10 | 胶囊形 | 1.725英寸 | 212x520 | 326 | 2.0 | 106
-手表 | Xiaomi Watch S5 | 圆形 | 1.485英寸 | 480x480 | 323 | 2.0 | 240 
+手表 | Xiaomi Watch S5 | 圆形 | 1.485英寸 | 480x480 | 323 | 2.0 | 240
 
 示例代码：
 
@@ -128,7 +128,7 @@ or | or 运算符用于将多个媒体特性比较语句组合到一个媒体查
 <= | 小于等于。例如： (400 <= width)
 >= | 大于等于。例如： (500 >= height)
 < | 小于。例如： (400 < width)
-> | 大于。例如： (500 > height) 
+> | 大于。例如： (500 > height)
 
 ## 示例代码
 

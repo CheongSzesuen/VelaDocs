@@ -33,9 +33,9 @@
       },
       onReady() {
         console.log(this.reversedMessage) // olleH
-    
+
         this.message = 'Goodbye'
-    
+
         console.log(this.reversedMessage) // eybdooG
       }
     }

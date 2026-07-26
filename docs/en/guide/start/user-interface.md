@@ -208,7 +208,7 @@ Our design draft is designed with a width of `480px`, so the dimensions in the d
 ```css
 .info {
   width: 335px;
-  height: 100px; 
+  height: 100px;
 }
 ```
 
@@ -229,12 +229,13 @@ Note
 
 If the reference width of the design draft is not 480, it can be configured in the `manifest.json` file through the `config.designWidth` field:
 
-```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+```js
+{
+  // ...
+  "config": {
+    "designWidth": 360
+  }
+}
 ```
 
 ### Header Information
@@ -245,7 +246,7 @@ The modified template code is as follows:
 
 ```html
 <!-- Header city information -->
-<div class="header">
+<div class="header column center">
   <text class="city">Wuhan</text>
   <text class="province">Hubei/China</text>
 </div>
@@ -253,15 +254,19 @@ The modified template code is as follows:
 
 The CSS code is as follows:
 
-```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+```css
+/* Header styling */
+.city {
+  font-size: 40px;
+}
+
+.province {
+  font-size: 18px;
+  color: #757575;
+}
 ```
 
-Actual running result:  
+Actual running result:
 ![Header Information Running Result](../../images/ui-header.png)
 
 ### Real-time Weather
@@ -271,10 +276,30 @@ Similar to the header information, first add the basic styling `column`, `row`, 
 The completed template code is as follows:
 
 ```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
+<div class="body column center">
+  <!-- Main weather information -->
+  <div class="info">
+    <image class="icon" src="/common/icons/101.png"></image>
+    <div class="column center">
+      <text class="temp">6°</text>
+      <text class="weather">Clear to Cloudy</text>
+    </div>
+  </div>
+  <!-- Perceived temperature and other information -->
+  <div class="more-info row">
+    <div class="item column center">
+      <text class="value">10°</text>
+      <text class="label">Perceived Temperature</text>
+    </div>
+    <div class="item column center">
+      <div><text class="value">67</text><text class="sub">%</text></div>
+      <text class="label">Humidity</text>
+    </div>
+    <div class="item column center">
+      <div><text class="value">5</text><text class="sub">km</text></div>
+      <text class="label">Visibility</text>
+    </div>
+  </div>
 </div>
 ```
 
@@ -284,15 +309,54 @@ Specifically, inside each item, just set the color and size of each text field r
 
 The CSS code is as follows:
 
-```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+```css
+/* Weather data styling */
+.body {
+  flex: 1;
+}
+
+.temp {
+  font-size: 70px;
+}
+
+.icon {
+  width: 170px;
+  height: 170px;
+  margin-right: 20px;
+}
+
+.weather {
+  font-size: 24px;
+}
+
+/* More information styling */
+.more-info {
+  width: 335px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.21);
+  border-radius: 15px;
+}
+
+.item {
+  flex: 1;
+}
+
+.value {
+  font-size: 30px;
+}
+
+.sub {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.label {
+  color: #757575;
+  margin-top: 5px;
+}
 ```
 
-Actual running result:  
+Actual running result:
 ![Real-time Weather Running Result](../../images/ui-now-main.png)
 
 ### 3-Day Weather Forecast
@@ -304,24 +368,75 @@ Similar to the module of perceived temperature and other information, the 3-day 
 The modified template code is as follows:
 
 ```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
+<!-- 3-Day Weather -->
+<div class="list row">
+  <div class="item column center">
+    <text class="date">Sunday</text>
+    <image class="icon" src="/common/icons/301.png"></image>
+    <text class="temp">-6°~8°</text>
+  </div>
+  <div class="item column center">
+    <text class="date">Monday</text>
+    <image class="icon" src="/common/icons/311.png"></image>
+    <text class="temp">-9°~4°</text>
+  </div>
+  <div class="item column center">
+    <text class="date">Tuesday</text>
+    <image class="icon" src="/common/icons/100.png"></image>
+    <text class="temp">-3°~6°</text>
+  </div>
 </div>
 ```
 
 The CSS code is as follows:
 
-```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+```css
+/* Weather data styling */
+.body {
+  flex: 1;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.summary {
+  font-size: 24px;
+  color: #757575;
+}
+
+/* 3-Day Weather */
+.list {
+  width: 380px;
+  justify-content: space-between;
+}
+
+.item {
+  width: 120px;
+  height: 175px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.date {
+  font-size: 28px;
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+}
+
+.temp {
+  font-size: 24px;
+}
 ```
 
-Actual running result:  
+Actual running result:
 ![Real-time Weather Running Result](../../images/ui-3d-list.png)
 
 ### Footer Information
@@ -329,24 +444,26 @@ Actual running result:
 The final template code for the footer information is as follows:
 
 ```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
+<!-- Footer update time -->
+<div class="footer center">
+  <text class="update-time">Data updated on 12-20 09:15</text>
 </div>
 ```
 
 The CSS code is as follows:
 
-```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+```css
+/* Footer styling */
+.footer {
+  margin-top: 20px;
+}
+
+.update-time {
+  color: #757575;
+}
 ```
 
-Actual running result:  
+Actual running result:
 ![Real-time Weather Running Result](../../images/ui-footer.png)
 
 ## Page Effect
@@ -364,24 +481,74 @@ If you need to dynamically modify the data displayed on the interface in the pro
 Data definition needs to be implemented through JavaScript scripts. Like HTML, JavaScript code needs to be placed in the `script` tag:
 
 ```html
-<!-- Header city information -->
-<div class="header">
-  <text class="city">Wuhan</text>
-  <text class="province">Hubei/China</text>
-</div>
+<script>
+  export default {
+    private: {
+      city: 'Wuhan',
+      province: 'Hubei',
+      country: 'China',
+      weather: {
+        // Data observation time
+        obsTime: "12-21 09:05",
+        // Temperature
+        temp: "13",
+        // Perceived temperature
+        feelsLike: "10",
+        // Weather icon number
+        icon: "101",
+        // Weather description text
+        text: "Cloudy",
+        // Relative humidity
+        humidity: "72",
+        // Visibility, unit: km
+        vis: "16"
+      }
+    }
+  }
+</script>
 ```
 
 After defining the data, replace the previous template code. The replaced code is as follows:
 
 ```html
-<!-- Main weather information -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">Clear to Cloudy</text>
+<template>
+  <div class="page column">
+    <!-- Header city information -->
+    <div class="header column center">
+      <text class="city">{{city}}</text>
+      <text class="province">{{province}}/{{country}}</text>
+    </div>
+    <div class="body column center">
+      <!-- Main weather information -->
+      <div class="info">
+        <image class="icon" src="/common/icons/{{weather.icon}}.png"></image>
+        <div class="column center">
+          <text class="temp">{{weather.temp}}°</text>
+          <text class="weather">{{weather.text}}</text>
+        </div>
+      </div>
+      <!-- Perceived temperature and other information -->
+      <div class="more-info row">
+        <div class="item column center">
+          <text class="value">{{weather.feelsLike}}°</text>
+          <text class="label">Perceived Temperature</text>
+        </div>
+        <div class="item column center">
+          <div><text class="value">{{weather.humidity}}</text><text class="sub">%</text></div>
+          <text class="label">Humidity</text>
+        </div>
+        <div class="item column center">
+          <div><text class="value">{{weather.vis}}</text><text class="sub">km</text></div>
+          <text class="label">Visibility</text>
+        </div>
+      </div>
+    </div>
+    <!-- Footer update time -->
+    <div class="footer center">
+      <text class="update-time">Data updated on {{weather.obsTime}}</text>
+    </div>
   </div>
-</div>
+</template>
 ```
 
 ## List Rendering
@@ -390,31 +557,50 @@ In the 3-day weather forecast page, array storage is used for the weather data o
 
 The data definition is as follows:
 
-```html
-<!-- Main weather information -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">Clear to Cloudy</text>
-  </div>
-</div>
+```javascript
+{
+  list: [
+    {
+      "fxDate": "Sunday",
+      "tempMax": "12",
+      "tempMin": "-1",
+      "iconDay": "101",
+      "textDay": "Cloudy",
+    },
+    {
+      "fxDate": "Monday",
+      "tempMax": "13",
+      "tempMin": "0",
+      "iconDay": "100",
+      "textDay": "Sunny"
+    },
+    {
+      "fxDate": "Tuesday",
+      "tempMax": "13",
+      "tempMin": "0",
+      "iconDay": "302",
+      "textDay": "Sunny",
+      "iconNight": "150",
+      "textNight": "Sunny"
+    }
+  ]
+}
 ```
 
 The template code is as follows:
 
 ```html
-<!-- Main weather information -->
-<div class="info">
-  <image class="icon" src="/common/icons/101.png"></image>
-  <div class="column center">
-    <text class="temp">6°</text>
-    <text class="weather">Clear to Cloudy</text>
+<!-- 3-Day Weather -->
+<div class="list row">
+  <div class="item column center" for="{{list}}">
+    <text class="date">{{$item.fxDate}}</text>
+    <image class="icon" src="/common/icons/{{$item.iconDay}}.png"></image>
+    <text class="temp">{{$item.tempMin}}°~{{$item.tempMax}}°</text>
   </div>
 </div>
 ```
 
-Running result:  
+Running result:
 ![List Rendering Result](../../images/ui-for-list-result.png)
 
 ### Conditional Rendering

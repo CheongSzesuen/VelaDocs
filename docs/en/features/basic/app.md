@@ -10,8 +10,8 @@ No declaration required.
 ## Import Module
 
 ```javascript
-import app from '@system.app' 
-// or 
+import app from '@system.app'
+// or
 const app = require('@system.app')
 ```
 
@@ -35,14 +35,14 @@ name | String | Application name
 versionName | String | Application version name
 versionCode | Integer | Application version number
 logLevel | String | Log level
-source | Object | Application source 
+source | Object | Application source
 
 #### source
 
 Parameter Name | Type | Description
 ---|---|---
 packageName | String | Package name of the source app, primary source
-type | String | Source type, secondary source. Values can be shortcut, push, url, barcode, nfc, bluetooth, other. 
+type | String | Source type, secondary source. Values can be shortcut, push, url, barcode, nfc, bluetooth, other.
 
 #### Example:
 
@@ -101,7 +101,7 @@ Load a dynamic library, requires collaboration with the manufacturer.
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
-name | String | Yes | Name of the lib library 
+name | String | Yes | Name of the lib library
 
 #### Return Value:
 
@@ -124,13 +124,13 @@ testApp.on('js_task_callback', () => {
 
 Type | Description
 ---|---
-String | The capability to query, format specified below 
+String | The capability to query, format specified below
 
 #### Return Value:
 
 Type | Description
 ---|---
-Boolean | Whether the queried capability is supported 
+Boolean | Whether the queried capability is supported
 
 ### Input Parameter Format
 

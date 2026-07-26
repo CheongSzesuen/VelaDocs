@@ -16,7 +16,7 @@ Supports [universal attributes](</vela/quickapp/en/components/general/properties
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
-bounces | `<boolean>` | false | No | Whether to bounce at the boundary 
+bounces | `<boolean>` | false | No | Whether to bounce at the boundary
 
 ## Styles
 
@@ -34,16 +34,16 @@ scroll | {scrollX: `<number>`, scrollY: `<number>`, scrollState: `<stateValue>`}
 scrollbottom | - | List scrolls to the bottom
 scrolltop | - | List scrolls to the top
 scrollend | - | List scrolling ends
-scrolltouchup | - | Finger lifts during list scrolling 
+scrolltouchup | - | Finger lifts during list scrolling
 
 ## Example Code
 
 ```html
 <template>
   <div class="page">
-    <list class="list" bounces="true" 
-      onscroll="onScroll" 
-      onscrolltop="onScrollTop" 
+    <list class="list" bounces="true"
+      onscroll="onScroll"
+      onscrolltop="onScrollTop"
       onscrollbottom="onScrollBottom"
       onscrolltouchup="onScrollTouchup">
       <list-item for="{{productList}}" class="item" type="item">
@@ -116,14 +116,14 @@ scrolltouchup | - | Finger lifts during list scrolling
 Name | Parameters | Description
 ---|---|---
 scrollTo | Object | Scrolls the list to the specified item position
-scrollBy | Object | Scrolls the list content by a certain distance 
+scrollBy | Object | Scrolls the list content by a certain distance
 
 **Parameter description for scrollTo** :
 
 Name | Type | Default Value | Required | Description
 ---|---|---|---|---
 index | number | 0 | No | Target item position for list scrolling
-behavior | smooth / instant / auto | auto | No | Whether to scroll smoothly. Supported parameters: smooth (smooth scrolling), instant (instant scrolling). The default value is auto, which has the same effect as instant 
+behavior | smooth / instant / auto | auto | No | Whether to scroll smoothly. Supported parameters: smooth (smooth scrolling), instant (instant scrolling). The default value is auto, which has the same effect as instant
 
 **Parameter description for scrollBy** :
 

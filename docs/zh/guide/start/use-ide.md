@@ -15,7 +15,7 @@
 ---|---
 macOS | 14（Sonoma）及以上
 Windows | 10 或更高版本
-Ubuntu | 20.04 LTS 或更高版本 
+Ubuntu | 20.04 LTS 或更高版本
 
 ## 安装 AIoT-IDE
 
@@ -25,8 +25,8 @@ mac 版本下可能会遇到如下安装报错的问题:
 
 遇到此类问题，请按下面方法操作：
 
-1.打开 shell 窗口，输入 ：`sudo xattr -r -d com.apple.quarantine`,如下图示例一。  
-2.敲入空格 **再将应用程序拖入到窗口中** ，会得到下图示例二。  
+1.打开 shell 窗口，输入 ：`sudo xattr -r -d com.apple.quarantine`,如下图示例一。
+2.敲入空格 **再将应用程序拖入到窗口中** ，会得到下图示例二。
 3.点击回车，输入密码，再执行该程序即可。
 
 ![alt text](../../images/ide-download-2.png)
@@ -39,7 +39,7 @@ mac 版本下可能会遇到如下安装报错的问题:
 
 ## 历史版本
 
-历史版本地址：[点击查看 (opens new window)](<https://kpan.mioffice.cn/webfolder/ext/j6SfQsarf8I%40?n=0.18700074913007825>)  
+历史版本地址：[点击查看 (opens new window)](<https://kpan.mioffice.cn/webfolder/ext/j6SfQsarf8I%40?n=0.18700074913007825>)
 密码：99E6
 
 ## 使用 AIoT-IDE
@@ -57,8 +57,8 @@ mac 版本下可能会遇到如下安装报错的问题:
 
 ### 2\. 项目开发
 
-支持依赖安装、调试、模拟器管理和打包项目等功能。  
-打开 Vela 快应用项目后，AIoT-IDE 会弹出顶部的 banner 操作按钮栏以及右侧的开发向导页，可根据开发向导的指引安装相关的依赖。  
+支持依赖安装、调试、模拟器管理和打包项目等功能。
+打开 Vela 快应用项目后，AIoT-IDE 会弹出顶部的 banner 操作按钮栏以及右侧的开发向导页，可根据开发向导的指引安装相关的依赖。
 依赖安装完成后，可点击 banner 栏里的操作按钮实现对应的功能。
 
 ![](../../images/ide-warning.png)
@@ -102,12 +102,12 @@ AIoT-IDE 支持自动初始化模拟器环境，创建、删除和列表展示�
 
 **模拟器操作说明**
 
-  * 查看已创建的模拟器  
+  * 查看已创建的模拟器
 点击 banner 栏的「模拟器」按钮，进入模拟器列表页，这里可以看到已经创建的模拟器的详细信息
 
 ![](../../images/ide-emulator-2.png)
 
-  * 创建一个新的模拟器 
+  * 创建一个新的模拟器
     * 点击**设备管理** 左上角的**新建** 按钮，进入模拟器表单页
     * 在模拟器表单页，填写要创建的模拟器信息，点击「创建」按钮，插件首先会下载 Vela 镜像并完成创建
 
@@ -125,8 +125,8 @@ AIoT-IDE 支持自动初始化模拟器环境，创建、删除和列表展示�
 
 ### 6\. 打包项目
 
-**开发模式打包**  
-开发完成后，可以点击 banner 栏的「打包」按钮来打包应用，默认会生成两个新的目录：dist、build；  
+**开发模式打包**
+开发完成后，可以点击 banner 栏的「打包」按钮来打包应用，默认会生成两个新的目录：dist、build；
 其中 dist 文件夹中会生成一个`.debug.rpk`文件，build 中会生成编译后的 js 文件。
 
 **生产模式打包**
@@ -143,5 +143,5 @@ AIoT-IDE 支持自动初始化模拟器环境，创建、删除和列表展示�
 
 ![](../../images/ide-openssl.png)
 
-    * 手动生成：前提同样是系统环境安装了 openssl,然后打开终端运行以下命令生成签名文件，项目下新建 sign 目录，将生成的文件 private.pem 和 certificate.pem 放至该目录  
+    * 手动生成：前提同样是系统环境安装了 openssl,然后打开终端运行以下命令生成签名文件，项目下新建 sign 目录，将生成的文件 private.pem 和 certificate.pem 放至该目录
 `openssl req -newkey rsa:2048 -nodes -keyout private.pem -x509 -days 3650 -out certificate.pem`

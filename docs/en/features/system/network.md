@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import network from '@system.network' 
-// or 
+import network from '@system.network'
+// or
 const network = require('@system.network')
 ```
 
@@ -28,13 +28,13 @@ Parameter Name | Type | Required | Description
 ---|---|---|---
 success | Function | No | Callback for success
 fail | Function | No | Callback for failure, possibly due to lack of permissions
-complete | Function | No | Callback after execution ends 
+complete | Function | No | Callback after execution ends
 
 #### Object Value Returned by success:
 
 Parameter Name | Type | Description
 ---|---|---
-type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others 
+type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others
 
 #### Example:
 
@@ -55,13 +55,13 @@ Listen for changes in network type. If called multiple times, only the last call
 Parameter Name | Type | Required | Description
 ---|---|---|---
 callback | Function | No | Callback triggered each time the network changes
-fail | Function | No | Callback for failure, possibly due to lack of permissions 
+fail | Function | No | Callback for failure, possibly due to lack of permissions
 
 #### Object Value Returned by callback:
 
 Parameter Name | Type | Description
 ---|---|---
-type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others. Note: A network type other than none does not guarantee that the device can definitely access the target server; a request interface is required for judgment. 
+type | String | Network type, with possible values of 2g, 3g, 4g, wifi, none, 5g, bluetooth, others. Note: A network type other than none does not guarantee that the device can definitely access the target server; a request interface is required for judgment.
 
 #### Example:
 

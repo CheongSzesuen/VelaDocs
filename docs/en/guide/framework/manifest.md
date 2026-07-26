@@ -19,7 +19,7 @@ config | Object | - | Yes | System configuration information. See the descriptio
 router | Object | - | Yes | Routing information. See the description below.
 display | Object | - | No | UI display-related configuration. See the description below.
 deviceTypeList | Array<String> | watch | No | Optional values: watch, tv, car, phone. Currently, only watch is supported.
-permissions | Array | - | No | Permission requests. Example: [{"name": "hapjs.permission.LOCATION"}] 
+permissions | Array | - | No | Permission requests. Example: [{"name": "hapjs.permission.LOCATION"}]
 
 ### config
 
@@ -29,7 +29,7 @@ Property | Type | Default Value | Description
 ---|---|---|---
 logLevel | String | log | Log printing level, divided into off, error, warn, info, log, debug.
 designWidth | Integer | - | Page design reference width. Scales element sizes based on the actual device width.
-background | Object | - | Background running configuration information. Use the features field to request interfaces that need to be used in the background (while still declaring them in the top-level features field). Requestable interfaces include:<br>system.audio<br>system.geolocation<br>system.request, etc.<br>See [Background Running](https://iot.mi.com/vela/quickapp/en/guide/framework/other/background-running.html) for detailed usage. 
+background | Object | - | Background running configuration information. Use the features field to request interfaces that need to be used in the background (while still declaring them in the top-level features field). Requestable interfaces include:<br>system.audio<br>system.geolocation<br>system.request, etc.<br>See [Background Running](https://iot.mi.com/vela/quickapp/en/guide/framework/other/background-running.html) for detailed usage.
 
 ### minAPILevel
 
@@ -50,7 +50,7 @@ Used to define the composition of pages and related configuration information. I
 Property | Type | Default Value | Required | Description
 ---|---|---|---|---
 entry | String | - | Yes | Homepage name. When using the sub-package feature, it is recommended to define the homepage in the base package.
-pages | Object | - | Yes | Page configuration list. The key value is the page name (corresponding to the page directory name, e.g., Hello corresponds to the 'Hello' directory), and the value is the detailed page configuration page. See the description below. 
+pages | Object | - | Yes | Page configuration list. The key value is the page name (corresponding to the page directory name, e.g., Hello corresponds to the 'Hello' directory), and the value is the detailed page configuration page. See the description below.
 
 Example code:
 
@@ -73,7 +73,7 @@ Property | Type | Default Value | Required | Description
 ---|---|---|---|---
 component | String | - | Yes | The component name corresponding to the page, consistent with the ux file name, e.g., "hello" corresponds to "hello.ux".
 path | String | /<page-name> | No | Page path, e.g., "/user". If not filled, it defaults to /<page-name>.<br>The path must be unique and cannot be the same as another page's path.<br>The path of the following page will be set to "/Index" due to its absence:<br>`"Index": {"component": "index"}`
-launchMode | String | standard | No | Declares the page's launch mode. Supports two page launch modes: "singleTask" and "standard".<br>When set to "singleTask" mode, each time the target page is opened, the existing target page will be opened, and the onRefresh lifecycle function will be called, clearing other pages opened on this page. If this page has not been opened before, a new target page instance will be created.<br>When set to "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times). 
+launchMode | String | standard | No | Declares the page's launch mode. Supports two page launch modes: "singleTask" and "standard".<br>When set to "singleTask" mode, each time the target page is opened, the existing target page will be opened, and the onRefresh lifecycle function will be called, clearing other pages opened on this page. If this page has not been opened before, a new target page instance will be created.<br>When set to "standard" mode, a new target page will be opened each time (multiple identical pages will exist when the target page address is opened multiple times).
 
 ### Example Code
 
@@ -106,7 +106,7 @@ If the following property values are defined under the display object, their sco
 
 Property | Type | Default Value | Description
 ---|---|---|---
-backgroundColor | String | #ffffff | Window background color. 
+backgroundColor | String | #ffffff | Window background color.
 
 ### Permission Descriptions
 

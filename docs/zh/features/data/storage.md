@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import storage from '@system.storage' 
-// 或 
+import storage from '@system.storage'
+// 或
 const storage = require('@system.storage')
 ```
 
@@ -30,7 +30,7 @@ key | String | 是 | 索引
 default | String | 否 | 如果 key 不存在，返回 default。如果 default 未指定，返回长度为 0 的空字符串
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### success 返回值：
 
@@ -62,7 +62,7 @@ key | String | 是 | 索引
 value | String | 否 | 新值。如果新值是长度为 0 的空字符串，会删除以 key 为索引的数据项
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 
@@ -89,7 +89,7 @@ storage.set({
 ---|---|---|---
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 
@@ -115,7 +115,7 @@ storage.clear({
 key | String | 是 | 索引
 success | Function | 否 | 成功回调
 fail | Function | 否 | 失败回调
-complete | Function | 否 | 执行结束后的回调 
+complete | Function | 否 | 执行结束后的回调
 
 #### 示例：
 

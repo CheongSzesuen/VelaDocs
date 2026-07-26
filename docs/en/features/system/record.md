@@ -11,8 +11,8 @@
 ## Import module
 
 ```javascript
-import record from '@system.record' 
-// or 
+import record from '@system.record'
+// or
 const record = require('@system.record')
 ```
 
@@ -34,7 +34,7 @@ frameSize | Number | No | - | Frame size of PCM audio data in bytes. After recor
 format | String | No | pcm | Audio format, valid values are pcm/opus/wav. The default is pcm.
 success | Function | No | - | Callback function for successful completion of recording.
 fail | Function | No | - | Callback function for failure during recording.
-complete | Function | No | - | Callback function after recording ends. 
+complete | Function | No | - | Callback function after recording ends.
 
 #### PCM/WAV Bit Rate Reference
 
@@ -51,7 +51,7 @@ Sampling Rate (Hz) | Number of Channels | Bit Rate (bp/s)
 44100 | 1 | 705600
 44100 | 2 | 1411200
 48000 | 1 | 768000
-48000 | 2 | 1536000 
+48000 | 2 | 1536000
 
 #### Opus Bit Rate Reference
 
@@ -68,13 +68,13 @@ Sampling Rate (Hz) | Number of Channels | Bit Rate (bp/s)
 24000 | 1 | 24892 ~ 34000
 24000 | 2 | 47685 ~ 64800
 48000 | 1 | 50077 ~ 67200
-48000 | 2 | 98554 ~ 103600 
+48000 | 2 | 98554 ~ 103600
 
 #### Return Values for success:
 
 Parameter Name | Type | Description
 ---|---|---
-uri | String | Storage path of the recorded audio file, located in the application's cache directory. 
+uri | String | Storage path of the recorded audio file, located in the application's cache directory.
 
 #### Error Codes for fail:
 
@@ -82,7 +82,7 @@ Error Code | Description
 ---|---
 200 | Insufficient system space
 205 | Recording is already in progress
-202 | Parameter error 
+202 | Parameter error
 
 #### Example:
 
@@ -130,7 +130,7 @@ Listen for events of files that have been recorded with the specified frame size
 Parameter Name | Type | Description
 ---|---|---
 frameBuffer | Uint8Array | Recorded audio data frame. Typically, the audio data frame size is the specified bufferSize, but if the specified bufferSize is too small, it will be automatically adjusted to a suitable size.
-isLastFrame | boolean | Whether it is the last frame of data. 
+isLastFrame | boolean | Whether it is the last frame of data.
 
 #### Example:
 

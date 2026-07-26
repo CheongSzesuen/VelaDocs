@@ -47,7 +47,7 @@ audio.play()
 success | data | any | api 执行的返回值，详见接口使用文档 | api 执行成功后触发
 fail | data | any | api 执行错误信息内容，一般是字符串，也可能是其他类型，详见接口使用文档 | api 执行失败后触发
 - | code | number | api 执行错误码，详见[通用错误码](https://iot.mi.com/vela/quickapp/zh/features/grammar.html#%E9%80%9A%E7%94%A8%E9%94%99%E8%AF%AF%E7%A0%81) | -
-complete | - | - | - | api 执行完成后触发 
+complete | - | - | - | api 执行完成后触发
 
 代码示例：
 
@@ -71,7 +71,7 @@ storage.get({
 ---|---|---|---|---
 success | data | any | api 执行的返回值，详见接口使用文档 | api 调用成功或事件变更时触发，可能会触发多次
 fail | data | any | 错误信息内容，一般是字符串，也可能是其他类型，详见接口使用文档 | api 执行失败时触发。一旦触发该回调函数，success不会再次被调用，接口调用结束
-- | code | number | api 执行错误码，详见[通用错误码](https://iot.mi.com/vela/quickapp/zh/features/grammar.html#%E9%80%9A%E7%94%A8%E9%94%99%E8%AF%AF%E7%A0%81) | - 
+- | code | number | api 执行错误码，详见[通用错误码](https://iot.mi.com/vela/quickapp/zh/features/grammar.html#%E9%80%9A%E7%94%A8%E9%94%99%E8%AF%AF%E7%A0%81) | -
 
 代码示例：
 

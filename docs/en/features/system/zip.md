@@ -30,7 +30,7 @@ srcUri | String | Yes | URI of the source file, cannot be a tmp type URI
 dstUri | String | Yes | URI of the target directory, cannot be an application resource path or a tmp type URI
 success | Function | No | Success callback
 fail | Function | No | Failure callback
-complete | Function | No | Callback after execution ends 
+complete | Function | No | Callback after execution ends
 
 #### success Return Value:
 
@@ -41,7 +41,7 @@ None
 Error Code | Description
 ---|---
 202 | Parameter error
-300 | I/O error 
+300 | I/O error
 
 #### Example:
 

@@ -11,8 +11,8 @@
 ## Import Module
 
 ```javascript
-import fetch from '@system.fetch' 
-// or 
+import fetch from '@system.fetch'
+// or
 const fetch = require('@system.fetch')
 ```
 
@@ -33,7 +33,7 @@ method | String | No | Default is GET. Options: OPTIONS, GET, HEAD, POST, PUT, D
 responseType | String | No | Supported return types: text, json, file, arraybuffer. Default is determined by the Content-Type in the server response header. Refer to `success Return Value` for details
 success | Function | No | Callback function for successful return
 fail | Function | No | Callback function for failure, may fail due to permission issues
-complete | Function | No | Callback function for completion (executed whether the call succeeds or fails) 
+complete | Function | No | Callback function for completion (executed whether the call succeeds or fails)
 
 #### data and Content-Type Relationship
 
@@ -45,7 +45,7 @@ Object | Not set | Content-Type defaults to application/x-www-form-urlencoded, d
 Object | application/x-www-form-urlencoded | data is encoded and concatenated according to URL rules as the request body
 Object | Any type other than application/x-www-form-urlencoded | -
 ArrayBuffer | Not set | Content-Type defaults to application/octet-stream, data value is used as the request body
-ArrayBuffer | Any Type | data value is used as the request body 
+ArrayBuffer | Any Type | data value is used as the request body
 
 #### success Return Value:
 
@@ -53,7 +53,7 @@ Parameter Name | Type | Description
 ---|---|---
 code | Integer | Server status code
 data | String/Object /ArrayBuffer | Refer to the `responseType and data Relationship in success` section
-headers | Object | All headers from the server response 
+headers | Object | All headers from the server response
 
 #### responseType and data Relationship in success:
 
@@ -63,7 +63,7 @@ None | String | If the type in the server response header is text/* or applicati
 text | String | Returns plain text
 json | Object | Returns a JS object
 file | String | Returns the URI of a temporary file
-arraybuffer | ArrayBuffer | Returns an ArrayBuffer object 
+arraybuffer | ArrayBuffer | Returns an ArrayBuffer object
 
 #### Example:
 

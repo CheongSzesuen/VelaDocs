@@ -20,7 +20,7 @@ Wristband | Xiaomi Wristband 8 Pro | Rectangular | 1.74 inches | 336x480 | 336 |
 Wristband | Xiaomi Wristband 9 | Capsule-shaped | 1.62 inches | 192x490 | 325 | 2.0
 Wristband | Xiaomi Wristband 9 Pro | Rectangular | 1.74 inches | 336x480 | 336 | 2.1
 Wristband | Xiaomi Wristband 10 | Capsule-shaped | 1.725 inches | 212x520 | 326 | 2.0
-Watch | Xiaomi Watch S5 | Circular | 1.485 inches | 480x480 | 323 | 2.0 
+Watch | Xiaomi Watch S5 | Circular | 1.485 inches | 480x480 | 323 | 2.0
 
 ## Design Recommendations
 
@@ -32,7 +32,7 @@ Screen Shape | Circular Screen | Rectangular Screen | Capsule Screen
 ---|---|---|---
 Aspect Ratio Range | W/H=1 | 0.5<=W/H<1 | 0.3<W/H<0.5
 Recommended Aspect Ratio | 1 | 0.7 | 0.39
-Recommended Resolution | 466x466 | 336x480 | 192x490 
+Recommended Resolution | 466x466 | 336x480 | 192x490
 
 It is recommended to design three sets of UI interactions to accommodate the three main screen types. If the circular and rectangular screens can be reused, one set can be designed for circular and rectangular screens, and another set for capsule screens.
 

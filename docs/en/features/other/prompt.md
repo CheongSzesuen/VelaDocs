@@ -11,8 +11,8 @@
 ## Import module
 
 ```javascript
-import prompt from '@system.prompt' 
-// or 
+import prompt from '@system.prompt'
+// or
 const prompt = require('@system.prompt')
 ```
 
@@ -27,7 +27,7 @@ Displays Toast prompt information
 Parameter name | Type | Required | Description
 ---|---|---|---
 message | String | Yes | The text information to be displayed
-duration | Number | No | The display duration in milliseconds. The default value is 1500. The recommended range is 1500-10000. 
+duration | Number | No | The display duration in milliseconds. The default value is 1500. The recommended range is 1500-10000.
 
 #### Example:
 

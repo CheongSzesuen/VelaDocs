@@ -26,7 +26,7 @@ animation-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out
 transition-property | `<string>` | all | 指定执行 transition 效果的通用样式属性名称，参见[详情](https://iot.mi.com/vela/quickapp/zh/components/general/animation-style.html#transition-property-%E6%94%AF%E6%8C%81%E7%9A%84%E9%80%9A%E7%94%A8%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7)
 transition-duration | `<time>` | 0s | 指定 transition 执行时间
 transition-timing-function | linear \| ease \| ease-in \| ease-out \| ease-in-out \| cubic-bezier(`<number>`, `<number>`, `<number>`, `<number>`) \| step-start \| step-end \| steps(number_of_steps[, step-direction]?) | ease | 指定 transition 执行时的时间函数。该参数释义与 animation 相同
-transition-delay | `<time>` | 0s | 指定 transition 开始执行的时间，即当改变元素属性值后多长时间开始执行 transition 效果 
+transition-delay | `<time>` | 0s | 指定 transition 开始执行的时间，即当改变元素属性值后多长时间开始执行 transition 效果
 
 **注** ：
 
@@ -39,7 +39,7 @@ steps(number_of_steps，step-direction)
 名称 | 类型 | 默认值 | 必填 | 描述
 ---|---|---|---|---
 number_of_steps | `<integer>` | - | 是 | 表示等间隔步数的正整数
-step-direction | jump-start \| jump-end \| jump-none \| jump-both \| start \| end | end | 否 | 指示函数左连续或右连续的关键字 
+step-direction | jump-start \| jump-end \| jump-none \| jump-both \| start \| end | end | 否 | 指示函数左连续或右连续的关键字
 
   * cubic-bezier(x1, y1, x2, y2)
 
@@ -57,7 +57,7 @@ translateY | `<length>` \| `<percent>`
 scale | `<number>`
 scaleX | `<number>`
 scaleY | `<number>`
-rotate | `<deg>` 
+rotate | `<deg>`
 
 ## transform-origin 操作
 
@@ -72,12 +72,12 @@ rotate | `<deg>`
 ```css
 /* 使用 % 值 */
 div {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
   transform-origin: 20% 40%;
 }
 /* 使用 px 值 */
 div {
-  transform: rotate(30deg); 
+  transform: rotate(30deg);
   transform-origin: 100px 100px;
 }
 ```
@@ -107,7 +107,7 @@ background-color | `<color>` | - | -
 background-position | `<length>` \|`<percentage>`\| left \| right \| top \| bottom \| center | 0px 0px | 描述了背景图片在容器中绘制的位置，支持 1-4 个参数，详情见[背景图样式](https://iot.mi.com/vela/quickapp/zh/components/general/background-img-styles.html)
 opacity | `<number>` | - | -
 width/height | `<length>` | - | 暂不支持百分比
-transform | `<string>` | - | 可以对元素进行旋转、缩放、移动 
+transform | `<string>` | - | 可以对元素进行旋转、缩放、移动
 
 **注** ：
 

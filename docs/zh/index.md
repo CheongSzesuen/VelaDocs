@@ -2,9 +2,9 @@
 
 ![hero](images/xiaomi_vela.png)
 
-#  JS应用开发文档 
+#  JS应用开发文档
 
-开发者友好，性能高效的IoT跨端应用框架 
+开发者友好，性能高效的IoT跨端应用框架
 
 [ 快速开始 ](</vela/quickapp/zh/guide/>)
 

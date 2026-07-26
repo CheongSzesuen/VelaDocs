@@ -9,8 +9,8 @@ No declaration required
 ## Import Module
 
 ```javascript
-import configuration from '@system.configuration' 
-// or 
+import configuration from '@system.configuration'
+// or
 const configuration = require('@system.configuration')
 ```
 
@@ -29,7 +29,7 @@ None
 Parameter Name | Type | Description
 ---|---|---
 language | String | Language
-countryOrRegion | String | Country or region 
+countryOrRegion | String | Country or region
 
 #### Example:
 

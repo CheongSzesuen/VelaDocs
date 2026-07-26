@@ -11,8 +11,8 @@
 ## 导入模块
 
 ```javascript
-import sensor from '@system.sensor' 
-// 或 
+import sensor from '@system.sensor'
+// 或
 const sensor = require('@system.sensor')
 ```
 
@@ -28,13 +28,13 @@ const sensor = require('@system.sensor')
 
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
-callback | Function | 是 | 每次位置信息发生变化，都会被回调 
+callback | Function | 是 | 每次位置信息发生变化，都会被回调
 
 #### callback 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
-pressure | Number | 压力、压强，单位hpa，百帕，浮点数 
+pressure | Number | 压力、压强，单位hpa，百帕，浮点数
 
 #### 示例：
 
@@ -70,7 +70,7 @@ sensor.unsubscribePressure()
 ---|---|---|---
 interval | String | 否 | 监听加速度数据回调函数的执行频率，默认normal
 callback | Function | 是 | 重力感应数据变化后会回调此函数
-fail | Function | 否 | 订阅错误回调 
+fail | Function | 否 | 订阅错误回调
 
 #### interval 的合法值：
 
@@ -78,7 +78,7 @@ fail | Function | 否 | 订阅错误回调
 ---|---
 game | 适用于更新游戏的回调频率，在 20ms/次 左右
 ui | 适用于更新 UI 的回调频率，在 60ms/次 左右
-normal | 普通的回调频率，在 200ms/次 左右 
+normal | 普通的回调频率，在 200ms/次 左右
 
 #### callback 返回值：
 
@@ -86,7 +86,7 @@ normal | 普通的回调频率，在 200ms/次 左右
 ---|---|---
 x | Number | x 轴坐标
 y | Number | y 轴坐标
-z | Number | z 轴坐标 
+z | Number | z 轴坐标
 
 #### 示例：
 
@@ -124,20 +124,20 @@ sensor.unsubscribeAccelerometer()
 参数名 | 类型 | 必填 | 说明
 ---|---|---|---
 callback | Function | 是 | 罗盘数据变化后会回调此函数
-fail | Function | 否 | 订阅失败回调 
+fail | Function | 否 | 订阅失败回调
 
 #### callback 返回值：
 
 参数名 | 类型 | 说明
 ---|---|---
 direction | Number | 表示设备的 y 轴和地球磁场北极之间的角度，当面朝北，角度为 0；朝南角度为 π；朝东角度 π/2；朝西角度-π/2
-accuracy | Number | 精度，详见compass精度说明 
+accuracy | Number | 精度，详见compass精度说明
 
 #### fail 返回错误代码：
 
 错误码 | 说明
 ---|---
-1000 | 当前设备不支持罗盘传感器 
+1000 | 当前设备不支持罗盘传感器
 
 #### 示例：
 
@@ -174,7 +174,7 @@ sensor.unsubscribeCompass()
 2 | 中等精度
 1 | 低精度
 -1 | 不可信，传感器失去连接
-0 | 不可信，原因未知 
+0 | 不可信，原因未知
 
 ## 支持明细
 
