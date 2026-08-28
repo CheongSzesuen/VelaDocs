@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/features/system/event.html -->
+<!-- 最近更新日期: 2026-08-28 -->
 
 # Event event4+
 
@@ -26,7 +27,7 @@ Publish a public event.
 
 Parameter Name | Type | Required | Description
 ---|---|---|---
-eventName | String | Yes | Event name. Reserved names for public events are occupied by the system and should not be used.
+eventName | String | Yes | Event name. Reserved names for public events are occupied by the system. Do not use them.
 options | Object | No | Event parameters
 
 #### options Parameters:
@@ -34,15 +35,7 @@ options | Object | No | Event parameters
 Parameter Name | Type | Required | Description
 ---|---|---|---
 params | Object | No | Event parameters
-permissions | Array<String> | No | Subscriber permissions. Only packages with these permissions can receive the sent event.
-
-#### Public Events Supported by the System:
-
-System Internal Event Name | Required Permissions for Subscribers | Description
----|---|---
-usual.event.BATTERY_CHANGED | None | Battery level change. Parameter: level: between 0.0 and 1.0
-usual.event.DISCHARGING | None | Charging stopped
-usual.event.CHARGING | None | Charging started
+permissions | Array<String> | No | Subscriber permissions. Only packages with permissions can receive the sent event.
 
 #### Return Value:
 
@@ -123,17 +116,25 @@ const evtId = event.subscribe({
 event.unsubscribe({ id: evtId })
 ```
 
+### Public Events Supported by the System
+
+System Public Event Name | Required Permissions for Subscribers | Description
+---|---|---
+usual.event.BATTERY_CHANGED | None | Battery level changes. Parameter: level: between 0.0 and 1.0
+usual.event.DISCHARGING | None | Charging stops
+usual.event.CHARGING | None | Charging starts
+
 ## Support Details
 
 Device Product | Description
 ---|---
-Xiaomi S1 Pro Sports & Health Watch | Not supported
-Xiaomi Smart Band 8 Pro | Not supported
-Xiaomi Smart Band 9 / 9 Pro | Not supported
+Xiaomi S1 Pro Sports and Health Watch | Not supported
+Xiaomi Band 8 Pro | Not supported
+Xiaomi Band 9 / 9 Pro | Not supported
 Xiaomi Watch S3 | Not supported
 Redmi Watch 4 | Not supported
 Xiaomi Wrist ECG Blood Pressure Monitor | Not supported
-Xiaomi Smart Band 10 | Supported
+Xiaomi Band 10 | Supported
 Xiaomi Watch S4 | Supported
 REDMI Watch 5 | Supported
 REDMI Watch 6 | Supported

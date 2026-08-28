@@ -1,4 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/features/system/event.html -->
+<!-- 最近更新日期: 2026-08-28 -->
 
 # 事件 event4+
 
@@ -35,14 +36,6 @@ options | Object | 否 | 事件参数
 ---|---|---|---
 params | Object | 否 | 事件参数
 permissions | Array<String> | 否 | 订阅者的权限，拥有权限的包才能收到发送的事件
-
-#### 系统支持的公共事件：
-
-系统内部事件名称 | 订阅者所需权限 | 说明
----|---|---
-usual.event.BATTERY_CHANGED | 无 | 电量改变，参数：level:0.0 - 1.0 之间
-usual.event.DISCHARGING | 无 | 停止充电
-usual.event.CHARGING | 无 | 开始充电
 
 #### 返回值：
 
@@ -122,6 +115,14 @@ const evtId = event.subscribe({
 
 event.unsubscribe({ id: evtId })
 ```
+
+### 系统支持的公共事件
+
+系统公共事件名称 | 订阅者所需权限 | 说明
+---|---|---
+usual.event.BATTERY_CHANGED | 无 | 电量改变，参数：level:0.0 - 1.0 之间
+usual.event.DISCHARGING | 无 | 停止充电
+usual.event.CHARGING | 无 | 开始充电
 
 ## 支持明细
 
